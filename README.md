@@ -48,6 +48,15 @@ uv run jupyter book build --pdf
 uv run jupyter book build --all
 ```
 
+## Claude Code Skills
+
+This project includes [Claude Code](https://claude.ai/code) skills to help co-authors draft and update paper sections. Skills are located in `.claude/skills/` and are automatically available to all collaborators who open this repo in Claude Code.
+
+| Skill | Trigger | Description |
+|---|---|---|
+| `update-data-acquisition` | "update data acquisition" or `/update-data-acquisition` | Cross-references `paper/data_acquisition.md` against the `cneuromod.all` MRI docs, identifies corrections and new content, and proposes a revised paper section with proper citations. |
+| `paper-skill-creator` | "create a skill for [paper section]" or `/paper-skill-creator` | Creates a new skill for drafting or updating any `paper/*.md` section, following the same pattern as `update-data-acquisition`. Also updates this README table. |
+
 ## Project Structure
 
 | File / Folder | Description |
