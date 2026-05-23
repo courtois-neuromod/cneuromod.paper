@@ -1,10 +1,9 @@
+---
+abstract: |
+  [Add abstract here]
+---
+
 # Introduction
-
-```{admonition} Abstract
-:class: note
-
-[Add abstract here]
-```
 
 Brain encoding models — trained to predict neural activity from the representations of artificial neural networks (ANNs) — have emerged as a powerful framework to study how the brain processes information [MISSING REF: e.g. Yamins & DiCarlo 2016, Schrimpf et al.]. Aligning artificial and biological representations through brain-augmented learning also shows early promise as a path toward more robust and generalizable AI, with models fine-tuned on brain activity demonstrating improved downstream task performance and faster learning from limited data {cite:p}`Bilgin2025-xz`.
 
