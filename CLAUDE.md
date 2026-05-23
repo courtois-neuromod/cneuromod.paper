@@ -26,7 +26,8 @@ paper/
   code_availability.md
   acknowledgements.md  # Acknowledgements, Author Contributions, Funding & Competing Interests
 source_data/
-  cneuromod.all/       # Git submodule: https://github.com/courtois-neuromod/cneuromod.all
+  cneuromod.all/          # Git submodule: https://github.com/courtois-neuromod/cneuromod.all
+  dataset_comparison/     # Analysis project: depth-vs-breadth neuroimaging dataset comparison
 ```
 
 ## Source Data
@@ -38,6 +39,12 @@ git submodule update --init source_data/cneuromod.all
 ```
 
 The path is registered in `myst.yml` under `project.options.source_data`. The submodule's bibliography (`docs/source/cneuromod_references.bib`) is also listed under `project.bibliography` so its citations are available throughout the book.
+
+`source_data/dataset_comparison/` is a standalone analysis project (invoke + uv) that compares dense neuroimaging datasets by depth (brain recording hours per subject) vs. breadth (number of subjects). Its pre-generated figures live in `source_data/dataset_comparison/output_data/`. The key figure for the paper is:
+
+- `output_data/dataset_neuroimaging_depthvsbreadth.png` — Figure 1 of the intro: scatter plot of depth vs. breadth across datasets, with CNeuroMod highlighted in red.
+
+See `source_data/dataset_comparison/CLAUDE.md` for pipeline details. Do not modify files in that directory without running `uv run invoke run` inside it to regenerate outputs.
 
 ## Common Commands
 

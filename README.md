@@ -55,6 +55,7 @@ This project includes [Claude Code](https://claude.ai/code) skills to help co-au
 | Skill | Trigger | Description |
 |---|---|---|
 | `update-data-acquisition` | "update data acquisition" or `/update-data-acquisition` | Cross-references `paper/data_acquisition.md` against the `cneuromod.all` MRI docs, identifies corrections and new content, and proposes a revised paper section with proper citations. |
+| `update-intro` | "update intro", "figure 1", "depth vs breadth", or `/update-intro` | Cross-references `paper/intro.md` against `participants.md`, `datasets.rst`, and the dataset comparison figure (`source_data/dataset_comparison/output_data/dataset_neuroimaging_depthvsbreadth.png`), and proposes a revised intro with Figure 1 embedded. |
 | `paper-skill-creator` | "create a skill for [paper section]" or `/paper-skill-creator` | Creates a new skill for drafting or updating any `paper/*.md` section, following the same pattern as `update-data-acquisition`. Also updates this README table. |
 
 ## Project Structure

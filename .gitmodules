@@ -3,3 +3,6 @@
 	url = https://github.com/courtois-neuromod/cneuromod.all
 	shallow = true
 	branch = issue1_docs_integration
+[submodule "source_data/dataset_comparison"]
+	path = source_data/dataset_comparison
+	url = https://github.com/courtois-neuromod/dataset_comparison
