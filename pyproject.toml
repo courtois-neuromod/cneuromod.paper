@@ -1,0 +1,11 @@
+[project]
+name = "cneuromod-paper"
+version = "0.1.0"
+description = "The Courtois NeuroMod (CNeuroMod) Dataset paper"
+requires-python = ">=3.11"
+dependencies = [
+    "jupyter-book>=2.0",
+]
+
+[dependency-groups]
+dev = []
