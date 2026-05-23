@@ -17,13 +17,14 @@ Read `paper/data_acquisition.md` in full to understand what is already written a
 
 ### 2. Read the source documentation
 
-Read the canonical MRI documentation:
+Read the canonical source documentation:
 
 ```
+source_data/cneuromod.all/docs/source/contents/participants.md
 source_data/cneuromod.all/docs/source/contents/mri.md
 ```
 
-This file is more technical and verbose than the paper section. The goal is not to copy it verbatim but to extract corrections, additions, or updated parameters that should be reflected in the paper.
+`participants.md` is the authoritative source for participant demographics, language backgrounds, handedness, and exclusion criteria. `mri.md` is more technical and verbose than the paper section. The goal is not to copy either file verbatim but to extract corrections, additions, or updated details that should be reflected in the paper.
 
 ### 3. Read the available references
 
@@ -43,7 +44,7 @@ Relevant citation keys to look for include entries related to:
 ### 4. Identify discrepancies and gaps
 
 Compare the two documents systematically across each subsection:
-- **Participants** — demographics, ethics, scan frequency
+- **Participants** — gender breakdown (including trans identity), age range, handedness, language background, exclusion criteria, scan frequency, ethics approval (cross-reference `participants.md`)
 - **Scanner and setup** — hardware, headcases
 - **Functional MRI** — sequence parameters, reference for the HCP EPI sequence
 - **Brain anatomical MRI** — full sequence list and parameters (check for missing flip angles, durations, or updated values)

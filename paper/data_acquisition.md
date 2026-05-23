@@ -2,7 +2,7 @@
 
 ## Participants
 
-Six healthy adults (3 women, ages 31–47 at recruitment in 2018) consented to participate in the Courtois NeuroMod project for a minimum of five years. All participants reported normal hearing and vision for their age and were MRI compatible. Specific demographics for each participant are provided in [DATA RECORD TABLE]. Participants were scanned one to two times per week, except during personal holidays, illness, or periods of scanner unavailability. All procedures were approved by the ethics board of the CIUSSS du Centre-Sud-de-l'île-de-Montréal, and all participants provided written informed consent.
+Six healthy adults (3 women, 2 men, and 1 trans woman; ages 31–47 at recruitment in 2018) consented to participate in the Courtois NeuroMod project for a minimum of five years. All participants were right-handed and reported good general health. Three were native francophones, one a native anglophone, and two were bilingual (English and French). Participants were excluded if they had visual or auditory impairments that would prevent perceiving stimuli in the scanner, major psychiatric or neurological conditions, or did not meet standard MRI compatibility criteria; all were required to have advanced English comprehension. Specific demographics for each participant are provided in [DATA RECORD TABLE]. Participants were scanned one to two times per week, except during personal holidays, illness, or periods of scanner unavailability. All procedures were approved by the ethics board of the CIUSSS du Centre-Sud-de-l'île-de-Montréal, and all participants provided written informed consent.
 
 ## MRI Acquisition
 
@@ -14,7 +14,7 @@ To minimize head motion, each participant wore a custom-fitted polystyrene foam 
 
 ### Functional MRI
 
-Functional MRI data were acquired using an accelerated simultaneous multi-slice gradient echo-planar imaging (EPI) sequence developed at the Center for Magnetic Resonance Research (CMRR), University of Minnesota, as part of the Human Connectome Project {cite:p}`glasser2016`. The sequence was obtained through a concept-to-production (C2P) agreement and run with the following parameters: slice acceleration factor = 4, TR = 1.49 s, TE = 37 ms, flip angle = 52°, voxel size = 2 × 2 × 2 mm, 60 slices, acquisition matrix 96 × 96. At the start of each session, a short acquisition (3 volumes) with reversed phase-encoding direction was collected to enable retrospective correction of B0 field inhomogeneity-induced distortions.
+Functional MRI data were acquired using an accelerated simultaneous multi-slice gradient echo-planar imaging (EPI) sequence {cite:p}`xu2013` developed at the Center for Magnetic Resonance Research (CMRR), University of Minnesota, as part of the Human Connectome Project {cite:p}`glasser2016`. The sequence was obtained through a concept-to-production (C2P) agreement and run with the following parameters: slice acceleration factor = 4, TR = 1.49 s, TE = 37 ms, flip angle = 52°, voxel size = 2 × 2 × 2 mm, 60 slices, acquisition matrix 96 × 96. At the start of each session, a short acquisition (3 volumes) with reversed phase-encoding direction was collected to enable retrospective correction of B0 field inhomogeneity-induced distortions.
 
 ### Brain anatomical MRI
 
@@ -22,9 +22,11 @@ Dedicated anatomical sessions were conducted approximately four times per year. 
 
 - T1-weighted MPRAGE 3D sagittal (6:38 min; TR = 2.4 s, TE = 2.2 ms, flip angle = 8°, 0.8 mm isotropic, R = 2)
 - T2-weighted FSE (SPACE) 3D sagittal (5:57 min; TR = 3.2 s, TE = 563 ms, 0.8 mm isotropic, R = 2)
-- Diffusion-weighted 2D axial (4:04 min; TR = 2.3 s, TE = 82 ms, 57 slices, 2 mm isotropic, SMS = 3, b-max = 3000 s/mm²; repeated with reversed phase-encoding for distortion correction)
-- Gradient-echo magnetization transfer (MT), proton density (PD), and T1-weighted (3D) sequences (TR = 28 ms, TE = 3.3 ms, 1.5 mm isotropic)
-- MP2RAGE 3D (7:26 min; TR = 4 s, TE = 1.51 ms, TI1 = 700 ms, TI2 = 1500 ms, 1.2 mm isotropic, R = 2)
+- Diffusion-weighted 2D axial (4:04 min; TR = 2.3 s, TE = 82 ms, flip angle = 78°, 57 slices, 2 mm isotropic, SMS = 3, b-max = 3000 s/mm²; repeated with reversed phase-encoding for distortion correction)
+- Gradient-echo magnetization transfer (MT) 3D (3:34 min; TR = 28 ms, TE = 3.3 ms, flip angle = 6°, 1.5 mm isotropic)
+- Gradient-echo proton density (PD) 3D (same parameters as MT, without the MT pulse)
+- Gradient-echo T1-weighted 3D (same parameters as MT, except TR = 18 ms, flip angle = 20°)
+- MP2RAGE 3D (7:26 min; TR = 4 s, TE = 1.51 ms, TI1 = 700 ms, TI2 = 1500 ms, flip angle 1 = 7°, flip angle 2 = 5°, 1.2 mm isotropic, R = 2)
 - Susceptibility-weighted 3D (4:54 min; TR = 27 ms, TE = 20 ms, flip angle = 15°)
 
 ### Spinal cord anatomical MRI
