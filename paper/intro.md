@@ -12,9 +12,9 @@ The brain, however, is not a collection of independent modules. It is a multimod
 
 Current deep neuroimaging resources have made major strides in individual coverage, but each tends to optimize for depth within one cognitive domain — vision, language, or audition. Multi-participant datasets, on the other hand, prioritize population breadth at the cost of the individual depth needed to model within-subject brain organization. A resource combining deep individual sampling with genuinely multidomain cognitive coverage has yet to be assembled ({numref}`fig-depth-breadth`).
 
-:::{figure} ../source_data/dataset_comparison/output_data/dataset_neuroimaging_depthvsbreadth.png
+:::{figure} ../source_data/dataset_comparison/output_data/dataset_neuroimaging_depthvsbreadth.html
 :name: fig-depth-breadth
-:width: 80%
+:placeholder: ../source_data/dataset_comparison/output_data/dataset_neuroimaging_depthvsbreadth.png
 
 **Brain recordings depth vs. breadth.** Each dot represents a neuroimaging dataset, positioned by the number of brain recording hours per subject (x-axis; fMRI, EEG, MEG, iEEG, and calcium imaging combined) and the number of subjects (y-axis). Diagonal lines mark iso-total-hour contours. CNeuroMod (red) occupies the extreme position on the depth axis, with more recording hours per subject than any other publicly available dataset. [MISSING REF: citations for comparison datasets shown]
 :::

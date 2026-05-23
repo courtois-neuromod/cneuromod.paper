@@ -5,6 +5,10 @@ project:
   bibliography:
     - references.bib
     - source_data/cneuromod.all/docs/source/cneuromod_references.bib
+  exports:
+    - format: pdf
+      template: plain_latex
+      output: exports/cneuromod.pdf
   options:
     source_data: source_data/cneuromod.all
   toc:
