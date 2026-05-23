@@ -4,6 +4,9 @@ project:
   authors: []
   bibliography:
     - references.bib
+    - source_data/cneuromod.all/docs/source/cneuromod_references.bib
+  options:
+    source_data: source_data/cneuromod.all
   toc:
     - file: paper/intro.md
     - file: paper/statement_of_need.md

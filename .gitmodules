@@ -1,0 +1,5 @@
+[submodule "source_data/cneuromod.all"]
+	path = source_data/cneuromod.all
+	url = https://github.com/courtois-neuromod/cneuromod.all
+	shallow = true
+	branch = issue1_docs_integration

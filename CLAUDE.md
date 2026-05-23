@@ -12,7 +12,7 @@ This is a scientific article about the Courtois NeuroMod (CNeuroMod) dataset, wr
 ## Project Structure
 
 ```
-myst.yml               # JB2 project config and table of contents
+myst.yml               # JB2 project config and table of contents (options.source_data points to submodule)
 references.bib         # BibTeX references
 paper/
   intro.md             # Introduction / Background
@@ -25,7 +25,19 @@ paper/
   data_availability.md
   code_availability.md
   acknowledgements.md  # Acknowledgements, Author Contributions, Funding & Competing Interests
+source_data/
+  cneuromod.all/       # Git submodule: https://github.com/courtois-neuromod/cneuromod.all
 ```
+
+## Source Data
+
+`source_data/cneuromod.all` is a non-recursive git submodule tracking branch `issue1_docs_integration`. Initialize it with:
+
+```bash
+git submodule update --init source_data/cneuromod.all
+```
+
+The path is registered in `myst.yml` under `project.options.source_data`. The submodule's bibliography (`docs/source/cneuromod_references.bib`) is also listed under `project.bibliography` so its citations are available throughout the book.
 
 ## Common Commands
 
