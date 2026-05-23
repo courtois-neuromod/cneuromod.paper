@@ -1,27 +1,10 @@
 version: 1
 project:
   title: The Courtois NeuroMod (CNeuroMod) Dataset
-  authors:
-    - name: CNeuroMod team
+  authors: []
   bibliography:
     - references.bib
     - source_data/cneuromod.all/docs/source/cneuromod_references.bib
-  exports:
-    - format: pdf
-      template: plain_latex
-      output: exports/cneuromod.pdf
-      articles:
-        - file: paper/cover.md
-        - file: paper/intro_pdf.md
-        - file: paper/statement_of_need.md
-        - file: paper/data_overview.md
-        - file: paper/data_acquisition.md
-        - file: paper/data_record.md
-        - file: paper/technical_validation.md
-        - file: paper/usage_notes.md
-        - file: paper/data_availability.md
-        - file: paper/code_availability.md
-        - file: paper/acknowledgements.md
   options:
     source_data: source_data/cneuromod.all
   toc:
