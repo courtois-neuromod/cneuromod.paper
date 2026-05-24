@@ -61,7 +61,7 @@ ax_a.text(-0.02, 1.03, 'a', transform=ax_a.transAxes,
 gs_b = gridspec.GridSpecFromSubplotSpec(3, 1, subplot_spec=gs_top[1], hspace=0.0)
 for i, img in enumerate([img_b1, img_b2, img_b3]):
     ax = fig.add_subplot(gs_b[i])
-    ax.imshow(img, aspect='auto')
+    ax.imshow(img)
     ax.axis('off')
     if i == 0:
         ax.text(-0.05, 1.03, 'b', transform=ax.transAxes,
