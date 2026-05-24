@@ -42,7 +42,7 @@ img_b3 = mpimg.imread(base / "dataset_task_composition_radar_ibc.png")
 img_c  = mpimg.imread(base / "dataset_comparison_per_subject_short.png")
 
 FIG_W = 12.0
-w_a   = FIG_W * 2 / 3
+w_a   = FIG_W * 2.5 / 3.5
 h_top = w_a * img_a.shape[0] / img_a.shape[1]
 h_bot = FIG_W * img_c.shape[0] / img_c.shape[1]
 
@@ -51,7 +51,7 @@ gs  = gridspec.GridSpec(2, 1, figure=fig,
                         height_ratios=[h_top, h_bot], hspace=0.04)
 
 gs_top = gridspec.GridSpecFromSubplotSpec(1, 2, subplot_spec=gs[0],
-                                          width_ratios=[2, 1], wspace=0.03)
+                                          width_ratios=[2.5, 1], wspace=0.03)
 ax_a = fig.add_subplot(gs_top[0])
 ax_a.imshow(img_a)
 ax_a.axis('off')
