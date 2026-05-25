@@ -35,43 +35,51 @@ _candidates = [
 ]
 base = next(p for p in _candidates if p.exists())
 
-img_a  = mpimg.imread(base / "dataset_neuroimaging_depthvsbreadth.png")
-img_b1 = mpimg.imread(base / "dataset_task_composition_radar_cneuromod.png")
-img_b2 = mpimg.imread(base / "dataset_task_composition_radar_nsd.png")
-img_b3 = mpimg.imread(base / "dataset_task_composition_radar_ibc.png")
-img_c  = mpimg.imread(base / "dataset_comparison_per_subject_short.png")
+img_a = mpimg.imread(base / "dataset_neuroimaging_depthvsbreadth.png")
+img_b = mpimg.imread(base / "dataset_comparison_per_subject_short.png")
+img_c = mpimg.imread(base / "dataset_task_composition_radar_grid.png")
 
 FIG_W = 12.0
-w_a   = FIG_W * 2.5 / 3.5
-h_top = w_a * img_a.shape[0] / img_a.shape[1]
-h_bot = FIG_W * img_c.shape[0] / img_c.shape[1]
 
-fig = plt.figure(figsize=(FIG_W, h_top + h_bot + 0.25))
-gs  = gridspec.GridSpec(2, 1, figure=fig,
-                        height_ratios=[h_top, h_bot], hspace=0.04)
+# Top row: panel a (40%) and panel b (60%)
+h_a   = FIG_W * 0.4 * img_a.shape[0] / img_a.shape[1]
+h_b   = FIG_W * 0.6 * img_b.shape[0] / img_b.shape[1]
+h_top = max(h_a, h_b)
 
+# Bottom row: panel c full width
+h_c = FIG_W * img_c.shape[0] / img_c.shape[1]
+
+fig = plt.figure(figsize=(FIG_W, h_top + h_c))
+gs  = gridspec.GridSpec(2, 1, figure=fig, height_ratios=[h_top, h_c], hspace=0.08)
+
+# Top row: depth vs breadth | physiological depth
 gs_top = gridspec.GridSpecFromSubplotSpec(1, 2, subplot_spec=gs[0],
-                                          width_ratios=[2.5, 1], wspace=0.03)
+                                          width_ratios=[2, 3], wspace=0.04)
+
 ax_a = fig.add_subplot(gs_top[0])
 ax_a.imshow(img_a)
 ax_a.axis('off')
-ax_a.text(-0.02, 1.03, 'a', transform=ax_a.transAxes,
-          fontsize=18, fontweight='bold', va='bottom')
+ax_a.text(0.0,  1.03, 'a',                transform=ax_a.transAxes,
+          fontsize=12, fontweight='bold', va='bottom', ha='left', clip_on=False)
+ax_a.text(0.5,  1.03, 'depth vs breadth', transform=ax_a.transAxes,
+          fontsize=11, fontweight='bold', va='bottom', ha='center', clip_on=False)
 
-gs_b = gridspec.GridSpecFromSubplotSpec(3, 1, subplot_spec=gs_top[1], hspace=0.0)
-for i, img in enumerate([img_b1, img_b2, img_b3]):
-    ax = fig.add_subplot(gs_b[i])
-    ax.imshow(img)
-    ax.axis('off')
-    if i == 0:
-        ax.text(-0.05, 1.03, 'b', transform=ax.transAxes,
-                fontsize=18, fontweight='bold', va='bottom')
+ax_b = fig.add_subplot(gs_top[1])
+ax_b.imshow(img_b)
+ax_b.axis('off')
+ax_b.text(0.0,  1.03, 'b',                    transform=ax_b.transAxes,
+          fontsize=12, fontweight='bold', va='bottom', ha='left', clip_on=False)
+ax_b.text(0.5,  1.03, 'physiological depth',  transform=ax_b.transAxes,
+          fontsize=11, fontweight='bold', va='bottom', ha='center', clip_on=False)
 
+# Bottom row: cognitive depth (11 radar plots)
 ax_c = fig.add_subplot(gs[1])
 ax_c.imshow(img_c)
 ax_c.axis('off')
-ax_c.text(-0.01, 1.02, 'c', transform=ax_c.transAxes,
-          fontsize=18, fontweight='bold', va='bottom')
+ax_c.text(0.0,  1.03, 'c',               transform=ax_c.transAxes,
+          fontsize=12, fontweight='bold', va='bottom', ha='left', clip_on=False)
+ax_c.text(0.5,  1.03, 'cognitive depth', transform=ax_c.transAxes,
+          fontsize=11, fontweight='bold', va='bottom', ha='center', clip_on=False)
 
 plt.show()
 ```
@@ -80,7 +88,7 @@ plt.show()
 :name: fig-dataset-landscape
 :width: 100%
 
-**The dense NeuroAI dataset landscape.** **(a)** Depth vs. breadth scatter plot: each dot is a neuroimaging dataset positioned by brain recording hours per subject (x-axis; fMRI, EEG, MEG, iEEG, and calcium imaging combined) and number of subjects (y-axis). Diagonal lines mark iso-total-hour contours. CNeuroMod (red) has the highest per-subject recording time of any public dataset. **(b)** Task composition radar charts for CNeuroMod, NSD, and IBC, showing per-subject coverage across eight cognitive domains (images, video, audio, speech, text, resting state, controlled tasks, games). **(c)** Per-subject data volume for the ten largest dense NeuroAI datasets across brain recording modalities, task types, and physiological signals; bubble area scales logarithmically with data volume; black outline marks the largest resource in each column. [MISSING REF: citations for all comparison datasets]
+**The dense NeuroAI dataset landscape.** **(a)** Depth vs. breadth scatter plot: each dot is a neuroimaging dataset positioned by brain recording hours per subject (x-axis; fMRI, EEG, MEG, iEEG, and calcium imaging combined) and number of subjects (y-axis). Diagonal lines mark iso-total-hour contours. CNeuroMod (red) has the highest per-subject recording time of any public dataset. **(b)** Per-subject data volume for the largest dense NeuroAI datasets across brain recording modalities, task types, and physiological signals; bubble area scales logarithmically with data volume; black outline marks the largest resource in each column. **(c)** Cognitive depth radar charts for 11 dense NeuroAI datasets, showing per-subject coverage across cognitive domains. [MISSING REF: citations for all comparison datasets]
 :::
 
 The Courtois NeuroMod (CNeuroMod) project was designed to fill this gap. Over five years, six individuals were scanned for approximately 200 hours each {cite:p}`BoyleUnknown-cr`, across a rich collection of 29 datasets spanning vision, language, memory, emotion, audition, and videogame play — the latter enabled by a custom fiber-optic controller developed specifically for the project. The dataset was assembled by a highly interdisciplinary team including specialists across all of these cognitive domains, and represents the largest and most cognitively diverse individual neuroimaging resource to date {cite:p}`BoyleUnknown-cr`.
