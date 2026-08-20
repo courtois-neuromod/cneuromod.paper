@@ -27,12 +27,13 @@ paper/
   acknowledgements.md  # Acknowledgements, Author Contributions, Funding & Competing Interests
 source_data/
   cneuromod.all/          # Git submodule: https://github.com/courtois-neuromod/cneuromod.all
-  dataset_comparison/     # Analysis project: depth-vs-breadth neuroimaging dataset comparison
+  dataset_comparison/     # Git submodule: depth-vs-breadth neuroimaging dataset comparison
+  qa_figures/             # Git submodule: MRIQC/tSNR data quality analysis
 ```
 
 ## Source Data
 
-`source_data/cneuromod.all` is a non-recursive git submodule tracking branch `issue1_docs_integration`. Initialize it with:
+`source_data/cneuromod.all` is a non-recursive git submodule tracking branch `issue11_automate_dataset_info`. Initialize it with:
 
 ```bash
 git submodule update --init source_data/cneuromod.all
@@ -40,11 +41,17 @@ git submodule update --init source_data/cneuromod.all
 
 The path is registered in `myst.yml` under `project.options.source_data`. The submodule's bibliography (`docs/source/cneuromod_references.bib`) is also listed under `project.bibliography` so its citations are available throughout the book.
 
-`source_data/dataset_comparison/` is a standalone analysis project (invoke + uv) that compares dense neuroimaging datasets by depth (brain recording hours per subject) vs. breadth (number of subjects). Its pre-generated figures live in `source_data/dataset_comparison/output_data/`. The key figure for the paper is:
+`source_data/dataset_comparison/` is a git submodule (invoke + uv analysis project) that compares dense neuroimaging datasets by depth (brain recording hours per subject) vs. breadth (number of subjects). Its pre-generated figures live in `source_data/dataset_comparison/output_data/`. The key figure for the paper is:
 
 - `output_data/dataset_neuroimaging_depthvsbreadth.png` — Figure 1 of the intro: scatter plot of depth vs. breadth across datasets, with CNeuroMod highlighted in red.
 
 See `source_data/dataset_comparison/CLAUDE.md` for pipeline details. Do not modify files in that directory without running `uv run invoke run` inside it to regenerate outputs.
+
+`source_data/qa_figures/` is a git submodule (invoke + uv analysis project) that computes MRIQC image-quality metrics and per-run/atlas tSNR from the `cneuromod.all` Datalad superdataset. Its main output is:
+
+- `output_data/qa_figure.png` — the fMRI data quality montage used in Technical Validation.
+
+Regenerate its outputs with `uv run invoke fetch && uv run invoke run` inside that directory; do not hand-edit its outputs.
 
 ## Common Commands
 

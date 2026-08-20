@@ -2,7 +2,10 @@
 	path = source_data/cneuromod.all
 	url = https://github.com/courtois-neuromod/cneuromod.all
 	shallow = true
-	branch = issue1_docs_integration
+	branch = issue11_automate_dataset_info
 [submodule "source_data/dataset_comparison"]
 	path = source_data/dataset_comparison
 	url = https://github.com/courtois-neuromod/dataset_comparison
+[submodule "source_data/qa_figures"]
+	path = source_data/qa_figures
+	url = https://github.com/courtois-neuromod/cneuromod.all.qa_figures
