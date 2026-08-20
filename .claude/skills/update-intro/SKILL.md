@@ -25,7 +25,7 @@ source_data/cneuromod.all/docs/source/contents/participants.md
 
 This documents participant count, age range, sex/gender breakdown, language background, handedness, and inclusion/exclusion criteria.
 
-Also read the dataset overview for high-level coverage of the 29 datasets and cognitive domains:
+Also read the dataset overview for high-level coverage of the 22 released datasets and cognitive domains:
 
 ```
 source_data/cneuromod.all/docs/source/contents/datasets.rst
