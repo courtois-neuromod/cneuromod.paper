@@ -7,6 +7,8 @@ dependencies = [
     "ipykernel>=7.2.0",
     "jupyter-book>=2.0",
     "matplotlib>=3.10.9",
+    "pandas>=3.0.5",
+    "pyyaml>=6.0.3",
 ]
 
 [dependency-groups]

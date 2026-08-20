@@ -42,6 +42,58 @@ git submodule update --init source_data/cneuromod.all
 
 The path is registered in `myst.yml` under `project.options.source_data`. The submodule's bibliography (`docs/source/cneuromod_references.bib`) is also listed under `project.bibliography` so its citations are available throughout the book.
 
+### Live numbers — never hardcode a statistic
+
+Datasets are still being collected and released, so any count, hour total or subject tally typed
+into `paper/*.md` goes stale silently. Numbers flow through one chain:
+
+```
+cneuromod.all/*/dataset_info.yaml     (raw metadata, upstream)
+  └─ dataset_comparison analysis/tables.py   (the ONLY place aggregation happens)
+       └─ dataset_comparison/output_data/cneuromod_*.csv
+            └─ paper/_stats.py             (thin pandas reader, no computation)
+                 └─ {eval}`STATS.…` in the prose
+```
+
+In a paper file, load the reader once in a hidden cell and quote values inline:
+
+```markdown
+```{code-cell} python3
+:tags: [remove-cell]
+import sys
+from pathlib import Path
+sys.path.insert(0, str(next(p for p in (Path("paper"), Path(".")) if (p / "_stats.py").exists())))
+from _stats import STATS
+```
+
+... a collection of {eval}`STATS.n_datasets` datasets ...
+```
+
+`STATS` exposes `n_datasets`, `names`, `n_subjects`, `subjects`, `fmri_total_h`,
+`fmri_per_subject_h`, `physiology_h()`, `total_h(modality)`, `per_subject_h(modality)`,
+`incomplete`, `subjects_with_gaps()` and `datasets_for(subject)`. Add new quantities by
+extending the pipeline in `dataset_comparison`, not by computing them in the paper.
+
+Inline expressions are only evaluated when the build executes the kernel:
+
+```bash
+uv run jupyter book build --html --execute
+```
+
+Refresh the tables after the submodule moves:
+
+```bash
+cd source_data/dataset_comparison && uv run invoke run-cneuromod-tables
+```
+
+:::{warning}
+Two submodules check out the same upstream `cneuromod.all` repository:
+`source_data/cneuromod.all` (narrative, per-dataset READMEs and report cards) and
+`source_data/dataset_comparison/source_data/cneuromod` (the numbers). If they sit at different
+commits they describe different sets of datasets. Keep them pinned together; the
+`update-data-overview` script warns when they drift.
+:::
+
 `source_data/dataset_comparison/` is a git submodule (invoke + uv analysis project) that compares dense neuroimaging datasets by depth (brain recording hours per subject) vs. breadth (number of subjects). Its pre-generated figures live in `source_data/dataset_comparison/output_data/`. The key figure for the paper is:
 
 - `output_data/dataset_neuroimaging_depthvsbreadth.png` — Figure 1 of the intro: scatter plot of depth vs. breadth across datasets, with CNeuroMod highlighted in red.
