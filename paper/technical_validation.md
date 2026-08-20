@@ -80,9 +80,80 @@ Structural image quality was assessed separately across the anatomical acquisiti
 same six participants and is reported in a companion publication [MISSING REF: companion
 CNeuroMod structural data quality paper — citation to be supplied].
 
-## Reproducibility
+## Longitudinal stability and state-dependence of fMRI measures
 
-[Show test-retest reliability or within-subject consistency across sessions.]
+Session-level within-network functional connectomes were computed from the parcellated
+BOLD timeseries of `cneuromod.all`, using the cneuromod2026 parcellation — 1,134 parcels
+combining a Schaefer cortical parcellation {cite:p}`schaefer2018`, grouped into the 7 Yeo
+cortical networks {cite:p}`yeo2011`, a Tian subcortical parcellation {cite:p}`tian2020`,
+and a Nettekoven cerebellar parcellation {cite:p}`nettekoven2024`. Runs were z-scored
+individually and concatenated within a session, and connectomes were estimated
+independently within each network (Pearson correlation of parcel timeseries, Fisher-z
+transformed). Session-pair similarity is the Pearson correlation between two sessions'
+Fisher-z edge vectors within a network, and bins of session pairs are summarized by their
+median similarity. Connectomes were computed for all 829 available sessions across 10
+datasets; the analyses below use the 559 sessions from 7 datasets (`friends`,
+`harrypotter`, `hcptrt`, `mario`, `movie10`, `petit-prince`, `shinobi`) carrying at least
+30 minutes of usable data, covering all six participants. This 30-minute gate removes
+`floc`, `retinotopy`, and `things` entirely.
+
+Within-subject connectome similarity in `friends` — the most task-homogeneous dataset —
+declines gently and monotonically with the number of seasons separating two sessions, the
+only time axis available since sessions carry no acquisition dates
+({numref}`fig-connectome-stability`, panel A). The decline over a five-season lag ranges
+from 0.019 (cerebellum) to 0.043 (Limbic network) — e.g., 0.956 to 0.935 in the Visual
+network — and every network remains far above the between-subject floor (0.564–0.572).
+Drift over years of scanning is therefore small relative to the gap between individuals.
+
+Connectome similarity is also sensitive to cognitive context. Across four session-pair
+types, the ordering within-subject/within-dataset > within-subject/between-dataset >
+between-subject/within-dataset > between-subject/between-dataset holds in all 9 networks
+(e.g., Visual 0.95/0.80/0.69/0.63; Default 0.94/0.72/0.56/0.45;
+{numref}`fig-connectome-stability`, panel B). This contrast is not confounded by
+acquisition duration: similarity increases with session duration, so the four bins were
+matched by construction, with median pair minimum duration ranging only 2,669–2,784 s
+(within 4%) across bins. The between-dataset drop in similarity therefore reflects a
+genuine effect of cognitive state rather than a duration artifact or measurement noise.
+
+Similarity also varies by network quality. The Limbic network has both the lowest median
+tSNR (18.6) and the lowest within-subject similarity (0.859), and the cerebellum and
+subcortex sit below the cortical networks on both measures
+({numref}`fig-connectome-stability`, panel C). This comparison is descriptive only: the
+per-network tSNR values are available only for the `floc`, `retinotopy`, and `things`
+datasets (182 sessions) — precisely the three datasets removed by the 30-minute gate —
+while similarity is computed over the disjoint set of 559 gated sessions. With nine
+network-level points and no shared sessions between the two axes, this panel establishes
+an ordering, not a quantitative tSNR–similarity relationship.
+
+As a robustness check on the state-dependence result, restricting the "different task"
+comparison to a swap within a single naturalistic stimulus domain — movies (`friends` and
+`movie10`, 333 sessions), video games (`mario`, `mario3`, `mariostars`, `shinobi`, 138
+sessions), and stories (`harrypotter`, `petit-prince`, 19 sessions) — still yields
+within-subject/within-task similarity exceeding within-subject/between-task similarity in
+all 9 networks for all three domains ({numref}`fig-connectome-stability`, panels D–F),
+with median gaps of 0.022 (movies), 0.047 (video games), and 0.077 (stories). The effect
+is smallest for movies, where "different task" means a different film rather than a
+different kind of activity; the stories domain, resting on only 19 sessions, is
+suggestive rather than conclusive. Stratifying session pairs by head motion or by tSNR
+does not change any of these orderings (not shown).
+
+:::{figure} ../source_data/connectome_stats/output_data/connectome_figure.png
+:name: fig-connectome-stability
+:width: 100%
+
+**Functional connectomes from six deeply sampled individuals are stable across five years,
+sensitive to cognitive context, and informative in every network.** **(G)** Network key:
+sagittal glass brains showing the anatomical extent of each of the 9 networks; colors are
+used consistently throughout the figure. **(A)** Within-subject connectome similarity in
+`friends` as a function of season lag, remaining well above the between-subject floor
+(grey band). **(B)** Median similarity for within-subject/within-dataset,
+within-subject/between-dataset, between-subject/within-dataset, and
+between-subject/between-dataset session pairs, per network. **(C)** Within-subject
+similarity against median per-network tSNR (disjoint session sets; see main text).
+**(D–F)** The within- vs. between-task contrast of panel B repeated within a single
+stimulus domain — **(D)** movies, **(E)** video games, **(F)** stories. Axes in (A) and in
+(B, D–F) are truncated, with the break marked on the frame.
+:::
 
 ## Preprocessing Pipeline Validation
 

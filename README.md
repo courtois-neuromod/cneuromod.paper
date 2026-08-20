@@ -67,6 +67,7 @@ This project includes [Claude Code](https://claude.ai/code) skills to help co-au
 | `source_data/cneuromod.all/` | Git submodule — shared dataset docs and bibliography |
 | `source_data/dataset_comparison/` | Git submodule — depth-vs-breadth dataset comparison figure |
 | `source_data/qa_figures/` | Git submodule — MRIQC/tSNR data quality analysis |
+| `source_data/connectome_stats/` | Git submodule — longitudinal stability / state-dependence of connectomes |
 | `paper/intro.md` | Introduction / Background |
 | `paper/statement_of_need.md` | Statement of Need |
 | `paper/data_acquisition.md` | Data Acquisition |

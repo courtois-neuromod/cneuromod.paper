@@ -9,3 +9,6 @@
 [submodule "source_data/qa_figures"]
 	path = source_data/qa_figures
 	url = https://github.com/courtois-neuromod/cneuromod.all.qa_figures
+[submodule "source_data/connectome_stats"]
+	path = source_data/connectome_stats
+	url = https://github.com/courtois-neuromod/cneuromod.all.connectome_stats

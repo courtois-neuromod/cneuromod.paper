@@ -29,6 +29,7 @@ source_data/
   cneuromod.all/          # Git submodule: https://github.com/courtois-neuromod/cneuromod.all
   dataset_comparison/     # Git submodule: depth-vs-breadth neuroimaging dataset comparison
   qa_figures/             # Git submodule: MRIQC/tSNR data quality analysis
+  connectome_stats/       # Git submodule: longitudinal stability / state-dependence of connectomes
 ```
 
 ## Source Data
@@ -52,6 +53,12 @@ See `source_data/dataset_comparison/CLAUDE.md` for pipeline details. Do not modi
 - `output_data/qa_figure.png` — the fMRI data quality montage used in Technical Validation.
 
 Regenerate its outputs with `uv run invoke fetch && uv run invoke run` inside that directory; do not hand-edit its outputs.
+
+`source_data/connectome_stats/` is a git submodule (invoke + uv analysis project, currently private) that computes per-session, per-network functional connectomes from the `cneuromod.all` parcelled timeseries and measures both longitudinal stability and cognitive-state dependence. Its main output is:
+
+- `output_data/connectome_figure.png` — the connectome stability/state-dependence montage used in Technical Validation.
+
+Regenerate its outputs with `uv run invoke fetch && uv run invoke run` inside that directory (fetching the parcelled timeseries content needs S3 credentials); do not hand-edit its outputs.
 
 ## Common Commands
 
