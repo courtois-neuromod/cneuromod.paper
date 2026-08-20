@@ -97,10 +97,10 @@ Physiological signals were preprocessed using the CNeuroMod PhysPrep pipeline {c
 - `*_desc-physio_events.tsv` — sparse extracted features (peaks, troughs, SCRs)
 - `*_desc-quality.json` — run-level quality assessment (pass/fail per modality)
 
-## Data access
+## Data access and versioning
 
-Five of the six participants (`sub-01`, `sub-02`, `sub-03`, `sub-05`, `sub-06`) have consented to fully open sharing via the [Canadian Open Neuroscience Platform (CONP)](https://portal.conp.ca/dataset?id=projects/cneuromod). Access to all six participants requires a registered-access data transfer agreement (DTA), obtainable via [cneuromod.ca/access](https://www.cneuromod.ca/access/access/). Approved researchers receive S3 credentials for download. Full download instructions are available at [docs.cneuromod.ca](https://docs.cneuromod.ca).
-
-## Versioning
-
-`cneuromod.all` uses yearly release tags (e.g., `git checkout 2020`) to pin a specific state of all submodule pointers, enabling exact reproduction of prior analyses. Updates to an existing clone can be obtained with `datalad update -r --merge --reobtain-data`.
+Five of the six participants have consented to fully open sharing; access to the
+complete databank requires a registered-access data transfer agreement. `cneuromod.all`
+uses yearly release tags to pin a specific state of all submodule pointers, enabling
+exact reproduction of prior analyses. See [Data Availability](data_availability.md) for
+deposit locations, license terms, access procedure, and download instructions.
