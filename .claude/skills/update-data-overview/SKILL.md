@@ -1,6 +1,6 @@
 ---
 name: update-data-overview
-description: This skill should be used when a co-author wants to initialize or update paper/data_overview.md by cross-referencing the canonical dataset and asset documentation in the cneuromod.all submodule. It runs a script that reads every dataset_info.yaml, README and CITATION.cff to regenerate the summary statistics, the per-dataset coverage subsections (condensed overview, report card, reference) and the asset coverage table, then condenses the result into the paper's academic style. Use it when someone mentions "update data overview", "summary statistics", "dataset coverage", "asset coverage", "report card", or "hours per subject".
+description: This skill should be used when a co-author wants to initialize or update paper/data_overview.md by cross-referencing the canonical dataset and asset documentation in the cneuromod.all submodule. It runs a script that reads every dataset_info.yaml, README and CITATION.cff to regenerate the summary statistics, the per-dataset coverage subsections (condensed overview, reference) and the asset coverage table, then condenses the result into the paper's academic style. Use it when someone mentions "update data overview", "summary statistics", "dataset coverage", "asset coverage", or "hours per subject".
 ---
 
 # Update Data Overview
@@ -15,7 +15,7 @@ how much data, from which paradigms, in which processed forms.
 The section has three parts, in this order:
 
 1. **Summary Statistics** — the CNeuroMod bubble-chart figure plus aggregate totals and coverage gaps.
-2. **Dataset Coverage** — one subsection per dataset: condensed overview, report card, reference.
+2. **Dataset Coverage** — one subsection per dataset: condensed overview, reference.
 3. **Asset Coverage** — the asset/datasets recap table plus a text description of each asset.
 
 ## Workflow
@@ -37,8 +37,8 @@ uv run python .claude/skills/update-data-overview/scripts/build_overview.py \
 It draws on two submodules, each for what it owns:
 
 - `source_data/cneuromod.all` for narrative — it imports the submodule's own Sphinx extension
-  (`docs/source/_ext/renderers.py`), so report cards and citation blocks are exactly what the
-  documentation website renders.
+  (`docs/source/_ext/renderers.py`), so citation blocks are exactly what the documentation
+  website renders.
 - `source_data/dataset_comparison/output_data/*.csv` for every aggregate number, read through
   `paper/_stats.py`. No aggregation happens in the paper or in this script.
 
@@ -118,10 +118,6 @@ One `###` subsection per dataset, in the order the scaffold emits (alphabetical)
 - **A condensed overview.** The scaffold carries the full `## Overview` section of the dataset's
   `README.md`. Cut it to two or three sentences: what was acquired, from whom, and what makes the
   paradigm distinctive. Drop installation notes, challenge announcements, and file-layout detail.
-- **The report card** — the Key-facts table (Subjects / Tasks / Data), rendered verbatim from
-  `dataset_info.yaml`. Keep it as generated; it is the machine-readable ground truth. Do not retype
-  the numbers into prose as well. It is regenerated from the submodule on every run, so it tracks
-  new sessions and newly released datasets on its own.
 - **The reference** — the `preferred-citation` from the dataset's `CITATION.cff`. Prefer a MyST
   `` {cite:p}`key` `` if a matching entry exists in either bibliography; otherwise keep the rendered
   "How to cite" admonition and flag the gap as `[MISSING REF: description]`.

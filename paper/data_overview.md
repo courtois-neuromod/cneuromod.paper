@@ -62,10 +62,6 @@ at roughly four sessions per year to monitor structural stability over the cours
 study. Cortical flat maps and quantitative measures such as gray-matter morphometry,
 tractography and myelination can be derived from the FreeSurfer derivatives it provides.
 
-| | |
-|---|---|
-| **Subjects** | 6 — `sub-01` ✅ · `sub-02` ✅ · `sub-03` ✅ · `sub-04` ✅ · `sub-05` ✅ · `sub-06` ✅ |
-
 :::{admonition} How to cite
 :class: tip
 
@@ -77,32 +73,12 @@ tractography and myelination can be derived from the FreeSurfer derivatives it p
 *(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
 been documented with a README.)*
 
-| | |
-|---|---|
-| **Subjects** | 5 — `sub-01` ✅ · `sub-02` ✅ · `sub-03` ✅ · `sub-04` ❌ · `sub-05` ✅ · `sub-06` ✅ |
-| **Tasks** | 📺 Silent emotion-evoking video clips — ~5.2 hours of naturalistic silent video watching per subject; clips are shared across subjects but not repeated within |
-| **Data** | 🧠 fMRI — 5.2 h/subject |
-|  | 🎬 Naturalistic video — 5.2 h/subject |
-|  | 🫀 ECG — 5.2 h/subject |
-|  | 🫁 Respiration — 5.2 h/subject |
-|  | 🫀 Pulse — 5.2 h/subject |
-|  | 😓 Skin conductance (EDA) — 5.2 h/subject |
-|  | 👁️ Eye tracking — 5.2 h/subject |
-
 ### floc
 
 Four participants (`sub-01`, `sub-02`, `sub-03`, `sub-05`) completed six sessions of a
 functional localizer task designed to identify brain regions that respond preferentially
 to specific stimulus categories, adapting the Stanford VPN lab's fLoc task
 {cite:p}`St-Laurent2026-zc`.
-
-| | |
-|---|---|
-| **Subjects** | 3 — `sub-01` ✅ · `sub-02` ✅ · `sub-03` ✅ · `sub-04` ❌ · `sub-05` ❌ · `sub-06` ❌ |
-| **Tasks** | 👁️ Functional localizer — 5 visual categories (faces, bodies, places, objects, characters) — 6 sessions × 2 runs; rapid 12-trial blocks; one-back repetition detection task; 9 GLM contrasts; subject-specific ROIs for FFA, OFA, pSTS, PPA, OPA, MPA and EBA |
-| **Data** | 🧠 fMRI — 0.8 h/subject |
-|  | 📊 Controlled — 0.77 h/subject |
-|  | 📐 Contrasts — 9 contrasts |
 
 :::{admonition} How to cite
 :class: tip
@@ -119,20 +95,6 @@ as a benchmark corpus for multimodal movie-encoding challenges. [MISSING REF: Gi
 al. (2025), "The Algonauts Project 2025 Challenge: How the Human Brain Makes Sense of
 Multimodal Movies" — full bibliographic details (venue/DOI) needed]
 
-| | |
-|---|---|
-| **Subjects** | 6 — `sub-01` ✅ · `sub-02` ✅ · `sub-03` ✅ · `sub-04` 🟡 _(seasons 1–4 only)_ · `sub-05` ✅ · `sub-06` ✅ |
-| **Tasks** | 📺 Friends seasons 1–7 (~170 episodes) — ~65 hours of naturalistic movie watching per subject |
-| **Data** | 🧠 fMRI — 61.9 h/subject |
-|  | 🎬 Naturalistic video — 65.0 h/subject |
-|  | 🔊 Audio — 65.0 h/subject |
-|  | 🗣️ Speech listening — 65.0 h/subject |
-|  | 🫀 ECG — 65 h/subject |
-|  | 🫁 Respiration — 65 h/subject |
-|  | 🫀 Pulse — 65 h/subject |
-|  | 😓 Skin conductance (EDA) — 65 h/subject |
-|  | 👁️ Eye tracking — 22 h/subject |
-
 ### gamepad
 
 This dataset validates the CNeuroMod videogame controller, an open-source,
@@ -142,33 +104,11 @@ fiber-optic, MRI-compatible game controller designed by the project's engineerin
 10.1371/journal.pone.0290158], comparing it against a commercial SNES-like controller
 across alternating mock-scanner and MRI sessions.
 
-| | |
-|---|---|
-| **Subjects** | 4 — `sub-01` ✅ · `sub-02` ✅ · `sub-03` ✅ · `sub-04` ❌ · `sub-05` ❌ · `sub-06` ✅ |
-| **Tasks** | 🎮 Cued-response button press — MRI controller validation — 4 MRI sessions × 2 runs per subject; participants pressed various controller buttons for short and long durations (5 blocs of 10 trials per condition); MRI-compatible controller compared against a commercial SNES-like controller across alternating mock-scanner sessions |
-| **Data** | 🧠 fMRI — 0.7 h/subject |
-|  | 📊 Controlled — 0.67 h/subject |
-|  | 🕹️ Behavioural sessions (mock scanner) (button press events (.tsv) ✅) |
-|  | 🫀 Physiology (ECG 🔒, respiration 🔒, plethysmograph 🔒, EDA 🔒) |
-|  | 👁️ Eyetracking (gaze 🔒, pupillometry 🔒) |
-
 ### harrypotter
 
 Five participants read Chapter 9 of *Harry Potter and the Sorcerer's Stone*, presented
 word by word at 2 Hz across seven runs in a single session, using the same stimuli as the
 separate fMRI dataset reported by Wehbe et al. (2014).
-
-| | |
-|---|---|
-| **Subjects** | 5 — `sub-01` ✅ · `sub-02` ✅ · `sub-03` ✅ · `sub-04` ❌ · `sub-05` ✅ · `sub-06` ✅ |
-| **Tasks** | 📖 Harry Potter and the Sorcerer's Stone — Chapter 9 — word-by-word text at 2 Hz; 7 runs × ~10 min; 1 session per participant |
-| **Data** | 🧠 fMRI — 1.4 h/subject |
-|  | 📖 Text reading — 1.4 h/subject |
-|  | 🫀 ECG — 1.4 h/subject |
-|  | 🫁 Respiration — 1.4 h/subject |
-|  | 🫀 Pulse — 1.4 h/subject |
-|  | 😓 Skin conductance (EDA) — 1.4 h/subject |
-|  | 👁️ Eyetracking (gaze ❌, pupillometry ❌) |
 
 :::{admonition} How to cite
 :class: tip
@@ -184,18 +124,6 @@ subject across seven tasks adapted from the HCP task-fMRI protocol
 {cite:p}`Rastegarnia2023-qz`. Sessions typically combined either two repetitions of the
 HCP localizers, or one resting-state run and one HCP localizer run.
 
-| | |
-|---|---|
-| **Subjects** | 6 — `sub-01` ✅ · `sub-02` ✅ · `sub-03` ✅ · `sub-04` ✅ · `sub-05` ✅ · `sub-06` ✅ |
-| **Tasks** | 🎭 7 HCP task localizers (36 contrasts) — 13–18 repetitions per participant |
-|  | 💤 resting state — 4–6 repetitions per participant |
-| **Data** | 🧠 fMRI — 7.3 h/subject |
-|  | 💤 Resting state — 1.25 h/subject |
-|  | 📊 Controlled — 7.85 h/subject |
-|  | 📐 Contrasts — 36 contrasts |
-|  | 📈 Physiology (ECG ❌, pulse ❌, respiration ❌, skin conductance ❌) |
-|  | 👁️ Eyetracking (Gaze ❌, pupillometry ❌) |
-
 :::{admonition} How to cite
 :class: tip
 
@@ -207,21 +135,10 @@ HCP localizers, or one resting-state run and one HCP localizer run.
 *(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
 been documented with a README.)*
 
-| | |
-|---|---|
-| **Subjects** | 6 — `sub-01` ✅ · `sub-02` ✅ · `sub-03` ✅ · `sub-04` ✅ · `sub-05` ✅ · `sub-06` ✅ |
-
 ### langlocalizer
 
 *(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
 been documented with a README.)*
-
-| | |
-|---|---|
-| **Subjects** | 4 — `sub-01` ✅ · `sub-02` ✅ · `sub-03` ✅ · `sub-04` ❌ · `sub-05` ✅ · `sub-06` ❌ |
-| **Data** | 🧠 fMRI — 1.1 h/subject |
-|  | 📊 Controlled — 1.1 h/subject |
-|  | 📐 Contrasts — 4 contrasts |
 
 ### mario
 
@@ -230,21 +147,6 @@ Five CNeuroMod participants played *Super Mario Bros.* (Nintendo, 1985) in-scann
 practice phase of randomly selected levels {cite:p}`Paugam2025-oq`. Prior gameplay
 experience varied across participants, from no videogame experience to regular
 players who had already completed the game.
-
-| | |
-|---|---|
-| **Subjects** | 5 — `sub-01` ✅ · `sub-02` ✅ · `sub-03` ✅ · `sub-04` ❌ · `sub-05` ✅ · `sub-06` ✅ |
-| **Tasks** | 🎮 Super Mario Bros — in-scanner gameplay — 22 levels (excluding water and boss levels); discovery phase (all levels in order, unlimited attempts) then practice phase (random level per run); 3374 total level attempts across 5 participants; ~16.8 h fMRI per participant |
-| **Data** | 🧠 fMRI — 18.4 h/subject |
-|  | 🎬 Naturalistic video — 18.4 h/subject |
-|  | 🔊 Audio — 18.4 h/subject |
-|  | 🎮 Gameplay — 18.4 h/subject |
-|  | 🫀 ECG — 18.4 h/subject |
-|  | 🫁 Respiration — 18.4 h/subject |
-|  | 🫀 Pulse — 18.4 h/subject |
-|  | 😓 Skin conductance (EDA) — 18.4 h/subject |
-|  | 🕹️ Game logs (annotated events (.tsv) ✅, game replay (.bk2) ✅, video replay (.mp4) ✅, replay summary (.json) ✅, mapped RAM variables (.json) ✅, low-level features (.npy) ✅, scene annotations ✅) |
-|  | 👁️ Eyetracking (gaze 🔒, pupillometry 🔒) |
 
 :::{admonition} How to cite
 :class: tip
@@ -257,35 +159,15 @@ players who had already completed the game.
 *(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
 been documented with a README.)*
 
-| | |
-|---|---|
-| **Subjects** | 5 — `sub-01` ✅ · `sub-02` ✅ · `sub-03` ✅ · `sub-04` ❌ · `sub-05` ✅ · `sub-06` ✅ |
-| **Data** | 🧠 fMRI — 9.9 h/subject |
-|  | 🎬 Naturalistic video — 9.9 h/subject |
-|  | 🔊 Audio — 9.9 h/subject |
-|  | 🎮 Gameplay — 9.9 h/subject |
-
 ### mario_eeg
 
 *(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
 been documented with a README.)*
 
-| | |
-|---|---|
-| **Subjects** | 3 — `sub-01` ✅ · `sub-02` ✅ · `sub-03` ✅ · `sub-04` ❌ · `sub-05` ❌ · `sub-06` ❌ |
-
 ### mariostars
 
 *(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
 been documented with a README.)*
-
-| | |
-|---|---|
-| **Subjects** | 5 — `sub-01` ✅ · `sub-02` ✅ · `sub-03` ✅ · `sub-04` ❌ · `sub-05` ✅ · `sub-06` ✅ |
-| **Data** | 🧠 fMRI — 6.9 h/subject |
-|  | 🎬 Naturalistic video — 6.9 h/subject |
-|  | 🔊 Audio — 6.9 h/subject |
-|  | 🎮 Gameplay — 6.9 h/subject |
 
 ### movie10
 
@@ -295,79 +177,30 @@ roughly ten-minute segments, for about 10 hours of functional data per participa
 [MISSING REF: Gifford et al. (2025), "The Algonauts Project 2025 Challenge" — full
 bibliographic details needed]
 
-| | |
-|---|---|
-| **Subjects** | 6 — `sub-01` ✅ · `sub-02` ✅ · `sub-03` ✅ · `sub-04` ✅ · `sub-05` ✅ · `sub-06` ✅ |
-| **Tasks** | 🎬 4 feature films (~7.3 h unique content) — The Bourne Supremacy, The Wolf of Wall Street, Hidden Figures, Life (BBC) |
-| **Data** | 🧠 fMRI — 10.3 h/subject |
-|  | 🎬 Naturalistic video — 7.3 h/subject |
-|  | 🔊 Audio — 7.3 h/subject |
-|  | 🗣️ Speech listening — 7.3 h/subject |
-|  | 🫀 ECG — 10.0 h/subject |
-|  | 🫁 Respiration — 10.0 h/subject |
-|  | 🫀 Pulse — 10.0 h/subject |
-|  | 😓 Skin conductance (EDA) — 10.0 h/subject |
-|  | 👁️ Eyetracking (gaze ❌, pupillometry ❌) |
-
 ### multfs
 
 *(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
 been documented with a README.)*
-
-| | |
-|---|---|
-| **Subjects** | 5 — `sub-01` ✅ · `sub-02` ✅ · `sub-03` ✅ · `sub-04` ❌ · `sub-05` ✅ · `sub-06` ✅ |
-| **Tasks** | 🧩 Visual working memory — combinatorial feature task — Continuously quizzed on visual feature combinations across varying difficulty levels (~10 repetitions per stimulus per subject); stimuli shared across subjects. Designed for RSA and brain encoding across a rich combinatorial task space. |
-| **Data** | 🧠 fMRI — 8.8 h/subject |
-|  | 📊 Controlled — 8.8 h/subject |
 
 ### mutemusic
 
 *(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
 been documented with a README.)*
 
-| | |
-|---|---|
-| **Subjects** | 5 — `sub-01` ✅ · `sub-02` ✅ · `sub-03` ✅ · `sub-04` ❌ · `sub-05` ✅ · `sub-06` ✅ |
-| **Data** | 🧠 fMRI — 3.3 h/subject |
-|  | 🔊 Audio — 1.1 h/subject |
-
 ### narratives
 
 *(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
 been documented with a README.)*
-
-| | |
-|---|---|
-| **Subjects** | 5 — `sub-01` ✅ · `sub-02` ✅ · `sub-03` ✅ · `sub-04` ❌ · `sub-05` ✅ · `sub-06` ✅ |
-| **Data** | 🧠 fMRI — 9.7 h/subject |
-|  | 🔊 Audio — 3.2 h/subject |
-|  | 🗣️ Speech listening — 3.2 h/subject |
 
 ### ood
 
 *(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
 been documented with a README.)*
 
-| | |
-|---|---|
-| **Subjects** | 3 — `sub-01` ❌ · `sub-02` ✅ · `sub-03` ✅ · `sub-04` ❌ · `sub-05` ✅ · `sub-06` ❌ |
-| **Data** | 🧠 fMRI — 2.0 h/subject |
-|  | 🎬 Naturalistic video — 2.0 h/subject |
-|  | 🔊 Audio — 2.0 h/subject |
-|  | 🗣️ Speech listening — 2.0 h/subject |
-
 ### petit-prince
 
 *(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
 been documented with a README.)*
-
-| | |
-|---|---|
-| **Subjects** | 5 — `sub-01` ✅ · `sub-02` ✅ · `sub-03` ✅ · `sub-04` ❌ · `sub-05` ✅ · `sub-06` ✅ |
-| **Data** | 🧠 fMRI — 3.2 h/subject |
-|  | 🔊 Audio — 1.1 h/subject |
-|  | 🗣️ Speech listening — 1.1 h/subject |
 
 ### retinotopy
 
@@ -377,15 +210,6 @@ and to delineate regions of interest in early visual cortex {cite:p}`St-Laurent2
 Each session comprised three runs using ring, bar and wedge apertures drawn from Human
 Connectome Project retinotopy stimuli, with participants fixating centrally and
 responding to a colour-change detection task.
-
-| | |
-|---|---|
-| **Subjects** | 4 — `sub-01` ✅ · `sub-02` ✅ · `sub-03` ✅ · `sub-04` ❌ · `sub-05` ✅ · `sub-06` ❌ |
-| **Tasks** | 👁️ Retinotopy — ring, bar and wedge apertures — 5–6 sessions × 3 runs; HCP retinotopy stimuli; fixation task with colour-change detection; pRF maps and 12 visual ROIs (V1–V3, hV4, VO1/2, LO1/2, TO1/2, V3a/b) |
-| **Data** | 🧠 fMRI — 1.4 h/subject |
-|  | 📊 Controlled — 1.4 h/subject |
-|  | 📐 Contrasts — 12 contrasts |
-|  | 👁️ Eyetracking (gaze ❌, pupillometry ❌) |
 
 :::{admonition} How to cite
 :class: tip
@@ -403,22 +227,6 @@ videogame play guided by automated annotations of game content." doi:
 10.1162/IMAG.a.1256]. Participants also completed behavioural-only at-home training
 sessions before scanning, documented separately as the `shinobi/training` asset.
 
-| | |
-|---|---|
-| **Subjects** | 4 — `sub-01` ✅ · `sub-02` ✅ · `sub-03` ❌ · `sub-04` ✅ _(11 sessions (vs 12 for other participants))_ · `sub-05` ❌ · `sub-06` ✅ _(~7 h fMRI (vs ~8 h for other participants))_ |
-| **Tasks** | 🎮 Shinobi III: Return of the Ninja Master — in-scanner gameplay — 3 levels cycled (1, 4, 5); 4–5 runs × ~10 min per session; 11–12 sessions per participant; ~8 h fMRI per participant |
-|  | 🏠 Shinobi III — at-home behavioral training (shinobi/training submodule) — Behavioral only; free-choice training regimen before scanner sessions; total gameplay per participant (training + in-scanner) exceeds fMRI acquisition time |
-| **Data** | 🧠 fMRI — 10.4 h/subject |
-|  | 🎬 Naturalistic video — 10.4 h/subject |
-|  | 🔊 Audio — 10.4 h/subject |
-|  | 🎮 Gameplay — 10.4 h/subject |
-|  | 🫀 ECG — 8.0 h/subject |
-|  | 🫁 Respiration — 8.0 h/subject |
-|  | 🫀 Pulse — 8.0 h/subject |
-|  | 😓 Skin conductance (EDA) — 8.0 h/subject |
-|  | 🕹️ Game logs (annotated events (.tsv) ✅, game replay (.bk2) 🟡, video replay (.mp4) ✅, replay summary (.json) ✅, mapped RAM variables (.json) ✅, low-level features (.npy) ✅) |
-|  | 👁️ Eyetracking (gaze ❌, pupillometry ❌) |
-
 ### things
 
 Four participants completed 33–36 fMRI sessions of a continuous-recognition task with
@@ -426,17 +234,6 @@ images drawn from 720 categories of the THINGS dataset {cite:p}`St-Laurent2026-z
 run presented 60 trials with a 2.98 s image followed by a 1.49 s inter-stimulus interval,
 while participants maintained central fixation; each image was seen three times across
 sessions.
-
-| | |
-|---|---|
-| **Subjects** | 4 — `sub-01` ✅ · `sub-02` ✅ · `sub-03` ✅ _(ses-024–026 administered out of planned order)_ · `sub-04` ❌ · `sub-05` ❌ · `sub-06` ✅ _(3840 unique images (vs 4320); ses-019–026 administered out of planned order)_ |
-| **Tasks** | 🖼️ Continuous visual recognition — 720 THINGS object categories — 33–36 sessions × up to 6 runs; ~4320 unique images; each image shown 3× across sessions; confidence rating on each trial |
-| **Data** | 🧠 fMRI — 16.4 h/subject |
-|  | 🖼️ Images — 4320 unique images/subject |
-|  | 📊 Controlled — 16.4 h/subject |
-|  | 📐 Contrasts — 1 contrasts |
-|  | 📈 Physiology (ECG 🔒, respiration 🔒, pulse 🔒, skin conductance 🔒) |
-|  | 👁️ Eyetracking (gaze ✅, pupillometry ✅) |
 
 :::{admonition} How to cite
 :class: tip
@@ -448,13 +245,6 @@ sessions.
 
 *(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
 been documented with a README.)*
-
-| | |
-|---|---|
-| **Subjects** | 4 — `sub-01` ✅ · `sub-02` ✅ · `sub-03` ✅ · `sub-04` ❌ · `sub-05` ❌ · `sub-06` ✅ |
-| **Tasks** | 🔺 Word triplets — semantic odd-one-out judgment — Single words shown in triplets; participants select the semantic odd one out. Each unique word shown ~3× per subject; stimuli shared across subjects. Designed for representational similarity analysis and brain encoding models. |
-| **Data** | 🧠 fMRI — 7.8 h/subject |
-|  | 📖 Text reading — 2.6 h/subject |
 
 ## Asset Coverage
 

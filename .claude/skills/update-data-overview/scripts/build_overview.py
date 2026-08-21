@@ -4,8 +4,8 @@
 Two sources, each used for what it owns, with no aggregation duplicated here:
 
 - `source_data/cneuromod.all` — narrative and per-dataset metadata. Its own Sphinx extension
-  renderers are reused so the "report card" (Key facts table) and the citation block are
-  byte-for-byte what the documentation website shows.
+  renderers are reused so the citation block is byte-for-byte what the documentation website
+  shows.
 - `source_data/dataset_comparison/output_data/*.csv` — every aggregate number, read through
   `paper/_stats.py`. That pipeline is the single place where `dataset_info.yaml` files are
   summed; see its `analysis/tables.py`.
@@ -32,16 +32,15 @@ REPO_DEFAULT = Path("source_data/cneuromod.all")
 
 
 def load_renderers(repo):
-    """Import the submodule's own renderers (_render_key_facts, _render_citation)."""
+    """Import the submodule's own renderers (_render_citation)."""
     sys.path.insert(0, str((repo / "docs" / "source").resolve()))
     from _ext.constants import _DATASET_EMOJI, _COMPONENT_ICON, _ROOT_MD_EXCLUDE, _ROOT_MD_MANUAL
-    from _ext.renderers import _render_key_facts, _render_citation, _extract_component_title
+    from _ext.renderers import _render_citation, _extract_component_title
     return {
         "emoji": _DATASET_EMOJI,
         "component_icon": _COMPONENT_ICON,
         "root_exclude": _ROOT_MD_EXCLUDE,
         "root_manual": _ROOT_MD_MANUAL,
-        "key_facts": _render_key_facts,
         "citation": _render_citation,
         "component_title": _extract_component_title,
     }
@@ -156,8 +155,6 @@ def main():
     for ds in datasets(repo):
         emoji = R["emoji"].get(ds.name, "📦")
         out += [f"### {emoji} {ds.name}", "", overview_text(ds / "README.md"), ""]
-        facts = R["key_facts"](ds / "dataset_info.yaml")
-        out += [facts.replace("## Key facts", "").strip(), ""]
         cff = ds / "CITATION.cff"
         if cff.exists():
             out += [R["citation"](cff).strip(), ""]
