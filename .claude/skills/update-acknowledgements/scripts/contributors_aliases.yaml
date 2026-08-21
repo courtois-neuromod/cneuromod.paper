@@ -1,0 +1,256 @@
+# Curated identity map for CNeuroMod contributors.json entries.
+#
+# Keyed on the raw all-contributors identifier: the GitHub `login` when the entry has one,
+# otherwise the literal `name` string as it appears in the JSON. Each value is the resolved
+# person record used by build_contributors.py. Edit this file by hand as new contributors
+# appear in cneuromod.all/*/contributors.json — the script fails loudly (an
+# `[UNMAPPED: <key>]` line) rather than guessing at an entry missing from this map.
+#
+# group: core | consortium
+#   "core" is a fixed, user-specified list (Boyle, Pinsard, St-Laurent, Bellec) that
+#   deliberately overrides docs/source/AUTHORS.md, which lists Arnaud Boré as a data manager
+#   and Marie St-Laurent under the Vision team. Everyone else is "consortium".
+#
+# Affiliations are taken from docs/source/AUTHORS.md where the person is listed there.
+# `affiliation: null` means AUTHORS.md does not list this person at all — a gap to fix
+# upstream, not a guess made here.
+
+lunebellec:
+  full_name: Lune Bellec
+  family_name: Bellec
+  given_name: Lune
+  affiliation: CRIUGM, Psychology, Université de Montréal, Québec, CA
+  group: core
+
+julieaboyle1:
+  full_name: Julie A. Boyle
+  family_name: Boyle
+  given_name: Julie A.
+  affiliation: CRIUGM, Québec, CA
+  group: core
+
+bpinsard:
+  full_name: Basile Pinsard
+  family_name: Pinsard
+  given_name: Basile
+  affiliation: CRIUGM, Québec, CA
+  group: core
+
+MarieStLaurent:
+  full_name: Marie St-Laurent
+  family_name: St-Laurent
+  given_name: Marie
+  affiliation: CRIUGM, Québec, CA
+  group: core
+
+# --- consortium, alphabetical by family_name below (informational; script sorts) ---
+
+Himanshu Aggarwal:
+  full_name: Himanshu Aggarwal
+  family_name: Aggarwal
+  given_name: Himanshu
+  affiliation: null   # not listed in AUTHORS.md
+  group: consortium
+
+Jeremy Bernard:
+  full_name: Jeremy Bernard
+  family_name: Bernard
+  given_name: Jeremy
+  affiliation: null   # not listed in AUTHORS.md
+  group: consortium
+
+arnaudbore:
+  full_name: Arnaud Bore
+  family_name: Bore
+  given_name: Arnaud
+  affiliation: CRIUGM, Québec, CA
+  group: consortium   # AUTHORS.md lists him as Core "Data manager"; overridden per user decision
+
+Valentina Borghesani:
+  full_name: Valentina Borghesani
+  family_name: Borghesani
+  given_name: Valentina
+  affiliation: CRIUGM, IVADO, Psychology, Université de Montréal, Québec, CA
+  group: consortium
+
+bamal:
+  full_name: Amal Boukhdhir
+  family_name: Boukhdhir
+  given_name: Amal
+  affiliation: CRIUGM, DIRO, Université de Montréal, Québec, CA
+  group: consortium
+
+jcohenadad:
+  full_name: Julien Cohen-Adad
+  family_name: Cohen-Adad
+  given_name: Julien
+  affiliation: CRIUGM, Polytechnique Montréal, Québec, CA
+  group: consortium
+
+oliver-contier:
+  full_name: Oliver Contier
+  family_name: Contier
+  given_name: Oliver
+  affiliation: null   # not listed in AUTHORS.md
+  group: consortium
+
+André Cyr:
+  full_name: André Cyr
+  family_name: Cyr
+  given_name: André
+  affiliation: UNF, CRIUGM, Québec, CA
+  group: consortium
+
+cyrand:
+  # GitHub login only; no entry in AUTHORS.md under this handle. contributions
+  # (infra, data, tool) in shinobi/contributors.json are consistent with André Cyr's
+  # "Engineer" role, but the raw union counts them as a distinct identity (33 raw
+  # entries total) — resolve with the team before merging with "André Cyr" above.
+  full_name: cyrand (GitHub handle, identity unresolved)
+  family_name: cyrand
+  given_name: null
+  affiliation: null   # unresolved
+  group: consortium
+
+emilie-dessureault:
+  full_name: Emilie Dessureault
+  family_name: Dessureault
+  given_name: Emilie
+  affiliation: null   # not listed in AUTHORS.md despite appearing in 6/11 datasets
+  group: consortium
+
+emdupre:
+  full_name: Elizabeth DuPre
+  family_name: DuPre
+  given_name: Elizabeth
+  affiliation: McGill University, Québec, CA
+  group: consortium
+
+Marie-France Fourcade:
+  full_name: Marie-France Fourcade
+  family_name: Fourcade
+  given_name: Marie-France
+  affiliation: null   # not listed in AUTHORS.md
+  group: consortium
+
+maelleF:
+  full_name: Maëlle Freteault
+  family_name: Freteault
+  given_name: Maëlle
+  affiliation: IMT Atlantique, France; Psychology, Université de Montréal, Québec, CA
+  group: consortium
+
+Claude Godbout:
+  full_name: Claude Godbout
+  family_name: Godbout
+  given_name: Claude
+  affiliation: null   # not listed in AUTHORS.md
+  group: consortium
+
+hyruuk:
+  full_name: Yann Harel
+  family_name: Harel
+  given_name: Yann
+  affiliation: Psychology, Université de Montréal, Québec, CA
+  group: consortium
+
+martinhebart:
+  full_name: Martin N. Hebart
+  family_name: Hebart
+  given_name: Martin N.
+  affiliation: Max Planck Institute for Human Cognitive and Brain Sciences, Germany
+  group: consortium
+
+Karim Jerbi:
+  full_name: Karim Jerbi
+  family_name: Jerbi
+  given_name: Karim
+  affiliation: CRIUGM, Psychology, Université de Montréal, Québec, CA
+  group: consortium
+
+sangfrois:
+  full_name: François Lespinasse
+  family_name: Lespinasse
+  given_name: François
+  affiliation: Psychology, Université de Montréal, Québec, CA
+  group: consortium
+
+FrancoisPgm:
+  full_name: François Paugam
+  family_name: Paugam
+  given_name: François
+  affiliation: CRIUGM, DIRO, Université de Montréal, Québec, CA
+  group: consortium
+
+me-pic:
+  full_name: Marie-Eve Picard
+  family_name: Picard
+  given_name: Marie-Eve
+  affiliation: null   # not listed in AUTHORS.md
+  group: consortium
+
+Ana Fernanda Ponce:
+  full_name: Ana Fernanda Ponce
+  family_name: Ponce
+  given_name: Ana Fernanda
+  affiliation: null   # not listed in AUTHORS.md
+  group: consortium
+
+motahareh-pourrahimi:
+  full_name: Motahareh Pourrahimi
+  family_name: Pourrahimi
+  given_name: Motahareh
+  affiliation: null   # not listed in AUTHORS.md (display name "Motahareh" only)
+  group: consortium
+
+RainyFields:
+  # GitHub login only; no display name or AUTHORS.md entry anywhere in the docs.
+  full_name: RainyFields (GitHub handle, identity unresolved)
+  family_name: RainyFields
+  given_name: null
+  affiliation: null   # unresolved
+  group: consortium
+
+pravishsainath:
+  full_name: Pravish Sainath
+  family_name: Sainath
+  given_name: Pravish
+  affiliation: DIRO, Université de Montréal, MILA, Québec, CA
+  group: consortium
+
+seelikat:
+  full_name: Katja Seeliger
+  family_name: Seeliger
+  given_name: Katja
+  affiliation: Max Planck Institute for Human Cognitive and Brain Sciences, Germany
+  group: consortium
+
+Bertrand Thirion:
+  full_name: Bertrand Thirion
+  family_name: Thirion
+  given_name: Bertrand
+  affiliation: null   # not listed in AUTHORS.md
+  group: consortium
+
+mtoneva:
+  full_name: Mariya Toneva
+  family_name: Toneva
+  given_name: Mariya
+  affiliation: Carnegie Mellon University, USA
+  group: consortium
+
+lwehbe:
+  full_name: Leila Wehbe
+  family_name: Wehbe
+  given_name: Leila
+  affiliation: Carnegie Mellon University, USA
+  group: consortium
+
+# --- non-person entries: excluded from the author list, surfaced for Funding instead ---
+
+Courtois Foundation:
+  full_name: Courtois Foundation
+  family_name: null
+  given_name: null
+  affiliation: null
+  group: institution
