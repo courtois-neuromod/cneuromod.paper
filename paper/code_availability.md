@@ -13,3 +13,6 @@ The fMRI data quality analysis and figure ({numref}`fig-fmri-quality`) were gene
 The connectome stability analysis and figure ({numref}`fig-connectome-stability`) were
 generated with
 [`courtois-neuromod/cneuromod.all.connectome_stats`](https://github.com/courtois-neuromod/cneuromod.all.connectome_stats).
+
+The data reuse analysis and figure ({numref}`fig-reuse`) were generated with
+[`courtois-neuromod/cneuromod.all.reuse_stats`](https://github.com/courtois-neuromod/cneuromod.all.reuse_stats).
