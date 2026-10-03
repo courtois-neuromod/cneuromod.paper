@@ -30,11 +30,12 @@ source_data/
   dataset_comparison/     # Git submodule: depth-vs-breadth neuroimaging dataset comparison
   qa_figures/             # Git submodule: MRIQC/tSNR data quality analysis
   connectome_stats/       # Git submodule: longitudinal stability / state-dependence of connectomes
+  reuse_stats/            # Git submodule: reuse of the dataset (papers by year and type)
 ```
 
 ## Source Data
 
-`source_data/cneuromod.all` is a non-recursive git submodule tracking branch `issue11_automate_dataset_info`. Initialize it with:
+`source_data/cneuromod.all` is a non-recursive git submodule tracking branch `main`. Initialize it with:
 
 ```bash
 git submodule update --init source_data/cneuromod.all
@@ -111,6 +112,12 @@ Regenerate its outputs with `uv run invoke fetch && uv run invoke run` inside th
 - `output_data/connectome_figure.png` — the connectome stability/state-dependence montage used in Technical Validation.
 
 Regenerate its outputs with `uv run invoke fetch && uv run invoke run` inside that directory (fetching the parcelled timeseries content needs S3 credentials); do not hand-edit its outputs.
+
+`source_data/reuse_stats/` is a git submodule (invoke + uv analysis project) that counts papers using CNeuroMod data, by year and publication type, from the `cneuromod.all` reference list. Its main output is:
+
+- `output_data/figure_montage.png` — the reuse figure shown at the beginning of Usage Notes.
+
+Regenerate its outputs with `uv run invoke fetch && uv run invoke run` inside that directory; do not hand-edit its outputs.
 
 ## Common Commands
 

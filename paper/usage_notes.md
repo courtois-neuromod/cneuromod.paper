@@ -2,6 +2,16 @@
 
 The CNeuroMod dataset has been used in a growing body of research spanning brain encoding, brain decoding, cognitive neuroscience, and AI alignment with neural data. This section provides an overview of key research directions enabled by the dataset and practical guidance for new users.
 
+:::{figure} ../source_data/reuse_stats/output_data/figure_montage.png
+:name: fig-reuse
+:width: 100%
+
+**Reuse of the CNeuroMod dataset.** Number of papers using CNeuroMod data, by year and
+publication type (journal article, conference paper, preprint, thesis, book chapter),
+computed from the curated reference list of the `cneuromod.all` repository. Undated entries
+are not shown.
+:::
+
 ## Overview of Publications
 
 [Summary paragraph: briefly enumerate the main research communities using CNeuroMod data, total number of publications or preprints to date, and the main venues (NeurIPS, ICLR, Imaging Neuroscience, PLOS ONE, etc.).]
