@@ -6,8 +6,8 @@ on:
   workflow_dispatch:
 
 env:
-  # Served at https://<org>.github.io/<repo>/ (a project page, not a user/org root page)
-  BASE_URL: /${{ github.event.repository.name }}
+  # Served at the root of the custom domain https://paper.cneuromod.ca
+  BASE_URL: ""
 
 permissions:
   contents: read
