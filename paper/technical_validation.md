@@ -126,6 +126,22 @@ CNeuroMod structural data quality paper — citation to be supplied].
 
 ## Longitudinal stability and state-dependence of fMRI measures
 
+```{code-cell} python3
+:tags: [remove-cell]
+# Live connectome statistics; see paper/_connectome_stats.py. Never hardcode these numbers.
+sys.path.insert(0, str(next(p for p in (Path("paper"), Path(".")) if (p / "_connectome_stats.py").exists())))
+from _connectome_stats import CONN, BINS, join_names as join_datasets
+
+last_lag = CONN.max_lag
+n_cells_declining, n_cells = CONN.declining_cells()
+weakest = CONN.lowest("median_tsnr")
+domain_gate = {"movies": "gated", "videogames": "gated", "stories": "gated",
+               "taskscapes": "all", "localizers": "all"}
+n_domains_holding = sum(
+    CONN.domain_n_positive(d, g) == int(CONN.n_networks) for d, g in domain_gate.items()
+)
+```
+
 Session-level within-network functional connectomes were computed from the parcellated
 BOLD timeseries of `cneuromod.all`, using the cneuromod2026 parcellation — 1,134 parcels
 combining a Schaefer cortical parcellation {cite:p}`schaefer2018`, grouped into the 7 Yeo
@@ -135,68 +151,111 @@ individually and concatenated within a session, and connectomes were estimated
 independently within each network (Pearson correlation of parcel timeseries, Fisher-z
 transformed). Session-pair similarity is the Pearson correlation between two sessions'
 Fisher-z edge vectors within a network, and bins of session pairs are summarized by their
-median similarity. Connectomes were computed for all 829 available sessions across 10
-datasets; the analyses below use the 559 sessions from 7 datasets (`friends`,
-`harrypotter`, `hcptrt`, `mario`, `movie10`, `petit-prince`, `shinobi`) carrying at least
-30 minutes of usable data, covering all six participants. This 30-minute gate removes
-`floc`, `retinotopy`, and `things` entirely.
+median similarity. Connectomes were computed for all {eval}`CONN.n_sessions()` available
+sessions across {eval}`len(CONN.datasets())` datasets; unless stated otherwise, the
+analyses below use the {eval}`CONN.n_sessions("gated")` sessions from
+{eval}`len(CONN.datasets("gated"))` datasets ({eval}`join_datasets(CONN.datasets("gated"))`)
+carrying at least 30 minutes of usable data, covering all six participants. This
+30-minute gate removes {eval}`join_datasets(CONN.gated_out)` entirely.
 
 Within-subject connectome similarity in `friends` — the most task-homogeneous dataset —
 declines gently and monotonically with the number of seasons separating two sessions, the
 only time axis available since sessions carry no acquisition dates
-({numref}`fig-connectome-stability`, panel A). The decline over a five-season lag ranges
-from 0.019 (cerebellum) to 0.043 (Limbic network) — e.g., 0.956 to 0.935 in the Visual
-network — and every network remains far above the between-subject floor (0.564–0.572).
-Drift over years of scanning is therefore small relative to the gap between individuals.
+({numref}`fig-connectome-stability`, panel A). The decline over a
+{eval}`last_lag`-season lag ranges from {eval}`CONN.season_drop_extreme("min")` to
+{eval}`CONN.season_drop_extreme("max")` — e.g., {eval}`CONN.season("Vis", 0)` to
+{eval}`CONN.season("Vis", last_lag)` in the Visual network — while the between-subject
+floor (median across networks) barely moves, from {eval}`CONN.floor(0)` to
+{eval}`CONN.floor(last_lag)`. The decline is consistent across individuals: averaged over
+networks, within-subject similarity drops by {eval}`CONN.subject_drop_range()`% across the
+available season lags in each of the {eval}`CONN.n_subjects` participants (panel B), and
+it is present in {eval}`n_cells_declining` of {eval}`n_cells` network × participant
+combinations. Drift over years of scanning is therefore small relative to the gap between
+individuals; the design cannot attribute it to a specific cause (e.g., scanner drift
+versus ageing).
 
 Connectome similarity is also sensitive to cognitive context. Across four session-pair
 types, the ordering within-subject/within-dataset > within-subject/between-dataset >
-between-subject/within-dataset > between-subject/between-dataset holds in all 9 networks
-(e.g., Visual 0.95/0.80/0.69/0.63; Default 0.94/0.72/0.56/0.45;
-{numref}`fig-connectome-stability`, panel B). This contrast is not confounded by
-acquisition duration: similarity increases with session duration, so the four bins were
-matched by construction, with median pair minimum duration ranging only 2,669–2,784 s
-(within 4%) across bins. The between-dataset drop in similarity therefore reflects a
-genuine effect of cognitive state rather than a duration artifact or measurement noise.
+between-subject/within-dataset > between-subject/between-dataset holds in
+{eval}`CONN.n_networks_ordered()` of {eval}`CONN.n_networks` networks (e.g., Visual
+{eval}`CONN.bins("Vis")`; Default {eval}`CONN.bins("Default")`;
+{numref}`fig-connectome-stability`, panel D). Similarity increases with session duration,
+and the 30-minute gate only partly balances the bins: the median pair minimum duration is
+{eval}`CONN.duration(BINS[0])` and {eval}`CONN.duration(BINS[2])` s for the two
+within-dataset bins against {eval}`CONN.duration(BINS[1])` and
+{eval}`CONN.duration(BINS[3])` s for the two between-dataset bins (a
+{eval}`CONN.duration_imbalance_percent()`% imbalance), so part of the between-dataset drop
+may reflect duration rather than cognitive state. The within-domain analyses below address
+this directly.
 
-Similarity also varies by network quality. The Limbic network has both the lowest median
-tSNR (18.6) and the lowest within-subject similarity (0.859), and the cerebellum and
-subcortex sit below the cortical networks on both measures
-({numref}`fig-connectome-stability`, panel C). This comparison is descriptive only: the
-per-network tSNR values are available only for the `floc`, `retinotopy`, and `things`
-datasets (182 sessions) — precisely the three datasets removed by the 30-minute gate —
-while similarity is computed over the disjoint set of 559 gated sessions. With nine
-network-level points and no shared sessions between the two axes, this panel establishes
-an ordering, not a quantitative tSNR–similarity relationship.
+Similarity also varies by network quality. The {eval}`CONN.label(weakest)` network has
+both the lowest median tSNR ({eval}`CONN.tsnr(weakest)`) and the lowest within-subject
+similarity ({eval}`CONN.similarity(weakest)`), and the cerebellum
+({eval}`CONN.tsnr("cerebellum")`; {eval}`CONN.similarity("cerebellum")`) and subcortex
+({eval}`CONN.tsnr("subcortex")`; {eval}`CONN.similarity("subcortex")`) sit below most
+cortical networks on both measures ({numref}`fig-connectome-stability`, panel C).
+Per-network tSNR is available for {eval}`CONN.n_tsnr_sessions` sessions from
+{eval}`len(CONN.tsnr_datasets)` datasets, which only partly overlap the gated sessions
+used for similarity; with nine network-level points, this panel establishes an ordering
+rather than a quantitative tSNR–similarity relationship.
 
 As a robustness check on the state-dependence result, restricting the "different task"
-comparison to a swap within a single naturalistic stimulus domain — movies (`friends` and
-`movie10`, 333 sessions), video games (`mario`, `mario3`, `mariostars`, `shinobi`, 138
-sessions), and stories (`harrypotter`, `petit-prince`, 19 sessions) — still yields
-within-subject/within-task similarity exceeding within-subject/between-task similarity in
-all 9 networks for all three domains ({numref}`fig-connectome-stability`, panels D–F),
-with median gaps of 0.022 (movies), 0.047 (video games), and 0.077 (stories). The effect
-is smallest for movies, where "different task" means a different film rather than a
-different kind of activity; the stories domain, resting on only 19 sessions, is
-suggestive rather than conclusive. Stratifying session pairs by head motion or by tSNR
-does not change any of these orderings (not shown).
+comparison to a swap within a single stimulus domain still yields within-subject/within-task
+similarity exceeding within-subject/between-task similarity in all
+{eval}`CONN.n_networks` networks for {eval}`n_domains_holding` of
+{eval}`len(domain_gate)` domains ({numref}`fig-connectome-stability`, panels E–I). The
+gap, averaged across networks, is {eval}`CONN.domain_gap("movies")` for movies
+({eval}`join_datasets(CONN.domain_datasets("movies"))`, with each season or film treated as
+a task; {eval}`CONN.domain_sessions("movies")` sessions),
+{eval}`CONN.domain_gap("videogames")` for video games
+({eval}`join_datasets(CONN.domain_datasets("videogames"))`;
+{eval}`CONN.domain_sessions("videogames")` sessions),
+{eval}`CONN.domain_gap("taskscapes", "all")` for taskscapes — tasks that systematically
+explore a stimulus space ({eval}`join_datasets(CONN.domain_datasets("taskscapes", "all"))`;
+{eval}`CONN.domain_sessions("taskscapes", "all")` sessions),
+{eval}`CONN.domain_gap("stories")` for stories
+({eval}`join_datasets(CONN.domain_datasets("stories"))`;
+{eval}`CONN.domain_sessions("stories")` sessions), and
+{eval}`CONN.domain_gap("localizers", "all")` for functional localizers
+({eval}`join_datasets(CONN.domain_datasets("localizers", "all"))`;
+{eval}`CONN.domain_sessions("localizers", "all")` sessions). In the movie domain the
+within- and between-title pairs are matched in duration (median pair minimum duration
+{eval}`CONN.domain_duration("movies", "within")` vs.
+{eval}`CONN.domain_duration("movies", "between")` s), so the persistence of the gap there
+cannot be a duration artifact. The gap is smallest for movies, where "different task"
+means a different film rather than a different kind of activity, and grows as the tasks
+being swapped become more dissimilar — although this gradient also mixes task
+dissimilarity with how finely tasks are defined (title for movies, dataset elsewhere).
+Three caveats apply: the stories domain rests on only
+{eval}`CONN.domain_sessions("stories")` sessions and is suggestive rather than conclusive;
+the taskscape and localizer domains each reduce to a single dataset under the 30-minute
+gate and are therefore shown without it; and the localizer between-task pairs are much
+shorter than the within-task pairs (median pair minimum duration
+{eval}`CONN.domain_duration("localizers", "between", "all")` vs.
+{eval}`CONN.domain_duration("localizers", "within", "all")` s), so part of that gap
+reflects duration. Stratifying session pairs by head motion or by tSNR does not change any
+of these orderings (not shown).
 
 :::{figure} ../source_data/connectome_stats/output_data/connectome_figure.png
 :name: fig-connectome-stability
 :width: 100%
 
 **Functional connectomes from six deeply sampled individuals are stable across five years,
-sensitive to cognitive context, and informative in every network.** **(G)** Network key:
-sagittal glass brains showing the anatomical extent of each of the 9 networks; colors are
-used consistently throughout the figure. **(A)** Within-subject connectome similarity in
-`friends` as a function of season lag, remaining well above the between-subject floor
-(grey band). **(B)** Median similarity for within-subject/within-dataset,
+sensitive to cognitive context, and informative in every network.** **(J)** Network key:
+sagittal glass brains showing the anatomical extent of each of the 9 networks, stacked in
+decreasing order of stability over seasons (panel A); colors are used consistently
+throughout the figure, and panels D–I share this order. **(A)** Within-subject connectome
+similarity in `friends` as a function of season lag, one line per network, against the
+between-subject curve (grey). **(B)** The same within-subject curves averaged over
+networks, one line per participant. **(C)** Within-subject similarity against median
+per-network tSNR; open markers show individual participants, filled dots the network
+medians. **(D)** Median similarity for within-subject/within-dataset,
 within-subject/between-dataset, between-subject/within-dataset, and
-between-subject/between-dataset session pairs, per network. **(C)** Within-subject
-similarity against median per-network tSNR (disjoint session sets; see main text).
-**(D–F)** The within- vs. between-task contrast of panel B repeated within a single
-stimulus domain — **(D)** movies, **(E)** video games, **(F)** stories. Axes in (A) and in
-(B, D–F) are truncated, with the break marked on the frame.
+between-subject/between-dataset session pairs, per network. **(E–I)** The within- vs.
+between-task contrast of panel D repeated within a single stimulus domain — **(E)** movies,
+**(F)** video games, **(G)** stories, **(H)** taskscapes and **(I)** functional
+localizers; (H) and (I) include sessions below the 30-minute gate. Axes in (A), (B) and
+(D–I) are truncated, with the break marked on the frame.
 :::
 
 ## Preprocessing Pipeline Validation
