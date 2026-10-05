@@ -32,7 +32,11 @@ A parallel tradition has pursued depth: recording from a small number of individ
 CNeuroMod stands out as the largest per-subject resource in naturalistic video and videogame categories by a wide margin. In the static image domain — dominated by the Natural Scenes Dataset (NSD), which exposes subjects to ~10,000 unique images — CNeuroMod offers ~4,300 unique image presentations per subject, placing it in the same tier while adding cross-domain coverage that NSD does not provide. Across physiology and brain recording modalities, CNeuroMod is consistently among the most richly instrumented resources.
 
 ```{code-cell} python3
-:tags: [hide-input]
+:tags: [remove-cell]
+# Regenerates figures/fig1_dataset_landscape.png (shown by the figure directive below)
+# when the book is built with --execute; the committed PNG is used otherwise.
+import matplotlib
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 import matplotlib.image as mpimg
@@ -91,7 +95,9 @@ ax_c.text(0.0,  1.03, 'c',               transform=ax_c.transAxes,
 ax_c.text(0.5,  1.03, 'cognitive depth', transform=ax_c.transAxes,
           fontsize=11, fontweight='bold', va='bottom', ha='center', clip_on=False)
 
-plt.show()
+out_dir = next(p for p in (Path("paper/figures"), Path("figures")) if p.exists())
+fig.savefig(out_dir / "fig1_dataset_landscape.png", dpi=150, bbox_inches="tight")
+plt.close(fig)
 ```
 
 :::{figure} figures/fig1_dataset_landscape.png
