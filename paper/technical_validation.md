@@ -257,7 +257,3 @@ between-task contrast of panel D repeated within a single stimulus domain — **
 localizers; (H) and (I) include sessions below the 30-minute gate. Axes in (A), (B) and
 (D–I) are truncated, with the break marked on the frame.
 :::
-
-## Preprocessing Pipeline Validation
-
-[Describe any validation steps applied to preprocessed derivatives.]
