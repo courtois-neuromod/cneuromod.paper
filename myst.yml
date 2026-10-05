@@ -28,3 +28,5 @@ project:
 site:
   template: book-theme
   title: The Courtois NeuroMod (CNeuroMod) Dataset
+  options:
+    favicon: images/favicon.png
