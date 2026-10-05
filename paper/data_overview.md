@@ -53,40 +53,37 @@ single gap. Beyond per-subject availability, one dataset withholds content by de
 held out as an in-distribution test set for encoding-model benchmarks, including the
 Algonauts Project 2025 Challenge.
 
-## Dataset Coverage
+## Cognitive Coverage
 
-### anat
+The datasets are grouped into the six cognitive categories introduced in
+{numref}`tab-cognitive-categories`, from naturalistic movie viewing and story comprehension
+to active videogame play, densely sampled experimental paradigms and standard functional
+localizers ({numref}`tab-cognitive-coverage`).
 
-The `anat` dataset comprises longitudinal anatomical and upper-spinal-cord MRI collected
-at roughly four sessions per year to monitor structural stability over the course of the
-study. Cortical flat maps and quantitative measures such as gray-matter morphometry,
-tractography and myelination can be derived from the FreeSurfer derivatives it provides.
+:::{table} **CNeuroMod datasets grouped by cognitive category.** Category definitions are given in {numref}`tab-cognitive-categories`.
+:name: tab-cognitive-coverage
 
-:::{admonition} How to cite
-:class: tip
-
-{cite:p}`Boudreau2025-ji`
+| Category | Datasets |
+|---|---|
+| 🍿 Movies | `movie10`, `friends`, `ood` |
+| 💬 Stories | `harrypotter`, `petit-prince`, `narratives` |
+| 👾 Videogames | `shinobi`, `mario`, `mariostars`, `mario3`, `mario_eeg` |
+| 🔬 Taskscapes | `triplets`, `things`, `emotion-videos`, `multfs`, `mutemusic` |
+| 🧭 Functional localizers | `langlocalizer`, `floc`, `retinotopy`, `hcptrt` |
+| 🧰 Others | `hearing`, `anat`, `gamepad` |
 :::
 
-### emotion-videos
+### 🍿 Movies
 
-*(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
-been documented with a README.)*
+#### movie10
 
-### floc
+Six participants watched four feature films — *The Bourne Supremacy*, *The Wolf of Wall
+Street*, *Hidden Figures* (shown twice) and the BBC series *Life* (shown twice) — cut into
+roughly ten-minute segments, for about 10 hours of functional data per participant.
+[MISSING REF: Gifford et al. (2025), "The Algonauts Project 2025 Challenge" — full
+bibliographic details needed]
 
-Four participants (`sub-01`, `sub-02`, `sub-03`, `sub-05`) completed six sessions of a
-functional localizer task designed to identify brain regions that respond preferentially
-to specific stimulus categories, adapting the Stanford VPN lab's fLoc task
-{cite:p}`St-Laurent2026-zc`.
-
-:::{admonition} How to cite
-:class: tip
-
-{cite:p}`St-Laurent2026-zc`
-:::
-
-### friends
+#### friends
 
 This dataset contains fMRI data acquired while six CNeuroMod participants watched
 episodes of the American sitcom *Friends* (seasons 1–7) in English, with brain responses
@@ -95,16 +92,14 @@ as a benchmark corpus for multimodal movie-encoding challenges. [MISSING REF: Gi
 al. (2025), "The Algonauts Project 2025 Challenge: How the Human Brain Makes Sense of
 Multimodal Movies" — full bibliographic details (venue/DOI) needed]
 
-### gamepad
+#### ood
 
-This dataset validates the CNeuroMod videogame controller, an open-source,
-fiber-optic, MRI-compatible game controller designed by the project's engineering team
-[MISSING REF: Harel, Y., Cyr, A., Boyle, J., Pinsard, B., Bernard, J., et al. (2023).
-"Open design of a reproducible videogame controller for MRI and MEG." PLOS ONE, 18. doi:
-10.1371/journal.pone.0290158], comparing it against a commercial SNES-like controller
-across alternating mock-scanner and MRI sessions.
+*(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
+been documented with a README.)*
 
-### harrypotter
+### 💬 Stories
+
+#### harrypotter
 
 Five participants read Chapter 9 of *Harry Potter and the Sorcerer's Stone*, presented
 word by word at 2 Hz across seven runs in a single session, using the same stimuli as the
@@ -116,31 +111,29 @@ separate fMRI dataset reported by Wehbe et al. (2014).
 {cite:p}`Toneva2022-bf`
 :::
 
-### hcptrt
-
-Participants repeated the functional localizers developed by the Human Connectome
-Project 15 times each, accumulating approximately 10 hours of functional data per
-subject across seven tasks adapted from the HCP task-fMRI protocol
-{cite:p}`Rastegarnia2023-qz`. Sessions typically combined either two repetitions of the
-HCP localizers, or one resting-state run and one HCP localizer run.
-
-:::{admonition} How to cite
-:class: tip
-
-{cite:p}`Rastegarnia2023-qz`
-:::
-
-### hearing
+#### petit-prince
 
 *(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
 been documented with a README.)*
 
-### langlocalizer
+#### narratives
 
 *(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
 been documented with a README.)*
 
-### mario
+### 👾 Videogames
+
+#### shinobi
+
+Four CNeuroMod participants played *Shinobi III: Return of the Ninja Master* (Sega, 1993)
+in-scanner across three levels selected for the relative homogeneity of their core
+mechanics [MISSING REF: Harel, Y., Pinsard, B., Boyle, J., Borghesani, V., Le Clei, M., et
+al. (2026). "Gamer in the scanner: Event-related analysis of fMRI activity during retro
+videogame play guided by automated annotations of game content." doi:
+10.1162/IMAG.a.1256]. Participants also completed behavioural-only at-home training
+sessions before scanning, documented separately as the `shinobi/training` asset.
+
+#### mario
 
 Five CNeuroMod participants played *Super Mario Bros.* (Nintendo, 1985) in-scanner across
 22 of the game's original levels, in a structured discovery phase followed by a longer
@@ -154,55 +147,78 @@ players who had already completed the game.
 {cite:p}`Paugam2025-oq`
 :::
 
-### mario3
+#### mariostars
 
 *(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
 been documented with a README.)*
 
-### mario_eeg
+#### mario3
 
 *(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
 been documented with a README.)*
 
-### mariostars
+#### mario_eeg
 
 *(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
 been documented with a README.)*
 
-### movie10
+### 🔬 Taskscapes
 
-Six participants watched four feature films — *The Bourne Supremacy*, *The Wolf of Wall
-Street*, *Hidden Figures* (shown twice) and the BBC series *Life* (shown twice) — cut into
-roughly ten-minute segments, for about 10 hours of functional data per participant.
-[MISSING REF: Gifford et al. (2025), "The Algonauts Project 2025 Challenge" — full
-bibliographic details needed]
-
-### multfs
+#### triplets
 
 *(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
 been documented with a README.)*
 
-### mutemusic
+#### things
+
+Four participants completed 33–36 fMRI sessions of a continuous-recognition task with
+images drawn from 720 categories of the THINGS dataset {cite:p}`St-Laurent2026-zc`. Each
+run presented 60 trials with a 2.98 s image followed by a 1.49 s inter-stimulus interval,
+while participants maintained central fixation; each image was seen three times across
+sessions.
+
+:::{admonition} How to cite
+:class: tip
+
+{cite:p}`St-Laurent2026-zc`
+:::
+
+#### emotion-videos
 
 *(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
 been documented with a README.)*
 
-### narratives
+#### multfs
 
 *(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
 been documented with a README.)*
 
-### ood
+#### mutemusic
 
 *(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
 been documented with a README.)*
 
-### petit-prince
+### 🧭 Functional localizers
+
+#### langlocalizer
 
 *(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
 been documented with a README.)*
 
-### retinotopy
+#### floc
+
+Four participants (`sub-01`, `sub-02`, `sub-03`, `sub-05`) completed six sessions of a
+functional localizer task designed to identify brain regions that respond preferentially
+to specific stimulus categories, adapting the Stanford VPN lab's fLoc task
+{cite:p}`St-Laurent2026-zc`.
+
+:::{admonition} How to cite
+:class: tip
+
+{cite:p}`St-Laurent2026-zc`
+:::
+
+#### retinotopy
 
 Four participants completed multiple sessions of a retinotopy task adapted from Kay et
 al. (2013), designed to derive population receptive field properties at the voxel level
@@ -217,34 +233,48 @@ responding to a colour-change detection task.
 {cite:p}`St-Laurent2026-zc`
 :::
 
-### shinobi
+#### hcptrt
 
-Four CNeuroMod participants played *Shinobi III: Return of the Ninja Master* (Sega, 1993)
-in-scanner across three levels selected for the relative homogeneity of their core
-mechanics [MISSING REF: Harel, Y., Pinsard, B., Boyle, J., Borghesani, V., Le Clei, M., et
-al. (2026). "Gamer in the scanner: Event-related analysis of fMRI activity during retro
-videogame play guided by automated annotations of game content." doi:
-10.1162/IMAG.a.1256]. Participants also completed behavioural-only at-home training
-sessions before scanning, documented separately as the `shinobi/training` asset.
-
-### things
-
-Four participants completed 33–36 fMRI sessions of a continuous-recognition task with
-images drawn from 720 categories of the THINGS dataset {cite:p}`St-Laurent2026-zc`. Each
-run presented 60 trials with a 2.98 s image followed by a 1.49 s inter-stimulus interval,
-while participants maintained central fixation; each image was seen three times across
-sessions.
+Participants repeated the functional localizers developed by the Human Connectome
+Project 15 times each, accumulating approximately 10 hours of functional data per
+subject across seven tasks adapted from the HCP task-fMRI protocol
+{cite:p}`Rastegarnia2023-qz`. Sessions typically combined either two repetitions of the
+HCP localizers, or one resting-state run and one HCP localizer run.
 
 :::{admonition} How to cite
 :class: tip
 
-{cite:p}`St-Laurent2026-zc`
+{cite:p}`Rastegarnia2023-qz`
 :::
 
-### triplets
+### 🧰 Others
+
+#### hearing
 
 *(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
 been documented with a README.)*
+
+#### anat
+
+The `anat` dataset comprises longitudinal anatomical and upper-spinal-cord MRI collected
+at roughly four sessions per year to monitor structural stability over the course of the
+study. Cortical flat maps and quantitative measures such as gray-matter morphometry,
+tractography and myelination can be derived from the FreeSurfer derivatives it provides.
+
+:::{admonition} How to cite
+:class: tip
+
+{cite:p}`Boudreau2025-ji`
+:::
+
+#### gamepad
+
+This dataset validates the CNeuroMod videogame controller, an open-source,
+fiber-optic, MRI-compatible game controller designed by the project's engineering team
+[MISSING REF: Harel, Y., Cyr, A., Boyle, J., Pinsard, B., Bernard, J., et al. (2023).
+"Open design of a reproducible videogame controller for MRI and MEG." PLOS ONE, 18. doi:
+10.1371/journal.pone.0290158], comparing it against a commercial SNES-like controller
+across alternating mock-scanner and MRI sessions.
 
 ## Asset Coverage
 

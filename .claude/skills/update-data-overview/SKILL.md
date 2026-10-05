@@ -1,6 +1,6 @@
 ---
 name: update-data-overview
-description: This skill should be used when a co-author wants to initialize or update paper/data_overview.md by cross-referencing the canonical dataset and asset documentation in the cneuromod.all submodule. It runs a script that reads every dataset_info.yaml, README and CITATION.cff to regenerate the summary statistics, the per-dataset coverage subsections (condensed overview, reference) and the asset coverage table, then condenses the result into the paper's academic style. Use it when someone mentions "update data overview", "summary statistics", "dataset coverage", "asset coverage", or "hours per subject".
+description: This skill should be used when a co-author wants to initialize or update paper/data_overview.md by cross-referencing the canonical dataset and asset documentation in the cneuromod.all submodule. It runs a script that reads every dataset_info.yaml, README and CITATION.cff to regenerate the summary statistics, the cognitive coverage section (category table, then per-dataset subsections with condensed overview and reference) and the asset coverage table, then condenses the result into the paper's academic style. Use it when someone mentions "update data overview", "summary statistics", "dataset coverage", "cognitive coverage", "asset coverage", or "hours per subject".
 ---
 
 # Update Data Overview
@@ -15,7 +15,7 @@ how much data, from which paradigms, in which processed forms.
 The section has three parts, in this order:
 
 1. **Summary Statistics** — the CNeuroMod bubble-chart figure plus aggregate totals and coverage gaps.
-2. **Dataset Coverage** — one subsection per dataset: condensed overview, reference.
+2. **Cognitive Coverage** — a table grouping datasets by cognitive domain, then one subsection per dataset, grouped by category: condensed overview, reference.
 3. **Asset Coverage** — the asset/datasets recap table plus a text description of each asset.
 
 ## Workflow
@@ -111,9 +111,20 @@ Alongside the figure, write:
   withheld as a held-out test set). `STATS.subjects_with_gaps()` and `STATS.datasets_for(subject)` give
   the current picture. Summarize the pattern in prose; do not enumerate every entry.
 
-### 4. Dataset Coverage
+### 4. Cognitive Coverage
 
-One `###` subsection per dataset, in the order the scaffold emits (alphabetical), each containing:
+The section opens with a two-column table (`tab-cognitive-coverage`, Category | Datasets) grouping
+datasets into cognitive categories: 🍿 Movies, 💬 Stories, 👾 Videogames, 🔬 Taskscapes,
+🧭 Functional localizers and 🧰 Others. The category definitions are not repeated here: they live in
+the intro table `tab-cognitive-categories`, which the caption cross-references. The grouping, emoji
+and descriptions are editorial and live in the `CATEGORIES` dict at the top of
+`scripts/build_overview.py`; if you change a name, emoji or description there, update the intro
+table in `paper/intro.md` to match. When a new
+dataset appears, the scaffold emits it under `### Uncategorized` with a warning comment: add it to
+`CATEGORIES` (asking the user which category) and re-run, rather than placing it by hand.
+
+Each category is a `###` heading; under it, one `####` subsection per dataset, in the order the
+scaffold emits, each containing:
 
 - **A condensed overview.** The scaffold carries the full `## Overview` section of the dataset's
   `README.md`. Cut it to two or three sentences: what was acquired, from whom, and what makes the
@@ -162,7 +173,7 @@ Physprep, analyzePRF, BIDS) against them. Only cite keys that exist; never inven
 - Concise, factual, past tense for completed acquisitions
 - Use MyST citation syntax: `` {cite:p}`key` ``
 - Flag missing references as `[MISSING REF: description]`
-- Keep the three top-level headers (`## Summary Statistics`, `## Dataset Coverage`, `## Asset Coverage`)
+- Keep the three top-level headers (`## Summary Statistics`, `## Cognitive Coverage`, `## Asset Coverage`)
 - Avoid duplicating `paper/data_record.md` (BIDS file organisation) or `paper/data_acquisition.md`
   (scanner and sequence parameters); this section is about scope, totals and available assets
 

@@ -30,6 +30,38 @@ from _stats import STATS  # noqa: E402  (path set above)
 
 REPO_DEFAULT = Path("source_data/cneuromod.all")
 
+# Editorial grouping of datasets by cognitive category, in the order they appear in the paper.
+# A new dataset must be added here; until then it is emitted under "Uncategorized".
+# The intro table `tab-cognitive-categories` (paper/intro.md) mirrors these names, emoji and
+# descriptions by hand: keep them in sync. Meant to move upstream to dataset_comparison once that
+# pipeline organizes its cognitive dimensions around the same categories.
+CATEGORIES = {
+    "🍿 Movies": (
+        "Naturalistic viewing of feature films and TV series",
+        ["movie10", "friends", "ood"],
+    ),
+    "💬 Stories": (
+        "Naturalistic narratives, listened to as audiobooks or read word by word",
+        ["harrypotter", "petit-prince", "narratives"],
+    ),
+    "👾 Videogames": (
+        "Active play of retro videogames with a custom MRI-compatible controller",
+        ["shinobi", "mario", "mariostars", "mario3", "mario_eeg"],
+    ),
+    "🔬 Taskscapes": (
+        "Controlled experimental paradigms with many trials spread over many sessions",
+        ["triplets", "things", "emotion-videos", "multfs", "mutemusic"],
+    ),
+    "🧭 Functional localizers": (
+        "Standard tasks that map functional regions in each participant",
+        ["langlocalizer", "floc", "retinotopy", "hcptrt"],
+    ),
+    "🧰 Others": (
+        "Anatomical, auditory and hardware validation data",
+        ["hearing", "anat", "gamepad"],
+    ),
+}
+
 
 def load_renderers(repo):
     """Import the submodule's own renderers (_render_citation)."""
@@ -151,13 +183,36 @@ def main():
     for subject, n in STATS.subjects_with_gaps():
         out.append(f"<!-- {subject}: missing or partial in {n} dataset(s) -->")
 
-    out += ["", "## Dataset Coverage", ""]
-    for ds in datasets(repo):
-        emoji = R["emoji"].get(ds.name, "📦")
-        out += [f"### {emoji} {ds.name}", "", overview_text(ds / "README.md"), ""]
-        cff = ds / "CITATION.cff"
-        if cff.exists():
-            out += [R["citation"](cff).strip(), ""]
+    by_name = {ds.name: ds for ds in datasets(repo)}
+    groups = {c: [by_name[n] for n in names if n in by_name] for c, (_, names) in CATEGORIES.items()}
+    categorized = {n for _, names in CATEGORIES.values() for n in names}
+    uncategorized = [ds for n, ds in by_name.items() if n not in categorized]
+
+    out += [
+        "",
+        "## Cognitive Coverage",
+        "",
+        ":::{table} **CNeuroMod datasets grouped by cognitive category.** Category definitions are given in {numref}`tab-cognitive-categories`.",
+        ":name: tab-cognitive-coverage",
+        "",
+        "| Category | Datasets |",
+        "|---|---|",
+    ]
+    for category in CATEGORIES:
+        names = ", ".join(f"`{ds.name}`" for ds in groups[category])
+        out.append(f"| {category} | {names} |")
+    out += [":::", ""]
+    if uncategorized:
+        groups["Uncategorized"] = uncategorized
+        out.append("<!-- WARNING: datasets missing from CATEGORIES in build_overview.py -->")
+    for category, members in groups.items():
+        out += [f"### {category}", ""]
+        for ds in members:
+            emoji = R["emoji"].get(ds.name, "📦")
+            out += [f"#### {emoji} {ds.name}", "", overview_text(ds / "README.md"), ""]
+            cff = ds / "CITATION.cff"
+            if cff.exists():
+                out += [R["citation"](cff).strip(), ""]
 
     global_assets, local_assets, per_dataset = components(repo, R)
     out += ["", "## Asset Coverage", "", "| Asset | Datasets |", "|---|---|"]

@@ -52,6 +52,14 @@ Read `source_data/dataset_comparison/CLAUDE.md` for background on how the figure
 
 If Figure 1 is already present but the path or caption needs updating, propose a correction. If it is absent, propose its insertion at the appropriate place in the intro (typically after the paragraph motivating individual depth).
 
+### 3b. Check the cognitive categories table
+
+The intro carries `tab-cognitive-categories` (Category | Description, each category prefixed with
+its emoji), which frames the whole dataset. It mirrors the `CATEGORIES` dict in
+`.claude/skills/update-data-overview/scripts/build_overview.py`: compare the two and propose a fix
+if names, emoji, order or descriptions have drifted. Dataset names are not listed in the intro;
+they belong to `tab-cognitive-coverage` in `paper/data_overview.md`.
+
 ### 4. Read the available references
 
 Scan both bibliography files:

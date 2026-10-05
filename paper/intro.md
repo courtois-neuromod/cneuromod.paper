@@ -27,6 +27,7 @@ Current deep neuroimaging resources have made major strides in individual covera
 
 Several large neuroimaging initiatives have been designed for breadth — collecting data from thousands of subjects to enable population neuroscience and to train brain foundation models. The Human Connectome Project (HCP), UK Biobank, and OmniMouse exemplify this approach, offering wide coverage at the cost of shallow per-subject sampling.
 
+<!-- TODO: realign the categories below (and the Figure 1c caption) with tab-cognitive-categories once dataset_comparison is reorganized around them. -->
 A parallel tradition has pursued depth: recording from a small number of individuals for many hours under rich, naturalistic conditions. {numref}`fig-dataset-landscape` summarizes per-subject data volume across the most prominent resources in this space, spanning five cognitive categories — natural static image viewing, naturalistic video/audio/speech/reading, videogame play, controlled paradigms, and resting state — as well as multiple recording modalities (fMRI, EEG, MEG, iEEG) and physiological signals.
 
 CNeuroMod stands out as the largest per-subject resource in naturalistic video and videogame categories by a wide margin. In the static image domain — dominated by the Natural Scenes Dataset (NSD), which exposes subjects to ~10,000 unique images — CNeuroMod offers ~4,300 unique image presentations per subject, placing it in the same tier while adding cross-domain coverage that NSD does not provide. Across physiology and brain recording modalities, CNeuroMod is consistently among the most richly instrumented resources.
@@ -107,6 +108,20 @@ plt.close(fig)
 **The dense NeuroAI dataset landscape.** The ten datasets with the most fMRI hours per subject are colored by rank, from purple to orange (deepest); this color code is shared across panels. **(a)** Depth vs. breadth scatter plot: each dot is a neuroimaging dataset positioned by fMRI hours per subject (x-axis) and number of subjects (y-axis), both on log scales. Diagonal lines mark iso-total-hour contours (100, 1,000 and 10,000 h). CNeuroMod has the highest per-subject recording time of any dataset in the comparison. **(b)** Per-subject data volume of the ten deepest datasets for fMRI and physiological signals (eye tracking, EDA, PPG, respiration, ECG); bubble area scales logarithmically with data volume, and a black outline marks the largest dataset in each row. **(c)** Cognitive depth radar charts for the same ten datasets, showing per-subject coverage of unique images (×100), video, audio, speech and text stimuli, resting state, controlled tasks and videogame play (hours), and number of task contrasts, on a logarithmic radial scale (key at left); a black outline marks the largest dataset on each axis. [MISSING REF: citations for all comparison datasets]
 :::
 
-The Courtois NeuroMod (CNeuroMod) project was designed to fill this gap. Over five years, six individuals were scanned for approximately 200 hours each {cite:p}`BoyleUnknown-cr`, across a rich collection of {eval}`STATS.n_datasets` datasets spanning vision, language, memory, emotion, audition, and videogame play — the latter enabled by a custom fiber-optic controller developed specifically for the project. The dataset was assembled by a highly interdisciplinary team including specialists across all of these cognitive domains, and represents the largest and most cognitively diverse individual neuroimaging resource to date {cite:p}`BoyleUnknown-cr`.
+The Courtois NeuroMod (CNeuroMod) project was designed to fill this gap. Over five years, six individuals were scanned for approximately 200 hours each {cite:p}`BoyleUnknown-cr`, across a rich collection of {eval}`STATS.n_datasets` datasets organized into six cognitive categories ({numref}`tab-cognitive-categories`): naturalistic movies and stories, videogame play — enabled by a custom fiber-optic controller developed specifically for the project — densely sampled experimental paradigms, standard functional localizers, and complementary anatomical, auditory and hardware validation data. The dataset was assembled by a highly interdisciplinary team including specialists across all of these cognitive domains, and represents the largest and most cognitively diverse individual neuroimaging resource to date {cite:p}`BoyleUnknown-cr`.
+
+<!-- Mirrors CATEGORIES in .claude/skills/update-data-overview/scripts/build_overview.py; keep in sync. -->
+:::{table} **Cognitive categories of the CNeuroMod datasets.** The datasets in each category are listed in {numref}`tab-cognitive-coverage`.
+:name: tab-cognitive-categories
+
+| Category | Description |
+|---|---|
+| 🍿 Movies | Naturalistic viewing of feature films and TV series |
+| 💬 Stories | Naturalistic narratives, listened to as audiobooks or read word by word |
+| 👾 Videogames | Active play of retro videogames with a custom MRI-compatible controller |
+| 🔬 Taskscapes | Controlled experimental paradigms with many trials spread over many sessions |
+| 🧭 Functional localizers | Standard tasks that map functional regions in each participant |
+| 🧰 Others | Anatomical, auditory and hardware validation data |
+:::
 
 This paper describes the full CNeuroMod dataset. We present the design and rationale of the {eval}`STATS.n_datasets` datasets, provide evidence of high data quality across participants and modalities, and point to dedicated companion publications examining quality within each specific facet of the collection. We close with an overview of the many uses this dataset enables, from brain encoding and decoding to brain-augmented learning, multidomain cognitive modeling, and beyond.
