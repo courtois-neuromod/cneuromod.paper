@@ -10,6 +10,10 @@ generated with
 The fMRI data quality analysis and figure ({numref}`fig-fmri-quality`) were generated with
 [`courtois-neuromod/cneuromod.all.qa_figures`](https://github.com/courtois-neuromod/cneuromod.all.qa_figures).
 
+The grey matter stability analysis and figure ({numref}`fig-anat-stability`) were
+generated with
+[`courtois-neuromod/anat.stability_grey_matter`](https://github.com/courtois-neuromod/anat.stability_grey_matter).
+
 The connectome stability analysis and figure ({numref}`fig-connectome-stability`) were
 generated with
 [`courtois-neuromod/cneuromod.all.connectome_stats`](https://github.com/courtois-neuromod/cneuromod.all.connectome_stats).

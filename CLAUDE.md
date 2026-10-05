@@ -30,6 +30,7 @@ source_data/
   dataset_comparison/     # Git submodule: depth-vs-breadth neuroimaging dataset comparison
   qa_figures/             # Git submodule: MRIQC/tSNR data quality analysis
   connectome_stats/       # Git submodule: longitudinal stability / state-dependence of connectomes
+  anat_stability/         # Git submodule: longitudinal stability of grey matter volume
   reuse_stats/            # Git submodule: reuse of the dataset (papers by year and type)
 ```
 
@@ -112,6 +113,12 @@ Regenerate its outputs with `uv run invoke fetch && uv run invoke run` inside th
 - `output_data/connectome_figure.png` — the connectome stability/state-dependence montage used in Technical Validation.
 
 Regenerate its outputs with `uv run invoke fetch && uv run invoke run` inside that directory (fetching the parcelled timeseries content needs S3 credentials); do not hand-edit its outputs.
+
+`source_data/anat_stability/` is a git submodule (invoke + uv analysis project, from `courtois-neuromod/anat.stability_grey_matter`) that measures how stable grey matter volume is across each participant's longitudinal FreeSurfer sessions, per region and network. `paper/_anat_stats.py` reads its tracked tables (`stability_per_region.tsv`, `volume_trajectories.tsv`, `trajectory_slopes.tsv`) for the live numbers in "Stability of brain structure". Its main output is:
+
+- `output_data/fig_anat_stability.png` — the grey matter stability montage used in Technical Validation (git-ignored upstream; produced by the pipeline run).
+
+Regenerate its outputs with `uv run invoke fetch && uv run invoke run` inside that directory (`invoke fetch --cneuromod-source /path` links an existing `cneuromod.all` checkout; sub-04's native-space label volumes need credentials); do not hand-edit its outputs.
 
 `source_data/reuse_stats/` is a git submodule (invoke + uv analysis project) that counts papers using CNeuroMod data, by year and publication type, from the `cneuromod.all` reference list. Its main output is:
 

@@ -118,13 +118,90 @@ across participants, tasks, and brain regions. The main limitation of this analy
 restriction to datasets and participants with released MRIQC and tSNR derivatives, and
 it will be extended as further derivatives become publicly available.
 
-## sMRI data quality
+## Stability of brain structure
 
-Structural image quality was assessed separately across the anatomical acquisitions of the
-same six participants and is reported in a companion publication [MISSING REF: companion
-CNeuroMod structural data quality paper — citation to be supplied].
+```{code-cell} python3
+:tags: [remove-cell]
+# Live grey-matter stability statistics; see paper/_anat_stats.py. Never hardcode these numbers.
+sys.path.insert(0, str(next(p for p in (Path("paper"), Path(".")) if (p / "_anat_stats.py").exists())))
+from _anat_stats import ANAT
 
-## Longitudinal stability and state-dependence of fMRI measures
+exception_subject = ANAT.non_declining["subject"].iloc[0]
+```
+
+Grey-matter volume was tracked across the repeated anatomical sessions of each participant
+to establish how stable brain structure is over the course of the project. Volumes were
+taken from the longitudinal FreeSurfer stream {cite:p}`reuter2012`, which processes every
+session against an unbiased within-subject template, for the {eval}`ANAT.n_subjects`
+participants ({eval}`ANAT.sessions_range` sessions each, {eval}`ANAT.n_sessions` in total):
+the 68 Desikan cortical regions {cite:p}`desikan2006` (surface-based grey-matter volume), 14
+subcortical structures and the 2 cerebellar cortices {cite:p}`fischl2002`
+(partial-volume-corrected volumes), {eval}`ANAT.n_regions` regions in all. Each cortical
+region was labelled by the Yeo 7-network {cite:p}`yeo2011` covering most of its voxels in
+the participant's native space, using the Schaefer 1000-parcel atlas
+{cite:p}`schaefer2018`; this label only groups regions for display and summary, and the
+volume is always that of the whole region. Each volume was expressed as a percent
+deviation from that participant's own mean for the region. Acquisition dates are not part
+of this analysis, so sessions are ordered by acquisition but no time interval between them
+is assumed. A complementary assessment of the longitudinal reproducibility of quantitative
+MRI biomarkers in the same participants is reported in {cite:t}`Boudreau2025-ji`.
+
+Within-subject variation in grey-matter volume is an order of magnitude smaller than
+variation between participants ({numref}`fig-anat-stability`, panel D). The coefficient of
+variation (CV) of a region across a participant's sessions, averaged over participants, is
+smaller than the CV of participants' mean volumes in all {eval}`ANAT.n_regions_intra_below_inter`
+of {eval}`ANAT.n_regions` regions, with medians over regions of {eval}`ANAT.cv("intra")`%
+within subjects and {eval}`ANAT.cv("inter")`% between subjects. Network medians range from
+{eval}`ANAT.network_cv_extreme("intra", "min")` to
+{eval}`ANAT.network_cv_extreme("intra", "max")` within subjects, against
+{eval}`ANAT.network_cv_extreme("inter", "min")` to
+{eval}`ANAT.network_cv_extreme("inter", "max")` between subjects. The Dorsal
+Attention network ({eval}`ANAT.n_regions_in("DorsAttn")` regions), the Control network
+({eval}`ANAT.n_regions_in("Cont")`) and the cerebellum ({eval}`ANAT.n_regions_in("cerebellum")`)
+hold too few regions for their rank in this ordering to be robust.
+
+Superimposed on this stability is a small and consistent decline in volume across
+sessions. Averaged over participants, volume falls in every network between the first
+session and session {eval}`ANAT.last_session` (the last one reached by at least five
+participants), by {eval}`ANAT.network_drop_extreme("min")` to
+{eval}`ANAT.network_drop_extreme("max")` percentage points — e.g., from
+{eval}`ANAT.deviation("Default", 1)`% to {eval}`ANAT.deviation("Default", ANAT.kept_sessions[-1])`%
+in the Default network ({numref}`fig-anat-stability`, panel B). The decline is present in
+each participant: least-squares slopes of volume over all regions are negative in
+{eval}`ANAT.n_subjects_declining` of {eval}`ANAT.n_subjects` participants, from
+{eval}`ANAT.slope_extreme("min")` to {eval}`ANAT.slope_extreme("max")`
+(panel C), and {eval}`ANAT.n_trajectories_declining` of {eval}`ANAT.n_trajectories`
+participant × network trajectories decline. The exceptions,
+{eval}`ANAT.non_declining_phrase()`, come from {eval}`ANAT.non_declining_subjects`, who has
+only {eval}`ANAT.subject_sessions(exception_subject)` sessions. This design cannot separate the possible
+causes of the decline — ageing, scanner changes, or processing — so we report only its
+size and consistency. Over years of repeated scanning, it remains small relative to
+differences between individuals, so each participant's anatomy provides a stable
+reference for the longitudinal functional data.
+
+:::{figure} ../source_data/anat_stability/output_data/fig_anat_stability.png
+:name: fig-anat-stability
+:width: 100%
+
+**Grey-matter volume is highly stable within each individual across years of repeated
+scanning, with a small, consistent decline.** Volumes come from the longitudinal
+FreeSurfer stream for 84 regions (68 Desikan cortical regions, 14 subcortical structures
+and 2 cerebellar cortices), each cortical region coloured by the Yeo-7 network covering
+most of its voxels in native space. **(A)** Network key: sagittal glass brains showing the
+extent of each network in the MNI group atlas, stacked from most to least stable (median
+within-subject CV over regions, panel D); colours are used consistently throughout the
+figure. The maps are for orientation only, as the analysed regions are defined in each
+participant's native space. **(B)** Grey-matter volume per session as percent deviation
+from each participant's own mean for that region, averaged over the regions of a network,
+then over participants; only sessions reached by at least five participants are shown.
+The x axis is session order, and no time interval is implied. **(C)** The same deviation
+per participant, averaged over all regions, with each participant's least-squares line
+(thick). **(D)** Coefficient of variation of regional volume across sessions within a
+participant, averaged over participants (green), and across participants' mean volumes
+(orange); bars show the median over the network's regions, and dots individual regions.
+:::
+
+## Stability and state dependence of fMRI measures
 
 ```{code-cell} python3
 :tags: [remove-cell]

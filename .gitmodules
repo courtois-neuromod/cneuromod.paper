@@ -15,3 +15,6 @@
 [submodule "source_data/reuse_stats"]
 	path = source_data/reuse_stats
 	url = git@github.com:courtois-neuromod/cneuromod.all.reuse_stats.git
+[submodule "source_data/anat_stability"]
+	path = source_data/anat_stability
+	url = https://github.com/courtois-neuromod/anat.stability_grey_matter
