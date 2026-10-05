@@ -17,8 +17,12 @@ how the data is *organized and formatted*, not what each dataset contains:
 
 - DataLad/git repository structure and submodule naming conventions
 - BIDS compliance and deviations from the core specification
-- Preprocessing derivatives: what each pipeline (fMRIPrep, sMRIPrep/FreeSurfer, PhysPrep) outputs
-  and how those outputs are named/organized
+- Derivatives and companion assets: the asset coverage table `tab-asset-coverage` (which derivative or
+  companion asset exists for which dataset, regenerated with
+  `uv run python .claude/skills/update-data-overview/scripts/build_overview.py --assets`), then what
+  each pipeline or asset (fMRIPrep, sMRIPrep/FreeSurfer, PhysPrep, parcellated timeseries,
+  population receptive fields, floc ROIs, Mario scenes) outputs and how those outputs are
+  named/organized
 - Data access and versioning mechanics (release tags, registered-access vs. open subjects)
 
 Where a concrete example of submodule layout is useful, illustrate it with one or two datasets
@@ -69,7 +73,7 @@ references.bib
 Compare the two documents across each subsection:
 - **Repository structure** — submodule count, naming conventions, YODA principles, recursive-install warning
 - **BIDS compliance** — deviations (BEP001, BEP025/`bp-cspine`), session-index caveats
-- **Preprocessing derivatives** — fMRIPrep version/flags, output spaces, file suffixes; sMRIPrep/FreeSurfer modes; PhysPrep output file suffixes and processed modalities
+- **Derivatives and companion assets** — fMRIPrep version/flags, output spaces, file suffixes; sMRIPrep/FreeSurfer modes; PhysPrep output file suffixes and processed modalities
 - **Data access and versioning** — open vs. registered-access subject counts, release-tag mechanism
 
 For each subsection note:

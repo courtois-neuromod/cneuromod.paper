@@ -20,7 +20,9 @@ from _stats import STATS
 The CNeuroMod databank comprises {eval}`STATS.n_datasets` datasets acquired across
 {eval}`STATS.n_subjects` deeply-sampled participants (`sub-01`–`sub-06`), spanning
 naturalistic movie and audiobook listening, videogame play, controlled cognitive
-localizers and continuous-recognition paradigms.
+localizers and continuous-recognition paradigms. After summary statistics, the datasets are
+described one by one, grouped into the six cognitive categories of
+{numref}`tab-cognitive-categories`.
 
 ## Summary Statistics
 
@@ -53,29 +55,9 @@ single gap. Beyond per-subject availability, one dataset withholds content by de
 held out as an in-distribution test set for encoding-model benchmarks, including the
 Algonauts Project 2025 Challenge.
 
-## Cognitive Coverage
+## 🍿 Movies
 
-The datasets are grouped into the six cognitive categories introduced in
-{numref}`tab-cognitive-categories`, from naturalistic movie viewing and story comprehension
-to active videogame play, densely sampled experimental paradigms and standard functional
-localizers ({numref}`tab-cognitive-coverage`).
-
-:::{table} **CNeuroMod datasets grouped by cognitive category.** Category definitions are given in {numref}`tab-cognitive-categories`.
-:name: tab-cognitive-coverage
-
-| Category | Datasets |
-|---|---|
-| 🍿 Movies | `movie10`, `friends`, `ood` |
-| 💬 Stories | `harrypotter`, `petit-prince`, `narratives` |
-| 👾 Videogames | `shinobi`, `mario`, `mariostars`, `mario3`, `mario_eeg` |
-| 🔬 Taskscapes | `triplets`, `things`, `emotion-videos`, `multfs`, `mutemusic` |
-| 🧭 Functional localizers | `langlocalizer`, `floc`, `retinotopy`, `hcptrt` |
-| 🧰 Others | `hearing`, `anat`, `gamepad` |
-:::
-
-### 🍿 Movies
-
-#### movie10
+### movie10
 
 Six participants watched four feature films — *The Bourne Supremacy*, *The Wolf of Wall
 Street*, *Hidden Figures* (shown twice) and the BBC series *Life* (shown twice) — cut into
@@ -83,7 +65,7 @@ roughly ten-minute segments, for about 10 hours of functional data per participa
 [MISSING REF: Gifford et al. (2025), "The Algonauts Project 2025 Challenge" — full
 bibliographic details needed]
 
-#### friends
+### friends
 
 This dataset contains fMRI data acquired while six CNeuroMod participants watched
 episodes of the American sitcom *Friends* (seasons 1–7) in English, with brain responses
@@ -92,14 +74,14 @@ as a benchmark corpus for multimodal movie-encoding challenges. [MISSING REF: Gi
 al. (2025), "The Algonauts Project 2025 Challenge: How the Human Brain Makes Sense of
 Multimodal Movies" — full bibliographic details (venue/DOI) needed]
 
-#### ood
+### ood
 
 *(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
 been documented with a README.)*
 
-### 💬 Stories
+## 💬 Stories
 
-#### harrypotter
+### harrypotter
 
 Five participants read Chapter 9 of *Harry Potter and the Sorcerer's Stone*, presented
 word by word at 2 Hz across seven runs in a single session, using the same stimuli as the
@@ -111,19 +93,19 @@ separate fMRI dataset reported by Wehbe et al. (2014).
 {cite:p}`Toneva2022-bf`
 :::
 
-#### petit-prince
+### petit-prince
 
 *(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
 been documented with a README.)*
 
-#### narratives
+### narratives
 
 *(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
 been documented with a README.)*
 
-### 👾 Videogames
+## 👾 Videogames
 
-#### shinobi
+### shinobi
 
 Four CNeuroMod participants played *Shinobi III: Return of the Ninja Master* (Sega, 1993)
 in-scanner across three levels selected for the relative homogeneity of their core
@@ -133,7 +115,7 @@ videogame play guided by automated annotations of game content." doi:
 10.1162/IMAG.a.1256]. Participants also completed behavioural-only at-home training
 sessions before scanning, documented separately as the `shinobi/training` asset.
 
-#### mario
+### mario
 
 Five CNeuroMod participants played *Super Mario Bros.* (Nintendo, 1985) in-scanner across
 22 of the game's original levels, in a structured discovery phase followed by a longer
@@ -147,29 +129,29 @@ players who had already completed the game.
 {cite:p}`Paugam2025-oq`
 :::
 
-#### mariostars
+### mariostars
 
 *(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
 been documented with a README.)*
 
-#### mario3
+### mario3
 
 *(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
 been documented with a README.)*
 
-#### mario_eeg
+### mario_eeg
 
 *(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
 been documented with a README.)*
 
-### 🔬 Taskscapes
+## 🔬 Taskscapes
 
-#### triplets
+### triplets
 
 *(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
 been documented with a README.)*
 
-#### things
+### things
 
 Four participants completed 33–36 fMRI sessions of a continuous-recognition task with
 images drawn from 720 categories of the THINGS dataset {cite:p}`St-Laurent2026-zc`. Each
@@ -183,29 +165,29 @@ sessions.
 {cite:p}`St-Laurent2026-zc`
 :::
 
-#### emotion-videos
+### emotion-videos
 
 *(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
 been documented with a README.)*
 
-#### multfs
+### multfs
 
 *(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
 been documented with a README.)*
 
-#### mutemusic
+### mutemusic
 
 *(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
 been documented with a README.)*
 
-### 🧭 Functional localizers
+## 🧭 Functional localizers
 
-#### langlocalizer
+### langlocalizer
 
 *(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
 been documented with a README.)*
 
-#### floc
+### floc
 
 Four participants (`sub-01`, `sub-02`, `sub-03`, `sub-05`) completed six sessions of a
 functional localizer task designed to identify brain regions that respond preferentially
@@ -218,7 +200,7 @@ to specific stimulus categories, adapting the Stanford VPN lab's fLoc task
 {cite:p}`St-Laurent2026-zc`
 :::
 
-#### retinotopy
+### retinotopy
 
 Four participants completed multiple sessions of a retinotopy task adapted from Kay et
 al. (2013), designed to derive population receptive field properties at the voxel level
@@ -233,7 +215,7 @@ responding to a colour-change detection task.
 {cite:p}`St-Laurent2026-zc`
 :::
 
-#### hcptrt
+### hcptrt
 
 Participants repeated the functional localizers developed by the Human Connectome
 Project 15 times each, accumulating approximately 10 hours of functional data per
@@ -247,14 +229,14 @@ HCP localizers, or one resting-state run and one HCP localizer run.
 {cite:p}`Rastegarnia2023-qz`
 :::
 
-### 🧰 Others
+## 🧰 Others
 
-#### hearing
+### hearing
 
 *(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
 been documented with a README.)*
 
-#### anat
+### anat
 
 The `anat` dataset comprises longitudinal anatomical and upper-spinal-cord MRI collected
 at roughly four sessions per year to monitor structural stability over the course of the
@@ -267,7 +249,7 @@ tractography and myelination can be derived from the FreeSurfer derivatives it p
 {cite:p}`Boudreau2025-ji`
 :::
 
-#### gamepad
+### gamepad
 
 This dataset validates the CNeuroMod videogame controller, an open-source,
 fiber-optic, MRI-compatible game controller designed by the project's engineering team
@@ -275,73 +257,3 @@ fiber-optic, MRI-compatible game controller designed by the project's engineerin
 "Open design of a reproducible videogame controller for MRI and MEG." PLOS ONE, 18. doi:
 10.1371/journal.pone.0290158], comparing it against a commercial SNES-like controller
 across alternating mock-scanner and MRI sessions.
-
-## Asset Coverage
-
-| Asset | Datasets |
-|---|---|
-| 📁 BIDS | anat, emotion-videos, floc, friends, gamepad, harrypotter, hcptrt, hearing, langlocalizer, mario, mario3, mario_eeg, mariostars, movie10, multfs, mutemusic, narratives, ood, petit-prince, retinotopy, shinobi, things, triplets |
-| 🧠 fMRIPrep | emotion-videos, floc, friends, gamepad, harrypotter, hcptrt, langlocalizer, mario, mario3, mariostars, movie10, multfs, mutemusic, narratives, ood, petit-prince, retinotopy, shinobi, things, triplets |
-| 🫀 PhysPrep | emotion-videos, friends, harrypotter, mario, movie10, shinobi |
-| timeseries | floc, friends, harrypotter, hcptrt, mario, mario3, mariostars, movie10, petit-prince, retinotopy, shinobi, things |
-| 👁️ Population Receptive Field | retinotopy |
-| 📍 floc ROIs | floc |
-| 🗺️ Mario scenes | mario |
-| 🏗️ sMRIPrep | anat |
-| 🕹️ Shinobi training | shinobi |
-
-### BIDS
-
-All functional and anatomical data are organized following the
-[Brain Imaging Data Structure (BIDS)](https://bids.neuroimaging.io/) specification.
-
-### fMRIPrep
-
-Functional data were preprocessed with [fMRIPrep](https://fmriprep.readthedocs.io/en/stable/installation.html),
-a minimal-user-input pipeline that performs coregistration, normalization, unwarping,
-noise-component extraction and skull-stripping, combining tools from FSL, ANTs,
-FreeSurfer and AFNI. Slice-timing correction was disabled (fMRIPrep was invoked with
-`--ignore slicetiming`).
-
-### PhysPrep
-
-Physiological recordings (PPG, ECG, EDA and respiration) were segmented, cleaned and
-processed with [Physprep](https://github.com/courtois-neuromod/physprep), a pipeline
-developed within the CNeuroMod project that integrates Phys2Bids, NeuroKit2 and Systole.
-
-### timeseries
-
-fMRI timeseries capturing local BOLD fluctuations were extracted from the fMRIPrep
-derivatives with the
-[`cneuromod_extract_tseries`](https://github.com/courtois-neuromod/cneuromod_extract_tseries)
-library. Signal is standardized, detrended, smoothed, masked, vectorized and saved as 2D
-arrays suitable for machine-learning pipelines.
-
-### Population Receptive Field (retinotopy)
-
-Voxel-wise population receptive fields were estimated with the
-[analyzePRF](http://kendrickkay.net/analyzePRF/) MATLAB toolbox
-(commit `a3ac908`, based on release 1.6) in MATLAB R2021a.
-
-### floc ROIs (floc)
-
-Subject-specific functional regions of interest were derived from the `floc` dataset
-using a first-level GLM with Kanwisher-group parcels as spatial priors.
-
-### Mario scenes (mario)
-
-The 22 *Super Mario Bros.* levels used in `mario` are partitioned into 313 short scenes
-(≈15 per level), each annotated with game-design pattern labels, forming the atomic unit
-of analysis for behavioral and neural studies of gameplay.
-
-### sMRIPrep (anat)
-
-Anatomical data were preprocessed with [sMRIPrep](https://github.com/nipreps/smriprep),
-which takes the T1w and T2w images from each participant's first two sessions and
-averages them after coregistration.
-
-### Shinobi training (shinobi)
-
-`shinobi/training` contains behavioral-only at-home gameplay of *Shinobi III: Return of
-the Ninja Master* for the same four participants as the `shinobi` neuroimaging dataset,
-stored as a companion submodule.

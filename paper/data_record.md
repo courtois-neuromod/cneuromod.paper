@@ -16,7 +16,7 @@ All CNeuroMod data are distributed as [DataLad](https://www.datalad.org/) reposi
 
 Most data files are git-annex symlinks and must be explicitly retrieved with `datalad get`. Cloning the meta-repository fetches only metadata (git history, file pointers); data files are downloaded on demand. Recursive installation of submodules should be avoided, as submodules re-expose their own sub-submodules at differing versions for provenance tracking.
 
-For example, the `friends` dataset (participants watching the sitcom *Friends*) exposes `friends/bids` (raw data), `friends/fmriprep` and `friends/mriqc` (preprocessing and quality-control derivatives), and `friends/physprep` (processed physiological recordings). Dataset-specific submodules follow the same convention — e.g. `shinobi/training` for behavioural logs, or `things/glm` and `things/glmsingle` for first-level model estimates. A full description of what each dataset contains is given in [Data Overview](data_overview.md).
+For example, the `friends` dataset (participants watching the sitcom *Friends*) exposes `friends/bids` (raw data), `friends/fmriprep` and `friends/mriqc` (preprocessing and quality-control derivatives), and `friends/physprep` (processed physiological recordings). Dataset-specific submodules follow the same convention — e.g. `shinobi/training` for behavioural-only at-home gameplay by the same four participants as the `shinobi` neuroimaging dataset, or `things/glm` and `things/glmsingle` for first-level model estimates. A full description of what each dataset contains is given in [Data Overview](data_overview.md).
 
 ## BIDS compliance
 
@@ -29,7 +29,25 @@ Session indices (`ses-001`, `ses-002`, …) reflect the order of data acquisitio
 
 All images covering the face — collected as part of the longitudinal anatomical protocol (`anat/bids`) — were anonymised by zeroing the face, teeth, and ear regions with a custom mask warped from MNI space.
 
-## Preprocessing derivatives
+## Derivatives and companion assets
+
+{numref}`tab-asset-coverage` lists which derivatives and companion assets are available for each dataset; they are described below.
+
+:::{table} **Derivatives and companion assets available for each CNeuroMod dataset.**
+:name: tab-asset-coverage
+
+| Asset | Datasets |
+|---|---|
+| 📁 BIDS | anat, emotion-videos, floc, friends, gamepad, harrypotter, hcptrt, hearing, langlocalizer, mario, mario3, mario_eeg, mariostars, movie10, multfs, mutemusic, narratives, ood, petit-prince, retinotopy, shinobi, things, triplets |
+| 🧠 fMRIPrep | emotion-videos, floc, friends, gamepad, harrypotter, hcptrt, langlocalizer, mario, mario3, mariostars, movie10, multfs, mutemusic, narratives, ood, petit-prince, retinotopy, shinobi, things, triplets |
+| 🫀 PhysPrep | emotion-videos, friends, harrypotter, mario, movie10, shinobi |
+| 📈 timeseries | floc, friends, gamepad, harrypotter, hcptrt, langlocalizer, mario, mario3, mariostars, movie10, multfs, mutemusic, narratives, ood, petit-prince, retinotopy, shinobi, things, triplets |
+| 👁️ Population Receptive Field | retinotopy |
+| 📍 floc ROIs | floc |
+| 🗺️ Mario scenes | mario |
+| 🏗️ sMRIPrep | anat |
+| 🕹️ Shinobi training | shinobi |
+:::
 
 ### fMRIPrep
 
@@ -52,6 +70,22 @@ Physiological signals were preprocessed using the CNeuroMod PhysPrep pipeline [M
 - `*_desc-preproc_physio.tsv.gz` — filtered and cleaned timeseries
 - `*_desc-physio_events.tsv` — sparse extracted features (peaks, troughs, SCRs)
 - `*_desc-quality.json` — run-level quality assessment (pass/fail per modality)
+
+### Parcellated timeseries
+
+fMRI timeseries capturing local BOLD fluctuations were extracted from the fMRIPrep derivatives with the [`cneuromod_extract_tseries`](https://github.com/courtois-neuromod/cneuromod_extract_tseries) library. Signal is standardized, detrended, smoothed, masked, vectorized and saved as 2D arrays suitable for machine-learning pipelines.
+
+### Population receptive fields
+
+Voxel-wise population receptive fields were estimated from the `retinotopy` dataset with the [analyzePRF](http://kendrickkay.net/analyzePRF/) MATLAB toolbox (commit `a3ac908`, based on release 1.6) in MATLAB R2021a.
+
+### floc ROIs
+
+Subject-specific functional regions of interest were derived from the `floc` dataset using a first-level GLM with Kanwisher-group parcels as spatial priors.
+
+### Mario scenes
+
+The 22 *Super Mario Bros.* levels used in `mario` are partitioned into 313 short scenes (≈15 per level), each annotated with game-design pattern labels, forming the atomic unit of analysis for behavioral and neural studies of gameplay.
 
 ## Data access and versioning
 

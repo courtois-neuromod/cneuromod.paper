@@ -111,17 +111,17 @@ plt.close(fig)
 The Courtois NeuroMod (CNeuroMod) project was designed to fill this gap. Over five years, six individuals were scanned for approximately 200 hours each {cite:p}`BoyleUnknown-cr`, across a rich collection of {eval}`STATS.n_datasets` datasets organized into six cognitive categories ({numref}`tab-cognitive-categories`): naturalistic movies and stories, videogame play — enabled by a custom fiber-optic controller developed specifically for the project — densely sampled experimental paradigms, standard functional localizers, and complementary anatomical, auditory and hardware validation data. The dataset was assembled by a highly interdisciplinary team including specialists across all of these cognitive domains, and represents the largest and most cognitively diverse individual neuroimaging resource to date {cite:p}`BoyleUnknown-cr`.
 
 <!-- Mirrors CATEGORIES in .claude/skills/update-data-overview/scripts/build_overview.py; keep in sync. -->
-:::{table} **Cognitive categories of the CNeuroMod datasets.** The datasets in each category are listed in {numref}`tab-cognitive-coverage`.
+:::{table} **Cognitive categories of the CNeuroMod datasets.**
 :name: tab-cognitive-categories
 
-| Category | Description |
-|---|---|
-| 🍿 Movies | Naturalistic viewing of feature films and TV series |
-| 💬 Stories | Naturalistic narratives, listened to as audiobooks or read word by word |
-| 👾 Videogames | Active play of retro videogames with a custom MRI-compatible controller |
-| 🔬 Taskscapes | Controlled experimental paradigms with many trials spread over many sessions |
-| 🧭 Functional localizers | Standard tasks that map functional regions in each participant |
-| 🧰 Others | Anatomical, auditory and hardware validation data |
+| Category | Description | Datasets |
+|---|---|---|
+| 🍿 Movies | Naturalistic viewing of feature films and TV series | `movie10`, `friends`, `ood` |
+| 💬 Stories | Naturalistic narratives, listened to as audiobooks or read word by word | `harrypotter`, `petit-prince`, `narratives` |
+| 👾 Videogames | Active play of retro videogames with a custom MRI-compatible controller | `shinobi`, `mario`, `mariostars`, `mario3`, `mario_eeg` |
+| 🔬 Taskscapes | Controlled experimental paradigms with many trials spread over many sessions | `triplets`, `things`, `emotion-videos`, `multfs`, `mutemusic` |
+| 🧭 Functional localizers | Standard tasks that map functional regions in each participant | `langlocalizer`, `floc`, `retinotopy`, `hcptrt` |
+| 🧰 Others | Anatomical, auditory and hardware validation data | `hearing`, `anat`, `gamepad` |
 :::
 
 This paper describes the full CNeuroMod dataset. We present the design and rationale of the {eval}`STATS.n_datasets` datasets, provide evidence of high data quality across participants and modalities, and point to dedicated companion publications examining quality within each specific facet of the collection. We close with an overview of the many uses this dataset enables, from brain encoding and decoding to brain-augmented learning, multidomain cognitive modeling, and beyond.

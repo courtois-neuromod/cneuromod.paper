@@ -10,11 +10,16 @@ Two sources, each used for what it owns, with no aggregation duplicated here:
   `paper/_stats.py`. That pipeline is the single place where `dataset_info.yaml` files are
   summed; see its `analysis/tables.py`.
 
+By default the scaffold covers paper/data_overview.md: summary statistics, then one `##` section
+per cognitive category with a `###` subsection per dataset. With `--assets` it instead prints the
+asset coverage table (and per-asset source paragraphs), which lives in paper/data_record.md under
+"Derivatives and companion assets" as `tab-asset-coverage`.
+
 Everything printed here is a starting point: the prose is meant to be condensed and edited
 by hand afterwards.
 
 Usage:
-    uv run python .claude/skills/update-data-overview/scripts/build_overview.py [--repo PATH]
+    uv run python .claude/skills/update-data-overview/scripts/build_overview.py [--repo PATH] [--assets]
 """
 
 import argparse
@@ -70,7 +75,8 @@ def load_renderers(repo):
     from _ext.renderers import _render_citation, _extract_component_title
     return {
         "emoji": _DATASET_EMOJI,
-        "component_icon": _COMPONENT_ICON,
+        # Upstream defines no icon for timeseries; fill the gap here.
+        "component_icon": {"timeseries": "📈", **_COMPONENT_ICON},
         "root_exclude": _ROOT_MD_EXCLUDE,
         "root_manual": _ROOT_MD_MANUAL,
         "citation": _render_citation,
@@ -152,13 +158,45 @@ def check_in_sync(repo):
         )
 
 
+def asset_scaffold(repo, R):
+    """Asset x datasets table for paper/data_record.md, then the source paragraph of each asset."""
+    global_assets, local_assets, per_dataset = components(repo, R)
+    out = [
+        ":::{table} **Derivatives and companion assets available for each CNeuroMod dataset.**",
+        ":name: tab-asset-coverage",
+        "",
+        "| Asset | Datasets |",
+        "|---|---|",
+    ]
+    for stem, path in global_assets:
+        _, title, _ = R["component_title"](path.read_text(encoding="utf-8"))
+        users = [n for n, comps in sorted(per_dataset.items()) if stem in comps]
+        out.append(f"| {R['component_icon'].get(stem.lower(), '')} {title or stem} | {', '.join(users)} |")
+    for stem, path, ds_name in sorted(local_assets):
+        _, title, _ = R["component_title"](path.read_text(encoding="utf-8"))
+        out.append(f"| {R['component_icon'].get(stem.lower(), '')} {title or stem} | {ds_name} |")
+    out += [":::", ""]
+    for stem, path in global_assets:
+        _, title, body = R["component_title"](path.read_text(encoding="utf-8"))
+        out += [f"### {title or stem}", "", f"<!-- condense from {path.relative_to(repo)} -->", first_para(body), ""]
+    for stem, path, ds_name in sorted(local_assets):
+        _, title, body = R["component_title"](path.read_text(encoding="utf-8"))
+        out += [f"### {title or stem} ({ds_name})", "", f"<!-- condense from {path.relative_to(repo)} -->", first_para(body), ""]
+
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--repo", type=Path, default=REPO_DEFAULT)
+    ap.add_argument("--assets", action="store_true", help="print the Data Record asset table instead")
     args = ap.parse_args()
     repo = args.repo.resolve()
     R = load_renderers(repo)
     check_in_sync(repo)
+    if args.assets:
+        print("\n".join(asset_scaffold(repo, R)))
+        return
 
     out = ["# Data Overview", "", "## Summary Statistics", ""]
     out += [
@@ -188,48 +226,18 @@ def main():
     categorized = {n for _, names in CATEGORIES.values() for n in names}
     uncategorized = [ds for n, ds in by_name.items() if n not in categorized]
 
-    out += [
-        "",
-        "## Cognitive Coverage",
-        "",
-        ":::{table} **CNeuroMod datasets grouped by cognitive category.** Category definitions are given in {numref}`tab-cognitive-categories`.",
-        ":name: tab-cognitive-coverage",
-        "",
-        "| Category | Datasets |",
-        "|---|---|",
-    ]
-    for category in CATEGORIES:
-        names = ", ".join(f"`{ds.name}`" for ds in groups[category])
-        out.append(f"| {category} | {names} |")
-    out += [":::", ""]
+    out.append("")
     if uncategorized:
         groups["Uncategorized"] = uncategorized
         out.append("<!-- WARNING: datasets missing from CATEGORIES in build_overview.py -->")
     for category, members in groups.items():
-        out += [f"### {category}", ""]
+        out += [f"## {category}", ""]
         for ds in members:
             emoji = R["emoji"].get(ds.name, "📦")
-            out += [f"#### {emoji} {ds.name}", "", overview_text(ds / "README.md"), ""]
+            out += [f"### {emoji} {ds.name}", "", overview_text(ds / "README.md"), ""]
             cff = ds / "CITATION.cff"
             if cff.exists():
                 out += [R["citation"](cff).strip(), ""]
-
-    global_assets, local_assets, per_dataset = components(repo, R)
-    out += ["", "## Asset Coverage", "", "| Asset | Datasets |", "|---|---|"]
-    for stem, path in global_assets:
-        _, title, _ = R["component_title"](path.read_text(encoding="utf-8"))
-        users = [n for n, comps in sorted(per_dataset.items()) if stem in comps]
-        out.append(f"| {R['component_icon'].get(stem.lower(), '')} {title or stem} | {', '.join(users)} |")
-    for stem, path, ds_name in sorted(local_assets):
-        _, title, _ = R["component_title"](path.read_text(encoding="utf-8"))
-        out.append(f"| {R['component_icon'].get(stem.lower(), '')} {title or stem} | {ds_name} |")
-    out.append("")
-    for stem, path in global_assets:
-        _, title, body = R["component_title"](path.read_text(encoding="utf-8"))
-        out += [f"### {title or stem}", "", f"<!-- condense from {path.relative_to(repo)} -->", first_para(body), ""]
-    for stem, path, ds_name in sorted(local_assets):
-        _, title, body = R["component_title"](path.read_text(encoding="utf-8"))
-        out += [f"### {title or stem} ({ds_name})", "", f"<!-- condense from {path.relative_to(repo)} -->", first_para(body), ""]
 
     print("\n".join(out))
 

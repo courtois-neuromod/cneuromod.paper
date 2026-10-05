@@ -1,6 +1,6 @@
 ---
 name: update-data-overview
-description: This skill should be used when a co-author wants to initialize or update paper/data_overview.md by cross-referencing the canonical dataset and asset documentation in the cneuromod.all submodule. It runs a script that reads every dataset_info.yaml, README and CITATION.cff to regenerate the summary statistics, the cognitive coverage section (category table, then per-dataset subsections with condensed overview and reference) and the asset coverage table, then condenses the result into the paper's academic style. Use it when someone mentions "update data overview", "summary statistics", "dataset coverage", "cognitive coverage", "asset coverage", or "hours per subject".
+description: This skill should be used when a co-author wants to initialize or update paper/data_overview.md by cross-referencing the canonical dataset and asset documentation in the cneuromod.all submodule. It runs a script that reads every dataset_info.yaml, README and CITATION.cff to regenerate the summary statistics and one section per cognitive category (with a subsection per dataset: condensed overview and reference), then condenses the result into the paper's academic style. Use it when someone mentions "update data overview", "summary statistics", "dataset coverage", "cognitive categories", or "hours per subject".
 ---
 
 # Update Data Overview
@@ -8,15 +8,18 @@ description: This skill should be used when a co-author wants to initialize or u
 ## Purpose
 
 To keep `paper/data_overview.md` accurate and up-to-date by regenerating it from the canonical
-dataset statistics and asset documentation in the `cneuromod.all` submodule, then condensing the
+dataset statistics and documentation in the `cneuromod.all` submodule, then condensing the
 generated scaffold into paper prose. This section is the quantitative inventory of the database:
-how much data, from which paradigms, in which processed forms.
+how much data, from which paradigms.
 
-The section has three parts, in this order:
+The section has two parts, in this order:
 
 1. **Summary Statistics** — the CNeuroMod bubble-chart figure plus aggregate totals and coverage gaps.
-2. **Cognitive Coverage** — a table grouping datasets by cognitive domain, then one subsection per dataset, grouped by category: condensed overview, reference.
-3. **Asset Coverage** — the asset/datasets recap table plus a text description of each asset.
+2. **One `##` section per cognitive category**, each with one `###` subsection per dataset: condensed overview, reference.
+
+The asset coverage table (which derivatives exist for which dataset) is **not** part of this
+section: it lives in `paper/data_record.md` as `tab-asset-coverage`. The same script prints it with
+`--assets`; see step 5.
 
 ## Workflow
 
@@ -111,19 +114,19 @@ Alongside the figure, write:
   withheld as a held-out test set). `STATS.subjects_with_gaps()` and `STATS.datasets_for(subject)` give
   the current picture. Summarize the pattern in prose; do not enumerate every entry.
 
-### 4. Cognitive Coverage
+### 4. Datasets by cognitive category
 
-The section opens with a two-column table (`tab-cognitive-coverage`, Category | Datasets) grouping
-datasets into cognitive categories: 🍿 Movies, 💬 Stories, 👾 Videogames, 🔬 Taskscapes,
-🧭 Functional localizers and 🧰 Others. The category definitions are not repeated here: they live in
-the intro table `tab-cognitive-categories`, which the caption cross-references. The grouping, emoji
-and descriptions are editorial and live in the `CATEGORIES` dict at the top of
-`scripts/build_overview.py`; if you change a name, emoji or description there, update the intro
-table in `paper/intro.md` to match. When a new
-dataset appears, the scaffold emits it under `### Uncategorized` with a warning comment: add it to
-`CATEGORIES` (asking the user which category) and re-run, rather than placing it by hand.
+Datasets are grouped into cognitive categories: 🍿 Movies, 💬 Stories, 👾 Videogames,
+🔬 Taskscapes, 🧭 Functional localizers and 🧰 Others. Category definitions and the dataset list of
+each category live in the intro table `tab-cognitive-categories` (`paper/intro.md`, Category |
+Description | Datasets); the opening paragraph of this section cross-references it, and no table
+is repeated here. The grouping, emoji and descriptions are editorial and live in the `CATEGORIES`
+dict at the top of `scripts/build_overview.py`; if you change a name, emoji, description or
+membership there, update the intro table to match. When a new dataset appears, the scaffold emits
+it under `## Uncategorized` with a warning comment: add it to `CATEGORIES` (asking the user which
+category) and re-run, rather than placing it by hand.
 
-Each category is a `###` heading; under it, one `####` subsection per dataset, in the order the
+Each category is a `##` heading; under it, one `###` subsection per dataset, in the order the
 scaffold emits, each containing:
 
 - **A condensed overview.** The scaffold carries the full `## Overview` section of the dataset's
@@ -137,10 +140,19 @@ Skip contributors entirely — they belong in `paper/acknowledgements.md`.
 
 Datasets without a `dataset_info.yaml` are not released and must not appear.
 
-### 5. Asset Coverage
+### 5. Asset coverage (in `paper/data_record.md`)
 
-Reproduce the recap table (Asset × Datasets) from the scaffold, then give each asset a short text
-description under its own `###`. Cover both:
+The recap table (Asset × Datasets) belongs to Data Record, under `## Derivatives and companion assets`,
+with no heading of its own (`tab-asset-coverage`). Regenerate it with:
+
+```bash
+uv run python .claude/skills/update-data-overview/scripts/build_overview.py --assets
+```
+
+Update the table rows in `paper/data_record.md`. The scaffold also prints each asset's source
+paragraph; use it to check the matching `###` description in Data Record (fMRIPrep, sMRIPrep /
+FreeSurfer, PhysPrep, parcellated timeseries, population receptive fields, floc ROIs, Mario scenes;
+BIDS is covered by `## BIDS compliance` and Shinobi training by `## Repository structure`). Cover both:
 
 - **Global assets** — the uppercase root-level pages in the submodule (`BIDS.md`, `FMRIPREP.md`,
   `PHYSPREP.md`), available across many datasets.
@@ -173,9 +185,10 @@ Physprep, analyzePRF, BIDS) against them. Only cite keys that exist; never inven
 - Concise, factual, past tense for completed acquisitions
 - Use MyST citation syntax: `` {cite:p}`key` ``
 - Flag missing references as `[MISSING REF: description]`
-- Keep the three top-level headers (`## Summary Statistics`, `## Cognitive Coverage`, `## Asset Coverage`)
-- Avoid duplicating `paper/data_record.md` (BIDS file organisation) or `paper/data_acquisition.md`
-  (scanner and sequence parameters); this section is about scope, totals and available assets
+- Keep `## Summary Statistics` first, then one `##` per cognitive category with `###` per dataset
+- Avoid duplicating `paper/data_record.md` (BIDS file organisation, derivatives and assets) or
+  `paper/data_acquisition.md` (scanner and sequence parameters); this section is about scope,
+  totals and per-dataset content
 
 ### 8. Present changes to the user
 
