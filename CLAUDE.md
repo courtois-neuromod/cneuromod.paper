@@ -116,7 +116,7 @@ Regenerate its outputs with `uv run invoke fetch && uv run invoke run` inside th
 
 `source_data/anat_stability/` is a git submodule (invoke + uv analysis project, from `courtois-neuromod/anat.stability_grey_matter`) that measures how stable grey matter volume is across each participant's longitudinal FreeSurfer sessions, per region and network. `paper/_anat_stats.py` reads its tracked tables (`stability_per_region.tsv`, `volume_trajectories.tsv`, `trajectory_slopes.tsv`) for the live numbers in "Stability of brain structure". Its main output is:
 
-- `output_data/fig_anat_stability.png` — the grey matter stability montage used in Technical Validation (git-ignored upstream; produced by the pipeline run).
+- `output_data/fig_anat_stability.png` — the grey matter stability montage used in Technical Validation. It is committed upstream so the CI build can render it; commit it again after each pipeline run that changes it.
 
 Regenerate its outputs with `uv run invoke fetch && uv run invoke run` inside that directory (`invoke fetch --cneuromod-source /path` links an existing `cneuromod.all` checkout; sub-04's native-space label volumes need credentials); do not hand-edit its outputs.
 
