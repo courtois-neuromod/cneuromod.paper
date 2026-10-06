@@ -1,0 +1,4 @@
+/* One references list for the whole article (issue #2). */
+.all-references { display: none; }  /* hidden citations feeding the References page */
+/* Hide per-page reference footers everywhere except the References page, which keeps theme styling. */
+body:not(:has(.all-references)) .myst-bibliography { display: none; }

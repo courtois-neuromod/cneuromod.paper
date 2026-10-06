@@ -1,4 +1,8 @@
-# The Courtois NeuroMod (CNeuroMod) Dataset
+---
+short_title: The CNeuroMod Dataset
+---
+
+# The Courtois NeuroMod (CNeuroMod) Dataset: Intensive Neuroimaging Across Diverse Naturalistic and Controlled Tasks for Training NeuroAI Models of Brain and Behaviour
 
 ## Authors
 
