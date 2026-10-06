@@ -1,17 +1,16 @@
 """Live CNeuroMod statistics for the paper prose.
 
 This module computes nothing. Every number is read from the tables produced by the
-`dataset_comparison` submodule's pipeline, which is the single place where CNeuroMod's
+`statistics` submodule's pipeline, which is the single place where CNeuroMod's
 `dataset_info.yaml` files are aggregated:
 
-    source_data/dataset_comparison/output_data/cneuromod_tidy_per_subject.csv
-    source_data/dataset_comparison/output_data/cneuromod_tidy_total.csv
-    source_data/dataset_comparison/output_data/cneuromod_subjects.csv
-    source_data/dataset_comparison/output_data/datasets_tidy_total.csv
+    source_data/statistics/output_data/cneuromod_tidy_per_subject.csv
+    source_data/statistics/output_data/cneuromod_tidy_total.csv
+    source_data/statistics/output_data/cneuromod_subjects.csv
 
 Datasets are still being collected and released, so no figure may be typed into the prose,
 where it would silently go stale. Quote it through this module instead, and refresh the
-tables with `uv run invoke run-cneuromod-tables` inside the submodule.
+tables with `uv run invoke fetch && uv run invoke run` inside the submodule.
 
 Usage in a paper `.md` file (the project executes code cells with a python3 kernel):
 
@@ -30,7 +29,7 @@ from pathlib import Path
 
 import pandas as pd
 
-OUTPUT_DATA = Path("source_data/dataset_comparison/output_data")
+OUTPUT_DATA = Path("source_data/statistics/output_data")
 
 PHYSIO_LABEL = {
     "ECG": "ECG",
@@ -50,19 +49,18 @@ def find_output_data(start=None):
             return candidate
     raise FileNotFoundError(
         f"{OUTPUT_DATA} not found. Initialize the submodule with "
-        "`git submodule update --init source_data/dataset_comparison`."
+        "`git submodule update --init source_data/statistics`."
     )
 
 
 class Stats:
-    """Read-only accessor over the dataset_comparison output tables."""
+    """Read-only accessor over the statistics output tables."""
 
     def __init__(self, output_data=None):
         self.output_data = Path(output_data) if output_data else find_output_data()
         self.per_subject = pd.read_csv(self.output_data / "cneuromod_tidy_per_subject.csv")
         self.total = pd.read_csv(self.output_data / "cneuromod_tidy_total.csv")
         self.subjects_table = pd.read_csv(self.output_data / "cneuromod_subjects.csv").fillna("")
-        self.comparison = pd.read_csv(self.output_data / "datasets_tidy_total.csv")
 
     # --- datasets and participants -------------------------------------------------
 

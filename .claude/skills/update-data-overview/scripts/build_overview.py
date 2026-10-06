@@ -6,9 +6,9 @@ Two sources, each used for what it owns, with no aggregation duplicated here:
 - `source_data/cneuromod.all` — narrative and per-dataset metadata. Its own Sphinx extension
   renderers are reused so the citation block is byte-for-byte what the documentation website
   shows.
-- `source_data/dataset_comparison/output_data/*.csv` — every aggregate number, read through
+- `source_data/statistics/output_data/*.csv` — every aggregate number, read through
   `paper/_stats.py`. That pipeline is the single place where `dataset_info.yaml` files are
-  summed; see its `analysis/tables.py`.
+  summed; see its `analysis/dataset_info.py`.
 
 By default the scaffold covers paper/data_overview.md: summary statistics, then one `##` section
 per cognitive category with a `###` subsection per dataset. With `--assets` it instead prints the
@@ -23,6 +23,7 @@ Usage:
 """
 
 import argparse
+import json
 import re
 import subprocess
 import sys
@@ -131,31 +132,42 @@ def components(repo, R):
 
 
 def check_in_sync(repo):
-    """Warn when the paper's cneuromod.all and the pipeline's cneuromod are different commits.
+    """Warn when the paper's cneuromod.all differs from the commits the numbers and figures used.
 
-    Both submodules track the same upstream repository. If they drift, the narrative in this
-    scaffold and the numbers in the CSVs describe different sets of datasets.
+    The CSVs in `statistics` were generated from the cneuromod.all commit recorded in its
+    `source_data/MANIFEST.json`; the `dataset_comparison` figures from its own `cneuromod`
+    submodule. If either differs from the narrative checkout, the scaffold and the numbers
+    describe different sets of datasets.
     """
-    other = STATS.output_data.parent / "source_data" / "cneuromod"
-    heads = []
-    for path in (repo, other):
+    def head(path):
         try:
-            heads.append(
-                subprocess.run(
-                    ["git", "-C", str(path), "rev-parse", "HEAD"],
-                    capture_output=True, text=True, check=True,
-                ).stdout.strip()
-            )
+            return subprocess.run(
+                ["git", "-C", str(path), "rev-parse", "HEAD"],
+                capture_output=True, text=True, check=True,
+            ).stdout.strip()
         except (subprocess.CalledProcessError, FileNotFoundError):
-            return
-    if heads[0] != heads[1]:
-        print(
-            f"WARNING: cneuromod checkouts differ.\n"
-            f"  {repo} @ {heads[0][:8]}\n"
-            f"  {other} @ {heads[1][:8]}\n"
-            f"  Numbers come from the second, narrative from the first. Sync them before publishing.",
-            file=sys.stderr,
-        )
+            return None
+
+    narrative = head(repo)
+    if narrative is None:
+        return
+    manifest = STATS.output_data.parent / "source_data" / "MANIFEST.json"
+    others = {}
+    try:
+        others[f"{manifest} (numbers)"] = json.loads(manifest.read_text())["assets"]["cneuromod_all"]["git"]["commit"]
+    except (OSError, KeyError, ValueError):
+        pass
+    comparison = Path("source_data/dataset_comparison/source_data/cneuromod")
+    others[f"{comparison} (comparison figures)"] = head(comparison)
+    for label, commit in others.items():
+        if commit and commit != narrative:
+            print(
+                f"WARNING: cneuromod checkouts differ.\n"
+                f"  {repo} @ {narrative[:8]} (narrative)\n"
+                f"  {label} @ {commit[:8]}\n"
+                f"  Sync them before publishing.",
+                file=sys.stderr,
+            )
 
 
 def asset_scaffold(repo, R):
@@ -208,7 +220,7 @@ def main():
         "**Per-subject data volume across CNeuroMod datasets.** [Caption to write.]",
         ":::",
         "",
-        "<!-- AGGREGATES — read from dataset_comparison/output_data via paper/_stats.py. -->",
+        "<!-- AGGREGATES — read from statistics/output_data via paper/_stats.py. -->",
         "<!-- Do not retype these into the prose: use {eval}`STATS...` so they stay live. -->",
         f"<!-- STATS.n_datasets = {STATS.n_datasets} -->",
         f"<!-- STATS.n_subjects = {STATS.n_subjects} ({', '.join(STATS.subjects)}) -->",

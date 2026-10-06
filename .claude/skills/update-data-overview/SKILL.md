@@ -42,11 +42,12 @@ It draws on two submodules, each for what it owns:
 - `source_data/cneuromod.all` for narrative — it imports the submodule's own Sphinx extension
   (`docs/source/_ext/renderers.py`), so citation blocks are exactly what the documentation
   website renders.
-- `source_data/dataset_comparison/output_data/*.csv` for every aggregate number, read through
+- `source_data/statistics/output_data/*.csv` for every aggregate number, read through
   `paper/_stats.py`. No aggregation happens in the paper or in this script.
 
-If the two checkouts of `cneuromod.all` sit at different commits, the script prints a warning to
-stderr. Resolve that before writing the section — otherwise the prose and the numbers describe
+If `source_data/cneuromod.all` differs from the commit the `statistics` tables were generated from
+(its `source_data/MANIFEST.json`) or from `dataset_comparison`'s own `cneuromod` checkout, the
+script prints a warning to stderr. Resolve that before writing the section — otherwise the prose and the numbers describe
 different sets of datasets.
 
 The scaffold is **input, not output**. Never paste it wholesale into the paper.
@@ -74,7 +75,7 @@ The database comprises {eval}`STATS.n_datasets` datasets acquired in
 `STATS` exposes `n_datasets`, `names`, `n_subjects`, `subjects`, `fmri_total_h`,
 `fmri_per_subject_h`, `physiology_h()`, `total_h(modality)`, `per_subject_h(modality)`,
 `incomplete`, `subjects_with_gaps()` and `datasets_for(subject)`. If the section needs a quantity
-that is not there, add it to the `dataset_comparison` pipeline (`analysis/tables.py`) and expose it
+that is not there, add it to the `statistics` pipeline (`analysis/dataset_info.py`) and expose it
 in `paper/_stats.py` — never compute it inside the paper.
 
 The scaffold's `<!-- AGGREGATES -->` comments show each value's current number next to the

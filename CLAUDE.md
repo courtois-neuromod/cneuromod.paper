@@ -52,8 +52,8 @@ into `paper/*.md` goes stale silently. Numbers flow through one chain:
 
 ```
 cneuromod.all/*/dataset_info.yaml     (raw metadata, upstream)
-  └─ dataset_comparison analysis/tables.py   (the ONLY place aggregation happens)
-       └─ dataset_comparison/output_data/cneuromod_*.csv
+  └─ statistics analysis/dataset_info.py   (the ONLY place aggregation happens)
+       └─ statistics/output_data/cneuromod_*.csv   (git-tracked upstream)
             └─ paper/_stats.py             (thin pandas reader, no computation)
                  └─ {eval}`STATS.…` in the prose
 ```
@@ -75,7 +75,7 @@ from _stats import STATS
 `STATS` exposes `n_datasets`, `names`, `n_subjects`, `subjects`, `fmri_total_h`,
 `fmri_per_subject_h`, `physiology_h()`, `total_h(modality)`, `per_subject_h(modality)`,
 `incomplete`, `subjects_with_gaps()` and `datasets_for(subject)`. Add new quantities by
-extending the pipeline in `dataset_comparison`, not by computing them in the paper.
+extending the pipeline in `statistics`, not by computing them in the paper.
 
 Inline expressions are only evaluated when the build executes the kernel:
 
@@ -83,18 +83,20 @@ Inline expressions are only evaluated when the build executes the kernel:
 uv run jupyter book build --html --execute
 ```
 
-Refresh the tables after the submodule moves:
+Refresh the tables after `cneuromod.all` moves (in the `statistics` submodule, then commit and
+push its outputs there and bump the submodule here):
 
 ```bash
-cd source_data/dataset_comparison && uv run invoke run-cneuromod-tables
+cd source_data/statistics && uv run invoke fetch && uv run invoke run --force
 ```
 
 :::{warning}
-Two submodules check out the same upstream `cneuromod.all` repository:
-`source_data/cneuromod.all` (narrative, per-dataset READMEs and report cards) and
-`source_data/dataset_comparison/source_data/cneuromod` (the numbers). If they sit at different
-commits they describe different sets of datasets. Keep them pinned together; the
-`update-data-overview` script warns when they drift.
+Three places depend on the upstream `cneuromod.all` repository:
+`source_data/cneuromod.all` (narrative, per-dataset READMEs and report cards), the commit the
+`statistics` tables were generated from (recorded in `source_data/statistics/source_data/MANIFEST.json`;
+the numbers) and `source_data/dataset_comparison/source_data/cneuromod` (the comparison figures).
+If they sit at different commits they describe different sets of datasets. Keep them pinned
+together; the `update-data-overview` script warns when they drift.
 :::
 
 `source_data/dataset_comparison/` is a git submodule (invoke + uv analysis project) that compares dense neuroimaging datasets by depth (brain recording hours per subject) vs. breadth (number of subjects). Its pre-generated figures live in `source_data/dataset_comparison/output_data/`. The key figure for the paper is:
@@ -103,7 +105,7 @@ commits they describe different sets of datasets. Keep them pinned together; the
 
 See `source_data/dataset_comparison/CLAUDE.md` for pipeline details. Do not modify files in that directory without running `uv run invoke run` inside it to regenerate outputs.
 
-`source_data/statistics/` is a git submodule (invoke + uv analysis project, from `courtois-neuromod/cneuromod.all.statistics`) that computes per-dataset CNeuroMod statistics; the per-dataset comparison moved here from `dataset_comparison`. Its main output is:
+`source_data/statistics/` is a git submodule (invoke + uv analysis project, from `courtois-neuromod/cneuromod.all.statistics`) that computes per-dataset CNeuroMod statistics; the per-dataset comparison moved here from `dataset_comparison`. Its tracked tidy tables (`cneuromod_tidy_per_subject.csv`, `cneuromod_tidy_total.csv`, `cneuromod_subjects.csv`) are what `paper/_stats.py` reads. Its main output is:
 
 - `output_data/figure_cneuromod_comparison_per_subject.png` — the per-subject data volume bubble chart in Data Overview, rows grouped and colored by cognitive category (its `CATEGORIES` mirror the paper's; keep them in sync).
 
