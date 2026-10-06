@@ -10,7 +10,14 @@ Six healthy adults (3 women, 2 men, and 1 trans woman; ages 31–47 at recruitme
 
 All MRI data were collected at the Unité de Neuroimagerie Fonctionnelle (UNF), located at the Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), affiliated with the Université de Montréal. The scanner is a Siemens Prisma Fit (3T), equipped with a 2-channel transmit body coil and a 64-channel receive head/neck coil.
 
-To minimize head motion, each participant wore a custom-fitted polystyrene foam headcase manufactured by Caseforge, milled from a 3D surface scan of the participant's head and shaped to fit the 64-channel coil.
+To minimize head motion, each participant wore a custom-fitted polystyrene foam headcase manufactured by Caseforge, milled from a 3D surface scan of the participant's head and shaped to fit the 64-channel coil. The full recording setup is summarized in {numref}`fig-setup`.
+
+:::{figure} figures/fig_setup.svg
+:name: fig-setup
+:width: 100%
+
+**MRI recording setup.** Participants were scanned on a Siemens Prisma Fit 3T scanner wearing a custom Caseforge headcase. Visual stimuli were projected through a waveguide, audio was delivered through Sensimetrics S15 earphone inserts with hearing protection, and gaze and pupil size were tracked with an MRC infrared camera. Responses in videogame tasks were collected with a custom-built MRI-compatible game controller. Cardiac (ECG and photoplethysmography), respiratory and electrodermal signals were recorded with a Biopac M160 system. Stimulus presentation and recording ran on an open software stack (PsychoPy, OpenAI gym-retro, Pupil, Aravis).
+:::
 
 ### Functional MRI
 
