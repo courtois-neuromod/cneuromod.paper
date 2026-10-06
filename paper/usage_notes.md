@@ -12,56 +12,40 @@ computed from the curated reference list of the `cneuromod.all` repository. Unda
 are not shown.
 :::
 
-## Overview of Publications
-
-[Summary paragraph: briefly enumerate the main research communities using CNeuroMod data, total number of publications or preprints to date, and the main venues (NeurIPS, ICLR, Imaging Neuroscience, PLOS ONE, etc.).]
-
----
-
 ## 1. Individual Brain Encoding Models
 
-[Overview: CNeuroMod has emerged as a key resource for building high-quality voxelwise encoding models of individual brains.]
+CNeuroMod has emerged as a key resource for building multimodal encoding models of
+individual brains, accelerated by the Algonauts Project 2025 Challenge. This open
+competition invited participants to predict fMRI responses in 1,000 cortical parcels from
+multimodal movie features. Training used about 65 hours of movies, watched by each of four
+participants: seasons 1–6 of `friends` and the four `movie10` films. Brain responses were
+withheld for two test sets: season 7 of `friends` (in distribution) and six
+out-of-distribution videos (`ood`), the latter deciding the winners
+{cite:p}`gifford2025algonauts`.
 
-### The Algonauts 2025 Competition
-
-`friends` and `movie10` formed the training set of the Algonauts Project 2025 Challenge
-{cite:p}`gifford2025algonauts`, an open competition to predict fMRI responses in 1,000
-cortical parcels from multimodal movie features. Training used about 65 hours of movies,
-watched by each of four participants: seasons 1–6 of *Friends* and the four `movie10`
-films. Season 7 of *Friends* was held out as an in-distribution test set, and six further
-films served as the out-of-distribution test set that decided the winners
-{cite:p}`Scotti2025-dn`. The second-ranked model reached a mean parcel-wise correlation of
-0.32 on the held-out season and 0.21 on the out-of-distribution films
-{cite:p}`Schad2025-pz`, and the third-ranked team reported a mean correlation of 0.63 in its
-best-predicted parcel {cite:p}`Eren2025-xi`. Further entries independently replicated
-these levels of performance across a wide range of architectures
+The top-ranked entries, all multimodal, were closely matched on the out-of-distribution
+films. TRIBE, ranked first, combined pretrained text, audio and video foundation models
+with a multimodal AI-to-brain transformer, and reached a mean parcel-wise correlation of
+0.320 on the held-out season and 0.215 on the out-of-distribution films. Its ablations
+showed that unimodal models reliably predict their own sensory networks but are
+systematically outperformed by the multimodal model in high-level associative cortices
+{cite:p}`d-Ascoli2026-hf`. The second- and third-ranked models, built on transformers and
+on recurrent networks, scored 0.210 and 0.209 on the out-of-distribution films
+{cite:p}`Schad2025-pz,Eren2025-xi`, and further entries replicated these levels of
+performance across a wide range of architectures
 {cite:p}`Villanueva2025-aw,He2025-vt,Corsico2025-si,Scholz2025-io`.
 
-% TODO: confirm with the dataset owners that `ood` holds the six out-of-distribution
-% Algonauts 2025 test films (it has no CITATION.cff yet).
-
-### The TRIBE Model
-
-The winning model, TRIBE, finished first of 267 teams by a substantial margin, with a mean
-correlation of 0.32 on the held-out season and 0.21 on the out-of-distribution films. Its
-ablations showed that unimodal models reliably predict their own sensory networks but are
-systematically outperformed by the multimodal model in high-level associative cortices
-{cite:p}`d-Ascoli2026-hf`.
-
-### New Directions: Auto-Regressive and Brain Encoding in One Model
-
-Individual auto-regressive models of BOLD dynamics trained on movie watching kept
-improving with more data, with no complete saturation at 9 hours of training data. They
-generalized to other video stimuli and to resting state, and their predicted dynamics
-reproduced classical functional connectivity networks {cite:p}`Paugam2024-jo`.
-
-### Encoding Models of Controlled Tasks
-
-Recurrent networks trained on the HCP 2-back task encoded individual brain activity during
-that task in `hcptrt`, with the highest accuracy in the dorsal visual stream and frontal
-cortex {cite:p}`Sainath2025-hr`.
-
----
+Brain encoding can also be combined with models of the brain's own dynamics. Individual
+auto-regressive models of BOLD dynamics trained on movie watching kept improving with more
+data, with no complete saturation at 9 hours of training data. They generalized to other
+video stimuli and to resting state, and their predicted dynamics reproduced classical
+functional connectivity networks {cite:p}`Paugam2024-jo`. NeuroWorld brings the two
+together in a "brain world model": a latent brain state evolves auto-regressively, driven
+only by past brain activity and by the stimulus seen so far, and is decoded back into
+individual fMRI responses {cite:p}`Dong2026-ol`. Under this strictly causal protocol,
+starting from a single observed fMRI time point, it predicted the next 20 time points of
+the Algonauts 2025 data more accurately than causal versions of TRIBE-style encoders, and
+degraded only slowly over rollouts of up to 2.5 minutes.
 
 ## 2. Brain Encoding Models of the Active Brain
 
@@ -122,6 +106,8 @@ or outperformed group models {cite:p}`Freteault2025-tx`.
 Brain-informed fine-tuning of language models on more than 50 hours of *Friends* produced
 encoding gains that grew with model size and with training duration (1–40 hours), and that
 generalized to held-out movies and participants {cite:p}`Bilgin2025-xz`.
+
+### Rabbit and the platonic bridge hypothesis
 
 ### Challenges and Proper Downstream Evaluation
 
