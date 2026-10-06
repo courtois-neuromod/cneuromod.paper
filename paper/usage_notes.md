@@ -114,11 +114,56 @@ are not shown.
 
 ## 6. Foundation Models and the Digital Brain
 
-[Overview: CNeuroMod individual brain models are positioning themselves as building blocks for foundation models that generalize across individuals, datasets, acquisition sites, and modalities.]
+CNeuroMod was designed around a deliberate bet: model a few individuals in depth before
+attempting to model humanity at large. Six participants is a small sample by the standards
+of population neuroscience, but a sample of many people cannot answer the question
+CNeuroMod targets: can a model reproduce one specific brain across a wide range of
+cognitive functions? Answering it requires many hours of data from the same person,
+recorded under many different tasks. The work reviewed above shows that this works.
+Individual models trained on CNeuroMod predict brain activity for new stimuli, improve with
+more data from the same person, and often match or outperform group models. Through the
+Algonauts 2025 challenge, the dataset also became a shared benchmark that teams outside the
+project could build on.
 
-### TRIBE V2 and the Digital Brain Project
+### The Digital Brain Project
 
-[Describe TRIBE V2 and its role in the broader Digital Brain initiative. Explain how scaling individual encoding models across CNeuroMod subjects and linking to other large datasets (e.g., HCP, UK Biobank) could yield a generalizable neural foundation model. Add citations/links.]
+This bet is now being scaled up. Building on CNeuroMod, the
+[Digital Brain Project](https://digitalbrainproject.org/) aims to "build a functional model
+of the human brain" from neural recordings acquired during complex, interactive tasks. With
+US$15M in funding from Meta, coordinated by the Rothschild Hospital Foundation with the
+Université de Montréal as advisory partner, it will collect 15,000 hours of brain activity
+across nine inaugural teams in Switzerland, the USA, Canada and France. It follows the same
+design principle as CNeuroMod: "a few subjects over many sessions, building dense
+individual brain maps", with open release of deidentified data in BIDS format.
+CNeuroMod is one of its two contributing labs. Its infrastructure — standardized formats,
+versioned datasets and reproducible processing pipelines — provides a template for
+collecting and sharing data at this scale.
+
+### TRIBE v2: towards a foundation model of brain responses
+
+Modelling work is scaling up in the same way. TRIBE, the model that won Algonauts 2025, was
+trained only on CNeuroMod: seasons 1–6 of *Friends* and the four `movie10` films, more
+than 80 hours of fMRI per participant {cite:p}`d-Ascoli2026-hf`. Its encoding accuracy
+rose steadily with the amount of training data and had not reached a plateau. Its
+successor, TRIBE v2, aims to be a foundation model of brain responses to video, audio and
+language. It combines CNeuroMod with three other deeply sampled training datasets and is
+evaluated on new stimuli, tasks and participants across more than 1,000 hours of fMRI from
+720 participants {cite:p}`dascoli2026tribev2`. CNeuroMod supplies most of this training
+data: 268.7 of the 451.6 training hours of fMRI and 54k of the 59k training sentences.
+It is also the only training dataset that combines video, audio and text. Encoding
+accuracy across CNeuroMod again rose log-linearly with training data, without a plateau.
+The paper does not report an ablation that measures how much the other training datasets
+add, so CNeuroMod's share of the model's performance remains to be quantified.
+
+### Extending CNeuroMod across recording modalities
+
+CNeuroMod itself is expanding across recording modalities. A magnetoencephalography (MEG)
+extension is about to be collected: about 10 hours of MEG per participant for five
+participants, covering most CNeuroMod tasks with a reduced set of stimuli. The tasks of the
+Digital Brain Project will also be recorded in `sub-01` with both EEG and MEG. Together,
+these extensions will give the same tasks in the same individuals with complementary
+temporal and spatial resolution, a resource for building individual brain models that
+generalize across recording modalities as well as across stimuli and tasks.
 
 ### Optimal Transport for Data-Efficient Alignment
 
