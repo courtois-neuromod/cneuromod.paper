@@ -97,6 +97,8 @@ Three places depend on the upstream `cneuromod.all` repository:
 the numbers) and `source_data/dataset_comparison/source_data/cneuromod` (the comparison figures).
 If they sit at different commits they describe different sets of datasets. Keep them pinned
 together; the `update-data-overview` script warns when they drift.
+A difference confined to `cneuromod.all`'s own `analysis/cneuromod.all.statistics` pointer is
+expected (the tables are always generated one pointer bump earlier) and is not reported.
 :::
 
 `source_data/dataset_comparison/` is a git submodule (invoke + uv analysis project) that compares dense neuroimaging datasets by depth (brain recording hours per subject) vs. breadth (number of subjects). Its pre-generated figures live in `source_data/dataset_comparison/output_data/`. The key figure for the paper is:

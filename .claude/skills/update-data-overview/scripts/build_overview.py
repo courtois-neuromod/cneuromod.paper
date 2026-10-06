@@ -131,6 +131,21 @@ def components(repo, R):
     return global_assets, local_assets, per_dataset
 
 
+# cneuromod.all embeds cneuromod.all.statistics, so the commit the statistics tables were generated
+# from is always one pointer bump behind the cneuromod.all commit that includes them. A difference
+# confined to that pointer does not change the datasets.
+STATISTICS_POINTER = "analysis/cneuromod.all.statistics"
+
+
+def same_datasets(repo, a, b):
+    """True when commits `a` and `b` of `repo` differ at most by the statistics pointer."""
+    result = subprocess.run(
+        ["git", "-C", str(repo), "diff", "--quiet", a, b, "--", ".", f":!{STATISTICS_POINTER}"],
+        capture_output=True,
+    )
+    return result.returncode == 0
+
+
 def check_in_sync(repo):
     """Warn when the paper's cneuromod.all differs from the commits the numbers and figures used.
 
@@ -160,7 +175,7 @@ def check_in_sync(repo):
     comparison = Path("source_data/dataset_comparison/source_data/cneuromod")
     others[f"{comparison} (comparison figures)"] = head(comparison)
     for label, commit in others.items():
-        if commit and commit != narrative:
+        if commit and commit != narrative and not same_datasets(repo, commit, narrative):
             print(
                 f"WARNING: cneuromod checkouts differ.\n"
                 f"  {repo} @ {narrative[:8]} (narrative)\n"
