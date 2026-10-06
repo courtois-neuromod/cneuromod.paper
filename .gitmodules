@@ -5,7 +5,7 @@
 	branch = main
 [submodule "source_data/dataset_comparison"]
 	path = source_data/dataset_comparison
-	url = https://github.com/courtois-neuromod/dataset_comparison
+	url = https://github.com/courtois-neuromod/cneuromod.all.comparison
 [submodule "source_data/qa_figures"]
 	path = source_data/qa_figures
 	url = https://github.com/courtois-neuromod/cneuromod.all.qa_figures

@@ -5,7 +5,7 @@ Include version numbers and DOIs where available.]
 
 The depth-vs-breadth dataset comparison figure ({numref}`fig-dataset-landscape`) was
 generated with
-[`courtois-neuromod/dataset_comparison`](https://github.com/courtois-neuromod/dataset_comparison).
+[`courtois-neuromod/cneuromod.all.comparison`](https://github.com/courtois-neuromod/cneuromod.all.comparison).
 
 The per-subject data volume figure across CNeuroMod datasets ({numref}`fig-cneuromod-volume`)
 was generated with
