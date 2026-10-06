@@ -1,6 +1,4 @@
 ---
-abstract: |
-  [Add abstract here]
 kernelspec:
   name: python3
   display_name: Python 3
@@ -18,6 +16,12 @@ from pathlib import Path
 sys.path.insert(0, str(next(p for p in (Path("paper"), Path(".")) if (p / "_stats.py").exists())))
 from _stats import STATS
 ```
+
++++ {"part": "abstract"}
+
+Artificial neural networks can be trained to imitate both the brain activity and the behaviour of an individual, a framework to study how the brain processes information and a possible route toward more robust AI. Imitating one person requires many hours of their brain and behavioural data, across many cognitive domains, yet existing deep neuroimaging resources each focus on a single domain. The Courtois NeuroMod (CNeuroMod) project was designed to fill this gap. Over more than five years, {eval}`STATS.n_subjects` healthy adults were each scanned for an average of {eval}`STATS.fmri_per_subject_h` hours of fMRI, across {eval}`STATS.n_datasets` datasets in six cognitive categories: movies, stories, videogame play recorded with a custom MRI-compatible controller, controlled paradigms with many trials, functional localizers, and anatomical and validation data. The {eval}`STATS.fmri_total_h` hours of 3T fMRI come with physiological recordings, eye tracking, and repeated anatomical scans of the brain and spinal cord, released in BIDS with preprocessing derivatives as versioned DataLad datasets, openly for five of the six participants. Head motion was low, and both grey-matter volume and functional connectomes were stable within individuals across years, with connectomes remaining sensitive to cognitive context. Community uptake is already substantial and growing, spanning individual encoding models that predict brain responses to multimodal movies and generalize to new stimuli; models of the active brain, comparing artificial agents playing the same videogames with each participant's gameplay and brain activity; brain decoding of perception and action; brain-informed training of AI models; cognitive neuroscience with annotated naturalistic stimuli; and foundation models of individual brains.
+
++++
 
 Brain encoding models — trained to predict neural activity from the representations of artificial neural networks (ANNs) — have emerged as a powerful framework to study how the brain processes information [MISSING REF: e.g. Yamins & DiCarlo 2016, Schrimpf et al.]. Aligning artificial and biological representations through brain-augmented learning also shows early promise as a path toward more robust and generalizable AI, with models fine-tuned on brain activity demonstrating improved downstream task performance and faster learning from limited data {cite:p}`Bilgin2025-xz`.
 
