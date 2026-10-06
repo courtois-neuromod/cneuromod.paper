@@ -24,15 +24,42 @@ are not shown.
 
 ### The Algonauts 2025 Competition
 
-[Describe the Algonauts 2025 challenge: goals, dataset used (CNeuroMod HCP-style or Friends/Shinobi?), number of participants, main findings. Highlight how the competition structure promoted individual-level modeling.]
+`friends` and `movie10` formed the training set of the Algonauts Project 2025 Challenge
+{cite:p}`gifford2025algonauts`, an open competition to predict fMRI responses in 1,000
+cortical parcels from multimodal movie features. Training used about 65 hours of movies,
+watched by each of four participants: seasons 1–6 of *Friends* and the four `movie10`
+films. Season 7 of *Friends* was held out as an in-distribution test set, and six further
+films served as the out-of-distribution test set that decided the winners
+{cite:p}`Scotti2025-dn`. The second-ranked model reached a mean parcel-wise correlation of
+0.32 on the held-out season and 0.21 on the out-of-distribution films
+{cite:p}`Schad2025-pz`, and the third-ranked team reported a mean correlation of 0.63 in its
+best-predicted parcel {cite:p}`Eren2025-xi`. Further entries independently replicated
+these levels of performance across a wide range of architectures
+{cite:p}`Villanueva2025-aw,He2025-vt,Corsico2025-si,Scholz2025-io`.
+
+% TODO: confirm with the dataset owners that `ood` holds the six out-of-distribution
+% Algonauts 2025 test films (it has no CITATION.cff yet).
 
 ### The TRIBE Model
 
-[Describe the TRIBE model: what it does, what data it was trained on, key results in terms of brain prediction accuracy. Reference the relevant paper(s).]
+The winning model, TRIBE, finished first of 267 teams by a substantial margin, with a mean
+correlation of 0.32 on the held-out season and 0.21 on the out-of-distribution films. Its
+ablations showed that unimodal models reliably predict their own sensory networks but are
+systematically outperformed by the multimodal model in high-level associative cortices
+{cite:p}`d-Ascoli2026-hf`.
 
 ### New Directions: Auto-Regressive and Brain Encoding in One Model
 
-[Discuss Paugam et al.'s work combining auto-regressive modeling with brain encoding in a unified framework. Explain why this is a significant conceptual advance and what it implies for future encoding model architectures. Add citation.]
+Individual auto-regressive models of BOLD dynamics trained on movie watching kept
+improving with more data, with no complete saturation at 9 hours of training data. They
+generalized to other video stimuli and to resting state, and their predicted dynamics
+reproduced classical functional connectivity networks {cite:p}`Paugam2024-jo`.
+
+### Encoding Models of Controlled Tasks
+
+Recurrent networks trained on the HCP 2-back task encoded individual brain activity during
+that task in `hcptrt`, with the highest accuracy in the dorsal visual stream and frontal
+cortex {cite:p}`Sainath2025-hr`.
 
 ---
 
@@ -54,11 +81,25 @@ are not shown.
 
 ### Imitation Learning in the Brain
 
-[Describe Kemtur et al. (Imaging Neuroscience) using imitation learning frameworks to model behavior and brain activity. Add citation.]
+In `shinobi`, artificial agents trained by imitation learning to reproduce one
+participant's play style predicted that participant's brain activity better than agents
+trained on other participants' gameplay {cite:p}`Kemtur2023-px`.
+
+### Artificial Agents in Mario
+
+In `mario`, artificial agents trained on the same game with reinforcement learning,
+imitation learning or a vision objective were compared on brain encoding of new
+playthroughs {cite:p}`Paugam2025-oq`. Reinforcement learning had a small but significant
+advantage, and encoding improved over training. All models generalized poorly to new
+levels, which makes `mario` a benchmark for out-of-distribution generalization in active
+tasks.
 
 ### Learning Trajectories in Mario
 
-[Describe Harel & Bellec (RLC Workshop on Videogames in RL) characterizing how neural representations evolve as subjects learn to play Super Mario Bros. Add citation. Note this as a major area for future competitions.]
+High-resolution human gameplay from `mario` forms the basis of a continual-learning
+benchmark comparing human and agent learning trajectories {cite:p}`Harel2025-gl`.
+
+[Expand: how neural representations evolve as subjects learn to play Super Mario Bros. Note this as a major area for future competitions.]
 
 ---
 
@@ -72,7 +113,15 @@ are not shown.
 
 ### SoundNet Trained on Neural Data
 
-[Describe Freteault et al. (Imaging Neuroscience) training a SoundNet-style audio model using CNeuroMod fMRI responses as supervision signal. Summarize results showing improved audio representations. Add citation.]
+Fine-tuning an audio network on three seasons of *Friends* improved brain encoding on a
+fourth, unseen season, beyond auditory and visual cortices. Individual models often matched
+or outperformed group models {cite:p}`Freteault2025-tx`.
+
+### Brain-Informed Fine-Tuning of Language Models
+
+Brain-informed fine-tuning of language models on more than 50 hours of *Friends* produced
+encoding gains that grew with model size and with training duration (1–40 hours), and that
+generalized to held-out movies and participants {cite:p}`Bilgin2025-xz`.
 
 ### Challenges and Proper Downstream Evaluation
 
@@ -105,6 +154,17 @@ are not shown.
 ### Emotion Annotations in Friends
 
 [Highlight recent works using emotional annotations synchronized with the Friends TV show fMRI data. Summarize the types of annotations available and key cognitive neuroscience findings. Add citations.]
+
+### Language Comprehension
+
+`harrypotter` reproduces, in five CNeuroMod participants, the word-by-word reading paradigm
+of an existing fMRI dataset. A study using brain encoding of a computational representation
+of composed, "supra-word" meaning found that hubs thought to process lexical meaning also
+maintain supra-word meaning {cite:p}`Toneva2022-bf`. A methods paper from the same group
+tested its inferences on two fMRI datasets with naturalistic stimuli and found them
+strikingly consistent between the two {cite:p}`Toneva2022-vu`.
+
+% TODO: confirm which fMRI datasets Toneva2022-vu used.
 
 ### Large-Scale Annotation Efforts
 

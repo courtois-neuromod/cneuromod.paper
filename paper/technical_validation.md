@@ -337,21 +337,18 @@ localizers; (H) and (I) include sessions below the 30-minute gate. Axes in (A), 
 
 ## Dataset-specific validation
 
-The analyses above apply a common set of metrics to every dataset. Most datasets have also
-been validated individually: in a dedicated data paper, in a paper characterizing a
-benchmark built on the data, or both. These papers test what generic quality metrics
-cannot, namely whether each dataset carries the signal it was designed to capture. They
-check task-evoked responses in the expected regions, test-retest reliability within each
-individual, behavioural performance and stimulus-specific information.
-{numref}`tab-dataset-validation` lists the reference validation paper for each dataset,
-grouped by the cognitive categories of {numref}`tab-cognitive-categories`, and the key
-findings are summarized below. Independent studies by groups outside the CNeuroMod team
-add a second line of evidence, because a dataset that supports strong models built by
-others carries the signal it was designed to capture. We cite these studies here only for
-what they reveal about the data; the research directions they open are discussed in
-Usage Notes.
+The analyses above apply a common set of metrics to every dataset. Several datasets, as
+well as the stimuli and equipment used to acquire them, have also been validated
+individually in dedicated papers. These papers test what generic quality metrics cannot,
+namely whether each dataset carries the signal it was designed to capture. They check
+task-evoked responses in the expected regions, test-retest reliability within each
+individual, behavioural performance, stimulus properties and participant safety.
+{numref}`tab-dataset-validation` lists these papers, grouped by the cognitive categories of
+{numref}`tab-cognitive-categories`, and their key findings are summarized below. Studies
+that use the data to answer research questions, such as benchmarks and brain encoding
+models, are reviewed separately in Usage Notes.
 
-:::{list-table} Reference validation paper for each CNeuroMod dataset.
+:::{list-table} Dedicated validation papers for CNeuroMod datasets.
 :header-rows: 1
 :name: tab-dataset-validation
 
@@ -359,22 +356,10 @@ Usage Notes.
   - Dataset(s)
   - Reference
   - What was validated
-* - 🍿 Movies
-  - `friends`, `movie10`, `ood`
-  - {cite:t}`gifford2025algonauts`
-  - Benchmark for multimodal brain encoding, with in-distribution and out-of-distribution test sets
-* - 💬 Stories
-  - `harrypotter`
-  - {cite:t}`Toneva2022-bf`
-  - Brain encoding of composed word meaning during reading
 * - 👾 Videogames
   - `shinobi`
   - {cite:t}`harel2026gamer`
   - Event-related maps, session-to-session reproducibility and decoding of in-game events
-* - 👾 Videogames
-  - `mario`
-  - {cite:t}`Paugam2025-oq`
-  - Brain encoding of gameplay with artificial agents, within and across game levels
 * - 🔬 Taskscapes
   - `things`
   - {cite:t}`St-Laurent2026-zc`
@@ -382,7 +367,7 @@ Usage Notes.
 * - 🔬 Taskscapes
   - `triplets`
   - {cite:t}`Borghesani2023-me`
-  - Stimulus set: semantic triplets with human similarity judgments
+  - Stimulus set of the forthcoming dataset: semantic triplets with human similarity judgments
 * - 🧭 Functional localizers
   - `floc`, `retinotopy`
   - {cite:t}`St-Laurent2026-zc`
@@ -405,79 +390,21 @@ Usage Notes.
   - MRI/MEG compatibility, response latency and independent reproduction of the controller
 :::
 
-% TODO: confirm with the dataset owners that `ood` holds the six out-of-distribution
-% Algonauts 2025 test films, and that `hearing` is the dataset reported by Fortier2025-bo
-% (neither dataset has a CITATION.cff yet), and which fMRI datasets Toneva2022-vu used.
-
-### 🍿 Movies
-
-`friends` and `movie10` formed the training set of the Algonauts Project 2025 Challenge
-{cite:p}`gifford2025algonauts`, an open competition to predict fMRI responses in 1,000
-cortical parcels from multimodal movie features. Training used about 65 hours of movies,
-watched by each of four participants: seasons 1–6 of *Friends* and the four `movie10` films. Season 7 of
-*Friends* was held out as an in-distribution test set, and six further films served as the
-out-of-distribution test set that decided the winners {cite:p}`Scotti2025-dn`. The
-challenge results show that these data carry stimulus-driven signal that many independent
-teams could predict well. The winning model, TRIBE, finished first of 267 teams by a
-substantial margin, with a mean correlation of 0.32 on the held-out season and 0.21 on the
-out-of-distribution films. Its
-ablations showed that unimodal models reliably predict their own sensory networks but are
-systematically outperformed by the multimodal model in high-level associative cortices
-{cite:p}`d-Ascoli2026-hf`. The second-ranked model reached a mean parcel-wise correlation
-of 0.32 on the held-out season and 0.21 on the out-of-distribution films
-{cite:p}`Schad2025-pz`, and the third-ranked team reported a mean correlation of 0.63 in its
-best-predicted parcel {cite:p}`Eren2025-xi`. Further entries independently replicated
-these levels of performance across a wide range of architectures
-{cite:p}`Villanueva2025-aw,He2025-vt,Corsico2025-si,Scholz2025-io`.
-
-The movie data also show why recording this much data in each individual matters.
-Individual auto-regressive models of BOLD dynamics trained on movie watching kept
-improving with more data, with no complete saturation at 9 hours of training data. They
-generalized to other video stimuli and to resting state, and their predicted dynamics
-reproduced classical functional connectivity networks {cite:p}`Paugam2024-jo`. Fine-tuning
-an audio network on three seasons of *Friends* improved brain encoding on a fourth, unseen
-season, beyond auditory and visual cortices. Individual models often matched or
-outperformed group models {cite:p}`Freteault2025-tx`. Brain-informed fine-tuning of language
-models on more than 50 hours of *Friends* produced encoding gains that grew with model size
-and with training duration (1–40 hours), and that generalized to held-out movies and
-participants {cite:p}`Bilgin2025-xz`.
-
-### 💬 Stories
-
-`harrypotter` reproduces, in five CNeuroMod participants, the word-by-word reading paradigm
-of an existing fMRI dataset. It is referenced with a study that used brain encoding of a
-computational representation of composed, "supra-word" meaning. That study found that hubs
-thought to process lexical meaning also maintain supra-word meaning
-{cite:p}`Toneva2022-bf`. A methods paper from the same group tested its inferences on two fMRI
-datasets with naturalistic stimuli and found them strikingly consistent between the two
-{cite:p}`Toneva2022-vu`. `petit-prince` and `narratives` do not yet have a dedicated
-validation.
+% TODO: confirm with the dataset owners that `hearing` is the dataset reported by
+% Fortier2025-bo (it has no CITATION.cff yet).
 
 ### 👾 Videogames
 
 Active gameplay is the most demanding condition in the databank for data quality: it has
 the highest head motion and lowest tSNR of all datasets ({numref}`fig-fmri-quality`). The
-videogame papers show that the signal survives. In `shinobi`, four participants played for
+`shinobi` data paper shows that the signal survives. In `shinobi`, four participants played for
 a combined 32 hours (more than 7 hours each), and gameplay events were annotated
 automatically from the emulator's memory states {cite:p}`harel2026gamer`. Activation maps
 for player actions and game feedback engaged visual, motor, executive and limbic systems.
 Within-participant reproducibility of event responses across sessions was robust
 (r ≈ 0.25–0.55), even for rare events, while between-participant correlations were much
 lower, pointing to participant-specific signatures. Multivoxel patterns discriminated
-in-game events with accuracy typically around or above 90%. Artificial agents trained by
-imitation learning to reproduce one participant's play style predicted that participant's
-brain activity better than agents trained on other participants' gameplay
-{cite:p}`Kemtur2023-px`.
-
-In `mario`, artificial agents trained on the same game with reinforcement learning,
-imitation learning or a vision objective were compared on brain encoding of new
-playthroughs {cite:p}`Paugam2025-oq`. Reinforcement learning had a small but significant
-advantage, and encoding improved over training. All models generalized poorly to new
-levels, which makes `mario` a benchmark for out-of-distribution generalization in active
-tasks. High-resolution human gameplay from the same dataset also forms the basis of a
-continual-learning benchmark comparing human and agent learning trajectories
-{cite:p}`Harel2025-gl`. `mariostars`, `mario3` and `mario_eeg` do not yet have a dedicated
-validation.
+in-game events with accuracy typically around or above 90%.
 
 ### 🔬 Taskscapes
 
@@ -497,7 +424,7 @@ parietal activity.
 The `triplets` stimulus set comes from the Three Terms Task, a published benchmark of
 10,107 word triplets. Human similarity judgments from 1,322 raters were collected for the
 2,255 triplets on which language-model embeddings disagreed {cite:p}`Borghesani2023-me`.
-`emotion-videos`, `multfs` and `mutemusic` do not yet have a dedicated validation.
+This validates the stimuli of the forthcoming `triplets` fMRI dataset.
 
 ### 🧭 Functional localizers
 
@@ -510,10 +437,7 @@ volumes into 21 conditions with 57–67% accuracy, approaching the 76% reached b
 models trained on more than 1,000 hours of data from the original HCP sample
 {cite:p}`Rastegarnia2023-qz`. Accuracy dropped substantially across participants, so the
 decoders learned individual-specific features, and feature importance maps highlighted the
-regions expected for each cognitive domain. Recurrent networks trained on the HCP 2-back
-task encoded individual brain activity during that task, with the highest accuracy in the
-dorsal visual stream and frontal cortex {cite:p}`Sainath2025-hr`. `langlocalizer` does not
-yet have a dedicated validation.
+regions expected for each cognitive domain.
 
 ### 🧰 Others
 
@@ -541,10 +465,13 @@ the controller independently from the open documentation.
 
 ### Ongoing and forthcoming validation
 
-This section will be extended in future versions of this paper. Dedicated papers on the
-physiological recordings and on eye tracking are in preparation and will validate signal
-quality and usable yield for these modalities. In
-addition, a common automated pipeline will validate every dataset in the same way. It
+This section will be extended in future versions of this paper. Dedicated validation
+papers for `mario`, `mariostars` and `multfs` are in preparation, and others are planned.
+Until they are released, the remaining datasets, including all movie and story datasets,
+are validated only by the common metrics reported above. Dedicated papers on the
+physiological recordings and on eye tracking are also in preparation and will validate
+signal quality and usable yield for these modalities. In addition, a common automated
+pipeline will validate every dataset in the same way. It
 connects each dataset's released assets to a shared data-loading framework, tests the
 temporal alignment between stimulus, behavioural, physiological and BOLD streams, and trains
 simple encoding models from basic state annotations of the stimuli and tasks. Each model is
