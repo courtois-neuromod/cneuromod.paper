@@ -200,8 +200,8 @@ def main():
 
     out = ["# Data Overview", "", "## Summary Statistics", ""]
     out += [
-        "<!-- Figures live in the dataset_comparison submodule; do not edit them by hand. -->",
-        ":::{figure} ../source_data/dataset_comparison/output_data/cneuromod_comparison_per_subject.png",
+        "<!-- Figures live in the statistics submodule; do not edit them by hand. -->",
+        ":::{figure} ../source_data/statistics/output_data/figure_cneuromod_comparison_per_subject.png",
         ":name: fig-cneuromod-volume",
         ":width: 100%",
         "",

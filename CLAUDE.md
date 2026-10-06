@@ -28,6 +28,7 @@ paper/
 source_data/
   cneuromod.all/          # Git submodule: https://github.com/courtois-neuromod/cneuromod.all
   dataset_comparison/     # Git submodule: depth-vs-breadth neuroimaging dataset comparison
+  statistics/             # Git submodule: per-dataset CNeuroMod statistics and bubble chart
   qa_figures/             # Git submodule: MRIQC/tSNR data quality analysis
   connectome_stats/       # Git submodule: longitudinal stability / state-dependence of connectomes
   anat_stability/         # Git submodule: longitudinal stability of grey matter volume
@@ -101,6 +102,12 @@ commits they describe different sets of datasets. Keep them pinned together; the
 - `output_data/dataset_neuroimaging_depthvsbreadth.png` — Figure 1 of the intro: scatter plot of depth vs. breadth across datasets, with CNeuroMod highlighted in red.
 
 See `source_data/dataset_comparison/CLAUDE.md` for pipeline details. Do not modify files in that directory without running `uv run invoke run` inside it to regenerate outputs.
+
+`source_data/statistics/` is a git submodule (invoke + uv analysis project, from `courtois-neuromod/cneuromod.all.statistics`) that computes per-dataset CNeuroMod statistics; the per-dataset comparison moved here from `dataset_comparison`. Its main output is:
+
+- `output_data/figure_cneuromod_comparison_per_subject.png` — the per-subject data volume bubble chart in Data Overview, rows grouped and colored by cognitive category (its `CATEGORIES` mirror the paper's; keep them in sync).
+
+Regenerate its outputs with `uv run invoke fetch && uv run invoke run` inside that directory; do not hand-edit its outputs.
 
 `source_data/qa_figures/` is a git submodule (invoke + uv analysis project) that computes MRIQC image-quality metrics and per-run/atlas tSNR from the `cneuromod.all` Datalad superdataset. Its main output is:
 

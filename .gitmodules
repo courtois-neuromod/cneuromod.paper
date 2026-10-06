@@ -18,3 +18,6 @@
 [submodule "source_data/anat_stability"]
 	path = source_data/anat_stability
 	url = https://github.com/courtois-neuromod/anat.stability_grey_matter
+[submodule "source_data/statistics"]
+	path = source_data/statistics
+	url = https://github.com/courtois-neuromod/cneuromod.all.statistics

@@ -7,6 +7,10 @@ The depth-vs-breadth dataset comparison figure ({numref}`fig-dataset-landscape`)
 generated with
 [`courtois-neuromod/dataset_comparison`](https://github.com/courtois-neuromod/dataset_comparison).
 
+The per-subject data volume figure across CNeuroMod datasets ({numref}`fig-cneuromod-volume`)
+was generated with
+[`courtois-neuromod/cneuromod.all.statistics`](https://github.com/courtois-neuromod/cneuromod.all.statistics).
+
 The fMRI data quality analysis and figure ({numref}`fig-fmri-quality`) were generated with
 [`courtois-neuromod/cneuromod.all.qa_figures`](https://github.com/courtois-neuromod/cneuromod.all.qa_figures).
 

@@ -89,10 +89,11 @@ uv run jupyter book build --html --execute
 ### 3. Summary Statistics
 
 Embed the CNeuroMod bubble chart, which compares data volume across CNeuroMod's own datasets
-(rows = datasets, columns = modality groups, bubble area = per-subject volume excluding repetitions):
+(rows = datasets grouped and colored by cognitive category, columns = modality groups, bubble area
+= log of per-subject volume excluding repetitions, black outline = column maximum):
 
 ```markdown
-:::{figure} ../source_data/dataset_comparison/output_data/cneuromod_comparison_per_subject.png
+:::{figure} ../source_data/statistics/output_data/figure_cneuromod_comparison_per_subject.png
 :name: fig-cneuromod-volume
 :width: 100%
 
@@ -100,8 +101,8 @@ Embed the CNeuroMod bubble chart, which compares data volume across CNeuroMod's 
 :::
 ```
 
-Read `source_data/dataset_comparison/output_data/CONTENT.md` and
-`source_data/dataset_comparison/CLAUDE.md` for how the figure is produced, and never edit files in
+Read `source_data/statistics/output_data/CONTENT.md` and
+`source_data/statistics/CLAUDE.md` for how the figure is produced, and never edit files in
 that submodule by hand — regenerate with `uv run invoke run` inside it.
 
 Alongside the figure, write:

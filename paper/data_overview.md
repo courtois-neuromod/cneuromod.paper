@@ -26,14 +26,18 @@ described one by one, grouped into the six cognitive categories of
 
 ## Summary Statistics
 
-:::{figure} ../source_data/dataset_comparison/output_data/cneuromod_comparison_per_subject.png
+:::{figure} ../source_data/statistics/output_data/figure_cneuromod_comparison_per_subject.png
 :name: fig-cneuromod-volume
 :width: 100%
 
-**Per-subject data volume across CNeuroMod datasets.** Rows are individual datasets,
-columns group recording modalities (fMRI, naturalistic stimuli, controlled-task
-regressors, physiology, eye tracking), and bubble area is proportional to the hours of
-unique per-subject content, excluding stimulus repetitions.
+**Per-subject data volume across CNeuroMod datasets.** Rows are individual datasets, grouped
+and colored by the six cognitive categories of {numref}`tab-cognitive-categories`. Columns
+group brain recordings (fMRI), task content (images, video, audio, speech, text, resting
+state, controlled tasks, videogames and contrasts) and physiology (ECG, respiration,
+plethysmography, electrodermal activity, eye tracking). Bubble labels give hours of unique
+per-subject content, excluding stimulus repetitions, or counts for images and contrasts;
+bubble area grows with the logarithm of that value. A black outline marks the largest value
+in each column.
 :::
 
 The databank totals {eval}`STATS.fmri_total_h` hours of fMRI across all participants and
