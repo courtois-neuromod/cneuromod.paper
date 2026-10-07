@@ -167,13 +167,15 @@ These studies decoded a closed set of conditions. The breadth of CNeuroMod opens
 decoding spaces in the same individuals: thousands of object images in `things`
 {cite:p}`St-Laurent2026-zc`, hours of continuous movies and dialogue in `friends` and
 `movie10`, and gameplay in `shinobi` and `mario`, where stimulus and behaviour are recorded
-frame by frame. Upcoming datasets will add new benchmarks, such as word-level semantic
+frame by frame. Labels generated automatically from the stimuli can then define what to
+decode. In `friends`, the dialogue was labelled as positive, neutral or negative from the
+audio, with a speech emotion model, and from the subtitles, with text sentiment tools
+{cite:p}`Corsico2026-hy`. Acoustic and combined sentiment labels tracked activity in the
+salience and default mode networks better than subtitle-based labels, whose effects were
+weaker and more localized. Upcoming datasets will add new benchmarks, such as word-level semantic
 decoding with `triplets`, built on a published set of word triplets with human similarity
-judgments {cite:p}`Borghesani2023-me`, and working memory with `multfs`.
+judgments {cite:p}`Borghesani2023-me`, and working memory with `multfs`, amongst others.
 
-% TODO: Corsico2026-hy ("Decoding affective states from fMRI using automatically labeled
-% multi-modal movie stimuli", ICIAP 2025 workshops) is in the reuse list but has no abstract;
-% check which CNeuroMod data it used and add one sentence after the shinobi paragraph.
 % TODO: confirm the content of multfs (no README in cneuromod.all yet).
 
 ---
