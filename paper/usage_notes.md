@@ -84,29 +84,54 @@ supports a continual-learning benchmark comparing human and agent learning traje
 
 ## 3. Towards Better AI with Neural Data
 
-[Overview: Growing excitement in the ML community about using neural recordings as a source of inductive biases or alignment signals for AI models.]
+Brain encoding uses AI models to explain the brain. The reverse question is whether brain
+data can improve AI models. Neuroscience has been proposed as a source of inductive biases
+for more robust and safer AI, and fine-tuning AI systems directly on brain recordings is one
+of the routes considered {cite:p}`Mineault2024-ai`. The bottleneck is data: brain recordings
+are collected at a much smaller scale than the data used to train AI models. With tens of
+hours of fMRI per participant for the same stimuli, CNeuroMod makes this "brain-tuning"
+feasible.
 
-### The Case for Neuro-Aligned AI
+Brain-tuning first improves brain encoding itself. Fine-tuning SoundNet, a small audio
+network of about 2.5M parameters, on three seasons of `friends` improved brain encoding on a
+fourth, unseen season, beyond auditory and visual cortices, and individual models often
+matched or outperformed group models {cite:p}`Freteault2025-tx`. Language models fine-tuned
+with a brain alignment module on more than 50 hours of `friends` showed encoding gains that
+grew with model size (GPT-2 to LLaMA-2 7B) and with training duration (1–40 hours), and
+that generalized to held-out movies and participants {cite:p}`Bilgin2025-xz`. RABBiT, a
+compact audio-to-fMRI encoder with a brain-tuned speech backbone trained on `friends`
+(about 39 hours per participant), predicted responses to speech in 324 new participants from
+other datasets without any participant-specific data, better than group averages. Ten
+minutes of data from a new participant were enough to outperform per-participant linear
+models {cite:p}`Moussa2026-ft`.
 
-[Reference Mineault et al. white paper and recent review articles arguing for integrating neural data into AI training pipelines. Summarize the main arguments.]
+Brain-tuning also transfers to AI tasks. Brain-aligned SoundNet improved on the HEAR battery
+of auditory tasks, most for tasks with little training data, where it performed comparably
+to much larger models {cite:p}`Freteault2025-tx`. Brain-tuned language models better
+captured perceptual properties such as colour and shape {cite:p}`Bilgin2025-xz`, and
+brain-tuning a multimodal audio-video model on the superior temporal sulcus during
+`friends` improved sarcasm detection in sitcoms {cite:p}`Policzer2025-ja`. Brain
+organization can even serve as an architectural prior. The Platonic brain bridge hypothesis
+proposes that omni models, which process video, audio and text jointly, converge on
+brain-like representations {cite:p}`Zhang2026-zn`. Encoders built on such models ranked
+first on the post-challenge Algonauts 2025 leaderboard. In the other direction, Brain-MoE
+assigns the experts of a frozen omni model to the seven canonical cortical networks, trains
+each on questions labelled by the network most engaged in `friends` fMRI, and raised
+held-out accuracy in all 15 model–benchmark pairs, by 6.4 percentage points on average.
 
-### SoundNet Trained on Neural Data
-
-Fine-tuning an audio network on three seasons of *Friends* improved brain encoding on a
-fourth, unseen season, beyond auditory and visual cortices. Individual models often matched
-or outperformed group models {cite:p}`Freteault2025-tx`.
-
-### Brain-Informed Fine-Tuning of Language Models
-
-Brain-informed fine-tuning of language models on more than 50 hours of *Friends* produced
-encoding gains that grew with model size and with training duration (1–40 hours), and that
-generalized to held-out movies and participants {cite:p}`Bilgin2025-xz`.
-
-### Rabbit and the platonic bridge hypothesis
-
-### Challenges and Proper Downstream Evaluation
-
-[Discuss the challenge of limited neural data relative to large model parameter counts. Argue that benchmarking on fine-tuning on small datasets is more meaningful than competing on large-scale benchmarks with unconstrained compute. Provide practical recommendations for future neuro-AI work using CNeuroMod.]
+Brain-tuning is not yet a routine recipe. During the Algonauts 2025 challenge, one team
+fine-tuned language and vision backbones on the brain data. The gains were modest, and for a
+stimulus-tuned language model they did not carry over to the out-of-distribution films. The
+authors noted that a more comprehensive selection of hyperparameters could have helped, but
+was out of reach within the time and compute of the competition {cite:p}`Scholz2025-io`.
+Downstream evaluation is the proper test of these approaches. Brain data will remain small
+compared to the parameter counts of modern models, so the relevant benchmark is not scale
+but data efficiency: how much a fixed, modest amount of brain data improves a model on tasks
+where training data are scarce, compared with controls of matched capacity, such as the
+random experts used for Brain-MoE. Direct fine-tuning is also only one way to use brain
+data to improve AI models. Brain-MoE uses it instead to structure a model and to label its
+training data, and such indirect uses remain largely unexplored. The depth of CNeuroMod per participant and the diversity of
+its tasks make it a testbed for these comparisons.
 
 ---
 
