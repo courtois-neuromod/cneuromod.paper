@@ -34,6 +34,11 @@ on recurrent networks, scored 0.210 and 0.209 on the out-of-distribution films
 {cite:p}`Schad2025-pz,Eren2025-xi`, and further entries replicated these levels of
 performance across a wide range of architectures
 {cite:p}`Villanueva2025-aw,He2025-vt,Corsico2025-si,Scholz2025-io`.
+The benchmark has remained open after the challenge closed. MIRAGE, submitted to the
+official evaluation platform after the competition, replaced the separate unimodal feature
+extractors with a single natively multimodal foundation model, and an ensemble of its
+models reached 0.323 on the held-out season and 0.227 on the out-of-distribution films,
+above the top challenge entries {cite:p}`Gokce2026-ja`.
 
 Brain encoding can also be combined with models of the brain's own dynamics. Individual
 auto-regressive models of BOLD dynamics trained on movie watching kept improving with more
@@ -49,87 +54,129 @@ degraded only slowly over rollouts of up to 2.5 minutes.
 
 ## 2. Brain Encoding Models of the Active Brain
 
-[Overview: CNeuroMod's active tasks — particularly videogame paradigms — enable a new class of encoding models that capture brain activity during goal-directed, embodied behavior.]
+Videogames extend brain encoding to active, goal-directed behaviour. In `shinobi` and `mario`,
+participants play with an MRI-compatible controller {cite:p}`harel2023gamepad`, and every
+frame and button press is recorded alongside fMRI. Behaviour this rich can be learned by an
+artificial agent, which can then be asked to imitate both a participant's play and that
+participant's brain activity.
 
-### Atari Games
+In `shinobi`, agents trained by imitation learning to reproduce one participant's play style
+predicted that participant's brain activity better than agents trained on other participants'
+gameplay or than control models, most strongly in somatosensory, attention and visual networks
+{cite:p}`Kemtur2023-px`. Videogames thus support personalized models of behaviour and brain
+at once.
 
-[Discuss Cross et al. and Tomov et al. using Atari game stimuli for brain encoding. Summarize key findings linking RL agent representations to neural activity. Add citations.]
+Gameplay can also be described without an agent. Annotations of player actions and game
+feedback, extracted automatically from the emulator's memory states, predicted activity in
+visual, motor, executive and limbic systems {cite:p}`harel2026gamer`. This makes event-related
+analyses of complex play possible without manual coding.
 
-### Videogame Controller and Motor Signals
-
-[Discuss Harel et al. (PLOS ONE) examining controller inputs and neural correlates. Summarize findings on motor and planning signals in fMRI. Add citation.]
-
-### Clean BOLD Signal in Active Tasks
-
-[Describe Harel et al. (Imaging Neuroscience) demonstrating that high-quality BOLD signal is recoverable during active gameplay despite motion and arousal confounds. Add citation.]
-
-### Imitation Learning in the Brain
-
-In `shinobi`, artificial agents trained by imitation learning to reproduce one
-participant's play style predicted that participant's brain activity better than agents
-trained on other participants' gameplay {cite:p}`Kemtur2023-px`.
-
-### Artificial Agents in Mario
-
-In `mario`, artificial agents trained on the same game with reinforcement learning,
-imitation learning or a vision objective were compared on brain encoding of new
-playthroughs {cite:p}`Paugam2025-oq`. Reinforcement learning had a small but significant
-advantage, and encoding improved over training. All models generalized poorly to new
-levels, which makes `mario` a benchmark for out-of-distribution generalization in active
-tasks.
-
-### Learning Trajectories in Mario
-
-High-resolution human gameplay from `mario` forms the basis of a continual-learning
-benchmark comparing human and agent learning trajectories {cite:p}`Harel2025-gl`.
-
-[Expand: how neural representations evolve as subjects learn to play Super Mario Bros. Note this as a major area for future competitions.]
+Fitting the brain is not enough: models must also generalize. In `mario`, agents trained from
+scratch with reinforcement learning, imitation learning or a vision objective were compared on
+brain encoding {cite:p}`Paugam2025-oq`. Reinforcement learning had a small advantage, but an
+untrained network of the same architecture came close, and all models generalized poorly to
+new levels. `mario` is therefore a benchmark for the robustness and out-of-distribution
+generalization of brain encoding models in active tasks. Its high-resolution gameplay also
+supports a continual-learning benchmark comparing human and agent learning trajectories
+{cite:p}`Harel2025-gl`.
 
 ---
 
 ## 3. Towards Better AI with Neural Data
 
-[Overview: Growing excitement in the ML community about using neural recordings as a source of inductive biases or alignment signals for AI models.]
+Brain encoding uses AI models to explain the brain. The reverse question is whether brain
+data can improve AI models. Neuroscience has been proposed as a source of inductive biases
+for more robust and safer AI, and fine-tuning AI systems directly on brain recordings is one
+of the routes considered {cite:p}`Mineault2024-ai`. The bottleneck is data: brain recordings
+are collected at a much smaller scale than the data used to train AI models. With tens of
+hours of fMRI per participant for the same stimuli, CNeuroMod makes this "brain-tuning"
+feasible.
 
-### The Case for Neuro-Aligned AI
+Brain-tuning first improves brain encoding itself. Fine-tuning SoundNet, a small audio
+network of about 2.5M parameters, on three seasons of `friends` improved brain encoding on a
+fourth, unseen season, beyond auditory and visual cortices, and individual models often
+matched or outperformed group models {cite:p}`Freteault2025-tx`. Language models fine-tuned
+with a brain alignment module on more than 50 hours of `friends` showed encoding gains that
+grew with model size (GPT-2 to LLaMA-2 7B) and with training duration (1–40 hours), and
+that generalized to held-out movies and participants {cite:p}`Bilgin2025-xz`. RABBiT, a
+compact audio-to-fMRI encoder with a brain-tuned speech backbone trained on `friends`
+(about 39 hours per participant), predicted responses to speech in 324 new participants from
+other datasets without any participant-specific data, better than group averages. Ten
+minutes of data from a new participant were enough to outperform per-participant linear
+models {cite:p}`Moussa2026-ft`.
 
-[Reference Mineault et al. white paper and recent review articles arguing for integrating neural data into AI training pipelines. Summarize the main arguments.]
+Brain-tuning also transfers to AI tasks. Brain-aligned SoundNet improved on the HEAR battery
+of auditory tasks, most for tasks with little training data, where it performed comparably
+to much larger models {cite:p}`Freteault2025-tx`. Brain-tuned language models better
+captured perceptual properties such as colour and shape {cite:p}`Bilgin2025-xz`, and
+brain-tuning a multimodal audio-video model on the superior temporal sulcus during
+`friends` improved sarcasm detection in sitcoms {cite:p}`Policzer2025-ja`. Brain
+organization can even serve as an architectural prior. The Platonic brain bridge hypothesis
+proposes that omni models, which process video, audio and text jointly, converge on
+brain-like representations {cite:p}`Zhang2026-zn`. Encoders built on such models ranked
+first on the post-challenge Algonauts 2025 leaderboard. In the other direction, Brain-MoE
+assigns the experts of a frozen omni model to the seven canonical cortical networks, trains
+each on questions labelled by the network most engaged in `friends` fMRI, and raised
+held-out accuracy in all 15 model–benchmark pairs, by 6.4 percentage points on average.
 
-### SoundNet Trained on Neural Data
-
-Fine-tuning an audio network on three seasons of *Friends* improved brain encoding on a
-fourth, unseen season, beyond auditory and visual cortices. Individual models often matched
-or outperformed group models {cite:p}`Freteault2025-tx`.
-
-### Brain-Informed Fine-Tuning of Language Models
-
-Brain-informed fine-tuning of language models on more than 50 hours of *Friends* produced
-encoding gains that grew with model size and with training duration (1–40 hours), and that
-generalized to held-out movies and participants {cite:p}`Bilgin2025-xz`.
-
-### Rabbit and the platonic bridge hypothesis
-
-### Challenges and Proper Downstream Evaluation
-
-[Discuss the challenge of limited neural data relative to large model parameter counts. Argue that benchmarking on fine-tuning on small datasets is more meaningful than competing on large-scale benchmarks with unconstrained compute. Provide practical recommendations for future neuro-AI work using CNeuroMod.]
+Brain-tuning is not yet a routine recipe. During the Algonauts 2025 challenge, one team
+fine-tuned language and vision backbones on the brain data. The gains were modest, and for a
+stimulus-tuned language model they did not carry over to the out-of-distribution films. The
+authors noted that a more comprehensive selection of hyperparameters could have helped, but
+was out of reach within the time and compute of the competition {cite:p}`Scholz2025-io`.
+Downstream evaluation is the proper test of these approaches. Brain data will remain small
+compared to the parameter counts of modern models, so the relevant benchmark is not scale
+but data efficiency: how much a fixed, modest amount of brain data improves a model on tasks
+where training data are scarce, compared with controls of matched capacity, such as the
+random experts used for Brain-MoE. Direct fine-tuning is also only one way to use brain
+data to improve AI models. Brain-MoE uses it instead to structure a model and to label its
+training data, and such indirect uses remain largely unexplored. The depth of CNeuroMod per participant and the diversity of
+its tasks make it a testbed for these comparisons.
 
 ---
 
 ## 4. Brain Decoding
 
-[Overview: CNeuroMod supports brain decoding — reconstructing stimuli or mental states from neural activity — across multiple modalities and task types.]
+Brain decoding reverses the direction of encoding: it infers a stimulus or a cognitive state
+from a pattern of brain activity. Functional brain organization varies substantially across
+individuals, so decoders are usually trained on large groups of participants, at the cost of
+blurring individual signatures. Deeply sampled participants offer the alternative of training
+a decoder entirely within one brain, and CNeuroMod has enough repetitions of the same
+conditions to do so.
 
-### Decoding with the Shinobi Dataset
+`hcptrt` puts this to the test on the Human Connectome Project task battery, a popular group
+decoding benchmark, repeated many times in each participant. Individual decoders classified
+single fMRI volumes (1.49 s) into 21 conditions, the setting closest to decoding a
+continuous, naturalistic experience in real time {cite:p}`Rastegarnia2023-qz`. With about
+7 hours of data per participant, they approached the accuracy of group models trained on
+more than 1,000 hours from the original HCP sample. They also learned individual-specific
+features: accuracy dropped sharply when a decoder was applied to another participant, and
+models trained on the other participants did not match the participant's own model.
 
-[Describe Shima et al. (Imaging Neuroscience) using the Shinobi videogame fMRI dataset for brain decoding. Summarize what was decoded (game state? actions? rewards?) and key findings. Add citation.]
+Decoding is not limited to blocked designs. In `shinobi`, events annotated automatically
+from the emulator's memory, such as player actions, killing an enemy or losing health, were
+modelled session by session, together with the `hcptrt` conditions of the same participants
+{cite:p}`harel2026gamer`. A linear classifier separated 27 types of maps, with
+leave-one-session-out accuracy of 0.98 for killing an enemy and hitting, and above 0.9 for
+most other game events. Rare events were decoded less reliably, down to 0.36 for health
+losses in one participant, and errors mostly confused game events with each other or with
+the motor task. Different aspects of a single continuous game thus evoked patterns as
+distinct as those of separate cognitive tasks.
 
-### Expanding the Space of Brain Decoding
+These studies decoded a closed set of conditions. The breadth of CNeuroMod opens larger
+decoding spaces in the same individuals: thousands of object images in `things`
+{cite:p}`St-Laurent2026-zc`, hours of continuous movies and dialogue in `friends` and
+`movie10`, and gameplay in `shinobi` and `mario`, where stimulus and behaviour are recorded
+frame by frame. Labels generated automatically from the stimuli can then define what to
+decode. In `friends`, the dialogue was labelled as positive, neutral or negative from the
+audio, with a speech emotion model, and from the subtitles, with text sentiment tools
+{cite:p}`Corsico2026-hy`. Acoustic and combined sentiment labels tracked activity in the
+salience and default mode networks better than subtitle-based labels, whose effects were
+weaker and more localized. Upcoming datasets will add new benchmarks, such as word-level semantic
+decoding with `triplets`, built on a published set of word triplets with human similarity
+judgments {cite:p}`Borghesani2023-me`, and working memory with `multfs`, amongst others.
 
-[Explain how the breadth of CNeuroMod stimuli and tasks greatly expands the stimulus and cognitive spaces available for decoding, beyond the traditional image/language domains.]
-
-### Upcoming Benchmarks
-
-[Preview the triplets dataset (for word-level semantic decoding) and the MultiFS working memory dataset as upcoming resources that will open new decoding benchmarks for the community.]
+% TODO: confirm the content of multfs (no README in cneuromod.all yet).
 
 ---
 
