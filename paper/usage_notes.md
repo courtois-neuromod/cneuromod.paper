@@ -137,19 +137,44 @@ its tasks make it a testbed for these comparisons.
 
 ## 4. Brain Decoding
 
-[Overview: CNeuroMod supports brain decoding — reconstructing stimuli or mental states from neural activity — across multiple modalities and task types.]
+Brain decoding reverses the direction of encoding: it infers a stimulus or a cognitive state
+from a pattern of brain activity. Functional brain organization varies substantially across
+individuals, so decoders are usually trained on large groups of participants, at the cost of
+blurring individual signatures. Deeply sampled participants offer the alternative of training
+a decoder entirely within one brain, and CNeuroMod has enough repetitions of the same
+conditions to do so.
 
-### Decoding with the Shinobi Dataset
+`hcptrt` puts this to the test on the Human Connectome Project task battery, a popular group
+decoding benchmark, repeated many times in each participant. Individual decoders classified
+single fMRI volumes (1.49 s) into 21 conditions, the setting closest to decoding a
+continuous, naturalistic experience in real time {cite:p}`Rastegarnia2023-qz`. With about
+7 hours of data per participant, they approached the accuracy of group models trained on
+more than 1,000 hours from the original HCP sample. They also learned individual-specific
+features: accuracy dropped sharply when a decoder was applied to another participant, and
+models trained on the other participants did not match the participant's own model.
 
-[Describe Shima et al. (Imaging Neuroscience) using the Shinobi videogame fMRI dataset for brain decoding. Summarize what was decoded (game state? actions? rewards?) and key findings. Add citation.]
+Decoding is not limited to blocked designs. In `shinobi`, events annotated automatically
+from the emulator's memory, such as player actions, killing an enemy or losing health, were
+modelled session by session, together with the `hcptrt` conditions of the same participants
+{cite:p}`harel2026gamer`. A linear classifier separated 27 types of maps, with
+leave-one-session-out accuracy of 0.98 for killing an enemy and hitting, and above 0.9 for
+most other game events. Rare events were decoded less reliably, down to 0.36 for health
+losses in one participant, and errors mostly confused game events with each other or with
+the motor task. Different aspects of a single continuous game thus evoked patterns as
+distinct as those of separate cognitive tasks.
 
-### Expanding the Space of Brain Decoding
+These studies decoded a closed set of conditions. The breadth of CNeuroMod opens larger
+decoding spaces in the same individuals: thousands of object images in `things`
+{cite:p}`St-Laurent2026-zc`, hours of continuous movies and dialogue in `friends` and
+`movie10`, and gameplay in `shinobi` and `mario`, where stimulus and behaviour are recorded
+frame by frame. Upcoming datasets will add new benchmarks, such as word-level semantic
+decoding with `triplets`, built on a published set of word triplets with human similarity
+judgments {cite:p}`Borghesani2023-me`, and working memory with `multfs`.
 
-[Explain how the breadth of CNeuroMod stimuli and tasks greatly expands the stimulus and cognitive spaces available for decoding, beyond the traditional image/language domains.]
-
-### Upcoming Benchmarks
-
-[Preview the triplets dataset (for word-level semantic decoding) and the MultiFS working memory dataset as upcoming resources that will open new decoding benchmarks for the community.]
+% TODO: Corsico2026-hy ("Decoding affective states from fMRI using automatically labeled
+% multi-modal movie stimuli", ICIAP 2025 workshops) is in the reuse list but has no abstract;
+% check which CNeuroMod data it used and add one sentence after the shinobi paragraph.
+% TODO: confirm the content of multfs (no README in cneuromod.all yet).
 
 ---
 
