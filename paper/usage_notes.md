@@ -34,6 +34,11 @@ on recurrent networks, scored 0.210 and 0.209 on the out-of-distribution films
 {cite:p}`Schad2025-pz,Eren2025-xi`, and further entries replicated these levels of
 performance across a wide range of architectures
 {cite:p}`Villanueva2025-aw,He2025-vt,Corsico2025-si,Scholz2025-io`.
+The benchmark has remained open after the challenge closed. MIRAGE, submitted to the
+official evaluation platform after the competition, replaced the separate unimodal feature
+extractors with a single natively multimodal foundation model, and an ensemble of its
+models reached 0.323 on the held-out season and 0.227 on the out-of-distribution films,
+above the top challenge entries {cite:p}`Gokce2026-ja`.
 
 Brain encoding can also be combined with models of the brain's own dynamics. Individual
 auto-regressive models of BOLD dynamics trained on movie watching kept improving with more
@@ -49,41 +54,31 @@ degraded only slowly over rollouts of up to 2.5 minutes.
 
 ## 2. Brain Encoding Models of the Active Brain
 
-[Overview: CNeuroMod's active tasks — particularly videogame paradigms — enable a new class of encoding models that capture brain activity during goal-directed, embodied behavior.]
+Videogames extend brain encoding to active, goal-directed behaviour. In `shinobi` and `mario`,
+participants play with an MRI-compatible controller {cite:p}`harel2023gamepad`, and every
+frame and button press is recorded alongside fMRI. Behaviour this rich can be learned by an
+artificial agent, which can then be asked to imitate both a participant's play and that
+participant's brain activity.
 
-### Atari Games
+In `shinobi`, agents trained by imitation learning to reproduce one participant's play style
+predicted that participant's brain activity better than agents trained on other participants'
+gameplay or than control models, most strongly in somatosensory, attention and visual networks
+{cite:p}`Kemtur2023-px`. Videogames thus support personalized models of behaviour and brain
+at once.
 
-[Discuss Cross et al. and Tomov et al. using Atari game stimuli for brain encoding. Summarize key findings linking RL agent representations to neural activity. Add citations.]
+Gameplay can also be described without an agent. Annotations of player actions and game
+feedback, extracted automatically from the emulator's memory states, predicted activity in
+visual, motor, executive and limbic systems {cite:p}`harel2026gamer`. This makes event-related
+analyses of complex play possible without manual coding.
 
-### Videogame Controller and Motor Signals
-
-[Discuss Harel et al. (PLOS ONE) examining controller inputs and neural correlates. Summarize findings on motor and planning signals in fMRI. Add citation.]
-
-### Clean BOLD Signal in Active Tasks
-
-[Describe Harel et al. (Imaging Neuroscience) demonstrating that high-quality BOLD signal is recoverable during active gameplay despite motion and arousal confounds. Add citation.]
-
-### Imitation Learning in the Brain
-
-In `shinobi`, artificial agents trained by imitation learning to reproduce one
-participant's play style predicted that participant's brain activity better than agents
-trained on other participants' gameplay {cite:p}`Kemtur2023-px`.
-
-### Artificial Agents in Mario
-
-In `mario`, artificial agents trained on the same game with reinforcement learning,
-imitation learning or a vision objective were compared on brain encoding of new
-playthroughs {cite:p}`Paugam2025-oq`. Reinforcement learning had a small but significant
-advantage, and encoding improved over training. All models generalized poorly to new
-levels, which makes `mario` a benchmark for out-of-distribution generalization in active
-tasks.
-
-### Learning Trajectories in Mario
-
-High-resolution human gameplay from `mario` forms the basis of a continual-learning
-benchmark comparing human and agent learning trajectories {cite:p}`Harel2025-gl`.
-
-[Expand: how neural representations evolve as subjects learn to play Super Mario Bros. Note this as a major area for future competitions.]
+Fitting the brain is not enough: models must also generalize. In `mario`, agents trained from
+scratch with reinforcement learning, imitation learning or a vision objective were compared on
+brain encoding {cite:p}`Paugam2025-oq`. Reinforcement learning had a small advantage, but an
+untrained network of the same architecture came close, and all models generalized poorly to
+new levels. `mario` is therefore a benchmark for the robustness and out-of-distribution
+generalization of brain encoding models in active tasks. Its high-resolution gameplay also
+supports a continual-learning benchmark comparing human and agent learning trajectories
+{cite:p}`Harel2025-gl`.
 
 ---
 
