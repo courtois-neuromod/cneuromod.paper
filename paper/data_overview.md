@@ -234,8 +234,20 @@ HCP localizers, or one resting-state run and one HCP localizer run.
 
 ### hearing
 
-*(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
-been documented with a README.)*
+The `hearing` dataset tracks the auditory health of all six participants under repeated
+exposure to scanner noise {cite:p}`Fortier2025-bo`. After baseline tests in early 2021,
+clinical audiology tests were administered immediately before and after scanning
+sessions, to detect temporary changes, and two to seven days after a session, to detect
+lasting ones. Tests covered otoscopy, tympanometry, stapedial reflexes, pure-tone
+audiometry over the standard (0.25–8 kHz) and extended high-frequency (9–20 kHz) ranges,
+and distortion product otoacoustic emissions, a subclinical marker that can precede
+measurable threshold shifts.
+
+:::{admonition} How to cite
+:class: tip
+
+{cite:p}`Fortier2025-bo`
+:::
 
 ### anat
 
