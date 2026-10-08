@@ -182,85 +182,122 @@ judgments {cite:p}`Borghesani2023-me`, and working memory with `multfs`, amongst
 
 ## 5. Cognitive Neuroscience and Naturalistic Annotations
 
-[Overview: CNeuroMod naturalistic stimuli, combined with rich semantic annotations, support traditional cognitive neuroscience questions about emotion, memory, language, and social cognition.]
+The research directions above use AI models to explain, predict or decode brain activity.
+CNeuroMod also supports classic cognitive neuroscience questions about perception, emotion,
+memory and language, increasingly asked with naturalistic stimuli. A movie or a game has no
+experimental design set in advance: it has to be recovered from the stimulus. Annotations,
+which describe what happens moment by moment, turn a naturalistic stimulus into a design that
+standard tools, such as the general linear model, can analyse.
 
-### Emotion Annotations in Friends
+Movies are a natural testbed for how the brain combines what is seen and heard. Comparing
+how well auditory and visual features predict each region over time revealed two
+complementary organizations: regions that switch between modalities, arranged in a posterior
+and an anterior "bow", and an axis of regions represented by both modalities, from lateral
+occipital into temporal cortex {cite:p}`Pushpita2025-mr`. Functional connectivity during
+naturalistic viewing localized a compact, replicable subnetwork of parcels critical for
+multimodal integration {cite:p}`Fokin2025-ys`. Full-length movies also probe the timescale
+of integration: short clips aligned with perceptual and early language regions, and longer
+clips with higher-order integrative regions {cite:p}`Jindal2026-tr`.
 
-[Highlight recent works using emotional annotations synchronized with the Friends TV show fMRI data. Summarize the types of annotations available and key cognitive neuroscience findings. Add citations.]
+Long narratives make it possible to follow the brain across an entire story. Hidden Markov
+models fitted to each participant's six seasons of `friends` showed that each brain visits
+roughly forty-five recurring states, from ones active in nearly every episode to
+episode-specific ones. Episode content shifted which states were occupied, not which states
+existed, and the repertoire transferred to other social-narrative films
+{cite:p}`Chen2026-ef`. Emotional content can be annotated automatically, from the audio and
+subtitles of the dialogue {cite:p}`Corsico2026-hy` (see Brain Decoding). A dedicated
+repository, still in development,
+[`friends.annotations`](https://github.com/courtois-neuromod/friends.annotations), describes
+each half-episode watched in the scanner along several dimensions: automated transcription
+with speaker identity, edited fan-made transcripts, face positions of named characters,
+soundscape tags, predicted gaze locations, automated shot and manual scene segmentations, and
+summaries of episodes and characters. Such annotations let users test cognitive hypotheses,
+for instance about speakers, characters or scene changes, with standard analyses and without
+training AI models.
 
-### Language Comprehension
-
-`harrypotter` reproduces, in five CNeuroMod participants, the word-by-word reading paradigm
-of an existing fMRI dataset. A study using brain encoding of a computational representation
-of composed, "supra-word" meaning found that hubs thought to process lexical meaning also
-maintain supra-word meaning {cite:p}`Toneva2022-bf`. A methods paper from the same group
-tested its inferences on two fMRI datasets with naturalistic stimuli and found them
-strikingly consistent between the two {cite:p}`Toneva2022-vu`.
+Controlled tasks complement these stimuli for language and memory. `harrypotter` reproduces,
+in five CNeuroMod participants, the word-by-word reading paradigm of an existing fMRI
+dataset. Brain encoding of a computational representation of composed, "supra-word" meaning
+found that hubs thought to process lexical meaning also maintain supra-word meaning
+{cite:p}`Toneva2022-bf`, and a methods paper from the same group found its inferences
+strikingly consistent across two naturalistic fMRI datasets {cite:p}`Toneva2022-vu`. In
+`things`, participants performed a continuous recognition task in which each image was shown
+three times, within and across weekly sessions, and reported whether it was new or seen
+before, and how confident they were {cite:p}`St-Laurent2026-zc`. This supports the study of
+recognition memory over delays of weeks, in the same participants who watched the movies.
 
 % TODO: confirm which fMRI datasets Toneva2022-vu used.
 
-### Large-Scale Annotation Efforts
-
-[Describe the team's ongoing effort to release large-scale annotations of naturalistic stimuli, including Friends and Mario scenes (scene segmentation, character identity, emotional valence, actions, etc.). Explain how these annotations will enable purely cognitive neuroscience-driven analyses without requiring ML expertise.]
+Games can be annotated without manual coding. In `shinobi` and `mario`, events such as
+player actions, kills or health losses are extracted from the emulator's memory and released
+with the data, ready for event-related analyses {cite:p}`harel2026gamer`. The 22 `mario`
+levels are also split into 313 short scenes, each labelled with the game design patterns it
+contains, such as gaps, enemy hordes or stairs, released as a standalone resource
+{cite:p}`Harel2025-scenes`. Scenes provide a unit of analysis for comparing gameplay and
+brain activity across attempts and participants.
 
 ---
 
 ## 6. Foundation Models and the Digital Brain
 
-CNeuroMod was designed around a deliberate bet: model a few individuals in depth before
-attempting to model humanity at large. Six participants is a small sample by the standards
-of population neuroscience, but a sample of many people cannot answer the question
-CNeuroMod targets: can a model reproduce one specific brain across a wide range of
-cognitive functions? Answering it requires many hours of data from the same person,
-recorded under many different tasks. The work reviewed above shows that this works.
-Individual models trained on CNeuroMod predict brain activity for new stimuli, improve with
-more data from the same person, and often match or outperform group models. Through the
-Algonauts 2025 challenge, the dataset also became a shared benchmark that teams outside the
-project could build on.
+CNeuroMod was designed to answer a question that a sample of many people cannot: can a
+model reproduce one specific brain across a wide range of cognitive functions? This
+requires many hours of data from the same person, recorded under many different tasks.
+Individual models trained on CNeuroMod already predict brain activity for new stimuli,
+improve with more data from the same person, and often match or outperform group models.
+The next steps are to scale these models up, to transfer them to new individuals, and to
+extend them to new recording modalities.
 
-### The Digital Brain Project
+Modelling is scaling up first. TRIBE, trained only on CNeuroMod, kept improving with more
+training data without reaching a plateau {cite:p}`d-Ascoli2026-hf`. Its successor, TRIBE
+v2, aims to be a foundation model of brain responses to video, audio and language, which
+generalizes to new stimuli, tasks and participants. It combines CNeuroMod with three other
+deeply sampled datasets, and is evaluated on more than 1,000 hours of fMRI from 720
+participants {cite:p}`dascoli2026tribev2`. CNeuroMod supplies most of its training fMRI,
+268.7 of 451.6 hours, and is the only training dataset that combines video, audio and
+text. How much the other datasets add to the model's performance has not been measured.
 
-This bet is now being scaled up. Building on CNeuroMod, the
+Data collection is scaling up as well. Building on CNeuroMod, the
 [Digital Brain Project](https://digitalbrainproject.org/) aims to "build a functional model
-of the human brain" from neural recordings acquired during complex, interactive tasks. With
-US$15M in funding from Meta, coordinated by the Rothschild Hospital Foundation with the
-Université de Montréal as advisory partner, it will collect 15,000 hours of brain activity
-across nine inaugural teams in Switzerland, the USA, Canada and France. It follows the same
-design principle as CNeuroMod: "a few subjects over many sessions, building dense
-individual brain maps", with open release of deidentified data in BIDS format.
-CNeuroMod is one of its two contributing labs. Its infrastructure — standardized formats,
-versioned datasets and reproducible processing pipelines — provides a template for
-collecting and sharing data at this scale.
+of the human brain" from recordings acquired during complex, interactive tasks. Funded by
+Meta with US$15M, it will collect 15,000 hours of brain activity across nine teams, with
+"a few subjects over many sessions", and release deidentified data in BIDS format.
+CNeuroMod is one of its two contributing labs, and its infrastructure of standardized
+formats, versioned datasets and reproducible pipelines provides a template for collecting
+and sharing data at this scale.
 
-### TRIBE v2: towards a foundation model of brain responses
+Deep individual models raise the question of how to transfer them to a new person, for
+whom only a short recording is available. Optimal transport (OT) is a promising tool for
+this data-efficient alignment. OT finds the least costly way to move the functional signal
+of one brain onto another, as a soft matching between cortical locations with similar
+responses. Piecewise OT was among the best functional alignment methods for inter-subject
+decoding at the whole-brain scale {cite:p}`Bazeille2021-ea`. Fused unbalanced
+Gromov-Wasserstein (FUGW) matches cortical surfaces on their responses while penalizing
+distortions of each brain's topography, and allows functional areas to differ in size
+between individuals {cite:p}`Thual2022-fugw`. Alignments computed from movie watching
+improved out-of-subject decoding of visual semantics by up to 75%, and beat single-subject
+decoders when less than 100 minutes of data were available for the new participant
+{cite:p}`Thual2023-ab`. The same tools compare brains with AI models: the soft matching
+distance uses OT to match the units of two systems of different sizes, voxel by voxel or
+neuron by neuron {cite:p}`Khosla2024-sm`, and a partial version leaves unreliable voxels
+unmatched {cite:p}`Kapoor2026-ps`.
 
-Modelling work is scaling up in the same way. TRIBE, the model that won Algonauts 2025, was
-trained only on CNeuroMod: seasons 1–6 of *Friends* and the four `movie10` films, more
-than 80 hours of fMRI per participant {cite:p}`d-Ascoli2026-hf`. Its encoding accuracy
-rose steadily with the amount of training data and had not reached a plateau. Its
-successor, TRIBE v2, aims to be a foundation model of brain responses to video, audio and
-language. It combines CNeuroMod with three other deeply sampled training datasets and is
-evaluated on new stimuli, tasks and participants across more than 1,000 hours of fMRI from
-720 participants {cite:p}`dascoli2026tribev2`. CNeuroMod supplies most of this training
-data: 268.7 of the 451.6 training hours of fMRI and 54k of the 59k training sentences.
-It is also the only training dataset that combines video, audio and text. Encoding
-accuracy across CNeuroMod again rose log-linearly with training data, without a plateau.
-The paper does not report an ablation that measures how much the other training datasets
-add, so CNeuroMod's share of the model's performance remains to be quantified.
-
-### Extending CNeuroMod across recording modalities
+CNeuroMod is well suited to these methods, which learn alignments from responses to shared
+stimuli. Its participants watched the same movies, saw the same images and played the same
+games for tens of hours. Each of them can serve as a dense functional template, onto which
+a new person is mapped from a short movie-watching session, so that an individual model
+trained on hundreds of hours can be reused with little new data. The same approach could
+align CNeuroMod with other deeply sampled datasets wherever they share stimuli, including
+those of the Digital Brain Project, and test how many minutes of data a new individual needs
+for a transferred model to match a model trained on their own data.
 
 CNeuroMod itself is expanding across recording modalities. A magnetoencephalography (MEG)
 extension is about to be collected: about 10 hours of MEG per participant for five
 participants, covering most CNeuroMod tasks with a reduced set of stimuli. The tasks of the
-Digital Brain Project will also be recorded in `sub-01` with both EEG and MEG. Together,
-these extensions will give the same tasks in the same individuals with complementary
-temporal and spatial resolution, a resource for building individual brain models that
-generalize across recording modalities as well as across stimuli and tasks.
-
-### Optimal Transport for Data-Efficient Alignment
-
-[Discuss the opportunity to apply optimal transport (OT) methods for aligning neural representations across subjects and datasets in a data-efficient manner. Reference work from Aimy Wenegrat's lab and the INRIA DANDI team. Explain why OT is particularly well-suited to the small-N, high-dimensional regime of deep phenotyping datasets like CNeuroMod.]
+Digital Brain Project will also be recorded in `sub-01` with both EEG and MEG. These
+extensions will give the same tasks in the same individuals with complementary temporal and
+spatial resolution, to build individual brain models that generalize across recording
+modalities as well as across stimuli and tasks.
 
 ---
 
