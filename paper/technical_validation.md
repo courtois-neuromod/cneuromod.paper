@@ -390,9 +390,6 @@ models, are reviewed separately in Usage Notes.
   - MRI/MEG compatibility, response latency and independent reproduction of the controller
 :::
 
-% TODO: confirm with the dataset owners that `hearing` is the dataset reported by
-% Fortier2025-bo (it has no CITATION.cff yet).
-
 ### 👾 Videogames
 
 Active gameplay is the most demanding condition in the databank for data quality: it has

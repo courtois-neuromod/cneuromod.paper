@@ -113,10 +113,7 @@ been documented with a README.)*
 
 Four CNeuroMod participants played *Shinobi III: Return of the Ninja Master* (Sega, 1993)
 in-scanner across three levels selected for the relative homogeneity of their core
-mechanics [MISSING REF: Harel, Y., Pinsard, B., Boyle, J., Borghesani, V., Le Clei, M., et
-al. (2026). "Gamer in the scanner: Event-related analysis of fMRI activity during retro
-videogame play guided by automated annotations of game content." doi:
-10.1162/IMAG.a.1256]. Participants also completed behavioural-only at-home training
+mechanics {cite:p}`Harel2026-hr`. Participants also completed behavioural-only at-home training
 sessions before scanning, documented separately as the `shinobi/training` asset.
 
 ### mario
@@ -237,8 +234,20 @@ HCP localizers, or one resting-state run and one HCP localizer run.
 
 ### hearing
 
-*(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
-been documented with a README.)*
+The `hearing` dataset tracks the auditory health of all six participants under repeated
+exposure to scanner noise {cite:p}`Fortier2025-bo`. After baseline tests in early 2021,
+clinical audiology tests were administered immediately before and after scanning
+sessions, to detect temporary changes, and two to seven days after a session, to detect
+lasting ones. Tests covered otoscopy, tympanometry, stapedial reflexes, pure-tone
+audiometry over the standard (0.25–8 kHz) and extended high-frequency (9–20 kHz) ranges,
+and distortion product otoacoustic emissions, a subclinical marker that can precede
+measurable threshold shifts.
+
+:::{admonition} How to cite
+:class: tip
+
+{cite:p}`Fortier2025-bo`
+:::
 
 ### anat
 
@@ -257,7 +266,11 @@ tractography and myelination can be derived from the FreeSurfer derivatives it p
 
 This dataset validates the CNeuroMod videogame controller, an open-source,
 fiber-optic, MRI-compatible game controller designed by the project's engineering team
-[MISSING REF: Harel, Y., Cyr, A., Boyle, J., Pinsard, B., Bernard, J., et al. (2023).
-"Open design of a reproducible videogame controller for MRI and MEG." PLOS ONE, 18. doi:
-10.1371/journal.pone.0290158], comparing it against a commercial SNES-like controller
+{cite:p}`harel2023gamepad`, comparing it against a commercial SNES-like controller
 across alternating mock-scanner and MRI sessions.
+
+:::{admonition} How to cite
+:class: tip
+
+{cite:p}`harel2023gamepad`
+:::
