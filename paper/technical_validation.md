@@ -386,7 +386,7 @@ models, are reviewed separately in Usage Notes.
   - Hearing safety of repeated scanning (pure-tone audiometry, otoacoustic emissions)
 * - 🧰 Others
   - `gamepad`
-  - {cite:t}`harel2023gamepad`
+  - {cite:t}`Harel2023-gp`
   - MRI/MEG compatibility, response latency and independent reproduction of the controller
 :::
 
@@ -453,7 +453,7 @@ immediately before and after a scan, nor between baseline and a delay of two to 
 after scanning.
 
 Finally, `gamepad` validates the custom fiber-optic videogame controller used in all
-videogame datasets {cite:p}`harel2023gamepad`. Button-press latencies did not differ between
+videogame datasets {cite:p}`Harel2023-gp`. Button-press latencies did not differ between
 the scanner and a mock setting, and in most comparisons a gamepad task did not
 significantly increase head motion relative to control tasks. The controller did not degrade fMRI tSNR (80.9 with the
 controller versus 78.1 without), and it left the MEG noise covariance unchanged

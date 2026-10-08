@@ -72,7 +72,7 @@ degraded only slowly over rollouts of up to 2.5 minutes.
 ## 2. Brain Encoding Models of the Active Brain
 
 Videogames extend brain encoding to active, goal-directed behaviour. In `shinobi` and `mario`,
-participants play with an MRI-compatible controller {cite:p}`harel2023gamepad`, and every
+participants play with an MRI-compatible controller {cite:p}`Harel2023-gp`, and every
 frame and button press is recorded alongside fMRI. Behaviour this rich can be learned by an
 artificial agent, which can then be asked to imitate both a participant's play and that
 participant's brain activity.
