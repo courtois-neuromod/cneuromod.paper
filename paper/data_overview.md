@@ -268,3 +268,9 @@ This dataset validates the CNeuroMod videogame controller, an open-source,
 fiber-optic, MRI-compatible game controller designed by the project's engineering team
 {cite:p}`harel2023gamepad`, comparing it against a commercial SNES-like controller
 across alternating mock-scanner and MRI sessions.
+
+:::{admonition} How to cite
+:class: tip
+
+{cite:p}`harel2023gamepad`
+:::
