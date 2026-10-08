@@ -1,4 +1,21 @@
+---
+kernelspec:
+  name: python3
+  display_name: Python 3
+  language: python
+---
+
 # Usage Notes
+
+```{code-cell} python3
+:tags: [remove-cell]
+import sys
+from pathlib import Path
+
+# Live dataset statistics; see paper/_stats.py. Never hardcode these numbers.
+sys.path.insert(0, str(next(p for p in (Path("paper"), Path(".")) if (p / "_stats.py").exists())))
+from _stats import STATS
+```
 
 The CNeuroMod dataset has been used in a growing body of research spanning brain encoding, brain decoding, cognitive neuroscience, and AI alignment with neural data. This section provides an overview of key research directions enabled by the dataset and practical guidance for new users.
 
@@ -80,8 +97,6 @@ generalization of brain encoding models in active tasks. Its high-resolution gam
 supports a continual-learning benchmark comparing human and agent learning trajectories
 {cite:p}`Harel2025-gl`.
 
----
-
 ## 3. Towards Better AI with Neural Data
 
 Brain encoding uses AI models to explain the brain. The reverse question is whether brain
@@ -133,8 +148,6 @@ data to improve AI models. Brain-MoE uses it instead to structure a model and to
 training data, and such indirect uses remain largely unexplored. The depth of CNeuroMod per participant and the diversity of
 its tasks make it a testbed for these comparisons.
 
----
-
 ## 4. Brain Decoding
 
 Brain decoding reverses the direction of encoding: it infers a stimulus or a cognitive state
@@ -177,8 +190,6 @@ decoding with `triplets`, built on a published set of word triplets with human s
 judgments {cite:p}`Borghesani2023-me`, and working memory with `multfs`, amongst others.
 
 % TODO: confirm the content of multfs (no README in cneuromod.all yet).
-
----
 
 ## 5. Cognitive Neuroscience and Naturalistic Annotations
 
@@ -236,8 +247,6 @@ contains, such as gaps, enemy hordes or stairs, released as a standalone resourc
 {cite:p}`Harel2025-scenes`. Scenes provide a unit of analysis for comparing gameplay and
 brain activity across attempts and participants.
 
----
-
 ## 6. Foundation Models and the Digital Brain
 
 CNeuroMod was designed to answer a question that a sample of many people cannot: can a
@@ -245,8 +254,9 @@ model reproduce one specific brain across a wide range of cognitive functions? T
 requires many hours of data from the same person, recorded under many different tasks.
 Individual models trained on CNeuroMod already predict brain activity for new stimuli,
 improve with more data from the same person, and often match or outperform group models.
-The next steps are to scale these models up, to transfer them to new individuals, and to
-extend them to new recording modalities.
+The next steps are to scale these models up and to extend them to new recording
+modalities, as outlined below, and to transfer them to new individuals
+([Efficient Transport](#sec-efficient-transport)).
 
 Modelling is scaling up first. TRIBE, trained only on CNeuroMod, kept improving with more
 training data without reaching a plateau {cite:p}`d-Ascoli2026-hf`. Its successor, TRIBE
@@ -266,6 +276,18 @@ CNeuroMod is one of its two contributing labs, and its infrastructure of standar
 formats, versioned datasets and reproducible pipelines provides a template for collecting
 and sharing data at this scale.
 
+CNeuroMod is also expanding beyond fMRI. A magnetoencephalography (MEG) extension is about
+to be collected, with about 10 hours of MEG for each of five participants, covering most
+CNeuroMod tasks with a reduced set of stimuli. In addition, `sub-01` will complete the tasks
+of the Digital Brain Project with both EEG and MEG. fMRI resolves brain activity at the
+millimetre scale but over seconds, while MEG and EEG track it at the millisecond scale with
+coarser spatial precision. Recording the same tasks in the same individuals with these
+complementary modalities will make it possible to build individual brain models that
+generalize across recording modalities, as well as across stimuli and tasks.
+
+(sec-efficient-transport)=
+## 7. Efficient Transport
+
 Deep individual models raise the question of how to transfer them to a new person, for
 whom only a short recording is available. Optimal transport (OT) is a promising tool for
 this data-efficient alignment. OT finds the least costly way to move the functional signal
@@ -282,33 +304,94 @@ distance uses OT to match the units of two systems of different sizes, voxel by 
 neuron by neuron {cite:p}`Khosla2024-sm`, and a partial version leaves unreliable voxels
 unmatched {cite:p}`Kapoor2026-ps`.
 
-CNeuroMod is well suited to these methods, which learn alignments from responses to shared
-stimuli. Its participants watched the same movies, saw the same images and played the same
-games for tens of hours. Each of them can serve as a dense functional template, onto which
-a new person is mapped from a short movie-watching session, so that an individual model
-trained on hundreds of hours can be reused with little new data. The same approach could
-align CNeuroMod with other deeply sampled datasets wherever they share stimuli, including
-those of the Digital Brain Project, and test how many minutes of data a new individual needs
-for a transferred model to match a model trained on their own data.
-
-CNeuroMod itself is expanding across recording modalities. A magnetoencephalography (MEG)
-extension is about to be collected: about 10 hours of MEG per participant for five
-participants, covering most CNeuroMod tasks with a reduced set of stimuli. The tasks of the
-Digital Brain Project will also be recorded in `sub-01` with both EEG and MEG. These
-extensions will give the same tasks in the same individuals with complementary temporal and
-spatial resolution, to build individual brain models that generalize across recording
-modalities as well as across stimuli and tasks.
-
----
+CNeuroMod lends itself to these methods, which learn alignments from responses to shared
+stimuli. All participants watched the same movies, viewed the same images and played the
+same games, for tens of hours each. Each participant can therefore serve as a dense
+functional template: a new person, scanned during a short movie-watching session, is mapped
+onto it, and the individual model trained on hundreds of hours is reused with little new
+data. The same approach applies to other deeply sampled datasets that share stimuli with
+CNeuroMod, including those of the Digital Brain Project. It also turns a practical question
+into a testable one: how many minutes of data does a new individual need before a
+transferred model matches a model trained on their own data?
 
 ## Accessing the Data
 
-[Instructions for requesting access and downloading data via the CNeuroMod data portal. Include links to the data agreement, DataLad/datalad-cneuromod repository, and OpenNeuro/OSF deposits where applicable.]
+Data from five of the six participants are open under a CC0 license and can be downloaded
+without registration; data from `sub-04` require a data transfer agreement (see
+[Data Availability](data_availability.md)). Users clone the `cneuromod.all` meta-dataset,
+which downloads only metadata, then install the submodules they need (e.g.
+`friends/fmriprep`) and fetch file content selectively with `datalad get`, for instance a
+single participant or a single output space. Most analyses need only a small fraction of
+the databank, so selective retrieval is the norm. Submodules should be installed
+individually, not recursively. Step-by-step instructions are maintained at
+[docs.cneuromod.ca](https://docs.cneuromod.ca), together with a documentation page for each
+dataset.
 
 ## Known Limitations
 
-[Describe known issues: small N (6 subjects), site-specific scanner characteristics, missing sessions for some subjects/tasks, motion in active paradigms, and task-specific exclusion criteria. Refer readers to the Data Record section for per-dataset details.]
+**Few participants.** CNeuroMod trades breadth for depth. Six participants support
+within-individual models and replication across individuals, but not inference on
+population-level variability, such as effects of age, sex or clinical status. Participants
+were healthy adults aged 31 to 47 at recruitment, and all were right-handed.
+
+**Uneven coverage.** Not every participant completed every dataset. `sub-04` is missing or
+partial in {eval}`len(STATS.datasets_for('sub-04'))` of the {eval}`STATS.n_datasets`
+datasets, `sub-05` in {eval}`len(STATS.datasets_for('sub-05'))` and `sub-06` in
+{eval}`len(STATS.datasets_for('sub-06'))` (see [Data Overview](data_overview.md)). Analyses
+that pool many datasets will often rely on a subset of participants. In addition, the fMRI
+responses to season 7 of `friends` are withheld as a test set.
+
+**Session-level irregularities.** The number, order and timing of runs vary across
+participants and sessions. A few sessions deviate from the planned design: in `movie10`,
+segments that failed quality control were re-scanned in a later session, which breaks the
+continuity of the story, and in `things`, some sessions were run out of order, which alters
+the image repetition pattern for `sub-03` and `sub-06`. Each dataset's README lists these
+cases and the sessions to exclude.
+
+**Single site and scanner.** All data were acquired on the same 3T scanner with the same
+protocol. This removes site effects within the databank, but results may not transfer
+directly to data acquired with other scanners or sequences.
+
+**Data quality varies across tasks.** Video-game datasets show the highest head motion and
+the lowest tSNR in the databank ({numref}`fig-fmri-quality`), and the 2 mm fMRI voxels carry
+substantial thermal noise. Physiological and eye-tracking recordings are not usable in
+every run; PhysPrep provides a run-level quality assessment for each physiological signal.
+
+**Preprocessing choices.** fMRIPrep was run without slice-timing correction. Anatomical
+images (T1w, T2w, DWI and SWI) were not corrected for gradient non-linearity on the scanner,
+and this correction is not part of the released derivatives.
+
+**Stimulus copyright.** Data recorded from participants are CC0, but some stimuli (movies,
+video games, audiobooks) remain under their original copyright, which restricts how they
+can be reused and redistributed.
 
 ## Recommended Practices
 
-[Suggest best practices: use fMRIPrep outputs, leverage provided confound regressors, cite the relevant task papers when using specific datasets, check the CNeuroMod documentation for versioned data releases.]
+**Start from the timeseries.** The `timeseries` derivatives are fully preprocessed and
+ready for analysis. Each run is denoised, smoothed, standardized and saved as a 2D array
+(time × parcels or voxels) that plugs directly into machine learning pipelines. Four
+versions are provided: two parcellations in MNI space (the Schaefer 1,000-parcel atlas
+used in the Algonauts 2025 Challenge, and an atlas that adds subcortical and cerebellar
+parcels), and voxelwise signals in MNI space, aligned across participants, or in native
+space, within each participant's grey matter.
+
+**Denoise custom pipelines.** Users who start from the fMRIPrep outputs instead, for
+example to work on the cortical surface (fsLR-den-91k), receive data that are realigned but
+not denoised. They should regress a subset of the fMRIPrep confounds, which are correlated
+with each other, for instance with the `minimal` strategy of nilearn's
+`load_confounds_strategy`. Because motion is low in most datasets, scrubbing is not
+recommended. Moderate spatial smoothing is advisable given the thermal noise of 2 mm
+voxels, with a kernel set by the hypotheses and analysis.
+
+**Check the dataset documentation.** Each dataset README describes its design, its events
+and annotation files, and its known irregularities, such as sessions to exclude. Session
+indices follow acquisition order, not the order of the stimuli, so stimulus identity
+should be read from the event files.
+
+**Pin the release.** Report the `cneuromod.all` release used (e.g. `cneuromod-2020`), or the
+exact commit, so that the analysis can be reproduced against the same version of the
+databank.
+
+**Cite and acknowledge.** Cite this paper together with the reference recommended on each
+dataset's documentation page, and include the acknowledgement text given in the
+documentation.
