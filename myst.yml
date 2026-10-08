@@ -1,6 +1,7 @@
 version: 1
 project:
   title: The CNeuroMod Dataset
+  github: https://github.com/courtois-neuromod/cneuromod.paper
   authors:
     - name: The CNeuroMod team
   bibliography:
