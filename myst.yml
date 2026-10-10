@@ -2,108 +2,6 @@ version: 1
 project:
   title: The CNeuroMod Dataset
   github: https://github.com/courtois-neuromod/cneuromod.paper
-  # BEGIN authors (generated)
-  authors:
-    - name: Julie A. Boyle
-      orcid: 0000-0001-5927-221X
-      affiliations:
-      - Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada
-      - Unité de Neuroimagerie Fonctionnelle (UNF), Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada
-      equal_contributor: true
-    - name: Basile Pinsard
-      orcid: 0000-0002-4391-3075
-      affiliations:
-      - Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada
-      - Unité de Neuroimagerie Fonctionnelle (UNF), Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada
-      equal_contributor: true
-    - name: Marie St-Laurent
-      orcid: 0000-0003-1777-4857
-      affiliations:
-      - Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada
-      - Centre de recherche de l'Institut universitaire de gériatrie de Montréal, Montréal, Canada
-      equal_contributor: true
-    - name: Himanshu Aggarwal
-    - name: Jeremy Bernard
-    - name: Arnaud Bore
-      affiliations:
-      - CRIUGM, Québec, CA
-    - name: Valentina Borghesani
-      orcid: 0000-0002-7909-8631
-      affiliations:
-      - Swiss National Centre of Competence in Research, University of Geneva, Geneva, Switzerland
-    - name: Amal Boukhdhir
-      affiliations:
-      - CRIUGM, DIRO, Université de Montréal, Québec, CA
-    - name: Julien Cohen-Adad
-      orcid: 0000-0003-3662-9532
-      affiliations:
-      - NeuroPoly, Polytechnique Montréal
-    - name: Oliver Contier
-      orcid: 0000-0002-2983-4709
-      affiliations:
-      - Max Planck Institute for Human Cognitive and Brain Sciences
-    - name: André Cyr
-      affiliations:
-      - UNF, CRIUGM, Québec, CA
-    - name: Emilie Dessureault
-    - name: Elizabeth DuPre
-      orcid: 0000-0003-1358-196X
-      affiliations:
-      - McGill University, Québec, CA
-    - name: Marie-France Fourcade
-    - name: Maëlle Freteault
-      orcid: 0009-0003-7950-0744
-      affiliations:
-      - Ecole nationale supérieure Mines-Télécom Atlantique Bretagne Pays de la Loire
-    - name: Claude Godbout
-    - name: Yann Harel
-      orcid: 0000-0002-8970-1983
-      affiliations:
-      - Department of Psychology, University of Montréal, Montréal, Canada
-      - Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada
-    - name: Martin N. Hebart
-      orcid: 0000-0001-7257-428X
-      affiliations:
-      - Max Planck Institute for Human Cognitive and Brain Sciences, Germany
-    - name: Karim Jerbi
-      orcid: 0000-0002-3790-9651
-      affiliations:
-      - Department of Psychology, University of Montréal, Montréal, Canada
-      - Mila – Quebec AI Institute, Montréal, Canada
-    - name: Xiao-Xuan Lei
-    - name: François Lespinasse
-      affiliations:
-      - Psychology, Université de Montréal, Québec, CA
-    - name: François Paugam
-      orcid: 0000-0002-8161-7699
-      affiliations:
-      - CRIUGM, DIRO, Université de Montréal, Québec, CA
-    - name: Marie-Eve Picard
-    - name: Ana Fernanda Ponce
-    - name: Motahareh Pourrahimi
-    - name: Pravish Sainath
-      affiliations:
-      - DIRO, Université de Montréal, MILA, Québec, CA
-    - name: Katja Seeliger
-      orcid: 0000-0002-5343-0595
-      affiliations:
-      - Max Planck Institute for Human Cognitive and Brain Sciences, Germany
-    - name: Bertrand Thirion
-      orcid: 0000-0001-5018-7895
-    - name: Mariya Toneva
-      orcid: 0000-0002-2407-9871
-      affiliations:
-      - Carnegie Mellon University, USA
-    - name: Leila Wehbe
-      orcid: 0000-0001-8545-2062
-      affiliations:
-      - Stanford University
-    - name: Lune Bellec
-      orcid: 0000-0002-9111-0699
-      affiliations:
-      - Department of Psychology, University of Montréal, Montréal, Canada
-      - Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada
-  # END authors (generated)
   bibliography:
     - references.bib
     - source_data/cneuromod.all/docs/source/cneuromod_references.bib
@@ -120,6 +18,108 @@ project:
     - format: pdf
       template: lapreprint
       output: exports/cneuromod_paper.pdf
+      # BEGIN authors (generated)
+      authors:
+        - name: Julie A. Boyle
+          orcid: 0000-0001-5927-221X
+          affiliations:
+          - Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada
+          - Unité de Neuroimagerie Fonctionnelle (UNF), Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada
+          equal_contributor: true
+        - name: Basile Pinsard
+          orcid: 0000-0002-4391-3075
+          affiliations:
+          - Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada
+          - Unité de Neuroimagerie Fonctionnelle (UNF), Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada
+          equal_contributor: true
+        - name: Marie St-Laurent
+          orcid: 0000-0003-1777-4857
+          affiliations:
+          - Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada
+          - Centre de recherche de l'Institut universitaire de gériatrie de Montréal, Montréal, Canada
+          equal_contributor: true
+        - name: Himanshu Aggarwal
+        - name: Jeremy Bernard
+        - name: Arnaud Bore
+          affiliations:
+          - CRIUGM, Québec, CA
+        - name: Valentina Borghesani
+          orcid: 0000-0002-7909-8631
+          affiliations:
+          - Swiss National Centre of Competence in Research, University of Geneva, Geneva, Switzerland
+        - name: Amal Boukhdhir
+          affiliations:
+          - CRIUGM, DIRO, Université de Montréal, Québec, CA
+        - name: Julien Cohen-Adad
+          orcid: 0000-0003-3662-9532
+          affiliations:
+          - NeuroPoly, Polytechnique Montréal
+        - name: Oliver Contier
+          orcid: 0000-0002-2983-4709
+          affiliations:
+          - Max Planck Institute for Human Cognitive and Brain Sciences
+        - name: André Cyr
+          affiliations:
+          - UNF, CRIUGM, Québec, CA
+        - name: Emilie Dessureault
+        - name: Elizabeth DuPre
+          orcid: 0000-0003-1358-196X
+          affiliations:
+          - McGill University, Québec, CA
+        - name: Marie-France Fourcade
+        - name: Maëlle Freteault
+          orcid: 0009-0003-7950-0744
+          affiliations:
+          - Ecole nationale supérieure Mines-Télécom Atlantique Bretagne Pays de la Loire
+        - name: Claude Godbout
+        - name: Yann Harel
+          orcid: 0000-0002-8970-1983
+          affiliations:
+          - Department of Psychology, University of Montréal, Montréal, Canada
+          - Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada
+        - name: Martin N. Hebart
+          orcid: 0000-0001-7257-428X
+          affiliations:
+          - Max Planck Institute for Human Cognitive and Brain Sciences, Germany
+        - name: Karim Jerbi
+          orcid: 0000-0002-3790-9651
+          affiliations:
+          - Department of Psychology, University of Montréal, Montréal, Canada
+          - Mila – Quebec AI Institute, Montréal, Canada
+        - name: Xiao-Xuan Lei
+        - name: François Lespinasse
+          affiliations:
+          - Psychology, Université de Montréal, Québec, CA
+        - name: François Paugam
+          orcid: 0000-0002-8161-7699
+          affiliations:
+          - CRIUGM, DIRO, Université de Montréal, Québec, CA
+        - name: Marie-Eve Picard
+        - name: Ana Fernanda Ponce
+        - name: Motahareh Pourrahimi
+        - name: Pravish Sainath
+          affiliations:
+          - DIRO, Université de Montréal, MILA, Québec, CA
+        - name: Katja Seeliger
+          orcid: 0000-0002-5343-0595
+          affiliations:
+          - Max Planck Institute for Human Cognitive and Brain Sciences, Germany
+        - name: Bertrand Thirion
+          orcid: 0000-0001-5018-7895
+        - name: Mariya Toneva
+          orcid: 0000-0002-2407-9871
+          affiliations:
+          - Carnegie Mellon University, USA
+        - name: Leila Wehbe
+          orcid: 0000-0001-8545-2062
+          affiliations:
+          - Stanford University
+        - name: Lune Bellec
+          orcid: 0000-0002-9111-0699
+          affiliations:
+          - Department of Psychology, University of Montréal, Montréal, Canada
+          - Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada
+      # END authors (generated)
       # Every toc file except paper/references.md (the PDF has its own bibliography).
       # Keep in sync with the toc below.
       articles:
