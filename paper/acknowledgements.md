@@ -23,9 +23,9 @@ its financial support of the *hcptrt* dataset.
 
 Author contributions are reported per dataset using the CRediT taxonomy. The recap below is
 generated from the `contributors.json` file of each dataset in the CNeuroMod repository
-(https://github.com/courtois-neuromod/cneuromod.all), and the author list (names, ORCID,
-affiliations) from its `AUTHORS.yaml`; both are also rendered in the CNeuroMod documentation
-(https://docs.cneuromod.ca).
+(https://github.com/courtois-neuromod/cneuromod.all) and is also rendered in the CNeuroMod
+documentation (https://docs.cneuromod.ca). The author list, with ORCID and affiliations, is on
+the title page.
 
 ```{include} _contributions.md
 ```
