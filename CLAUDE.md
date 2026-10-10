@@ -45,6 +45,10 @@ git submodule update --init source_data/cneuromod.all
 
 The path is registered in `myst.yml` under `project.options.source_data`. The submodule's bibliography (`docs/source/cneuromod_references.bib`) is also listed under `project.bibliography` so its citations are available throughout the book.
 
+### Authors and contributions
+
+`scripts/build_authors.py` regenerates, from `source_data/cneuromod.all` (`AUTHORS.yaml` and `*/contributors.json`), the `project.authors` block in `myst.yml` (between the `BEGIN/END authors (generated)` markers), the author table in `paper/index.md`, and `paper/_contributions.md` (the per-dataset CRediT recap included by `paper/acknowledgements.md`). Do not hand-edit those generated parts. Author order, co-first/corresponding authors and fallback affiliations live in `paper/authors_extra.yaml`. Run `uv run python scripts/build_authors.py` after bumping the submodule.
+
 ### Live numbers — never hardcode a statistic
 
 Datasets are still being collected and released, so any count, hour total or subject tally typed

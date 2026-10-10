@@ -21,61 +21,17 @@ its financial support of the *hcptrt* dataset.
 
 ## Author Contributions
 
-Author contributions are reported using the CRediT taxonomy.
-
-- **Julie A. Boyle**: Conceptualization, Data curation, Funding acquisition, Investigation,
-  Methodology, Project administration, Writing – original draft, Writing – review & editing.
-- **Basile Pinsard**: Conceptualization, Data curation, Investigation, Methodology, Project
-  administration, Software, Validation, Writing – review & editing.
-- **Marie St-Laurent**: Conceptualization, Data curation, Investigation, Methodology,
-  Software, Validation, Writing – original draft, Writing – review & editing.
-- **Lune Bellec**: Conceptualization, Data curation, Funding acquisition, Investigation,
-  Methodology, Project administration, Writing – original draft, Writing – review & editing.
-- **Himanshu Aggarwal**: Methodology.
-- **Jeremy Bernard**: Data curation, Investigation.
-- **Arnaud Bore**: Data curation, Investigation, Methodology, Software.
-- **Valentina Borghesani**: Conceptualization, Methodology, Supervision, Validation, Writing –
-  original draft, Writing – review & editing.
-- **Amal Boukhdhir**: Data curation, Investigation, Validation, Writing – original draft,
-  Writing – review & editing.
-- **Julien Cohen-Adad**: Conceptualization, Data curation, Investigation, Methodology.
-- **Oliver Contier**: Data curation, Investigation, Methodology, Software, Writing – review &
-  editing.
-- **André Cyr**: Methodology, Software.
-- **cyrand** (GitHub handle, identity unresolved): Data curation, Investigation, Software.
-- **Emilie Dessureault**: Conceptualization, Data curation, Investigation, Methodology,
-  Project administration.
-- **Elizabeth DuPre**: Data curation, Investigation, Software, Validation, Writing – review &
-  editing.
-- **Marie-France Fourcade**: Data curation, Investigation.
-- **Maëlle Freteault**: Data curation, Investigation, Validation.
-- **Claude Godbout**: Data curation, Investigation.
-- **Yann Harel**: Conceptualization, Data curation, Investigation, Methodology, Validation,
-  Visualization, Writing – original draft, Writing – review & editing.
-- **Martin N. Hebart**: Conceptualization, Data curation, Funding acquisition, Investigation,
-  Methodology, Software, Supervision, Writing – original draft, Writing – review & editing.
-- **Karim Jerbi**: Methodology.
-- **François Lespinasse**: Data curation, Investigation.
-- **François Paugam**: Data curation, Investigation, Methodology, Software, Validation,
-  Writing – review & editing.
-- **Marie-Eve Picard**: Data curation, Investigation.
-- **Ana Fernanda Ponce**: Methodology.
-- **Motahareh Pourrahimi**: Data curation, Investigation.
-- **RainyFields** (GitHub handle, identity unresolved): Data curation, Investigation.
-- **Pravish Sainath**: Data curation, Investigation.
-- **Katja Seeliger**: Software, Writing – review & editing.
-- **Bertrand Thirion**: Conceptualization, Methodology.
-- **Mariya Toneva**: Conceptualization, Methodology.
-- **Leila Wehbe**: Conceptualization, Methodology.
-
-[TODO: writing contributions (original draft / review & editing per paper section) reflect
-each person's contribution to dataset documentation captured in `contributors.json`, not to
-this manuscript specifically — co-authors should confirm or amend their role for the paper
-itself. Formal analysis and Resources have no all-contributors equivalent and are not yet
-assigned to anyone; please add by hand where applicable.]
-
-Detailed, per-dataset contributions are available in the CNeuroMod documentation
+Author contributions are reported per dataset using the CRediT taxonomy. The recap below is
+generated from the `contributors.json` file of each dataset in the CNeuroMod repository
+(https://github.com/courtois-neuromod/cneuromod.all), and the author list (names, ORCID,
+affiliations) from its `AUTHORS.yaml`; both are also rendered in the CNeuroMod documentation
 (https://docs.cneuromod.ca).
+
+```{include} _contributions.md
+```
+
+[TODO: contributions to this manuscript itself (writing, formal analysis, visualization) are
+not captured by the dataset-level records; co-authors should confirm or amend them.]
 
 ## Funding
 
