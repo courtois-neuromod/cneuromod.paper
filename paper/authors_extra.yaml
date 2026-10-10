@@ -1,0 +1,31 @@
+# Paper-specific author settings; names, ORCIDs and affiliations come from
+# source_data/cneuromod.all/AUTHORS.yaml (see scripts/build_authors.py).
+# fallback_affiliations is used only for authors with no affiliation in AUTHORS.yaml.
+first_authors:
+- julieaboyle1
+- bpinsard
+- MarieStLaurent
+corresponding:
+- lunebellec
+last_author: lunebellec
+fallback_affiliations:
+  julieaboyle1: CRIUGM, Québec, CA
+  bpinsard: CRIUGM, Québec, CA
+  MarieStLaurent: CRIUGM, Québec, CA
+  arnaudbore: CRIUGM, Québec, CA
+  valentina-borghesani: CRIUGM, IVADO, Psychology, Université de Montréal, Québec, CA
+  bamal: CRIUGM, DIRO, Université de Montréal, Québec, CA
+  jcohenadad: CRIUGM, Polytechnique Montréal, Québec, CA
+  cyrand: UNF, CRIUGM, Québec, CA
+  emdupre: McGill University, Québec, CA
+  maelleF: IMT Atlantique, France; Psychology, Université de Montréal, Québec, CA
+  hyruuk: Psychology, Université de Montréal, Québec, CA
+  martinhebart: Max Planck Institute for Human Cognitive and Brain Sciences, Germany
+  karim-jerbi: CRIUGM, Psychology, Université de Montréal, Québec, CA
+  sangfrois: Psychology, Université de Montréal, Québec, CA
+  FrancoisPgm: CRIUGM, DIRO, Université de Montréal, Québec, CA
+  pravishsainath: DIRO, Université de Montréal, MILA, Québec, CA
+  seelikat: Max Planck Institute for Human Cognitive and Brain Sciences, Germany
+  mtoneva: Carnegie Mellon University, USA
+  lwehbe: Carnegie Mellon University, USA
+  lunebellec: CRIUGM, Psychology, Université de Montréal, Québec, CA
