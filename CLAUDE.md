@@ -47,7 +47,7 @@ The path is registered in `myst.yml` under `project.options.source_data`. The su
 
 ### Authors and contributions
 
-`scripts/build_authors.py` regenerates, from `source_data/cneuromod.all` (`AUTHORS.yaml` and `*/contributors.json`), the `project.authors` block in `myst.yml` (between the `BEGIN/END authors (generated)` markers), the author table in `paper/index.md`, and `paper/_contributions.md` (the per-dataset CRediT recap included by `paper/acknowledgements.md`). Do not hand-edit those generated parts. Author order, co-first/corresponding authors and fallback affiliations live in `paper/authors_extra.yaml`. Run `uv run python scripts/build_authors.py` after bumping the submodule.
+`scripts/build_authors.py` regenerates, from `source_data/cneuromod.all` (`AUTHORS.yaml` and `*/contributors.json`), the `authors` block of the PDF export in `myst.yml` (not `project.authors`, which MyST would show in every page header) (between the `BEGIN/END authors (generated)` markers), the author table in `paper/index.md`, and `paper/_contributions.md` (the per-dataset CRediT recap included by `paper/acknowledgements.md`). Do not hand-edit those generated parts. Author order, co-first/corresponding authors and fallback affiliations live in `paper/authors_extra.yaml`. Run `uv run python scripts/build_authors.py` after bumping the submodule.
 
 ### Live numbers — never hardcode a statistic
 
