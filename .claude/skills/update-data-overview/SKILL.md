@@ -134,9 +134,17 @@ scaffold emits, each containing:
 - **A condensed overview.** The scaffold carries the full `## Overview` section of the dataset's
   `README.md`. Cut it to two or three sentences: what was acquired, from whom, and what makes the
   paradigm distinctive. Drop installation notes, challenge announcements, and file-layout detail.
-- **The reference** — the `preferred-citation` from the dataset's `CITATION.cff`. Prefer a MyST
-  `` {cite:p}`key` `` if a matching entry exists in either bibliography; otherwise keep the rendered
-  "How to cite" admonition and flag the gap as `[MISSING REF: description]`.
+- **References, inline in the narrative** — cite the dataset's `preferred-citation` (from its
+  `CITATION.cff`) and the original paradigm or stimulus source (e.g. fLoc, Kay et al. 2013
+  retinotopy, the HCP task battery) directly in the overview sentences, as `` {cite:p}`key` `` or
+  `` {cite:t}`key` `` when the authors are named in the prose. Do not add "How to cite"
+  admonitions. If no bibliography entry exists, add one to `references.bib` from a DOI verified
+  online; flag it as `[MISSING REF: description]` only when no reference can be found.
+- **Undocumented datasets** — when a dataset has no `README.md` upstream, write one interim
+  sentence from its `dataset_info.yaml` `description` (plus a stimulus reference if one exists),
+  followed by a visible TODO line linking the `cneuromod.all` issue that tracks its documentation:
+  `*[TODO: dataset documentation pending — cneuromod.all#NN]*`. Remove the TODO once the README
+  lands.
 
 Skip contributors entirely — they belong in `paper/acknowledgements.md`.
 

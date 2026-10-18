@@ -65,47 +65,44 @@ Algonauts Project 2025 Challenge.
 
 Six participants watched four feature films — *The Bourne Supremacy*, *The Wolf of Wall
 Street*, *Hidden Figures* (shown twice) and the BBC series *Life* (shown twice) — cut into
-roughly ten-minute segments, for about 10 hours of functional data per participant.
-[MISSING REF: Gifford et al. (2025), "The Algonauts Project 2025 Challenge" — full
-bibliographic details needed]
+roughly ten-minute segments, for about 10 hours of functional data per participant {cite:p}`gifford2025algonauts`.
 
 ### friends
 
 This dataset contains fMRI data acquired while six CNeuroMod participants watched
 episodes of the American sitcom *Friends* (seasons 1–7) in English, with brain responses
 synchronized to visual frames, audio samples and time-stamped transcripts. It has served
-as a benchmark corpus for multimodal movie-encoding challenges. [MISSING REF: Gifford et
-al. (2025), "The Algonauts Project 2025 Challenge: How the Human Brain Makes Sense of
-Multimodal Movies" — full bibliographic details (venue/DOI) needed]
+as a benchmark corpus for multimodal movie-encoding challenges
+{cite:p}`gifford2025algonauts`.
 
 ### ood
 
-*(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
-been documented with a README.)*
+The `ood` dataset presents out-of-distribution audiovisual stimuli, held out to test the
+generalization of brain encoding models trained on the other movie datasets.
+
+*[TODO: dataset documentation pending — [cneuromod.all#60](https://github.com/courtois-neuromod/cneuromod.all/issues/60)]*
 
 ## 💬 Stories
 
 ### harrypotter
 
 Five participants read Chapter 9 of *Harry Potter and the Sorcerer's Stone*, presented
-word by word at 2 Hz across seven runs in a single session, using the same stimuli as the
-separate fMRI dataset reported by Wehbe et al. (2014).
-
-:::{admonition} How to cite
-:class: tip
-
-{cite:p}`Toneva2022-bf`
-:::
+word by word at 2 Hz across seven runs in a single session {cite:p}`Toneva2022-bf`,
+using the same stimuli as the separate fMRI dataset reported by {cite:t}`wehbe2014`.
 
 ### petit-prince
 
-*(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
-been documented with a README.)*
+Participants listened to the audiobook of Antoine de Saint-Exupéry's *Le Petit Prince*,
+a story also used in the multilingual Le Petit Prince fMRI corpus {cite:p}`li2022petitprince`.
+
+*[TODO: dataset documentation pending — [cneuromod.all#61](https://github.com/courtois-neuromod/cneuromod.all/issues/61)]*
 
 ### narratives
 
-*(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
-been documented with a README.)*
+Participants listened to spoken narratives in the scanner, drawn from the Narratives
+collection {cite:p}`nastase2021`.
+
+*[TODO: dataset documentation pending — [cneuromod.all#62](https://github.com/courtois-neuromod/cneuromod.all/issues/62)]*
 
 ## 👾 Videogames
 
@@ -124,33 +121,34 @@ practice phase of randomly selected levels {cite:p}`Paugam2025-oq`. Prior gamepl
 experience varied across participants, from no videogame experience to regular
 players who had already completed the game.
 
-:::{admonition} How to cite
-:class: tip
-
-{cite:p}`Paugam2025-oq`
-:::
-
 ### mariostars
 
-*(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
-been documented with a README.)*
+Participants played, in-scanner, the *Super Mario All-Stars* remake of the original
+*Super Mario Bros.* levels.
+
+*[TODO: dataset documentation pending — [cneuromod.all#63](https://github.com/courtois-neuromod/cneuromod.all/issues/63)]*
 
 ### mario3
 
-*(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
-been documented with a README.)*
+Participants played *Super Mario Bros. 3* in-scanner, with frame-accurate replay files
+recorded for every play.
+
+*[TODO: dataset documentation pending — [cneuromod.all#64](https://github.com/courtois-neuromod/cneuromod.all/issues/64)]*
 
 ### mario_eeg
 
-*(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
-been documented with a README.)*
+Electroencephalography was recorded outside the scanner while participants played
+*Super Mario Bros.*
+
+*[TODO: dataset documentation pending — [cneuromod.all#65](https://github.com/courtois-neuromod/cneuromod.all/issues/65)]*
 
 ## 🔬 Taskscapes
 
 ### triplets
 
-*(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
-been documented with a README.)*
+Participants viewed word triplets and picked the semantic odd one out.
+
+*[TODO: dataset documentation pending — [cneuromod.all#66](https://github.com/courtois-neuromod/cneuromod.all/issues/66)]*
 
 ### things
 
@@ -160,75 +158,58 @@ run presented 60 trials with a 2.98 s image followed by a 1.49 s inter-stimulus 
 while participants maintained central fixation; each image was seen three times across
 sessions.
 
-:::{admonition} How to cite
-:class: tip
-
-{cite:p}`St-Laurent2026-zc`
-:::
-
 ### emotion-videos
 
-*(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
-been documented with a README.)*
+Participants watched short silent video clips selected to evoke emotion, with concurrent
+cardiac, respiratory, electrodermal and eye-tracking recordings.
+
+*[TODO: dataset documentation pending — [cneuromod.all#67](https://github.com/courtois-neuromod/cneuromod.all/issues/67)]*
 
 ### multfs
 
-*(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
-been documented with a README.)*
+A visual working-memory task quizzed participants on combinations of stimulus features
+across a range of difficulty levels.
+
+*[TODO: dataset documentation pending — [cneuromod.all#68](https://github.com/courtois-neuromod/cneuromod.all/issues/68)]*
 
 ### mutemusic
 
-*(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
-been documented with a README.)*
+Participants listened to musical excerpts in the scanner.
+
+*[TODO: dataset documentation pending — [cneuromod.all#69](https://github.com/courtois-neuromod/cneuromod.all/issues/69)]*
 
 ## 🧭 Functional localizers
 
 ### langlocalizer
 
-*(No overview text is yet available for this dataset — its `cneuromod.all` entry has not
-been documented with a README.)*
+A language localizer contrasted sentences with degraded controls to map
+language-selective cortex.
+
+*[TODO: dataset documentation pending — [cneuromod.all#70](https://github.com/courtois-neuromod/cneuromod.all/issues/70)]*
 
 ### floc
 
 Four participants (`sub-01`, `sub-02`, `sub-03`, `sub-05`) completed six sessions of a
 functional localizer task designed to identify brain regions that respond preferentially
 to specific stimulus categories, adapting the Stanford VPN lab's fLoc task
-{cite:p}`St-Laurent2026-zc`.
-
-:::{admonition} How to cite
-:class: tip
-
-{cite:p}`St-Laurent2026-zc`
-:::
+{cite:p}`stigliani2015,St-Laurent2026-zc`.
 
 ### retinotopy
 
-Four participants completed multiple sessions of a retinotopy task adapted from Kay et
-al. (2013), designed to derive population receptive field properties at the voxel level
+Four participants completed multiple sessions of a retinotopy task adapted from
+{cite:t}`kay2013`, designed to derive population receptive field properties at the voxel level
 and to delineate regions of interest in early visual cortex {cite:p}`St-Laurent2026-zc`.
 Each session comprised three runs using ring, bar and wedge apertures drawn from Human
 Connectome Project retinotopy stimuli, with participants fixating centrally and
 responding to a colour-change detection task.
-
-:::{admonition} How to cite
-:class: tip
-
-{cite:p}`St-Laurent2026-zc`
-:::
 
 ### hcptrt
 
 Participants repeated the functional localizers developed by the Human Connectome
 Project 15 times each, accumulating approximately 10 hours of functional data per
 subject across seven tasks adapted from the HCP task-fMRI protocol
-{cite:p}`Rastegarnia2023-qz`. Sessions typically combined either two repetitions of the
+{cite:p}`barch2013,Rastegarnia2023-qz`. Sessions typically combined either two repetitions of the
 HCP localizers, or one resting-state run and one HCP localizer run.
-
-:::{admonition} How to cite
-:class: tip
-
-{cite:p}`Rastegarnia2023-qz`
-:::
 
 ## 🧰 Others
 
@@ -243,24 +224,12 @@ audiometry over the standard (0.25–8 kHz) and extended high-frequency (9–20 
 and distortion product otoacoustic emissions, a subclinical marker that can precede
 measurable threshold shifts.
 
-:::{admonition} How to cite
-:class: tip
-
-{cite:p}`Fortier2025-bo`
-:::
-
 ### anat
 
 The `anat` dataset comprises longitudinal anatomical and upper-spinal-cord MRI collected
 at roughly four sessions per year to monitor structural stability over the course of the
-study. Cortical flat maps and quantitative measures such as gray-matter morphometry,
+study {cite:p}`Boudreau2025-ji`. Cortical flat maps and quantitative measures such as gray-matter morphometry,
 tractography and myelination can be derived from the FreeSurfer derivatives it provides.
-
-:::{admonition} How to cite
-:class: tip
-
-{cite:p}`Boudreau2025-ji`
-:::
 
 ### gamepad
 
@@ -268,9 +237,3 @@ This dataset validates the CNeuroMod videogame controller, an open-source,
 fiber-optic, MRI-compatible game controller designed by the project's engineering team
 {cite:p}`Harel2023-gp`, comparing it against a commercial SNES-like controller
 across alternating mock-scanner and MRI sessions.
-
-:::{admonition} How to cite
-:class: tip
-
-{cite:p}`Harel2023-gp`
-:::
