@@ -30,6 +30,7 @@ from pathlib import Path
 import pandas as pd
 
 OUTPUT_DATA = Path("source_data/statistics/output_data")
+COMPARISON_DATA = Path("source_data/dataset_comparison/output_data")
 
 PHYSIO_LABEL = {
     "ECG": "ECG",
@@ -40,16 +41,23 @@ PHYSIO_LABEL = {
 }
 
 
-def find_output_data(start=None):
-    """Locate the pipeline's output_data directory, whatever the build's working directory."""
+class Count(int):
+    """An integer that MyST's {eval} renders with a thousands separator (4,320)."""
+
+    def __repr__(self):
+        return f"{self:,}"
+
+
+def find_output_data(start=None, relative=OUTPUT_DATA):
+    """Locate a pipeline's output_data directory, whatever the build's working directory."""
     here = Path(start or Path.cwd()).resolve()
     for base in [here, *here.parents]:
-        candidate = base / OUTPUT_DATA
+        candidate = base / relative
         if candidate.is_dir():
             return candidate
     raise FileNotFoundError(
-        f"{OUTPUT_DATA} not found. Initialize the submodule with "
-        "`git submodule update --init source_data/statistics`."
+        f"{relative} not found. Initialize the submodule with "
+        f"`git submodule update --init {relative.parent}`."
     )
 
 
@@ -84,7 +92,8 @@ class Stats:
     # --- volumes --------------------------------------------------------------------
 
     def _sum(self, table, modality):
-        return table.loc[table["modality"] == modality, "value"].sum()
+        # Plain float: {eval} renders the repr, and numpy's reads "np.float64(...)".
+        return float(table.loc[table["modality"] == modality, "value"].sum())
 
     def total_h(self, modality="fMRI"):
         """Hours of `modality` summed over all CNeuroMod datasets."""
@@ -93,6 +102,34 @@ class Stats:
     def per_subject_h(self, modality="fMRI"):
         """Per-subject hours of `modality` summed over all CNeuroMod datasets."""
         return self._sum(self.per_subject, modality)
+
+    def value(self, dataset, modality, per_subject=True):
+        """One cell of the tidy table, e.g. value("things", "Images") -> unique images per subject."""
+        table = self.per_subject if per_subject else self.total
+        return self._sum(table[table["dataset"] == dataset], modality)
+
+    def category_value(self, category, modality, per_subject=True):
+        """`modality` summed over the datasets of one cognitive category (hours, or a count
+        for the Images and Contrasts modalities)."""
+        table = self.per_subject if per_subject else self.total
+        return self._sum(table[table["category"] == category], modality)
+
+    @property
+    def stories_unique_h(self):
+        """Per-subject hours of unique story stimuli, heard (Speech) or read (Text)."""
+        return round(
+            self.category_value("Stories", "Speech") + self.category_value("Stories", "Text"), 1
+        )
+
+    @property
+    def localizer_contrasts(self):
+        """Per-subject number of canonical contrasts across the functional localizers."""
+        return Count(self.category_value("Functional localizers", "Contrasts"))
+
+    @property
+    def things_images(self):
+        """Unique THINGS images shown to each participant (planned design)."""
+        return Count(self.value("things", "Images"))
 
     @property
     def fmri_total_h(self):
@@ -129,7 +166,32 @@ class Stats:
         return sorted(rows.loc[rows["subject"] == subject, "dataset"])
 
 
+class Comparison:
+    """Read-only accessor over the cross-dataset tables behind Figure 1
+    (`dataset_comparison` submodule), for quoting other datasets in the prose."""
+
+    def __init__(self, output_data=None):
+        self.output_data = (
+            Path(output_data) if output_data else find_output_data(relative=COMPARISON_DATA)
+        )
+        self.per_subject = pd.read_csv(self.output_data / "datasets_tidy_per_subject.csv")
+        self.total = pd.read_csv(self.output_data / "datasets_tidy_total.csv")
+
+    def value(self, dataset, modality, per_subject=True):
+        """One cell, e.g. value("NSD", "Images") or value("Narratives", "Speech", per_subject=False)."""
+        table = self.per_subject if per_subject else self.total
+        rows = table[(table["dataset"] == dataset) & (table["modality"] == modality)]
+        if rows.empty:
+            raise KeyError(f"{dataset!r} / {modality!r} not in {self.output_data}")
+        return float(rows["value"].iloc[0])
+
+    def count(self, dataset, modality, per_subject=True):
+        """Same as `value`, for counts (images, contrasts), rendered as 10,000."""
+        return Count(self.value(dataset, modality, per_subject))
+
+
 STATS = Stats()
+COMPARISON = Comparison()
 
 
 if __name__ == "__main__":
@@ -139,7 +201,12 @@ if __name__ == "__main__":
     print(f"subjects:          {s.n_subjects} ({', '.join(s.subjects)})")
     print(f"fMRI total:        {s.fmri_total_h} h")
     print(f"fMRI per subject:  {s.fmri_per_subject_h} h (summed over datasets)")
+    print(f"stories (unique):  {s.stories_unique_h} h per subject")
+    print(f"localizer contr.:  {s.localizer_contrasts} per subject")
+    print(f"things images:     {s.things_images} per subject")
     for label, hours in s.physiology_h().items():
         print(f"{label:>24}: {hours} h total")
+    print(f"NSD images:        {COMPARISON.count('NSD', 'Images')!r} per subject")
+    print(f"Narratives speech: {COMPARISON.value('Narratives', 'Speech', per_subject=False)} h total")
     for subject, n in s.subjects_with_gaps():
         print(f"  {subject}: missing or partial in {n} dataset(s)")
