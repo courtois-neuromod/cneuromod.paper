@@ -22,6 +22,7 @@ short_title: The CNeuroMod Dataset
 | André Cyr |  | UNF, CRIUGM, Québec, CA |
 | Emilie Dessureault |  | [MISSING: affiliation] |
 | Elizabeth DuPre | [0000-0003-1358-196X](https://orcid.org/0000-0003-1358-196X) | McGill University, Québec, CA |
+| Nicolas Farrugia | [0000-0002-1159-3513](https://orcid.org/0000-0002-1159-3513) | IMT Atlantique |
 | Marie-France Fourcade |  | [MISSING: affiliation] |
 | Maëlle Freteault | [0009-0003-7950-0744](https://orcid.org/0009-0003-7950-0744) | Ecole nationale supérieure Mines-Télécom Atlantique Bretagne Pays de la Loire |
 | Claude Godbout |  | [MISSING: affiliation] |

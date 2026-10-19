@@ -66,6 +66,17 @@
   - *Software*: Basile Pinsard.
   - *Validation*: Amal Boukhdhir, Elizabeth DuPre.
   - *Writing – review & editing*: Julie A. Boyle, Lune Bellec.
+- **mutemusic**
+  - *Conceptualization*: Maëlle Freteault, Nicolas Farrugia, Lune Bellec.
+  - *Data curation*: Maëlle Freteault, Julie A. Boyle, Basile Pinsard.
+  - *Formal analysis*: Maëlle Freteault.
+  - *Funding acquisition*: Lune Bellec.
+  - *Investigation*: Maëlle Freteault, Julie A. Boyle.
+  - *Methodology*: Maëlle Freteault, Nicolas Farrugia, Lune Bellec.
+  - *Project administration*: Julie A. Boyle.
+  - *Software*: Maëlle Freteault, Basile Pinsard.
+  - *Supervision*: Nicolas Farrugia, Lune Bellec.
+  - *Writing – original draft*: Maëlle Freteault.
 - **retinotopy**
   - *Conceptualization*: Basile Pinsard, Valentina Borghesani, Julie A. Boyle, Lune Bellec, Martin N. Hebart.
   - *Data curation*: Marie St-Laurent, Basile Pinsard, Oliver Contier, Elizabeth DuPre, Julie A. Boyle, Lune Bellec, Martin N. Hebart.

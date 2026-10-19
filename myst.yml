@@ -66,6 +66,10 @@ project:
           orcid: 0000-0003-1358-196X
           affiliations:
           - McGill University, Québec, CA
+        - name: Nicolas Farrugia
+          orcid: 0000-0002-1159-3513
+          affiliations:
+          - IMT Atlantique
         - name: Marie-France Fourcade
         - name: Maëlle Freteault
           orcid: 0009-0003-7950-0744

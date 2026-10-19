@@ -174,9 +174,17 @@ across a range of difficulty levels.
 
 ### mutemusic
 
-Participants listened to musical excerpts in the scanner.
-
-*[TODO: dataset documentation pending — [cneuromod.all#69](https://github.com/courtois-neuromod/cneuromod.all/issues/69)]*
+Five participants (`sub-01`, `sub-02`, `sub-03`, `sub-05`, `sub-06`) listened to familiar
+and unfamiliar music tracks in which parts of the audio had been replaced by silence, and
+imagined the continuation of the music during the silent gaps, a paradigm adapted from
+{cite:t}`kraemer2005` {cite:p}`Freteault2025-bp`. From a pool of 75 tracks spanning three
+categories (songs with lyrics, orchestral music, and video game music, partly drawn from
+the games played in `mario` and `shinobi`), each participant heard 60 tracks, half rated
+familiar and half unfamiliar during a pre-scan assessment. Each track excerpt (45 s to
+1 min 15 s) included two to four silences of 4–6 s, and each of the six ten-track playlists
+was presented three times. After each track, participants rated the vividness of their
+imagery on a five-point scale, and they completed questionnaires on auditory imagery and
+musical sophistication.
 
 ## 🧭 Functional localizers
 
