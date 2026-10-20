@@ -160,10 +160,18 @@ sessions.
 
 ### emotion-videos
 
-Participants watched short silent video clips selected to evoke emotion, with concurrent
-cardiac, respiratory, electrodermal and eye-tracking recordings.
-
-*[TODO: dataset documentation pending — [cneuromod.all#67](https://github.com/courtois-neuromod/cneuromod.all/issues/67)]*
+Five participants (`sub-01`, `sub-02`, `sub-03`, `sub-05`, `sub-06`) watched 1,888 short
+silent video clips from the database of {cite:t}`cowen2017`, which evoke a broad range of
+affective states and were normed by an independent sample on 34 emotion categories and 14
+affective dimensions (no ratings were collected from CNeuroMod participants). Of the 2,185
+clips in the database, those longer than 20 s and those with extreme content (e.g.
+pornography, murder, animal abuse) were discarded. Each clip was shown once, over 36 runs of
+8 min 20 s spread across six to seven sessions, with 45 to 65 clips per run separated by a
+jittered inter-trial interval of 3 to 6 s. Participants were only asked to keep their eyes
+open and fixate a marker shown before each clip, which also served for eye-tracking drift
+correction. Clip order within a run was shared across participants, while run order was
+randomized per participant. Cardiac, respiratory and electrodermal signals and eye-tracking
+were recorded throughout.
 
 ### multfs
 
