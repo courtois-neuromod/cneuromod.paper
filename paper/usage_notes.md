@@ -189,7 +189,6 @@ weaker and more localized. Upcoming datasets will add new benchmarks, such as wo
 decoding with `triplets`, built on a published set of word triplets with human similarity
 judgments {cite:p}`Borghesani2023-me`, and working memory with `multfs`, amongst others.
 
-% TODO: confirm the content of multfs (no README in cneuromod.all yet).
 
 ## 5. Cognitive Neuroscience and Naturalistic Annotations
 
