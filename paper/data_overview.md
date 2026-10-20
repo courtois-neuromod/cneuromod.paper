@@ -245,14 +245,20 @@ HCP localizers, or one resting-state run and one HCP localizer run.
 
 ### hearing
 
-The `hearing` dataset tracks the auditory health of all six participants under repeated
-exposure to scanner noise {cite:p}`Fortier2025-bo`. After baseline tests in early 2021,
-clinical audiology tests were administered immediately before and after scanning
-sessions, to detect temporary changes, and two to seven days after a session, to detect
-lasting ones. Tests covered otoscopy, tympanometry, stapedial reflexes, pure-tone
-audiometry over the standard (0.25–8 kHz) and extended high-frequency (9–20 kHz) ranges,
-and distortion product otoacoustic emissions, a subclinical marker that can precede
-measurable threshold shifts.
+All six participants underwent clinical audiology tests over about 1.5 years, run by a trained
+audiologist, to check that repeated scanning with hearing protection did not damage their
+hearing {cite:p}`Fortier2025-bo`. After baseline tests in January–February 2021, hearing was
+measured immediately before and after a scan session, to capture temporary threshold shifts,
+and again two to seven days later, to capture lasting changes against baseline. Each session
+started with a check of the outer and middle ear, followed by tympanometry, ipsilateral
+stapedial reflexes, pure-tone audiometry over the standard (0.25–8 kHz) and extended
+high-frequency (9–20 kHz) ranges, distortion product otoacoustic emissions and their growth
+function, transient-evoked otoacoustic emissions, and a matrix speech-in-noise test in French
+and English. Otoacoustic emissions probe outer hair cell function and can reveal subclinical
+changes before thresholds shift. The number of hearing sessions ranges from 4 (`sub-04`, who
+suspended scanning during the protocol) to 18 (`sub-05`, who has a pre-existing hearing
+impairment and was followed with an intensive five-week audiometry protocol). The data are
+behavioural only, stored as one BIDS-like task per test.
 
 ### anat
 
