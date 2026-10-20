@@ -212,10 +212,20 @@ musical sophistication.
 
 ### langlocalizer
 
-A language localizer contrasted sentences with degraded controls to map
-language-selective cortex.
-
-*[TODO: dataset documentation pending — [cneuromod.all#70](https://github.com/courtois-neuromod/cneuromod.all/issues/70)]*
+Four participants (`sub-01`, `sub-02`, `sub-03`, `sub-05`), all right-handed and fluent in
+English and French (two native speakers of each), completed three sessions of standard
+language localizers from the Fedorenko lab, one week apart. Each session comprised two runs of
+each of four block-design tasks, interleaved with other CNeuroMod tasks: reading English
+sentences versus non-word sequences {cite:p}`fedorenko2010`; listening to English passages
+versus acoustically degraded versions of the same passages {cite:p}`scott2016`; and two
+versions of the *Alice in Wonderland* localizer, in English and in French, contrasting intact
+passages with degraded passages and passages in an unfamiliar language (Tamil)
+{cite:p}`malikmoraleda2022`. Crossing modality (reading versus listening) and language
+(English versus French) within the same individuals, with three repetitions of the full
+protocol, separates differences in the topography of the language network between
+participants from variability within a participant across sessions, modalities and
+languages. Subject-specific language regions of interest derived from these data will be
+distributed with the atlases in `anat`.
 
 ### floc
 
