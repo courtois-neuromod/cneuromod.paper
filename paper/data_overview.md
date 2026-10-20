@@ -175,10 +175,24 @@ were recorded throughout.
 
 ### multfs
 
-A visual working-memory task quizzed participants on combinations of stimulus features
-across a range of difficulty levels.
-
-*[TODO: dataset documentation pending — [cneuromod.all#68](https://github.com/courtois-neuromod/cneuromod.all/issues/68)]*
+Five participants (`sub-01`, `sub-02`, `sub-03`, `sub-05`, `sub-06`) performed 12 structured
+visual working-memory tasks over 16 scanning sessions, after one behavioural training session.
+The stimuli are eight photorealistic renderings of 3D models, crossing two object categories
+(faces and buses), two identities per category and two viewpoints, each shown at one of two
+screen locations. The tasks apply a small set of working-memory operations to location,
+category or identity: a delayed match-to-sample task on location, run in every session as a
+reference for session-to-session variability; three 1-back tasks; two contextual
+decision-making tasks, in which the outcome of a first comparison selects the feature used for
+a second one; and six interleaved delayed match-to-sample tasks, crossing two interleaving
+patterns (ABAB, ABBA) with the three features. Each stimulus lasts one TR (1.49 s), and each
+session comprises seven runs. Every ordered pair of consecutive stimuli occurs at least five
+times per participant (1,808 trials in total), yielding more than 400 distinct task conditions
+(task rule crossed with a single stimulus or a pair of consecutive stimuli), each with at least
+five correct-trial repetitions. This factorial design dissociates task rule, stimulus content and
+their interaction, for representational similarity analysis, brain encoding and generalization
+across tasks and individuals. Accuracy was high for the 1-back (94.6%) and interleaved
+(93.3%) tasks and lower for contextual decision-making (77.8%). Cardiac, respiratory and
+electrodermal signals and eye-tracking were recorded throughout.
 
 ### mutemusic
 
