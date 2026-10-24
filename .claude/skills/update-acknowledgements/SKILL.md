@@ -81,17 +81,15 @@ ethics approval (CER-VN, project number CER VN 18-19-22, renewed 2022-10-21).
 
 ### 4. Draft each subsection
 
-- **Acknowledgements** — reproduce the Courtois paragraph from `HOWTOCITE.rst` faithfully;
-  thank participants; note UNF/CRIUGM infrastructure; list alumni and non-author
-  contributors from `AUTHORS.md`'s Alumni section and the scaffold's institution entries
-  (e.g. Courtois Foundation).
+- **Acknowledgements** — thank the participants only. The Courtois paragraph lives in
+  Funding; do not list alumni or collaborators (authorship is tracked via each dataset's
+  `contributors.json`).
 - **Author Contributions** — from the scaffold, in CRediT terms, plus a marked
   `[TODO: writing contributions]` block for the manual additions (Formal analysis and
   Resources have no all-contributors equivalent either — flag them the same way).
 - **Funding** — 6.3M CAD (2018–23, PI Bellec) Courtois Foundation donation, administered by
   FIGM / CIUSSS du Centre-Sud-de-l'île-de-Montréal and Université de Montréal; CIMAQ and
-  PRISME consortia. Flag any grant number not present in the source docs as
-  `[MISSING: grant number]` — do not invent one.
+  PRISME consortia. No grant numbers: do not add or flag them.
 - **Competing Interests** — default to "The authors declare no competing interests.",
   explicitly flagged for the user to confirm.
 
