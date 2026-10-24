@@ -2,10 +2,25 @@
 
 - **anat**
   - *Conceptualization*: Basile Pinsard, Julien Cohen-Adad, Emilie Dessureault, Julie A. Boyle, Lune Bellec.
-  - *Data curation*: François Paugam, Amal Boukhdhir, Basile Pinsard, Julien Cohen-Adad, Emilie Dessureault, Julie A. Boyle, Marie-Eve Picard, Pravish Sainath, François Lespinasse, Arnaud Bore.
-  - *Investigation*: François Paugam, Amal Boukhdhir, Basile Pinsard, Julien Cohen-Adad, Emilie Dessureault, Julie A. Boyle, Marie-Eve Picard, Pravish Sainath, François Lespinasse, Arnaud Bore.
+  - *Data curation*: François Paugam, Amal Boukhdhir, Basile Pinsard, Julien Cohen-Adad, Emilie Dessureault, Julie A. Boyle, Marie-Ève Picard, Pravish Sainath, François Lespinasse, Arnaud Bore.
+  - *Investigation*: François Paugam, Amal Boukhdhir, Basile Pinsard, Julien Cohen-Adad, Emilie Dessureault, Julie A. Boyle, Marie-Ève Picard, Pravish Sainath, François Lespinasse, Arnaud Bore.
   - *Methodology*: Basile Pinsard, Julien Cohen-Adad, Emilie Dessureault, Julie A. Boyle, Lune Bellec, Arnaud Bore.
   - *Project administration*: Emilie Dessureault, Julie A. Boyle.
+- **emotion-videos**
+  - *Conceptualization*: Marie-Ève Picard, Basile Pinsard, Julie A. Boyle, Pierre Rainville, Lune Bellec.
+  - *Data curation*: Marie-Ève Picard, Marie St-Laurent, Delphine Aguiar, Basile Pinsard.
+  - *Formal analysis*: Marie-Ève Picard, Elizabeth DuPre.
+  - *Funding acquisition*: Julie A. Boyle, Lune Bellec.
+  - *Investigation*: Marie-Ève Picard.
+  - *Methodology*: Marie-Ève Picard.
+  - *Project administration*: Basile Pinsard, Julie A. Boyle, Lune Bellec.
+  - *Resources*: Julie A. Boyle, Lune Bellec.
+  - *Software*: Marie-Ève Picard, Marie St-Laurent, Delphine Aguiar.
+  - *Supervision*: Pierre Rainville, Lune Bellec.
+  - *Visualization*: Marie-Ève Picard, Marie St-Laurent, Delphine Aguiar.
+  - *Writing – original draft*: Marie-Ève Picard.
+  - *Writing – review & editing*: Marie-Ève Picard, Marie St-Laurent.
+  - *Funding*: Courtois Foundation, NSERC (RGPIN-2025-06022), FRQNT (scholarship to Marie-Ève Picard).
 - **floc**
   - *Conceptualization*: Basile Pinsard, Valentina Borghesani, Julie A. Boyle, Lune Bellec, Martin N. Hebart.
   - *Data curation*: Marie St-Laurent, Basile Pinsard, Oliver Contier, Elizabeth DuPre, Julie A. Boyle, Lune Bellec, Martin N. Hebart.
@@ -18,8 +33,8 @@
   - *Writing – review & editing*: Marie St-Laurent, Martin N. Hebart.
 - **friends**
   - *Conceptualization*: Basile Pinsard, Marie St-Laurent, Julie A. Boyle, Lune Bellec.
-  - *Data curation*: François Paugam, Basile Pinsard, Marie St-Laurent, Emilie Dessureault, Julie A. Boyle, Maëlle Freteault, Pravish Sainath, François Lespinasse, Amal Boukhdhir, Marie-Eve Picard.
-  - *Investigation*: François Paugam, Basile Pinsard, Marie St-Laurent, Emilie Dessureault, Julie A. Boyle, Maëlle Freteault, Pravish Sainath, François Lespinasse, Amal Boukhdhir, Marie-Eve Picard.
+  - *Data curation*: François Paugam, Basile Pinsard, Marie St-Laurent, Emilie Dessureault, Julie A. Boyle, Maëlle Freteault, Pravish Sainath, François Lespinasse, Amal Boukhdhir, Marie-Ève Picard.
+  - *Investigation*: François Paugam, Basile Pinsard, Marie St-Laurent, Emilie Dessureault, Julie A. Boyle, Maëlle Freteault, Pravish Sainath, François Lespinasse, Amal Boukhdhir, Marie-Ève Picard.
   - *Methodology*: Marie St-Laurent, Julie A. Boyle, Lune Bellec.
   - *Project administration*: Emilie Dessureault, Julie A. Boyle.
   - *Resources*: Basile Pinsard.
@@ -34,8 +49,8 @@
   - *Software*: André Cyr.
 - **harrypotter**
   - *Conceptualization*: Mariya Toneva, Leila Wehbe.
-  - *Data curation*: François Paugam, Julie A. Boyle, Pravish Sainath, François Lespinasse, Basile Pinsard, Marie-Eve Picard.
-  - *Investigation*: François Paugam, Julie A. Boyle, Pravish Sainath, François Lespinasse, Basile Pinsard, Marie-Eve Picard.
+  - *Data curation*: François Paugam, Julie A. Boyle, Pravish Sainath, François Lespinasse, Basile Pinsard, Marie-Ève Picard.
+  - *Investigation*: François Paugam, Julie A. Boyle, Pravish Sainath, François Lespinasse, Basile Pinsard, Marie-Ève Picard.
   - *Methodology*: François Paugam, Mariya Toneva, Leila Wehbe, Basile Pinsard.
   - *Project administration*: Julie A. Boyle.
   - *Software*: François Paugam, Basile Pinsard.
@@ -52,20 +67,64 @@
   - *Validation*: Valentina Borghesani, Amal Boukhdhir, Elizabeth DuPre, Basile Pinsard.
   - *Writing – review & editing*: Lune Bellec, Julie A. Boyle, Valentina Borghesani, Amal Boukhdhir.
   - *Funding*: Courtois Foundation.
+- **hearing**
+  - *Conceptualization*: Adrian Fuente, Julie A. Boyle.
+  - *Formal analysis*: Eddy Fortier.
+  - *Funding acquisition*: Julie A. Boyle, Lune Bellec.
+  - *Investigation*: Eddy Fortier, Adrian Fuente.
+  - *Methodology*: Eddy Fortier, Adrian Fuente, Julie A. Boyle, Lune Bellec.
+  - *Project administration*: Eddy Fortier, Julie A. Boyle.
+  - *Resources*: Julie A. Boyle.
+  - *Software*: Eddy Fortier.
+  - *Supervision*: Adrian Fuente, Lune Bellec.
+  - *Visualization*: Eddy Fortier.
+  - *Writing – original draft*: Eddy Fortier.
+  - *Writing – review & editing*: Eddy Fortier, Adrian Fuente, Julie A. Boyle, Lune Bellec.
+  - *Funding*: Courtois Foundation.
+- **langlocalizer**
+  - *Conceptualization*: Isil P. Bilgin, Valentina Borghesani, Simona M. Brambati, Lune Bellec.
+  - *Data curation*: Isil P. Bilgin, Elizabeth DuPre, Marie St-Laurent, Basile Pinsard.
+  - *Formal analysis*: Isil P. Bilgin.
+  - *Funding acquisition*: Valentina Borghesani, Lune Bellec.
+  - *Investigation*: Isil P. Bilgin, Marie St-Laurent, Julie A. Boyle.
+  - *Methodology*: Isil P. Bilgin, Valentina Borghesani.
+  - *Project administration*: Marie St-Laurent, Basile Pinsard, Julie A. Boyle, Lune Bellec.
+  - *Resources*: Julie A. Boyle, Lune Bellec.
+  - *Software*: Isil P. Bilgin, Elizabeth DuPre, Marie St-Laurent, Basile Pinsard.
+  - *Supervision*: Valentina Borghesani, Simona M. Brambati, Lune Bellec.
+  - *Visualization*: Isil P. Bilgin.
+  - *Writing – original draft*: Isil P. Bilgin.
+  - *Writing – review & editing*: Valentina Borghesani, Simona M. Brambati, Elizabeth DuPre, Lune Bellec.
+  - *Funding*: Courtois Foundation, Institut de valorisation des données (IVADO).
 - **mario**
-  - *Data curation*: François Paugam, Xiao-Xuan Lei, Basile Pinsard, Emilie Dessureault, Yann Harel, Maëlle Freteault, Marie-Eve Picard, Motahareh Pourrahimi.
-  - *Investigation*: François Paugam, Xiao-Xuan Lei, Basile Pinsard, Emilie Dessureault, Yann Harel, Maëlle Freteault, Marie-Eve Picard, Motahareh Pourrahimi.
+  - *Data curation*: François Paugam, Xiao-Xuan Lei, Basile Pinsard, Emilie Dessureault, Yann Harel, Maëlle Freteault, Marie-Ève Picard, Motahareh Pourrahimi.
+  - *Investigation*: François Paugam, Xiao-Xuan Lei, Basile Pinsard, Emilie Dessureault, Yann Harel, Maëlle Freteault, Marie-Ève Picard, Motahareh Pourrahimi.
   - *Methodology*: Basile Pinsard, Yann Harel, Julie A. Boyle, Lune Bellec.
   - *Project administration*: Basile Pinsard, Emilie Dessureault, Julie A. Boyle.
   - *Validation*: François Paugam, Yann Harel.
 - **movie10**
-  - *Data curation*: Julie A. Boyle, Emilie Dessureault, Basile Pinsard, Amal Boukhdhir, Marie-Eve Picard.
-  - *Investigation*: Julie A. Boyle, Emilie Dessureault, Basile Pinsard, Amal Boukhdhir, Marie-Eve Picard.
+  - *Data curation*: Julie A. Boyle, Emilie Dessureault, Basile Pinsard, Amal Boukhdhir, Marie-Ève Picard.
+  - *Investigation*: Julie A. Boyle, Emilie Dessureault, Basile Pinsard, Amal Boukhdhir, Marie-Ève Picard.
   - *Methodology*: Julie A. Boyle, Lune Bellec, Basile Pinsard.
   - *Project administration*: Julie A. Boyle, Emilie Dessureault.
   - *Software*: Basile Pinsard.
   - *Validation*: Amal Boukhdhir, Elizabeth DuPre.
   - *Writing – review & editing*: Julie A. Boyle, Lune Bellec.
+- **multfs**
+  - *Conceptualization*: Xiao-Xuan Lei, Takuya Ito, Pouya Bashivan, Lune Bellec.
+  - *Data curation*: Xiao-Xuan Lei, Marie St-Laurent, Basile Pinsard.
+  - *Formal analysis*: Xiao-Xuan Lei.
+  - *Funding acquisition*: Pouya Bashivan, Lune Bellec.
+  - *Investigation*: Xiao-Xuan Lei, Marie St-Laurent, Julie A. Boyle.
+  - *Methodology*: Xiao-Xuan Lei, Takuya Ito.
+  - *Project administration*: Marie St-Laurent, Basile Pinsard, Julie A. Boyle, Lune Bellec.
+  - *Resources*: Julie A. Boyle, Lune Bellec.
+  - *Software*: Xiao-Xuan Lei, Marie St-Laurent.
+  - *Supervision*: Takuya Ito, Pouya Bashivan, Lune Bellec.
+  - *Visualization*: Xiao-Xuan Lei.
+  - *Writing – original draft*: Xiao-Xuan Lei.
+  - *Writing – review & editing*: Xiao-Xuan Lei, Takuya Ito, Pouya Bashivan, Lune Bellec.
+  - *Funding*: Courtois Foundation.
 - **mutemusic**
   - *Conceptualization*: Maëlle Freteault, Nicolas Farrugia, Lune Bellec.
   - *Data curation*: Maëlle Freteault, Julie A. Boyle, Basile Pinsard.
@@ -89,8 +148,8 @@
   - *Writing – review & editing*: Marie St-Laurent, Martin N. Hebart.
 - **shinobi**
   - *Conceptualization*: Yann Harel.
-  - *Data curation*: Julie A. Boyle, Emilie Dessureault, Basile Pinsard, Amal Boukhdhir, André Cyr, François Paugam, Pravish Sainath, François Lespinasse, Marie-Eve Picard.
-  - *Investigation*: Julie A. Boyle, Emilie Dessureault, Basile Pinsard, Amal Boukhdhir, André Cyr, François Paugam, Pravish Sainath, François Lespinasse, Marie-Eve Picard.
+  - *Data curation*: Julie A. Boyle, Emilie Dessureault, Basile Pinsard, Amal Boukhdhir, André Cyr, François Paugam, Pravish Sainath, François Lespinasse, Marie-Ève Picard.
+  - *Investigation*: Julie A. Boyle, Emilie Dessureault, Basile Pinsard, Amal Boukhdhir, André Cyr, François Paugam, Pravish Sainath, François Lespinasse, Marie-Ève Picard.
   - *Methodology*: Julie A. Boyle, Lune Bellec, Basile Pinsard, Yann Harel.
   - *Project administration*: Julie A. Boyle, Emilie Dessureault.
   - *Resources*: André Cyr.
