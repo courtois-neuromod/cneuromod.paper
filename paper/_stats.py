@@ -7,6 +7,7 @@ This module computes nothing. Every number is read from the tables produced by t
     source_data/statistics/output_data/cneuromod_tidy_per_subject.csv
     source_data/statistics/output_data/cneuromod_tidy_total.csv
     source_data/statistics/output_data/cneuromod_subjects.csv
+    source_data/statistics/output_data/cneuromod_maturity.csv
 
 Datasets are still being collected and released, so no figure may be typed into the prose,
 where it would silently go stale. Quote it through this module instead, and refresh the
@@ -40,6 +41,20 @@ PHYSIO_LABEL = {
     "Eye": "eye tracking",
 }
 
+# Maturity ladder, most to least mature. Mirrors `_MATURITY` in cneuromod.all's
+# docs/source/_ext/constants.py; the per-dataset levels themselves are read from the table.
+MATURITY = {
+    "reference": ("🏆", "Reference", "a validation paper and substantial reuse"),
+    "stable": ("🟢", "Stable", "a validation paper or substantial reuse"),
+    "beta": (
+        "🟡",
+        "Beta",
+        "complete (all planned participants released, fMRIPrep derivatives, README) "
+        "but neither validated nor substantially reused yet",
+    ),
+    "alpha": ("🟠", "Alpha", "not fully acquired or released, or missing a README"),
+}
+
 
 class Count(int):
     """An integer that MyST's {eval} renders with a thousands separator (4,320)."""
@@ -69,6 +84,7 @@ class Stats:
         self.per_subject = pd.read_csv(self.output_data / "cneuromod_tidy_per_subject.csv")
         self.total = pd.read_csv(self.output_data / "cneuromod_tidy_total.csv")
         self.subjects_table = pd.read_csv(self.output_data / "cneuromod_subjects.csv").fillna("")
+        self.maturity_table = pd.read_csv(self.output_data / "cneuromod_maturity.csv").fillna("")
 
     # --- datasets and participants -------------------------------------------------
 
@@ -148,6 +164,52 @@ class Stats:
             for mod in rows["modality"].unique()
         }
 
+    # --- maturity -----------------------------------------------------------------------
+
+    @property
+    def maturity(self):
+        """{dataset: level}, as recorded in each dataset_info.yaml."""
+        return dict(zip(self.maturity_table["dataset"], self.maturity_table["level"]))
+
+    def datasets_at(self, level):
+        """Datasets rated exactly `level`, alphabetical."""
+        return sorted(self.maturity_table.loc[self.maturity_table["level"] == level, "dataset"])
+
+    def n_at(self, *levels):
+        """Number of datasets rated at any of `levels`."""
+        return sum(len(self.datasets_at(level)) for level in levels)
+
+    def maturity_counts(self):
+        """{level: n_datasets}, in ladder order."""
+        return {level: len(self.datasets_at(level)) for level in MATURITY}
+
+    def maturity_badge(self, dataset):
+        """e.g. "🟢 Stable" for one dataset."""
+        emoji, label, _ = MATURITY[self.maturity[dataset]]
+        return f"{emoji} {label}"
+
+    def maturity_note(self, dataset):
+        return self._maturity_row(dataset)["note"]
+
+    def _maturity_row(self, dataset):
+        return self.maturity_table.set_index("dataset").loc[dataset]
+
+    def validation_keys(self, dataset):
+        """BibTeX keys of the dataset's validation papers."""
+        return [k for k in self._maturity_row(dataset)["validation"].split(";") if k]
+
+    def reuse_keys(self, dataset):
+        """BibTeX keys of papers that reuse the dataset."""
+        return [k for k in self._maturity_row(dataset)["reuse"].split(";") if k]
+
+    def validated(self):
+        """Datasets with at least one validation paper."""
+        return [d for d in self.names_with_maturity if self.validation_keys(d)]
+
+    @property
+    def names_with_maturity(self):
+        return sorted(self.maturity_table["dataset"])
+
     # --- coverage gaps ----------------------------------------------------------------
 
     @property
@@ -208,5 +270,6 @@ if __name__ == "__main__":
         print(f"{label:>24}: {hours} h total")
     print(f"NSD images:        {COMPARISON.count('NSD', 'Images')!r} per subject")
     print(f"Narratives speech: {COMPARISON.value('Narratives', 'Speech', per_subject=False)} h total")
+    print(f"maturity:          {s.maturity_counts()}")
     for subject, n in s.subjects_with_gaps():
         print(f"  {subject}: missing or partial in {n} dataset(s)")

@@ -24,6 +24,13 @@ fd_datasets = QA.datasets_ranked("fd_median")
 tsnr_subjects = QA.subjects_ranked("tsnr_median")
 tsnr_datasets = QA.datasets_ranked("tsnr_median")
 regions = QA.regions_ranked()
+
+from _stats import STATS
+
+validated = STATS.validated()
+reuse_only = [d for d in STATS.datasets_at("stable") if d not in validated]
+val_text = join_names(validated)
+reuse_text = join_names(reuse_only)
 ```
 
 ## fMRI data quality
@@ -474,3 +481,14 @@ temporal alignment between stimulus, behavioural, physiological and BOLD streams
 simple encoding models from basic state annotations of the stimuli and tasks. Each model is
 compared against a series of control baselines, so that every dataset receives the same
 test that it carries stimulus-driven signal, independent of model architecture.
+
+### Summary of dataset maturity
+
+Validation status is summarised by the maturity rating of each dataset (see Data
+Overview), which requires a dedicated validation paper, testing that the dataset carries its
+intended signal, for the highest ratings; the common quality metrics above do not suffice
+on their own. Of the {eval}`STATS.n_datasets` datasets, {eval}`len(STATS.validated())` have a
+dedicated validation paper ({eval}`val_text`), described above. Another {eval}`len(reuse_only)` ({eval}`reuse_text`) are rated
+Stable on reuse alone, and are validated only by the common metrics. The
+{eval}`STATS.n_at('beta')` Beta and {eval}`STATS.n_at('alpha')` Alpha datasets are the targets of
+the forthcoming validation work described above.
