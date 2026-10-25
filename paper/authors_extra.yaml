@@ -29,3 +29,12 @@ fallback_affiliations:
   mtoneva: Carnegie Mellon University, USA
   lwehbe: Carnegie Mellon University, USA
   lunebellec: CRIUGM, Psychology, Université de Montréal, Québec, CA
+# Contributions to this manuscript and the core team, rendered first in paper/_contributions.md.
+# Roles are CRediT names, except "Data processing" (not a CRediT role). Authors not listed under
+# a role in `paper_contributions` get `paper_default_roles`.
+paper_contributions:
+  julieaboyle1: [Conceptualization, Project administration, Writing – original draft]
+  bpinsard: [Conceptualization, Data curation, Data processing, Formal analysis, Visualization, Writing – original draft]
+  MarieStLaurent: [Conceptualization, Data curation, Data processing, Formal analysis, Visualization, Writing – original draft]
+  lunebellec: [Conceptualization, Data curation, Formal analysis, Visualization, Writing – original draft]
+paper_default_roles: [Writing – review & editing]
