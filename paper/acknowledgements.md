@@ -16,8 +16,8 @@ the title page.
 ```{include} _contributions.md
 ```
 
-[TODO: contributions to this manuscript itself (writing, formal analysis, visualization) are
-not captured by the dataset-level records; co-authors should confirm or amend them.]
+The first entry, "Core team and paper", covers the core team and this manuscript itself; all other
+authors contributed revisions.
 
 ## Funding
 
