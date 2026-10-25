@@ -59,15 +59,46 @@ single gap. Beyond per-subject availability, one dataset withholds content by de
 held out as an in-distribution test set for encoding-model benchmarks, including the
 Algonauts Project 2025 Challenge.
 
+### Dataset maturity
+
+Datasets are released at different stages, so each carries a maturity rating, maintained
+by hand in its `dataset_info.yaml`. A *validation paper* is a dedicated paper testing that
+the dataset carries its intended signal; the common quality metrics alone do not count.
+*Substantial reuse* means at least three papers using the dataset. The ladder has four
+levels: 🏆 Reference datasets have a validation paper and substantial reuse; 🟢 Stable
+datasets have one or the other; 🟡 Beta datasets are complete (all planned participants
+released, fMRIPrep derivatives, README) but neither validated nor substantially reused yet;
+🟠 Alpha datasets fall short of that, being not fully acquired or released, or missing a
+README. At the time of writing, {eval}`STATS.n_at('reference', 'stable')` of the
+{eval}`STATS.n_datasets` datasets are rated Stable or Reference, {eval}`STATS.n_at('beta')`
+Beta and {eval}`STATS.n_at('alpha')` Alpha. Each dataset's rating is shown beneath its name
+below.
+
+```{code-cell} python3
+:tags: [remove-input]
+from IPython.display import Markdown
+from _stats import MATURITY
+
+rows = ["| Level | Datasets |", "|---|---|"]
+for level, (emoji, label, _) in MATURITY.items():
+    names = ", ".join(f"`{d}`" for d in STATS.datasets_at(level))
+    rows.append(f"| {emoji} {label} | {names} |")
+Markdown("\n".join(rows))
+```
+
 ## 🍿 Movies
 
 ### movie10
+
+*Maturity:* {eval}`STATS.maturity_badge('movie10')`
 
 Six participants watched four feature films — *The Bourne Supremacy*, *The Wolf of Wall
 Street*, *Hidden Figures* (shown twice) and the BBC series *Life* (shown twice) — cut into
 roughly ten-minute segments, for about 10 hours of functional data per participant {cite:p}`gifford2025algonauts`.
 
 ### friends
+
+*Maturity:* {eval}`STATS.maturity_badge('friends')`
 
 This dataset contains fMRI data acquired while six CNeuroMod participants watched
 episodes of the American sitcom *Friends* (seasons 1–7) in English, with brain responses
@@ -76,6 +107,8 @@ as a benchmark corpus for multimodal movie-encoding challenges
 {cite:p}`gifford2025algonauts`.
 
 ### ood
+
+*Maturity:* {eval}`STATS.maturity_badge('ood')`
 
 The `ood` dataset presents out-of-distribution audiovisual stimuli, held out to test the
 generalization of brain encoding models trained on the other movie datasets.
@@ -86,11 +119,15 @@ generalization of brain encoding models trained on the other movie datasets.
 
 ### harrypotter
 
+*Maturity:* {eval}`STATS.maturity_badge('harrypotter')`
+
 Five participants read Chapter 9 of *Harry Potter and the Sorcerer's Stone*, presented
 word by word at 2 Hz across seven runs in a single session {cite:p}`Toneva2022-bf`,
 using the same stimuli as the separate fMRI dataset reported by {cite:t}`wehbe2014`.
 
 ### petit-prince
+
+*Maturity:* {eval}`STATS.maturity_badge('petit-prince')`
 
 Participants listened to the audiobook of Antoine de Saint-Exupéry's *Le Petit Prince*,
 a story also used in the multilingual Le Petit Prince fMRI corpus {cite:p}`li2022petitprince`.
@@ -98,6 +135,8 @@ a story also used in the multilingual Le Petit Prince fMRI corpus {cite:p}`li202
 *[TODO: dataset documentation pending — [cneuromod.all#61](https://github.com/courtois-neuromod/cneuromod.all/issues/61)]*
 
 ### narratives
+
+*Maturity:* {eval}`STATS.maturity_badge('narratives')`
 
 Participants listened to spoken narratives in the scanner, drawn from the Narratives
 collection {cite:p}`nastase2021`.
@@ -108,12 +147,16 @@ collection {cite:p}`nastase2021`.
 
 ### shinobi
 
+*Maturity:* {eval}`STATS.maturity_badge('shinobi')`
+
 Four CNeuroMod participants played *Shinobi III: Return of the Ninja Master* (Sega, 1993)
 in-scanner across three levels selected for the relative homogeneity of their core
 mechanics {cite:p}`Harel2026-hr`. Participants also completed behavioural-only at-home training
 sessions before scanning, documented separately as the `shinobi/training` asset.
 
 ### mario
+
+*Maturity:* {eval}`STATS.maturity_badge('mario')`
 
 Five CNeuroMod participants played *Super Mario Bros.* (Nintendo, 1985) in-scanner across
 22 of the game's original levels, in a structured discovery phase followed by a longer
@@ -123,6 +166,8 @@ players who had already completed the game.
 
 ### mariostars
 
+*Maturity:* {eval}`STATS.maturity_badge('mariostars')`
+
 Participants played, in-scanner, the *Super Mario All-Stars* remake of the original
 *Super Mario Bros.* levels.
 
@@ -130,12 +175,16 @@ Participants played, in-scanner, the *Super Mario All-Stars* remake of the origi
 
 ### mario3
 
+*Maturity:* {eval}`STATS.maturity_badge('mario3')`
+
 Participants played *Super Mario Bros. 3* in-scanner, with frame-accurate replay files
 recorded for every play.
 
 *[TODO: dataset documentation pending — [cneuromod.all#64](https://github.com/courtois-neuromod/cneuromod.all/issues/64)]*
 
 ### mario_eeg
+
+*Maturity:* {eval}`STATS.maturity_badge('mario_eeg')`
 
 Electroencephalography was recorded outside the scanner while participants played
 *Super Mario Bros.*
@@ -146,11 +195,15 @@ Electroencephalography was recorded outside the scanner while participants playe
 
 ### triplets
 
+*Maturity:* {eval}`STATS.maturity_badge('triplets')`
+
 Participants viewed word triplets and picked the semantic odd one out.
 
 *[TODO: dataset documentation pending — [cneuromod.all#66](https://github.com/courtois-neuromod/cneuromod.all/issues/66)]*
 
 ### things
+
+*Maturity:* {eval}`STATS.maturity_badge('things')`
 
 Four participants completed 33–36 fMRI sessions of a continuous-recognition task with
 images drawn from 720 categories of the THINGS dataset {cite:p}`St-Laurent2026-zc`. Each
@@ -159,6 +212,8 @@ while participants maintained central fixation; each image was seen three times 
 sessions.
 
 ### emotion-videos
+
+*Maturity:* {eval}`STATS.maturity_badge('emotion-videos')`
 
 Five participants (`sub-01`, `sub-02`, `sub-03`, `sub-05`, `sub-06`) watched 1,888 short
 silent video clips from the database of {cite:t}`cowen2017`, which evoke a broad range of
@@ -174,6 +229,8 @@ randomized per participant. Cardiac, respiratory and electrodermal signals and e
 were recorded throughout.
 
 ### multfs
+
+*Maturity:* {eval}`STATS.maturity_badge('multfs')`
 
 Five participants (`sub-01`, `sub-02`, `sub-03`, `sub-05`, `sub-06`) performed 12 structured
 visual working-memory tasks over 16 scanning sessions, after one behavioural training session.
@@ -196,6 +253,8 @@ electrodermal signals and eye-tracking were recorded throughout.
 
 ### mutemusic
 
+*Maturity:* {eval}`STATS.maturity_badge('mutemusic')`
+
 Five participants (`sub-01`, `sub-02`, `sub-03`, `sub-05`, `sub-06`) listened to familiar
 and unfamiliar music tracks in which parts of the audio had been replaced by silence, and
 imagined the continuation of the music during the silent gaps, a paradigm adapted from
@@ -211,6 +270,8 @@ musical sophistication.
 ## 🧭 Functional localizers
 
 ### langlocalizer
+
+*Maturity:* {eval}`STATS.maturity_badge('langlocalizer')`
 
 Four participants (`sub-01`, `sub-02`, `sub-03`, `sub-05`), all right-handed and fluent in
 English and French (two native speakers of each), completed three sessions of standard
@@ -229,12 +290,16 @@ distributed with the atlases in `anat`.
 
 ### floc
 
+*Maturity:* {eval}`STATS.maturity_badge('floc')`
+
 Four participants (`sub-01`, `sub-02`, `sub-03`, `sub-05`) completed six sessions of a
 functional localizer task designed to identify brain regions that respond preferentially
 to specific stimulus categories, adapting the Stanford VPN lab's fLoc task
 {cite:p}`stigliani2015,St-Laurent2026-zc`.
 
 ### retinotopy
+
+*Maturity:* {eval}`STATS.maturity_badge('retinotopy')`
 
 Four participants completed multiple sessions of a retinotopy task adapted from
 {cite:t}`kay2013`, designed to derive population receptive field properties at the voxel level
@@ -245,6 +310,8 @@ responding to a colour-change detection task.
 
 ### hcptrt
 
+*Maturity:* {eval}`STATS.maturity_badge('hcptrt')`
+
 Participants repeated the functional localizers developed by the Human Connectome
 Project 15 times each, accumulating approximately 10 hours of functional data per
 subject across seven tasks adapted from the HCP task-fMRI protocol
@@ -254,6 +321,8 @@ HCP localizers, or one resting-state run and one HCP localizer run.
 ## 🧰 Others
 
 ### hearing
+
+*Maturity:* {eval}`STATS.maturity_badge('hearing')`
 
 All six participants underwent clinical audiology tests over about 1.5 years, run by a trained
 audiologist, to check that repeated scanning with hearing protection did not damage their
@@ -272,12 +341,16 @@ behavioural only, stored as one BIDS-like task per test.
 
 ### anat
 
+*Maturity:* {eval}`STATS.maturity_badge('anat')`
+
 The `anat` dataset comprises longitudinal anatomical and upper-spinal-cord MRI collected
 at roughly four sessions per year to monitor structural stability over the course of the
 study {cite:p}`Boudreau2025-ji`. Cortical flat maps and quantitative measures such as gray-matter morphometry,
 tractography and myelination can be derived from the FreeSurfer derivatives it provides.
 
 ### gamepad
+
+*Maturity:* {eval}`STATS.maturity_badge('gamepad')`
 
 This dataset validates the CNeuroMod videogame controller, an open-source,
 fiber-optic, MRI-compatible game controller designed by the project's engineering team

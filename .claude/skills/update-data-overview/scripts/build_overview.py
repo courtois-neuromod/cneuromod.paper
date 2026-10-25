@@ -261,7 +261,7 @@ def main():
         out += [f"## {category}", ""]
         for ds in members:
             emoji = R["emoji"].get(ds.name, "📦")
-            out += [f"### {emoji} {ds.name}", "", overview_text(ds / "README.md"), ""]
+            out += [f"### {emoji} {ds.name}", "", f"*Maturity:* {{eval}}`STATS.maturity_badge('{ds.name}')`", "", overview_text(ds / "README.md"), ""]
             cff = ds / "CITATION.cff"
             if cff.exists():
                 out += [R["citation"](cff).strip(), ""]

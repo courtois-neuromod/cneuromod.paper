@@ -78,7 +78,10 @@ from _stats import STATS
 
 `STATS` exposes `n_datasets`, `names`, `n_subjects`, `subjects`, `fmri_total_h`,
 `fmri_per_subject_h`, `physiology_h()`, `total_h(modality)`, `per_subject_h(modality)`,
-`incomplete`, `subjects_with_gaps()` and `datasets_for(subject)`. Add new quantities by
+`incomplete`, `subjects_with_gaps()`, `datasets_for(subject)` and the maturity ratings
+(`maturity`, `datasets_at(level)`, `n_at(*levels)`, `maturity_counts()`, `maturity_badge(ds)`,
+`maturity_note(ds)`, `validation_keys(ds)`, `reuse_keys(ds)`, `validated()`), read from
+`cneuromod_maturity.csv` (hand-maintained `maturity:` block of each upstream `dataset_info.yaml`). Add new quantities by
 extending the pipeline in `statistics`, not by computing them in the paper.
 
 Inline expressions are only evaluated when the build executes the kernel:
