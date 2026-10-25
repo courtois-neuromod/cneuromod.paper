@@ -74,17 +74,12 @@ README. At the time of writing, {eval}`STATS.n_at('reference', 'stable')` of the
 Beta and {eval}`STATS.n_at('alpha')` Alpha. Each dataset's rating is shown beneath its name
 below.
 
-```{code-cell} python3
-:tags: [remove-input]
-from IPython.display import Markdown
-from _stats import MATURITY
-
-rows = ["| Level | Datasets |", "|---|---|"]
-for level, (emoji, label, _) in MATURITY.items():
-    names = ", ".join(f"`{d}`" for d in STATS.datasets_at(level))
-    rows.append(f"| {emoji} {label} | {names} |")
-Markdown("\n".join(rows))
-```
+| Level | Datasets |
+|---|---|
+| 🏆 Reference | {eval}`', '.join(STATS.datasets_at('reference'))` |
+| 🟢 Stable | {eval}`', '.join(STATS.datasets_at('stable'))` |
+| 🟡 Beta | {eval}`', '.join(STATS.datasets_at('beta'))` |
+| 🟠 Alpha | {eval}`', '.join(STATS.datasets_at('alpha'))` |
 
 ## 🍿 Movies
 
