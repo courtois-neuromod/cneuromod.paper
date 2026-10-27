@@ -163,19 +163,28 @@ players who had already completed the game.
 
 *Maturity:* {eval}`STATS.maturity_badge('mariostars')`
 
-Participants played, in-scanner, the *Super Mario All-Stars* remake of the original
-*Super Mario Bros.* levels.
-
-*[TODO: dataset documentation pending — [cneuromod.all#63](https://github.com/courtois-neuromod/cneuromod.all/issues/63)]*
+After completing `mario`, the same five participants played in-scanner the *Super Mario Bros.*
+remake included in *Super Mario All-Stars* (Nintendo, 1993), on the same 22 levels. Level
+layouts, enemies and items are essentially unchanged, while graphics and sound are entirely
+redone for the Super Nintendo, so the dataset tests how brain and behavioural models generalize
+across visual and auditory renderings of the same game. There is no discovery phase: all
+sessions follow the `mario` practice design, with levels in pseudo-random order. Part of the
+fMRI data is withheld as the test set of the Algonauts Project 2027 Challenge, and will be
+released once the challenge ends.
 
 ### mario3
 
 *Maturity:* {eval}`STATS.maturity_badge('mario3')`
 
-Participants played *Super Mario Bros. 3* in-scanner, with frame-accurate replay files
-recorded for every play.
-
-*[TODO: dataset documentation pending — [cneuromod.all#64](https://github.com/courtois-neuromod/cneuromod.all/issues/64)]*
+After `mario` and `mariostars`, the same five participants played *Super Mario Bros. 3*
+(Nintendo, 1988) in-scanner across 80 levels of the game's eight worlds, including fortresses
+and airships with their boss fights. As in `mario`, a discovery phase (each level once, in game
+order) was followed by a practice phase of levels in pseudo-random order. The game keeps the
+character and core controls of `mario` but adds new mechanics, such as suits with new abilities,
+P-Switches and auto-scrolling levels, as well as longer and more varied levels, so the dataset
+tests how models generalize to new game mechanics. Unlike `mario` and `mariostars`, each life
+is stored as its own replay file. Part of the fMRI data is withheld as the test set of the
+Algonauts Project 2027 Challenge, and will be released once the challenge ends.
 
 ### mario_eeg
 

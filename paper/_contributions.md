@@ -111,6 +111,18 @@
   - *Methodology*: Basile Pinsard, Yann Harel, Julie A. Boyle, Lune Bellec.
   - *Project administration*: Basile Pinsard, Emilie Dessureault, Julie A. Boyle.
   - *Validation*: François Paugam, Yann Harel.
+- **mario3**
+  - *Data curation*: François Paugam, Xiao-Xuan Lei, Basile Pinsard, Emilie Dessureault, Yann Harel, Maëlle Freteault, Marie-Ève Picard, Motahareh Pourrahimi.
+  - *Investigation*: François Paugam, Xiao-Xuan Lei, Basile Pinsard, Emilie Dessureault, Yann Harel, Maëlle Freteault, Marie-Ève Picard, Motahareh Pourrahimi.
+  - *Methodology*: Basile Pinsard, Yann Harel, Julie A. Boyle, Lune Bellec.
+  - *Project administration*: Basile Pinsard, Emilie Dessureault, Julie A. Boyle.
+  - *Validation*: François Paugam, Yann Harel.
+- **mariostars**
+  - *Data curation*: François Paugam, Xiao-Xuan Lei, Basile Pinsard, Emilie Dessureault, Yann Harel, Maëlle Freteault, Marie-Ève Picard, Motahareh Pourrahimi.
+  - *Investigation*: François Paugam, Xiao-Xuan Lei, Basile Pinsard, Emilie Dessureault, Yann Harel, Maëlle Freteault, Marie-Ève Picard, Motahareh Pourrahimi.
+  - *Methodology*: Basile Pinsard, Yann Harel, Julie A. Boyle, Lune Bellec.
+  - *Project administration*: Basile Pinsard, Emilie Dessureault, Julie A. Boyle.
+  - *Validation*: François Paugam, Yann Harel.
 - **movie10**
   - *Data curation*: Julie A. Boyle, Emilie Dessureault, Basile Pinsard, Amal Boukhdhir, Marie-Ève Picard.
   - *Investigation*: Julie A. Boyle, Emilie Dessureault, Basile Pinsard, Amal Boukhdhir, Marie-Ève Picard.
