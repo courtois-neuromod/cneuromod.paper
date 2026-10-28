@@ -73,6 +73,7 @@ This project includes [Claude Code](https://claude.ai/code) skills to help co-au
 | `source_data/qa_figures/` | Git submodule — MRIQC/tSNR data quality analysis |
 | `source_data/connectome_stats/` | Git submodule — longitudinal stability / state-dependence of connectomes |
 | `source_data/reuse_stats/` | Git submodule — reuse of the dataset (papers by year and type) |
+| `author_review/` | Process and email template for the co-author review of author metadata |
 | `paper/intro.md` | Introduction / Background |
 | `paper/statement_of_need.md` | Statement of Need |
 | `paper/data_acquisition.md` | Data Acquisition |
