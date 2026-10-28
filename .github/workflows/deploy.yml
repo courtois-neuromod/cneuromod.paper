@@ -36,8 +36,14 @@ jobs:
       - name: Install dependencies
         run: uv sync
 
+      # Notebooks run one at a time, with single-threaded BLAS: running them in parallel
+      # randomly loses a kernel's completion and the build hangs until the job times out
+      # (jupyter-book/mystmd#1276). The timeout turns any future hang into a fast failure.
       - name: Build book (HTML, with notebook execution)
-        run: uv run jupyter book build --html --execute
+        timeout-minutes: 15
+        env:
+          OMP_NUM_THREADS: "1"
+        run: uv run jupyter book build --html --execute --execute-parallel 1
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
