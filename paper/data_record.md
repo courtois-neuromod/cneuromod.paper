@@ -16,6 +16,8 @@ All CNeuroMod data are distributed as [DataLad](https://www.datalad.org/) reposi
 
 Most data files are git-annex symlinks and must be explicitly retrieved with `datalad get`. Cloning the meta-repository fetches only metadata (git history, file pointers); data files are downloaded on demand. Recursive installation of submodules should be avoided, as submodules re-expose their own sub-submodules at differing versions for provenance tracking.
 
+Most assets also carry the code used to generate them, in a `code` component alongside the data (following YODA principles), and the exact command that produced each output was recorded with `datalad run`. The full provenance of a file can thus be read from the git history and, in principle, reproduced with `datalad rerun`. This is not yet the case for every asset: some older derivatives were generated before this practice was adopted and have no recorded command.
+
 For example, the `friends` dataset (participants watching the sitcom *Friends*) exposes `friends/bids` (raw data), `friends/fmriprep` and `friends/mriqc` (preprocessing and quality-control derivatives), and `friends/physprep` (processed physiological recordings). Dataset-specific submodules follow the same convention — e.g. `shinobi/training` for behavioural-only at-home gameplay by the same four participants as the `shinobi` neuroimaging dataset, or `things/glm` and `things/glmsingle` for first-level model estimates. A full description of what each dataset contains is given in [Data Overview](data_overview.md).
 
 ## BIDS compliance

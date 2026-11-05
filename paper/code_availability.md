@@ -1,7 +1,9 @@
 # Code Availability
 
-[List all software repositories associated with data collection, preprocessing, and quality control.
-Include version numbers and DOIs where available.]
+The code used to generate most dataset assets (preprocessing derivatives, quality-control reports and other
+derived data) is distributed with the assets themselves, in a `code` component of each DataLad dataset, and the exact
+commands were recorded with `datalad run` (see [Data Record](data_record.md)). This does not yet apply to every asset.
+The repositories below cover the analyses and figures of this article.
 
 The depth-vs-breadth dataset comparison figure ({numref}`fig-dataset-landscape`) was
 generated with
