@@ -12,4 +12,6 @@ dependencies = [
 ]
 
 [dependency-groups]
-dev = []
+dev = [
+    "pypandoc-binary>=1.17",
+]

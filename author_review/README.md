@@ -1,36 +1,41 @@
-# Co-author review of author metadata
+# Co-author review round
 
-Before the preprint, every co-author confirms their name, ORCID, affiliations and CRediT
-contributions. This round covers metadata only; the manuscript text is reviewed in a later round.
-
-Do not start the round until all dataset `contributors.json` files are final upstream: the
-review document is generated from them.
+Before the preprint, every co-author confirms their name, ORCID, affiliations, CRediT
+contributions and competing interests, and may flag big mistakes in the description of their dataset(s). Round 1 started
+on 2026-11-05; the deadline is **Friday 2026-11-13**, after which authors who have not replied are
+removed from the preprint's author list. Line edits on the manuscript come in later rounds
+(3–6 months of iteration before journal submission).
 
 ## Process
 
-1. **Build the review document.** After bumping `source_data/cneuromod.all`:
+1. **Sync the sources.** Bump `source_data/cneuromod.all`, run
+   `uv run python scripts/build_authors.py`, check that the `statistics` tables are pinned to the
+   same upstream commit, and merge to `main` so https://paper.cneuromod.ca is current.
+
+2. **Build the Word version** and upload it to Google Drive (File → Open → Upload; it converts to
+   a Google Doc), shared as "anyone with the link can comment":
 
    ```bash
-   uv run python scripts/build_author_review.py
+   uv run jupyter book build --tex --execute --execute-parallel 1
+   uv run python scripts/build_docx.py   # exports/cneuromod_paper.docx
    ```
 
-   This writes `exports/author_review.md` and `exports/author_review.docx`: the author table of
-   <https://docs.cneuromod.ca/AUTHORS.html> (same renderer), followed by the paper-only settings
-   from `paper/authors_extra.yaml` (author order, paper roles, missing ORCIDs/affiliations).
+3. **Send** [`email_template.md`](email_template.md) as one email, all co-authors in BCC. It links
+   to the Google Doc headings (Authors, Author Contributions, Competing Interests) and, as an
+   alternative, the live site. Track replies in a private Google Sheet (one row per author:
+   id, name, date sent, replied, competing interests, changes requested, PR link, verified); emails are not stored in
+   this repository.
 
-2. **Publish.** Upload the .docx to Google Drive as a Google Doc, shared as "anyone with the link
-   can comment".
-
-3. **Send** [`email_template.md`](email_template.md) to each co-author. Track replies in a private
-   Google Sheet (one row per author: id, name, email, gitid, date sent, reminder date, replied,
-   changes requested, PR link, verified); emails are not stored in this repository. Send a
-   reminder after 10 days.
-
-4. **Apply corrections.** Export the Doc as .docx and map each comment to an author through the
-   table row it is anchored in. Fixes go to:
+4. **Apply corrections**, from email replies, Google Doc comments or pull requests:
    - name, ORCID, affiliations → upstream `cneuromod.all/AUTHORS.yaml`, setting `verified: true`
      once the author has confirmed;
    - dataset roles → upstream `cneuromod.all/<dataset>/contributors.json`;
-   - paper roles, order, fallback affiliations → `paper/authors_extra.yaml`.
+   - dataset descriptions → upstream `cneuromod.all/<dataset>/README.md`, then the
+     `update-data-overview` skill;
+   - paper roles, order, fallback affiliations → `paper/authors_extra.yaml`;
+   - competing interests → the last section of `paper/acknowledgements.md`.
 
    Then bump the submodule and run `uv run python scripts/build_authors.py`.
+
+`scripts/build_author_review.py` builds a standalone author-table document (the earlier,
+metadata-only version of this round); it is not needed when the live site is used.
