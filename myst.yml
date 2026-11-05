@@ -176,6 +176,21 @@ project:
         - paper/data_availability.md
         - paper/code_availability.md
         - paper/acknowledgements.md
+    # Plain LaTeX of the whole paper, converted to Word by scripts/build_docx.sh (MyST's own
+    # docx export takes a single article). Same articles as the PDF export.
+    - format: tex
+      output: _build/exports/cneuromod_paper_tex/cneuromod_paper.tex
+      articles:
+        - paper/index.md
+        - paper/intro.md
+        - paper/data_overview.md
+        - paper/data_acquisition.md
+        - paper/data_record.md
+        - paper/technical_validation.md
+        - paper/usage_notes.md
+        - paper/data_availability.md
+        - paper/code_availability.md
+        - paper/acknowledgements.md
   toc:
     - file: paper/index.md
     - file: paper/intro.md

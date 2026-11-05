@@ -42,6 +42,17 @@ Output is written to `_build/html/`.
 uv run jupyter book build --pdf
 ```
 
+### Build a Word version
+
+MyST's docx export takes a single article, so the Word file is converted with pandoc from the
+LaTeX export of the whole paper (the notebooks run, so the live numbers are filled in). PDF
+figures are rasterized with `pdftoppm` (poppler-utils).
+
+```bash
+uv run jupyter book build --tex --execute --execute-parallel 1
+uv run python scripts/build_docx.py   # writes exports/cneuromod_paper.docx
+```
+
 ### Build all export formats
 
 ```bash
