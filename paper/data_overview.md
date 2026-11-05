@@ -42,7 +42,10 @@ in each column.
 
 The databank totals {eval}`STATS.fmri_total_h` hours of fMRI across all participants and
 datasets, or {eval}`STATS.fmri_per_subject_h` hours per subject on average. Physiological
-recordings accompany most fMRI sessions: {eval}`STATS.physiology_h()['ECG']` hours of ECG,
+recordings accompany most fMRI sessions. The hours below are usable hours, i.e. run
+duration weighted by the fraction of valid PhysPrep quality-control windows, so they are
+lower than the hours acquired; run-level availability is on the
+[release dashboard](https://stats.cneuromod.ca). In total there are {eval}`STATS.physiology_h()['ECG']` hours of ECG,
 {eval}`STATS.physiology_h()['respiration']` hours of respiration,
 {eval}`STATS.physiology_h()['plethysmograph']` hours of plethysmography and
 {eval}`STATS.physiology_h()['electrodermal activity']` hours of electrodermal activity,
@@ -106,9 +109,14 @@ as a benchmark corpus for multimodal movie-encoding challenges
 *Maturity:* {eval}`STATS.maturity_badge('ood')`
 
 The `ood` dataset presents out-of-distribution audiovisual stimuli, held out to test the
-generalization of brain encoding models trained on the other movie datasets.
-
-*[TODO: dataset documentation pending — [cneuromod.all#60](https://github.com/courtois-neuromod/cneuromod.all/issues/60)]*
+generalization of brain encoding models trained on the other movie datasets. Six films and
+television programmes were chosen to span genre, style and language: Chaplin's *The Pawn
+Shop*, *Princess Mononoke*, *Passe-Partout*, *Planet Earth* (landscapes only), *Pulp
+Fiction* and *World of Tomorrow*. Each was cut into two segments of about 10 minutes, and
+each segment was shown once over two sessions. The dataset served as the held-out
+out-of-distribution test set of the Algonauts 2025 challenge {cite:p}`gifford2025algonauts`,
+where encoding accuracy dropped most for the most atypical stimuli {cite:p}`d-Ascoli2026-hf`,
+and it remains the active test set on Codabench.
 
 ## 💬 Stories
 
@@ -125,18 +133,20 @@ using the same stimuli as the separate fMRI dataset reported by {cite:t}`wehbe20
 *Maturity:* {eval}`STATS.maturity_badge('petit-prince')`
 
 Participants listened to the audiobook of Antoine de Saint-Exupéry's *Le Petit Prince*,
-a story also used in the multilingual Le Petit Prince fMRI corpus {cite:p}`li2022petitprince`.
-
-*[TODO: dataset documentation pending — [cneuromod.all#61](https://github.com/courtois-neuromod/cneuromod.all/issues/61)]*
+a story also used in the multilingual Le Petit Prince fMRI corpus {cite:p}`li2022petitprince`
+and in the IBC dataset {cite:p}`ponce2026`. Each participant heard the full audiobook once in
+French and once in English, in 9 sections per language over 3 sessions, with the order of
+languages counterbalanced across participants. Deep-sampled bilingual participants thus
+complement the cross-sectional corpus. `sub-06` is missing French sections 8 and 9.
 
 ### narratives
 
 *Maturity:* {eval}`STATS.maturity_badge('narratives')`
 
 Participants listened to spoken narratives in the scanner, drawn from the Narratives
-collection {cite:p}`nastase2021`.
-
-*[TODO: dataset documentation pending — [cneuromod.all#62](https://github.com/courtois-neuromod/cneuromod.all/issues/62)]*
+collection {cite:p}`nastase2021`: eight stories totalling about 102 minutes. Each story's
+listening run is followed by a spoken free recall and a recency judgment. The full set is
+repeated three times over 12 sessions.
 
 ## 👾 Videogames
 
@@ -201,9 +211,11 @@ Electroencephalography was recorded outside the scanner while participants playe
 
 *Maturity:* {eval}`STATS.maturity_badge('triplets')`
 
-Participants viewed word triplets and picked the semantic odd one out.
-
-*[TODO: dataset documentation pending — [cneuromod.all#66](https://github.com/courtois-neuromod/cneuromod.all/issues/66)]*
+Participants viewed 1,588 English words arranged in 709 triplets and performed two tasks:
+rating the familiarity of single words on a three-point scale, and picking the semantic odd
+one out of a triplet, with stimuli repeated across sessions. The stimuli follow the
+semantic-association benchmark of {cite:t}`Borghesani2023-me`. The dataset is described in
+Bilgin et al. (in preparation).
 
 ### things
 

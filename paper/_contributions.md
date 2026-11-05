@@ -7,7 +7,7 @@
   - *Project administration*: Julie A. Boyle.
   - *Visualization*: Basile Pinsard, Marie St-Laurent, Lune Bellec.
   - *Writing – original draft*: Julie A. Boyle, Basile Pinsard, Marie St-Laurent, Lune Bellec.
-  - *Writing – review & editing*: Himanshu Aggarwal, Delphine Aguiar, Pouya Bashivan, Jeremy Bernard, Isil P. Bilgin, Arnaud Bore, Valentina Borghesani, Amal Boukhdhir, Simona M. Brambati, Julien Cohen-Adad, Oliver Contier, André Cyr, Emilie Dessureault, Elizabeth DuPre, Nicolas Farrugia, Eddy Fortier, Marie-France Fourcade, Maëlle Freteault, Adrian Fuente, Claude Godbout, Yann Harel, Martin N. Hebart, Takuya Ito, Karim Jerbi, Xiao-Xuan Lei, François Lespinasse, François Paugam, Marie-Ève Picard, Ana Fernanda Ponce, Motahareh Pourrahimi, Pierre Rainville, Pravish Sainath, Katja Seeliger, Bertrand Thirion, Mariya Toneva, Leila Wehbe.
+  - *Writing – review & editing*: Himanshu Aggarwal, Delphine Aguiar, Pouya Bashivan, Jeremy Bernard, Isil P. Bilgin, Arnaud Bore, Valentina Borghesani, Amal Boukhdhir, Simona M. Brambati, Julien Cohen-Adad, Oliver Contier, André Cyr, Emilie Dessureault, Elizabeth DuPre, Nicolas Farrugia, Eddy Fortier, Marie-France Fourcade, Maëlle Freteault, Adrian Fuente, Alessandro T. Gifford, Claude Godbout, Yann Harel, Martin N. Hebart, Takuya Ito, Karim Jerbi, Xiao-Xuan Lei, François Lespinasse, François Paugam, Marie-Ève Picard, Ana Fernanda Ponce, Motahareh Pourrahimi, Pierre Rainville, Pravish Sainath, Katja Seeliger, Bertrand Thirion, Mariya Toneva, Leila Wehbe.
   - *Data processing*: Basile Pinsard, Marie St-Laurent.
 - **anat**
   - *Conceptualization*: Basile Pinsard, Julien Cohen-Adad, Emilie Dessureault, Julie A. Boyle, Lune Bellec.
@@ -94,8 +94,8 @@
   - *Conceptualization*: Isil P. Bilgin, Valentina Borghesani, Simona M. Brambati, Lune Bellec.
   - *Data curation*: Isil P. Bilgin, Elizabeth DuPre, Marie St-Laurent, Basile Pinsard.
   - *Formal analysis*: Isil P. Bilgin.
-  - *Funding acquisition*: Valentina Borghesani, Lune Bellec.
-  - *Investigation*: Isil P. Bilgin, Marie St-Laurent, Julie A. Boyle.
+  - *Funding acquisition*: Lune Bellec.
+  - *Investigation*: Isil P. Bilgin, Marie St-Laurent.
   - *Methodology*: Isil P. Bilgin, Valentina Borghesani.
   - *Project administration*: Marie St-Laurent, Basile Pinsard, Julie A. Boyle, Lune Bellec.
   - *Resources*: Julie A. Boyle, Lune Bellec.
@@ -157,6 +157,39 @@
   - *Software*: Maëlle Freteault, Basile Pinsard.
   - *Supervision*: Nicolas Farrugia, Lune Bellec.
   - *Writing – original draft*: Maëlle Freteault.
+- **narratives**
+  - *Conceptualization*: Mariya Toneva, Valentina Borghesani, Lune Bellec.
+  - *Data curation*: Marie St-Laurent, Basile Pinsard.
+  - *Funding acquisition*: Lune Bellec.
+  - *Methodology*: Mariya Toneva, Valentina Borghesani.
+  - *Project administration*: Marie St-Laurent, Basile Pinsard, Julie A. Boyle, Lune Bellec.
+  - *Resources*: Julie A. Boyle, Lune Bellec.
+  - *Software*: Marie St-Laurent, Basile Pinsard.
+  - *Supervision*: Lune Bellec.
+  - *Funding*: Courtois Foundation, Institut de valorisation des données (IVADO).
+- **ood**
+  - *Conceptualization*: Marie St-Laurent, Alessandro T. Gifford, Lune Bellec.
+  - *Data curation*: Marie St-Laurent, Basile Pinsard, Julie A. Boyle, Alessandro T. Gifford.
+  - *Funding acquisition*: Lune Bellec.
+  - *Investigation*: Basile Pinsard, Julie A. Boyle.
+  - *Methodology*: Marie St-Laurent, Basile Pinsard, Alessandro T. Gifford.
+  - *Project administration*: Marie St-Laurent, Julie A. Boyle.
+  - *Software*: Basile Pinsard.
+  - *Supervision*: Lune Bellec.
+  - *Validation*: Alessandro T. Gifford.
+  - *Writing – review & editing*: Lune Bellec.
+  - *Funding*: Courtois Foundation.
+- **petit-prince**
+  - *Conceptualization*: Bertrand Thirion, Lune Bellec.
+  - *Data curation*: Basile Pinsard, Marie St-Laurent.
+  - *Funding acquisition*: Lune Bellec.
+  - *Investigation*: Basile Pinsard, Julie A. Boyle.
+  - *Methodology*: Basile Pinsard.
+  - *Project administration*: Julie A. Boyle.
+  - *Resources*: Bertrand Thirion.
+  - *Software*: Basile Pinsard.
+  - *Supervision*: Lune Bellec.
+  - *Funding*: Courtois Foundation.
 - **retinotopy**
   - *Conceptualization*: Basile Pinsard, Valentina Borghesani, Julie A. Boyle, Lune Bellec, Martin N. Hebart.
   - *Data curation*: Marie St-Laurent, Basile Pinsard, Oliver Contier, Elizabeth DuPre, Julie A. Boyle, Lune Bellec, Martin N. Hebart.
@@ -187,3 +220,18 @@
   - *Supervision*: Martin N. Hebart.
   - *Validation*: Marie St-Laurent, Oliver Contier, Elizabeth DuPre, Katja Seeliger, Julie A. Boyle, Lune Bellec, Martin N. Hebart.
   - *Writing – review & editing*: Marie St-Laurent, Martin N. Hebart.
+- **triplets**
+  - *Conceptualization*: Isil P. Bilgin, Valentina Borghesani, Simona M. Brambati, Lune Bellec.
+  - *Data curation*: Isil P. Bilgin, Marie St-Laurent, Basile Pinsard.
+  - *Formal analysis*: Isil P. Bilgin.
+  - *Funding acquisition*: Lune Bellec.
+  - *Investigation*: Isil P. Bilgin, Marie St-Laurent.
+  - *Methodology*: Isil P. Bilgin, Valentina Borghesani.
+  - *Project administration*: Marie St-Laurent, Basile Pinsard, Julie A. Boyle, Lune Bellec.
+  - *Resources*: Julie A. Boyle, Lune Bellec.
+  - *Software*: Isil P. Bilgin, Marie St-Laurent, Basile Pinsard.
+  - *Supervision*: Valentina Borghesani, Simona M. Brambati, Lune Bellec.
+  - *Visualization*: Isil P. Bilgin.
+  - *Writing – original draft*: Isil P. Bilgin.
+  - *Writing – review & editing*: Valentina Borghesani, Simona M. Brambati, Lune Bellec.
+  - *Funding*: Courtois Foundation, Institut de valorisation des données (IVADO).

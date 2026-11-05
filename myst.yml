@@ -46,6 +46,7 @@ project:
           - Department of Computer Science, McGill University, Montréal, Canada
         - name: Jeremy Bernard
         - name: Isil P. Bilgin
+          orcid: 0000-0003-3600-7004
           affiliations:
           - Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada
           - Faculty of Electrical Engineering and Computer Science, Technical University of Berlin, Berlin, Germany
@@ -55,7 +56,7 @@ project:
         - name: Valentina Borghesani
           orcid: 0000-0002-7909-8631
           affiliations:
-          - Swiss National Centre of Competence in Research, University of Geneva, Geneva, Switzerland
+          - Department of Psychology, University of Geneva, Geneva, Switzerland
         - name: Amal Boukhdhir
           affiliations:
           - Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada
@@ -97,6 +98,10 @@ project:
           affiliations:
           - Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada
           - School of Speech-Language Pathology and Audiology, University of Montréal, Montréal, Canada
+        - name: Alessandro T. Gifford
+          orcid: 0000-0002-8923-9477
+          affiliations:
+          - Freie Universität Berlin, Berlin, Germany
         - name: Claude Godbout
         - name: Yann Harel
           orcid: 0000-0002-8970-1983

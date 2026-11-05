@@ -374,7 +374,7 @@ models, are reviewed separately in Usage Notes.
 * - 🔬 Taskscapes
   - `triplets`
   - {cite:t}`Borghesani2023-me`
-  - Stimulus set of the forthcoming dataset: semantic triplets with human similarity judgments
+  - Stimulus set of the `triplets` dataset: semantic triplets with human similarity judgments
 * - 🧭 Functional localizers
   - `floc`, `retinotopy`
   - {cite:t}`St-Laurent2026-zc`
@@ -428,7 +428,7 @@ parietal activity.
 The `triplets` stimulus set comes from the Three Terms Task, a published benchmark of
 10,107 word triplets. Human similarity judgments from 1,322 raters were collected for the
 2,255 triplets on which language-model embeddings disagreed {cite:p}`Borghesani2023-me`.
-This validates the stimuli of the forthcoming `triplets` fMRI dataset.
+This validates the stimuli of the `triplets` fMRI dataset.
 
 ### 🧭 Functional localizers
 
