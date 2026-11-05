@@ -5,28 +5,38 @@ Dear colleagues,
 
 It's a big day for CNeuroMod: the data paper is ready for preprint! We plan to post it next week,
 to coincide with the launch of the Algonauts 2027 competition. You are receiving this email
-because you are listed as a co-author. Before we post it, I need each of you to do the following:
+because you are listed as a co-author. Before we post it, I need each of you to check a few things.
+
+The paper is shared as a Google Doc where anyone with the link can comment:
+https://docs.google.com/document/d/1yCNMDuuzsJqBXlkWpoDEyAhffFXqg2UQ/edit
 
 1. **Your name, affiliations and ORCID.** Check your row in the author list:
-   https://paper.cneuromod.ca/ (section "Authors"). Missing ORCIDs and affiliations show as empty
-   or `[MISSING: affiliation]`; please send them if that's you.
+   https://docs.google.com/document/d/1yCNMDuuzsJqBXlkWpoDEyAhffFXqg2UQ/edit#heading=h.6juref69dgmj
+   Missing ORCIDs and affiliations show as empty or `[MISSING: affiliation]`; please send them if
+   that's you.
 2. **Your contributions.** Check your CRediT roles (https://credit.niso.org), listed per author
    with the datasets each role applies to (`paper` stands for the manuscript itself and the core
-   team): https://paper.cneuromod.ca/acknowledgements (section "Author Contributions").
-3. **If time permits**, skim the description of the dataset(s) you contributed to and flag any
-   big mistake: https://paper.cneuromod.ca/data-overview (one subsection per dataset; acquisition
-   and validation details are in the following sections). This is not the time for line edits:
-   there will be plenty of opportunities to improve the text later.
+   team):
+   https://docs.google.com/document/d/1yCNMDuuzsJqBXlkWpoDEyAhffFXqg2UQ/edit#heading=h.axivcd6ztfjk
+3. **Competing interests.** The paper currently states that the authors declare no competing
+   interests. Please confirm this applies to you, or tell me what should be declared:
+   https://docs.google.com/document/d/1yCNMDuuzsJqBXlkWpoDEyAhffFXqg2UQ/edit#heading=h.aj1urnsbvw5q
+4. **If time permits**, skim the description of the dataset(s) you contributed to (one
+   subsection per dataset in "Data Overview"; acquisition and validation details are in the
+   following sections) and flag any big mistake. This is not the time for line edits: there will
+   be plenty of opportunities to improve the text later.
+
+The same content is also available as a website, https://paper.cneuromod.ca, if you prefer
+reading it there.
 
 **Deadline: Friday 13 November.** If I have not heard from you by then, I will take you off the
-author list of the preprint. A one-line "all good" is enough. If you need a few more days, just
-let me know.
+author list of the preprint. A one-line "all good, no competing interests" is enough. If you
+need a few more days, just let me know.
 
 **How to send feedback**, whichever is easiest for you:
 
 - reply to this email;
-- comment directly in the Google Doc version of the paper (anyone with the link can comment):
-  <GOOGLE DOC LINK>
+- comment directly in the Google Doc (link above);
 - open a pull request on GitHub (see below).
 
 **What happens next.** After the preprint, we will spend about 3 to 6 months iterating on the
