@@ -16,9 +16,9 @@ short_title: The CNeuroMod Dataset
 | Delphine Aguiar |  | [MISSING: affiliation] |
 | Pouya Bashivan |  | Department of Physiology, McGill University, Montréal, Canada; Mila – Quebec AI Institute, Montréal, Canada; Department of Computer Science, McGill University, Montréal, Canada |
 | Jeremy Bernard |  | [MISSING: affiliation] |
-| Isil P. Bilgin |  | Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada; Faculty of Electrical Engineering and Computer Science, Technical University of Berlin, Berlin, Germany |
+| Isil P. Bilgin | [0000-0003-3600-7004](https://orcid.org/0000-0003-3600-7004) | Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada; Faculty of Electrical Engineering and Computer Science, Technical University of Berlin, Berlin, Germany |
 | Arnaud Bore |  | Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada |
-| Valentina Borghesani | [0000-0002-7909-8631](https://orcid.org/0000-0002-7909-8631) | Swiss National Centre of Competence in Research, University of Geneva, Geneva, Switzerland |
+| Valentina Borghesani | [0000-0002-7909-8631](https://orcid.org/0000-0002-7909-8631) | Department of Psychology, University of Geneva, Geneva, Switzerland |
 | Amal Boukhdhir |  | Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada; Department of Computer Science and Operations Research (DIRO), University of Montréal, Montréal, Canada |
 | Simona M. Brambati |  | Department of Psychology, University of Montréal, Montréal, Canada; Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada |
 | Julien Cohen-Adad | [0000-0003-3662-9532](https://orcid.org/0000-0003-3662-9532) | NeuroPoly, Polytechnique Montréal, Montréal, Canada |
@@ -31,6 +31,7 @@ short_title: The CNeuroMod Dataset
 | Marie-France Fourcade |  | [MISSING: affiliation] |
 | Maëlle Freteault | [0009-0003-7950-0744](https://orcid.org/0009-0003-7950-0744) | IMT Atlantique, France |
 | Adrian Fuente |  | Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada; School of Speech-Language Pathology and Audiology, University of Montréal, Montréal, Canada |
+| Alessandro T. Gifford | [0000-0002-8923-9477](https://orcid.org/0000-0002-8923-9477) | Freie Universität Berlin, Berlin, Germany |
 | Claude Godbout |  | [MISSING: affiliation] |
 | Yann Harel | [0000-0002-8970-1983](https://orcid.org/0000-0002-8970-1983) | Department of Psychology, University of Montréal, Montréal, Canada; Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada |
 | Martin N. Hebart | [0000-0001-7257-428X](https://orcid.org/0000-0001-7257-428X) | Max Planck Institute for Human Cognitive and Brain Sciences, Leipzig, Germany |

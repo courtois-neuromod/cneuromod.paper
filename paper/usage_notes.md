@@ -185,7 +185,7 @@ decode. In `friends`, the dialogue was labelled as positive, neutral or negative
 audio, with a speech emotion model, and from the subtitles, with text sentiment tools
 {cite:p}`Corsico2026-hy`. Acoustic and combined sentiment labels tracked activity in the
 salience and default mode networks better than subtitle-based labels, whose effects were
-weaker and more localized. Upcoming datasets will add new benchmarks, such as word-level semantic
+weaker and more localized. Newly released and upcoming datasets add new benchmarks, such as word-level semantic
 decoding with `triplets`, built on a published set of word triplets with human similarity
 judgments {cite:p}`Borghesani2023-me`, and working memory with `multfs`, amongst others.
 
@@ -355,6 +355,9 @@ directly to data acquired with other scanners or sequences.
 the lowest tSNR in the databank ({numref}`fig-fmri-quality`), and the 2 mm fMRI voxels carry
 substantial thermal noise. Physiological and eye-tracking recordings are not usable in
 every run; PhysPrep provides a run-level quality assessment for each physiological signal.
+The physiology hours reported in this paper are usable hours, weighted by the fraction of
+valid PhysPrep quality-control windows, and are lower than the hours acquired. For example,
+only about half of the `mario` ECG is usable.
 
 **Preprocessing choices.** fMRIPrep was run without slice-timing correction. Anatomical
 images (T1w, T2w, DWI and SWI) were not corrected for gradient non-linearity on the scanner,
@@ -385,7 +388,9 @@ voxels, with a kernel set by the hypotheses and analysis.
 **Check the dataset documentation.** Each dataset README describes its design, its events
 and annotation files, and its known irregularities, such as sessions to exclude. Session
 indices follow acquisition order, not the order of the stimuli, so stimulus identity
-should be read from the event files.
+should be read from the event files. The [release dashboard](https://stats.cneuromod.ca)
+lists, run by run, which raw BOLD, physiological recordings, fMRIPrep outputs, tSNR,
+PhysPrep outputs and parcelled timeseries are available.
 
 **Pin the release.** Report the `cneuromod.all` release used (e.g. `cneuromod-2020`), or the
 exact commit, so that the analysis can be reproduced against the same version of the

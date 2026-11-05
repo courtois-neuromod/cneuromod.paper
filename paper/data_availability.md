@@ -46,6 +46,9 @@ meta-dataset is discouraged, as submodules re-expose their own sub-submodules at
 differing versions for provenance tracking. Complete, up-to-date instructions —
 including prerequisites, credential setup, and partial-download recipes — are
 maintained at [docs.cneuromod.ca](https://docs.cneuromod.ca).
+The availability of each run (raw BOLD and physiology, fMRIPrep outputs, tSNR, PhysPrep
+outputs and parcelled timeseries) is tracked on the release dashboard at
+[stats.cneuromod.ca](https://stats.cneuromod.ca).
 
 ## Ethics
 
