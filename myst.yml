@@ -38,8 +38,15 @@ project:
           - Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada
           equal_contributor: true
         - name: Himanshu Aggarwal
+          orcid: 0000-0003-2451-0470
+          affiliations:
+          - Inria, CEA, Université Paris-Saclay, Palaiseau, France
         - name: Delphine Aguiar
+          orcid: 0009-0002-1492-1970
+          affiliations:
+          - Département de psychologie, Université de Montréal, Montréal, Canada
         - name: Pouya Bashivan
+          orcid: 0000-0002-0296-6381
           affiliations:
           - Department of Physiology, McGill University, Montréal, Canada
           - Mila – Quebec AI Institute, Montréal, Canada
@@ -51,6 +58,7 @@ project:
           - Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada
           - Faculty of Electrical Engineering and Computer Science, Technical University of Berlin, Berlin, Germany
         - name: Arnaud Bore
+          orcid: 0000-0002-4822-1211
           affiliations:
           - Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada
         - name: Valentina Borghesani
@@ -80,14 +88,16 @@ project:
         - name: Elizabeth DuPre
           orcid: 0000-0003-1358-196X
           affiliations:
-          - McGill University, Montréal, Canada
+          - Department of Psychology, University of Montréal, Montréal, Canada
+          - Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada
         - name: Nicolas Farrugia
           orcid: 0000-0002-1159-3513
           affiliations:
           - IMT Atlantique, France
         - name: Eddy Fortier
+          orcid: 0000-0001-9459-8717
           affiliations:
-          - Department of Psychology, University of Montréal, Montréal, Canada
+          - Department of Psychology, Université de Montréal, Montréal, Canada
           - Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada
         - name: Marie-France Fourcade
         - name: Maëlle Freteault
@@ -95,6 +105,7 @@ project:
           affiliations:
           - IMT Atlantique, France
         - name: Adrian Fuente
+          orcid: 0000-0003-3736-5057
           affiliations:
           - Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada
           - School of Speech-Language Pathology and Audiology, University of Montréal, Montréal, Canada
@@ -112,6 +123,7 @@ project:
           orcid: 0000-0001-7257-428X
           affiliations:
           - Max Planck Institute for Human Cognitive and Brain Sciences, Leipzig, Germany
+          - Department of Medicine, Justus Liebig University Giessen, Giessen, Germany
         - name: Takuya Ito
           affiliations:
           - IBM Research, Yorktown Heights, USA
@@ -120,7 +132,8 @@ project:
           affiliations:
           - Department of Psychology, University of Montréal, Montréal, Canada
           - Mila – Quebec AI Institute, Montréal, Canada
-        - name: Xiao-Xuan Lei
+        - name: Xiaoxuan Lei
+          orcid: 0000-0002-0003-509X
           affiliations:
           - Department of Physiology, McGill University, Montréal, Canada
           - Mila – Quebec AI Institute, Montréal, Canada
@@ -133,9 +146,17 @@ project:
           - Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada
           - Department of Computer Science and Operations Research (DIRO), University of Montréal, Montréal, Canada
         - name: Marie-Ève Picard
+          orcid: 0009-0001-2412-7829
+          affiliations:
+          - Département de psychologie, Université de Montréal, Montréal, Canada
+          - Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada
         - name: Ana Fernanda Ponce
+          orcid: 0000-0001-7142-0975
+          affiliations:
+          - Université Paris-Saclay, Inria, CEA, Palaiseau, France
         - name: Motahareh Pourrahimi
         - name: Pierre Rainville
+          orcid: 0000-0001-9801-757X
           affiliations:
           - Université de Montréal
           - Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada
@@ -149,10 +170,12 @@ project:
           - Max Planck Institute for Human Cognitive and Brain Sciences, Leipzig, Germany
         - name: Bertrand Thirion
           orcid: 0000-0001-5018-7895
+          affiliations:
+          - Inria, CEA, Université Paris-Saclay, Palaiseau, France
         - name: Mariya Toneva
           orcid: 0000-0002-2407-9871
           affiliations:
-          - Carnegie Mellon University, Pittsburgh, USA
+          - Max Planck Institute for Software Systems, Saarbrücken, Germany
         - name: Leila Wehbe
           orcid: 0000-0001-8545-2062
           affiliations:

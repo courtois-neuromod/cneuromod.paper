@@ -52,9 +52,9 @@ Task stimuli were presented using a custom overlay built on top of PsychoPy {cit
 
 During all scanning sessions, physiological signals were recorded using a Biopac M160 MRI-compatible system at 1000 Hz, synchronized to the MRI scanner via trigger pulses and monitored with AcqKnowledge software. The following signals were recorded:
 
-- **Cardiac (plethysmograph):** A Biopac TSD200-MRI photoplethysmogram transducer placed on the foot or toe provided beat-by-beat heart rate estimates.
+- **Cardiac (photoplethysmograph):** A Biopac TSD200-MRI photoplethysmogram transducer placed on the foot or toe provided beat-by-beat heart rate estimates.
 - **Electrocardiogram:** Three MRI-compatible electrodes placed on the lower left rib cage recorded cardiac electrical activity.
 - **Skin conductance:** Two electrodes applied to the sole and ankle of the foot recorded electrodermal activity.
-- **Respiration:** A custom MRI-compatible respiration belt consisting of a blood pressure cuff, a pressure sensor (MPXV5004GC7U, NXP), and flexible tubing measured thoracic pressure via an analog input to the Biopac system.
+- **Respiration:** In most datasets, respiration was measured with a Biopac TSD221-MRI respiratory effort transducer connected to a DA100-C amplifier. The respiration hardware changed during the project: a custom MRI-compatible respiration belt, consisting of a blood pressure cuff, a pressure sensor (MPXV5004GC7U, NXP) and flexible tubing, measured thoracic pressure via an analog input to the Biopac system in [TO CONFIRM: which datasets / dates, see [#29](https://github.com/courtois-neuromod/cneuromod.paper/issues/29)].
 
 In later datasets (see [DATA RECORD TABLE]), eye movements and pupil dilation were recorded using a high-speed infrared camera (MRC Systems) with illuminating IR LEDs; gaze data were processed with Pupil open-source software.

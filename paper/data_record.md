@@ -22,10 +22,7 @@ For example, the `friends` dataset (participants watching the sitcom *Friends*) 
 
 ## BIDS compliance
 
-All functional and anatomical neuroimaging data are formatted according to the [Brain Imaging Data Structure (BIDS)](https://bids.neuroimaging.io/) specification. Deviations from the core specification are:
-
-- Multi-contrast anatomical sequences follow [BEP001](https://bids.neuroimaging.io/bep001).
-- Spinal cord images use the Body Part tag proposed in [BEP025](https://bids.neuroimaging.io/bep025) (`bp-cspine`) to distinguish them from brain anatomical images acquired with the same contrasts.
+All functional and anatomical neuroimaging data are formatted according to the [Brain Imaging Data Structure (BIDS)](https://bids.neuroimaging.io/) specification. Multi-contrast and quantitative anatomical sequences follow the quantitative MRI extension, now part of the BIDS specification {cite:p}`karakuzu2022`. One deviation remains: spinal cord images carry a `bp-cspine` (body part) entity, adopted from a draft extension proposal, to distinguish them from brain anatomical images acquired with the same contrasts. This entity is not part of the current specification, which provides a `voi-<label>` (volume of interest) entity for the same purpose, and these files are listed in `.bidsignore`.
 
 Session indices (`ses-001`, `ses-002`, …) reflect the order of data acquisition; the number of runs, tasks, and their order within a session vary across participants. A small number of session indices are skipped where an entire session was discarded for scanning issues.
 
@@ -53,7 +50,7 @@ All images covering the face — collected as part of the longitudinal anatomica
 
 ### fMRIPrep
 
-Functional data were preprocessed using fMRIPrep 20.2.5 [MISSING REF: Esteban, O. et al. (2019). "fMRIPrep: a robust preprocessing pipeline for functional MRI." Nature Methods, 16, 111–116. doi: 10.1038/s41592-018-0235-4 — add to references.bib] via an anatomical fast-track using sMRIPrep output (`--anat-derivatives`), ensuring a consistent anatomical basis across all functional datasets. The `--ignore slicetiming` flag was used. Outputs are provided in three spaces: native T1w, volumetric MNI152NLin2009cAsym, and surface-based fsLR-den-91k (grayordinates). Each functional run yields:
+Functional data were preprocessed using fMRIPrep 20.2.5 {cite:p}`esteban2019` via an anatomical fast-track using sMRIPrep output (`--anat-derivatives`), ensuring a consistent anatomical basis across all functional datasets. The `--ignore slicetiming` flag was used. Outputs are provided in three spaces: native T1w, volumetric MNI152NLin2009cAsym, and surface-based fsLR-den-91k (grayordinates). Each functional run yields:
 
 - `*_desc-preproc_bold.nii.gz` — preprocessed BOLD timeseries
 - `*_boldref.nii.gz` — single-volume BOLD reference
@@ -66,7 +63,7 @@ Anatomical processing used sMRIPrep and FreeSurfer in both cross-sectional and l
 
 ### PhysPrep
 
-Physiological signals were preprocessed using the CNeuroMod PhysPrep pipeline [MISSING REF: PhysPrep — github.com/courtois-neuromod/physprep — add citation to references.bib], integrating Phys2Bids, NeuroKit2, and Systole. Outputs per run include:
+Physiological signals were preprocessed using the CNeuroMod PhysPrep pipeline {cite:p}`picard2026physprep`, integrating Phys2Bids, NeuroKit2, and Systole. Outputs per run include:
 
 - `*_physio.tsv.gz` / `*_physio.json` — raw segmented biosignals (in `<dataset>/bids`)
 - `*_desc-preproc_physio.tsv.gz` — filtered and cleaned timeseries
