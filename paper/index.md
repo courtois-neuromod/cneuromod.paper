@@ -31,7 +31,7 @@ short_title: The CNeuroMod Dataset
 | Alessandro T. Gifford | [0000-0002-8923-9477](https://orcid.org/0000-0002-8923-9477) | Freie Universität Berlin, Berlin, Germany |
 | Yann Harel | [0000-0002-8970-1983](https://orcid.org/0000-0002-8970-1983) | Department of Psychology, University of Montréal, Montréal, Canada; Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada |
 | Martin N. Hebart | [0000-0001-7257-428X](https://orcid.org/0000-0001-7257-428X) | Max Planck Institute for Human Cognitive and Brain Sciences, Leipzig, Germany; Department of Medicine, Justus Liebig University Giessen, Giessen, Germany |
-| Takuya Ito |  | IBM Research, Yorktown Heights, USA |
+| Takuya Ito | [0000-0002-2060-4608](https://orcid.org/0000-0002-2060-4608) | IBM Research, Yorktown Heights, USA |
 | Karim Jerbi | [0000-0002-3790-9651](https://orcid.org/0000-0002-3790-9651) | Department of Psychology, University of Montréal, Montréal, Canada; Mila – Quebec AI Institute, Montréal, Canada |
 | Xiaoxuan Lei | [0000-0002-0003-509X](https://orcid.org/0000-0002-0003-509X) | Department of Physiology, McGill University, Montréal, Canada; Mila – Quebec AI Institute, Montréal, Canada |
 | François Lespinasse |  | Department of Psychology, University of Montréal, Montréal, Canada |
