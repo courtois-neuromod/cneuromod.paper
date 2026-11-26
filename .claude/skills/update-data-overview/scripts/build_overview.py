@@ -205,10 +205,10 @@ def asset_scaffold(repo, R):
     out += [":::", ""]
     for stem, path in global_assets:
         _, title, body = R["component_title"](path.read_text(encoding="utf-8"))
-        out += [f"### {title or stem}", "", f"<!-- condense from {path.relative_to(repo)} -->", first_para(body), ""]
+        out += [f"### {title or stem}", "", f"% condense from {path.relative_to(repo)}", first_para(body), ""]
     for stem, path, ds_name in sorted(local_assets):
         _, title, body = R["component_title"](path.read_text(encoding="utf-8"))
-        out += [f"### {title or stem} ({ds_name})", "", f"<!-- condense from {path.relative_to(repo)} -->", first_para(body), ""]
+        out += [f"### {title or stem} ({ds_name})", "", f"% condense from {path.relative_to(repo)}", first_para(body), ""]
 
     return out
 
@@ -227,7 +227,7 @@ def main():
 
     out = ["# Data Overview", "", "## Summary Statistics", ""]
     out += [
-        "<!-- Figures live in the statistics submodule; do not edit them by hand. -->",
+        "% Figures live in the statistics submodule; do not edit them by hand.",
         ":::{figure} ../source_data/statistics/output_data/figure_cneuromod_comparison_per_subject.png",
         ":name: fig-cneuromod-volume",
         ":width: 100%",
@@ -235,18 +235,18 @@ def main():
         "**Per-subject data volume across CNeuroMod datasets.** [Caption to write.]",
         ":::",
         "",
-        "<!-- AGGREGATES — read from statistics/output_data via paper/_stats.py. -->",
-        "<!-- Do not retype these into the prose: use {eval}`STATS...` so they stay live. -->",
-        f"<!-- STATS.n_datasets = {STATS.n_datasets} -->",
-        f"<!-- STATS.n_subjects = {STATS.n_subjects} ({', '.join(STATS.subjects)}) -->",
-        f"<!-- STATS.fmri_total_h = {STATS.fmri_total_h} -->",
-        f"<!-- STATS.fmri_per_subject_h = {STATS.fmri_per_subject_h} -->",
+        "% AGGREGATES — read from statistics/output_data via paper/_stats.py.",
+        "% Do not retype these into the prose: use {eval}`STATS...` so they stay live.",
+        f"% STATS.n_datasets = {STATS.n_datasets}",
+        f"% STATS.n_subjects = {STATS.n_subjects} ({', '.join(STATS.subjects)})",
+        f"% STATS.fmri_total_h = {STATS.fmri_total_h}",
+        f"% STATS.fmri_per_subject_h = {STATS.fmri_per_subject_h}",
     ]
     for label, hours in STATS.physiology_h().items():
-        out.append(f"<!-- STATS.physiology_h()['{label}'] = {hours} -->")
-    out += ["", "<!-- Coverage gaps (STATS.subjects_with_gaps / STATS.datasets_for): -->"]
+        out.append(f"% STATS.physiology_h()['{label}'] = {hours}")
+    out += ["", "% Coverage gaps (STATS.subjects_with_gaps / STATS.datasets_for):"]
     for subject, n in STATS.subjects_with_gaps():
-        out.append(f"<!-- {subject}: missing or partial in {n} dataset(s) -->")
+        out.append(f"% {subject}: missing or partial in {n} dataset(s)")
 
     by_name = {ds.name: ds for ds in datasets(repo)}
     groups = {c: [by_name[n] for n in names if n in by_name] for c, (_, names) in CATEGORIES.items()}
@@ -256,7 +256,7 @@ def main():
     out.append("")
     if uncategorized:
         groups["Uncategorized"] = uncategorized
-        out.append("<!-- WARNING: datasets missing from CATEGORIES in build_overview.py -->")
+        out.append("% WARNING: datasets missing from CATEGORIES in build_overview.py")
     for category, members in groups.items():
         out += [f"## {category}", ""]
         for ds in members:

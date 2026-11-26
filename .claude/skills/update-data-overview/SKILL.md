@@ -78,7 +78,7 @@ The database comprises {eval}`STATS.n_datasets` datasets acquired in
 that is not there, add it to the `statistics` pipeline (`analysis/dataset_info.py`) and expose it
 in `paper/_stats.py` — never compute it inside the paper.
 
-The scaffold's `<!-- AGGREGATES -->` comments show each value's current number next to the
+The scaffold's `% AGGREGATES` comments show each value's current number next to the
 expression that produces it; use them to sanity-check, then write the expression, not the digits.
 
 Verify with an executing build:
