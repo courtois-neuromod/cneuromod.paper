@@ -95,8 +95,9 @@ project:
           affiliations:
           - IMT Atlantique, France
         - name: Eddy Fortier
+          orcid: 0000-0001-9459-8717
           affiliations:
-          - Department of Psychology, University of Montréal, Montréal, Canada
+          - Department of Psychology, Université de Montréal, Montréal, Canada
           - Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada
         - name: Marie-France Fourcade
         - name: Maëlle Freteault

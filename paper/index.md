@@ -27,7 +27,7 @@ short_title: The CNeuroMod Dataset
 | Emilie Dessureault |  | [MISSING: affiliation] |
 | Elizabeth DuPre | [0000-0003-1358-196X](https://orcid.org/0000-0003-1358-196X) | Department of Psychology, University of Montréal, Montréal, Canada; Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada |
 | Nicolas Farrugia | [0000-0002-1159-3513](https://orcid.org/0000-0002-1159-3513) | IMT Atlantique, France |
-| Eddy Fortier |  | Department of Psychology, University of Montréal, Montréal, Canada; Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada |
+| Eddy Fortier | [0000-0001-9459-8717](https://orcid.org/0000-0001-9459-8717) | Department of Psychology, Université de Montréal, Montréal, Canada; Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada |
 | Marie-France Fourcade |  | [MISSING: affiliation] |
 | Maëlle Freteault | [0009-0003-7950-0744](https://orcid.org/0009-0003-7950-0744) | IMT Atlantique, France |
 | Adrian Fuente | [0000-0003-3736-5057](https://orcid.org/0000-0003-3736-5057) | Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada; School of Speech-Language Pathology and Audiology, University of Montréal, Montréal, Canada |
