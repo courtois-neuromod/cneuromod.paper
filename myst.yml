@@ -229,7 +229,9 @@ project:
     - file: paper/references.md
 
 site:
-  template: book-theme
+  # Pinned: `book-theme` tracks the theme's main branch, which can require a newer
+  # jupyter-book than uv.lock provides and then hangs the build. Bump together with jupyter-book.
+  template: https://github.com/jupyter-book/myst-theme/releases/download/myst-to-react%401.4.1/book-theme.zip
   title: The CNeuroMod Dataset
   options:
     favicon: images/favicon.png
