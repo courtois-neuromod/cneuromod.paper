@@ -50,7 +50,7 @@ Task stimuli were presented using a custom overlay built on top of PsychoPy {cit
 
 ## Physiological Recordings
 
-During all scanning sessions, physiological signals were recorded using a Biopac M160 MRI-compatible system at 1000 Hz, synchronized to the MRI scanner via trigger pulses and monitored with AcqKnowledge software. The following signals were recorded:
+During all scanning sessions, physiological signals were recorded using a Biopac M160 MRI-compatible system at 10,000 Hz, synchronized to the MRI scanner via trigger pulses and monitored with AcqKnowledge software. The following signals were recorded:
 
 - **Cardiac (photoplethysmograph):** A Biopac TSD200-MRI photoplethysmogram transducer placed on the foot or toe provided beat-by-beat heart rate estimates.
 - **Electrocardiogram:** Three MRI-compatible electrodes placed on the lower left rib cage recorded cardiac electrical activity.
