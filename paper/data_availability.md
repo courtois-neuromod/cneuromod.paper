@@ -2,8 +2,7 @@
 
 ## Deposit and distribution
 
-All CNeuroMod data are distributed as DataLad datasets [MISSING REF: Halchenko et al.
-2021, JOSS, DataLad] hosted under the
+All CNeuroMod data are distributed as DataLad datasets {cite:p}`halchenko2021` hosted under the
 [`courtois-neuromod`](https://github.com/courtois-neuromod) GitHub organisation, with
 annexed file content served from an Amazon S3 fileserver. The meta-dataset
 [`cneuromod.all`](https://github.com/courtois-neuromod/cneuromod.all) is the single
@@ -19,7 +18,7 @@ version of the databank it used.
 Five of the six participants (`sub-01`, `sub-02`, `sub-03`, `sub-05`, `sub-06`) elected
 to share their data without restriction. These data are deposited on the
 [Canadian Open Neuroscience Platform (CONP)](https://portal.conp.ca/dataset?id=projects/cneuromod)
-[MISSING REF: CONP platform paper] under a permissive Creative Commons license that
+{cite:p}`harding2023` under a permissive Creative Commons license that
 authorises redistribution of derivative works [MISSING REF: exact CC license variant to
 be confirmed — the source documentation says only "a liberal Creative Commons data
 license"]. No registration or agreement is required: the standard download procedure

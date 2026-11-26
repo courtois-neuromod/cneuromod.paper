@@ -34,7 +34,7 @@ described one by one, grouped into the six cognitive categories of
 and colored by the six cognitive categories of {numref}`tab-cognitive-categories`. Columns
 group brain recordings (fMRI), task content (images, video, audio, speech, text, resting
 state, controlled tasks, videogames and contrasts) and physiology (ECG, respiration,
-plethysmography, electrodermal activity, eye tracking). Bubble labels give hours of unique
+photoplethysmography, electrodermal activity, eye tracking). Bubble labels give hours of unique
 per-subject content, excluding stimulus repetitions, or counts for images and contrasts;
 bubble area grows with the logarithm of that value. A black outline marks the largest value
 in each column.
@@ -47,7 +47,7 @@ duration weighted by the fraction of valid PhysPrep quality-control windows, so 
 lower than the hours acquired; run-level availability is on the
 [release dashboard](https://stats.cneuromod.ca). In total there are {eval}`STATS.physiology_h()['ECG']` hours of ECG,
 {eval}`STATS.physiology_h()['respiration']` hours of respiration,
-{eval}`STATS.physiology_h()['plethysmograph']` hours of plethysmography and
+{eval}`STATS.physiology_h()['plethysmograph']` hours of photoplethysmography and
 {eval}`STATS.physiology_h()['electrodermal activity']` hours of electrodermal activity,
 alongside {eval}`STATS.physiology_h()['eye tracking']` hours of eye tracking wherever the
 in-scanner eye tracker was available.
@@ -252,7 +252,7 @@ Five participants (`sub-01`, `sub-02`, `sub-03`, `sub-05`, `sub-06`) performed 1
 visual working-memory tasks over 16 scanning sessions, after one behavioural training session.
 The stimuli are eight photorealistic renderings of 3D models, crossing two object categories
 (faces and buses), two identities per category and two viewpoints, each shown at one of two
-screen locations. The tasks apply a small set of working-memory operations to location,
+screen locations (left or right). The tasks apply a small set of working-memory operations to location,
 category or identity: a delayed match-to-sample task on location, run in every session as a
 reference for session-to-session variability; three 1-back tasks; two contextual
 decision-making tasks, in which the outcome of a first comparison selects the feature used for
@@ -302,7 +302,8 @@ passages with degraded passages and passages in an unfamiliar language (Tamil)
 protocol, separates differences in the topography of the language network between
 participants from variability within a participant across sessions, modalities and
 languages. Subject-specific language regions of interest derived from these data will be
-distributed with the atlases in `anat`.
+distributed with the atlases in `anat`. The dataset is described in Bilgin et al. (in
+preparation).
 
 ### floc
 
