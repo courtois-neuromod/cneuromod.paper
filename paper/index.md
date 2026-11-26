@@ -11,7 +11,7 @@ short_title: The CNeuroMod Dataset
 |---|---|---|
 | Julie A. Boyle\* | [0000-0001-5927-221X](https://orcid.org/0000-0001-5927-221X) | Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada; Unité de Neuroimagerie Fonctionnelle (UNF), Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada |
 | Basile Pinsard\* | [0000-0002-4391-3075](https://orcid.org/0000-0002-4391-3075) | Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada; Unité de Neuroimagerie Fonctionnelle (UNF), Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada |
-| Marie St-Laurent\* | [0000-0003-1777-4857](https://orcid.org/0000-0003-1777-4857) | Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada |
+| Marie St-Laurent\* | [0009-0004-6315-9702](https://orcid.org/0009-0004-6315-9702) | Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada |
 | Himanshu Aggarwal | [0000-0003-2451-0470](https://orcid.org/0000-0003-2451-0470) | Inria, CEA, Université Paris-Saclay, Palaiseau, France |
 | Delphine Aguiar | [0009-0002-1492-1970](https://orcid.org/0009-0002-1492-1970) | Département de psychologie, Université de Montréal, Montréal, Canada |
 | Pouya Bashivan | [0000-0002-0296-6381](https://orcid.org/0000-0002-0296-6381) | Department of Physiology, McGill University, Montréal, Canada; Mila – Quebec AI Institute, Montréal, Canada; Department of Computer Science, McGill University, Montréal, Canada |
