@@ -145,6 +145,10 @@ project:
           affiliations:
           - Université Paris-Saclay, Inria, CEA, Palaiseau, France
         - name: Motahareh Pourrahimi
+          orcid: 0009-0007-3337-0138
+          affiliations:
+          - McGill University, Montréal, Canada
+          - Mila – Quebec AI Institute, Montréal, Canada
         - name: Pierre Rainville
           orcid: 0000-0001-9801-757X
           affiliations:

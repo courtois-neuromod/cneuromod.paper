@@ -38,7 +38,7 @@ short_title: The CNeuroMod Dataset
 | François Paugam | [0000-0002-8161-7699](https://orcid.org/0000-0002-8161-7699) | Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada; Department of Computer Science and Operations Research (DIRO), University of Montréal, Montréal, Canada |
 | Marie-Ève Picard | [0009-0001-2412-7829](https://orcid.org/0009-0001-2412-7829) | Département de psychologie, Université de Montréal, Montréal, Canada; Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada |
 | Ana Fernanda Ponce | [0000-0001-7142-0975](https://orcid.org/0000-0001-7142-0975) | Université Paris-Saclay, Inria, CEA, Palaiseau, France |
-| Motahareh Pourrahimi |  | [MISSING: affiliation] |
+| Motahareh Pourrahimi | [0009-0007-3337-0138](https://orcid.org/0009-0007-3337-0138) | McGill University, Montréal, Canada; Mila – Quebec AI Institute, Montréal, Canada |
 | Pierre Rainville | [0000-0001-9801-757X](https://orcid.org/0000-0001-9801-757X) | Université de Montréal; Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada |
 | Pravish Sainath |  | Department of Computer Science and Operations Research (DIRO), University of Montréal, Montréal, Canada; Mila – Quebec AI Institute, Montréal, Canada |
 | Katja Seeliger | [0000-0002-5343-0595](https://orcid.org/0000-0002-5343-0595) | Max Planck Institute for Human Cognitive and Brain Sciences, Leipzig, Germany |

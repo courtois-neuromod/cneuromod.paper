@@ -29,7 +29,7 @@
 - **François Paugam**: Data curation (anat, friends, harrypotter, mario, mario3, mariostars, shinobi); Investigation (anat, friends, harrypotter, mario, mario3, mariostars, shinobi); Methodology (harrypotter); Software (harrypotter); Validation (friends, harrypotter, mario, mario3, mariostars, shinobi); Writing – review & editing (paper).
 - **Marie-Ève Picard**: Conceptualization (emotion-videos); Data curation (anat, emotion-videos, friends, harrypotter, mario, mario3, mariostars, movie10, shinobi); Formal analysis (emotion-videos); Investigation (anat, emotion-videos, friends, harrypotter, mario, mario3, mariostars, movie10, shinobi); Methodology (emotion-videos); Software (emotion-videos); Visualization (emotion-videos); Writing – original draft (emotion-videos); Writing – review & editing (paper, emotion-videos).
 - **Ana Fernanda Ponce**: Methodology (gamepad); Writing – review & editing (paper).
-- **Motahareh Pourrahimi**: Data curation (mario, mario3, mariostars); Investigation (mario, mario3, mariostars); Writing – review & editing (paper).
+- **Motahareh Pourrahimi**: Data curation (mario, mario3, mariostars); Investigation (friends, mario, mario3, mariostars); Writing – review & editing (paper).
 - **Pierre Rainville**: Conceptualization (emotion-videos); Supervision (emotion-videos); Writing – review & editing (paper).
 - **Pravish Sainath**: Data curation (anat, friends, harrypotter, shinobi); Investigation (anat, friends, harrypotter, shinobi); Writing – review & editing (paper).
 - **Katja Seeliger**: Software (floc, retinotopy, things); Validation (floc, retinotopy, things); Writing – review & editing (paper).
