@@ -115,6 +115,7 @@ project:
           - Max Planck Institute for Human Cognitive and Brain Sciences, Leipzig, Germany
           - Department of Medicine, Justus Liebig University Giessen, Giessen, Germany
         - name: Takuya Ito
+          orcid: 0000-0002-2060-4608
           affiliations:
           - IBM Research, Yorktown Heights, USA
         - name: Karim Jerbi
