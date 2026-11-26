@@ -303,7 +303,7 @@ protocol, separates differences in the topography of the language network betwee
 participants from variability within a participant across sessions, modalities and
 languages. Subject-specific language regions of interest derived from these data will be
 distributed with the atlases in `anat`. The dataset is described in Bilgin et al. (in
-preparation).
+preparation), a paper separate from the one on `triplets`.
 
 ### floc
 
@@ -343,7 +343,7 @@ HCP localizers, or one resting-state run and one HCP localizer run.
 
 All six participants underwent clinical audiology tests over about 1.5 years, run by a trained
 audiologist, to check that repeated scanning with hearing protection did not damage their
-hearing {cite:p}`Fortier2025-bo`. After baseline tests in January–February 2021, hearing was
+hearing {cite:p}`Fortier2023-th,Fortier2025-bo`. After baseline tests in January–February 2021, hearing was
 measured immediately before and after a scan session, to capture temporary threshold shifts,
 and again two to seven days later, to capture lasting changes against baseline. Each session
 started with a check of the outer and middle ear, followed by tympanometry, ipsilateral
