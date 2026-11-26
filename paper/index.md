@@ -6,7 +6,7 @@ short_title: The CNeuroMod Dataset
 
 ## Authors
 
-<!-- BEGIN authors (generated) -->
+% BEGIN authors (generated)
 | Name | ORCID | Affiliations |
 |---|---|---|
 | Julie A. Boyle\* | [0000-0001-5927-221X](https://orcid.org/0000-0001-5927-221X) | Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada; Unité de Neuroimagerie Fonctionnelle (UNF), Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada |
@@ -52,4 +52,4 @@ short_title: The CNeuroMod Dataset
 | Lune Bellec† | [0000-0002-9111-0699](https://orcid.org/0000-0002-9111-0699) | Department of Psychology, University of Montréal, Montréal, Canada; Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada |
 
 \* shared co-first authorship. † corresponding author.
-<!-- END authors (generated) -->
+% END authors (generated)

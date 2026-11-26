@@ -8,6 +8,7 @@ This is a scientific article about the Courtois NeuroMod (CNeuroMod) dataset, wr
 - The book is built with **Jupyter Book v2**, using MyST markdown.
 - The CLI syntax is `jupyter book XXX` (with a space), not `jupyter-book XXX`.
 - Always prefix commands with `uv run`: `uv run jupyter book build ...`
+- In `paper/*.md`, write comments as MyST `%` lines (at the start of a line), never `<!-- -->`: book-theme ≥ 2 renders HTML comments as visible text.
 
 ## Project Structure
 
