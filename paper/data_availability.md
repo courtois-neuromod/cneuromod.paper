@@ -18,12 +18,12 @@ version of the databank it used.
 Five of the six participants (`sub-01`, `sub-02`, `sub-03`, `sub-05`, `sub-06`) elected
 to share their data without restriction. These data are deposited on the
 [Canadian Open Neuroscience Platform (CONP)](https://portal.conp.ca/dataset?id=projects/cneuromod)
-{cite:p}`harding2023` under a permissive Creative Commons license that
-authorises redistribution of derivative works [MISSING REF: exact CC license variant to
-be confirmed — the source documentation says only "a liberal Creative Commons data
-license"]. No registration or agreement is required: the standard download procedure
-retrieves all CONP-hosted content and simply warns about the files that remain
-restricted. [MISSING REF: DOI for the CONP deposit.]
+{cite:p}`harding2023` ([doi:10.5281/zenodo.8256585](https://doi.org/10.5281/zenodo.8256585))
+and dedicated to the public domain under a
+[CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/) license, which
+places no restriction on redistribution or derivative works. No registration or agreement
+is required: the standard download procedure retrieves all CONP-hosted content and simply
+warns about the files that remain restricted.
 
 ## Registered access to the complete databank
 
