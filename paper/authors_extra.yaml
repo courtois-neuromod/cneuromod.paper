@@ -8,6 +8,13 @@ first_authors:
 corresponding:
 - lunebellec
 last_author: lunebellec
+# AUTHORS.yaml ids left off this paper's author list (no reply to the round 1 co-author
+# review). Their dataset credits stay upstream in contributors.json.
+excluded_authors:
+- jeremy-bernard
+- bamal
+- oliver-contier
+- claude-godbout
 fallback_affiliations:
   julieaboyle1: CRIUGM, Québec, CA
   bpinsard: CRIUGM, Québec, CA
