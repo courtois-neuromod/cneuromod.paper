@@ -26,6 +26,9 @@ from _ext.validator import collect_contributions, load_authors as load_index  # 
 def load_authors():
     authors = yaml.safe_load((SRC / 'AUTHORS.yaml').read_text(encoding='utf-8'))['authors']
     extra = yaml.safe_load((ROOT / 'paper' / 'authors_extra.yaml').read_text(encoding='utf-8'))
+    excluded = set(extra.get('excluded_authors') or [])
+    assert excluded <= {a['id'] for a in authors}, f'unknown excluded_authors: {excluded}'
+    authors = [a for a in authors if a['id'] not in excluded]
     first, last = extra['first_authors'], extra.get('last_author')
     by_id = {a['id']: a for a in authors}
     middle = sorted(
@@ -100,8 +103,8 @@ def author_contributions(ordered):
             name = f"{author['first_name']} {author['last_name']}".strip() if author else key
             for r in rs:
                 contrib.setdefault(name, {}).setdefault(r, []).append(dataset)
-    names = [a['name'] for a in ordered]
-    names = [n for n in names if n in contrib] + sorted(n for n in contrib if n not in names)
+    # Only authors of this paper are listed; excluded authors' dataset roles are dropped here.
+    names = [a['name'] for a in ordered if a['name'] in contrib]
     out = []
     for n in names:
         parts = [f"{r} ({', '.join(contrib[n][r])})"
