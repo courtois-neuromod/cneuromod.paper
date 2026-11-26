@@ -207,7 +207,7 @@ Electroencephalography was recorded outside the scanner while participants playe
 
 ## 🔬 Taskscapes
 
-### triplets
+### Taskscape-semantics (`triplets`)
 
 *Maturity:* {eval}`STATS.maturity_badge('triplets')`
 
@@ -217,7 +217,7 @@ one out of a triplet, with stimuli repeated across sessions. The stimuli follow 
 semantic-association benchmark of {cite:t}`Borghesani2023-me`. The dataset is described in
 Bilgin et al. (in preparation).
 
-### things
+### Taskscape-vision (`things`)
 
 *Maturity:* {eval}`STATS.maturity_badge('things')`
 
@@ -227,7 +227,7 @@ run presented 60 trials with a 2.98 s image followed by a 1.49 s inter-stimulus 
 while participants maintained central fixation; each image was seen three times across
 sessions.
 
-### emotion-videos
+### Taskscape-emotions (`emotion-videos`)
 
 *Maturity:* {eval}`STATS.maturity_badge('emotion-videos')`
 
@@ -244,7 +244,7 @@ correction. Clip order within a run was shared across participants, while run or
 randomized per participant. Cardiac, respiratory and electrodermal signals and eye-tracking
 were recorded throughout.
 
-### multfs
+### Taskscape-WM (`multfs`)
 
 *Maturity:* {eval}`STATS.maturity_badge('multfs')`
 
@@ -267,7 +267,7 @@ across tasks and individuals. Accuracy was high for the 1-back (94.6%) and inter
 (93.3%) tasks and lower for contextual decision-making (77.8%). Cardiac, respiratory and
 electrodermal signals and eye-tracking were recorded throughout.
 
-### mutemusic
+### Taskscape-music (`mutemusic`)
 
 *Maturity:* {eval}`STATS.maturity_badge('mutemusic')`
 

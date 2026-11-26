@@ -470,7 +470,7 @@ the controller independently from the open documentation.
 ### Ongoing and forthcoming validation
 
 This section will be extended in future versions of this paper. Dedicated validation
-papers for `mario`, `mariostars` and `multfs` are in preparation, and others are planned.
+papers for `mario`, `mariostars` and Taskscape-WM (`multfs`) are in preparation, and others are planned.
 Until they are released, the remaining datasets, including all movie and story datasets,
 are validated only by the common metrics reported above. Dedicated papers on the
 physiological recordings and on eye tracking are also in preparation and will validate

@@ -129,7 +129,10 @@ it under `## Uncategorized` with a warning comment: add it to `CATEGORIES` (aski
 category) and re-run, rather than placing it by hand.
 
 Each category is a `##` heading; under it, one `###` subsection per dataset, in the order the
-scaffold emits, each containing:
+scaffold emits. Taskscape headings carry a descriptive alias before the dataset id, as in the
+intro's category table: Taskscape-semantics (`triplets`), Taskscape-vision (`things`),
+Taskscape-emotions (`emotion-videos`), Taskscape-WM (`multfs`), Taskscape-music (`mutemusic`).
+Keep these when regenerating. Each subsection contains:
 
 - **A condensed overview.** The scaffold carries the full `## Overview` section of the dataset's
   `README.md`. Cut it to two or three sentences: what was acquired, from whom, and what makes the
