@@ -33,7 +33,7 @@ project:
           - Unité de Neuroimagerie Fonctionnelle (UNF), Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada
           equal_contributor: true
         - name: Marie St-Laurent
-          orcid: 0000-0003-1777-4857
+          orcid: 0009-0004-6315-9702
           affiliations:
           - Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada
           equal_contributor: true
@@ -145,6 +145,10 @@ project:
           affiliations:
           - Université Paris-Saclay, Inria, CEA, Palaiseau, France
         - name: Motahareh Pourrahimi
+          orcid: 0009-0007-3337-0138
+          affiliations:
+          - McGill University, Montréal, Canada
+          - Mila – Quebec AI Institute, Montréal, Canada
         - name: Pierre Rainville
           orcid: 0000-0001-9801-757X
           affiliations:
