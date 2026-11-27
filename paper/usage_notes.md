@@ -26,8 +26,8 @@ The CNeuroMod dataset has been used in a growing body of research spanning brain
 **Reuse of the CNeuroMod dataset.** Number of papers using CNeuroMod data, by year and
 publication type (journal article, conference paper, preprint, thesis, book chapter),
 computed from the curated reference list of the `cneuromod.all` repository. Each entry of the
-list is counted once, under a single type, so a thesis and the articles it includes are
-counted separately. Undated entries are not shown.
+list is counted once, under its own type, so a thesis and the journal articles it includes are
+counted as separate entries. Undated entries are not shown.
 :::
 
 ## 1. Individual Brain Encoding Models
