@@ -90,9 +90,11 @@ below.
 
 *Maturity:* {eval}`STATS.maturity_badge('movie10')`
 
-Six participants watched four feature films — *The Bourne Supremacy*, *The Wolf of Wall
-Street*, *Hidden Figures* (shown twice) and the BBC series *Life* (shown twice) — cut into
-roughly ten-minute segments, for about 10 hours of functional data per participant {cite:p}`gifford2025algonauts`.
+Six participants watched four feature-length programmes cut into roughly ten-minute
+segments, for about 10 hours of functional data per participant {cite:p}`gifford2025algonauts`:
+*The Bourne Supremacy* (Greengrass, 2004), *The Wolf of Wall Street* (Scorsese, 2013),
+*Hidden Figures* (Melfi, 2016; shown twice) and the BBC nature documentary *Life* (2009; shown
+twice; disc one, episodes "Challenges of Life", "Reptiles and Amphibians" and "Mammals").
 
 ### friends
 
@@ -108,15 +110,17 @@ as a benchmark corpus for multimodal movie-encoding challenges
 
 *Maturity:* {eval}`STATS.maturity_badge('ood')`
 
-The `ood` dataset presents out-of-distribution audiovisual stimuli, held out to test the
-generalization of brain encoding models trained on the other movie datasets. Six films and
-television programmes were chosen to span genre, style and language: Chaplin's *The Pawn
-Shop*, *Princess Mononoke*, *Passe-Partout*, *Planet Earth* (landscapes only), *Pulp
-Fiction* and *World of Tomorrow*. Each was cut into two segments of about 10 minutes, and
-each segment was shown once over two sessions. The dataset served as the held-out
-out-of-distribution test set of the Algonauts 2025 challenge {cite:p}`gifford2025algonauts`,
-where encoding accuracy dropped most for the most atypical stimuli {cite:p}`d-Ascoli2026-hf`,
-and it remains the active test set on Codabench.
+The `ood` dataset contains audiovisual stimuli that are out-of-distribution compared to
+other movie datasets, to test the generalization of brain encoding models. It comprises six
+sources spanning genre, style and language: a black-and-white film without speech (*The Pawn Shop*,
+Chaplin, 1916), a hand-drawn animated film (*Princess Mononoke*, Miyazaki, 1997), a
+French-language children's television programme (*Passe-Partout*, Lachance, 1979), a nature documentary
+(*Planet Earth*, BBC, 2006; edited to show landscapes only), a neo-noir crime comedy (*Pulp Fiction*,
+Tarantino, 1994) and an abstract, minimalist animated short (*World of Tomorrow*, Hertzfeldt,
+2015). Each source was cut into two segments of about 10 minutes, and each segment was shown
+once over two sessions. The dataset was held out as the out-of-distribution test set for the
+Algonauts 2025 Challenge {cite:p}`gifford2025algonauts`, and it remains an active test set on
+Codabench.
 
 ## 💬 Stories
 
@@ -303,7 +307,7 @@ protocol, separates differences in the topography of the language network betwee
 participants from variability within a participant across sessions, modalities and
 languages. Subject-specific language regions of interest derived from these data will be
 distributed with the atlases in `anat`. The dataset is described in Bilgin et al. (in
-preparation).
+preparation), a paper separate from the one on `triplets`.
 
 ### floc
 
@@ -343,7 +347,7 @@ HCP localizers, or one resting-state run and one HCP localizer run.
 
 All six participants underwent clinical audiology tests over about 1.5 years, run by a trained
 audiologist, to check that repeated scanning with hearing protection did not damage their
-hearing {cite:p}`Fortier2025-bo`. After baseline tests in January–February 2021, hearing was
+hearing {cite:p}`Fortier2023-th,Fortier2025-bo`. After baseline tests in January–February 2021, hearing was
 measured immediately before and after a scan session, to capture temporary threshold shifts,
 and again two to seven days later, to capture lasting changes against baseline. Each session
 started with a check of the outer and middle ear, followed by tympanometry, ipsilateral
