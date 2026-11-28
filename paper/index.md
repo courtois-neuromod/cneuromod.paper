@@ -18,7 +18,7 @@ short_title: The CNeuroMod Dataset
 | Isil P. Bilgin | [0000-0003-3600-7004](https://orcid.org/0000-0003-3600-7004) | Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada; Faculty of Electrical Engineering and Computer Science, Technical University of Berlin, Berlin, Germany |
 | Arnaud Bore | [0000-0002-4822-1211](https://orcid.org/0000-0002-4822-1211) | Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada |
 | Valentina Borghesani | [0000-0002-7909-8631](https://orcid.org/0000-0002-7909-8631) | Department of Psychology, University of Geneva, Geneva, Switzerland |
-| Simona M. Brambati |  | Department of Psychology, University of Montréal, Montréal, Canada; Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada |
+| Simona M. Brambati | [0000-0002-9227-1443](https://orcid.org/0000-0002-9227-1443) | Department of Psychology, University of Montréal, Montréal, Canada; Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada |
 | Julien Cohen-Adad | [0000-0003-3662-9532](https://orcid.org/0000-0003-3662-9532) | NeuroPoly, Polytechnique Montréal, Montréal, Canada |
 | André Cyr |  | Unité de Neuroimagerie Fonctionnelle (UNF), Centre de Recherche de l'Institut Universitaire de Gériatrie de Montréal (CRIUGM), Montréal, Canada |
 | Emilie Dessureault |  | [MISSING: affiliation] |
