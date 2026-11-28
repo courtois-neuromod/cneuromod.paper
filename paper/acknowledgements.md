@@ -8,7 +8,8 @@ naturalistic and controlled scanning sessions that make up this dataset.
 ## Author Contributions
 
 Author contributions are reported per author using the CRediT taxonomy, each role being followed
-by the datasets it applies to (`paper` is this manuscript and the core team). The recap below is
+by the datasets it applies to (`core` is the project's core activities, across datasets; `paper`
+is this manuscript). The recap below is
 generated from the `contributors.json` file of each dataset in the CNeuroMod repository
 (https://github.com/courtois-neuromod/cneuromod.all) and is also rendered in the CNeuroMod
 documentation (https://docs.cneuromod.ca). The author list, with ORCID and affiliations, is on

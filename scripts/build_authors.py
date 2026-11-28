@@ -92,8 +92,11 @@ def author_contributions(ordered):
     extra = yaml.safe_load((ROOT / 'paper' / 'authors_extra.yaml').read_text(encoding='utf-8'))
     roles = extra['paper_contributions']
     default = extra['paper_default_roles']
+    core = extra.get('core_contributions') or {}
     contrib = {}
     for a in ordered:
+        for r in core.get(a['id'], []):
+            contrib.setdefault(a['name'], {}).setdefault(r, []).append('core')
         for r in roles.get(a['id'], default):
             contrib.setdefault(a['name'], {}).setdefault(r, []).append('paper')
     paths = {p.parent.name: p for p in sorted(SRC.glob('*/contributors.json'))}
